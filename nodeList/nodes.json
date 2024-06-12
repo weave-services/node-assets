@@ -1,0 +1,1738 @@
+[
+  {
+      "loadMethods": {},
+      "label": "Azure OpenAI",
+      "name": "azureOpenAI",
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/1200px-Microsoft_Azure.svg.png",
+      "type": "trigger",
+      "category": "LLMs",
+      "version": 1,
+      "description": "Wrapper around Azure OpenAI large language models",
+      "incoming": 0,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Select Operation",
+              "name": "operation",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Generate Text",
+                      "name": "textCompletion"
+                  }
+              ]
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Connect Credential",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Bearer Token Auth",
+                      "name": "azureOpenAIApiKey"
+                  }
+              ],
+              "default": "azureOpenAIApiKey"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "Model Name",
+              "name": "modelName",
+              "type": "string",
+              "default": "text-davinci-003"
+          },
+          {
+              "label": "Temperature",
+              "name": "temperature",
+              "type": "number",
+              "step": 0.1,
+              "default": 0.9,
+              "optional": true
+          },
+          {
+              "label": "Max Tokens",
+              "name": "maxTokens",
+              "type": "number",
+              "step": 1,
+              "optional": true,
+              "additionalParams": true
+          },
+          {
+              "label": "Top Probability",
+              "name": "topP",
+              "type": "number",
+              "step": 0.1,
+              "optional": true,
+              "additionalParams": true
+          },
+          {
+              "label": "Frequency Penalty",
+              "name": "frequencyPenalty",
+              "type": "number",
+              "step": 0.1,
+              "optional": true,
+              "additionalParams": true
+          },
+          {
+              "label": "Presence Penalty",
+              "name": "presencePenalty",
+              "type": "number",
+              "step": 0.1,
+              "optional": true,
+              "additionalParams": true
+          },
+          {
+              "label": "Timeout",
+              "name": "timeout",
+              "type": "number",
+              "step": 1,
+              "optional": true,
+              "additionalParams": true
+          },
+          {
+              "label": "Best Of",
+              "name": "bestOf",
+              "type": "number",
+              "step": 1,
+              "optional": true,
+              "additionalParams": true
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
+  },
+  {
+      "_events": {},
+      "_eventsCount": 0,
+      "loadMethods": {},
+      "label": "Zapier API Trigger",
+      "name": "ZapierAPITrigger",
+      "icon": "https://cdn.iconscout.com/icon/free/png-256/free-zapier-3629179-3030319.png",
+      "type": "action",
+      "category": "Integrations",
+      "version": 1,
+      "description": "Start workflow based on Zapier API events",
+      "incoming": 0,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Select Endpoint",
+              "name": "endpoint",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Get Apps [v1]",
+                      "name": "apps/v1"
+                  },
+                  {
+                      "label": "Get Apps [v2]",
+                      "name": "apps/v2"
+                  },
+                  {
+                      "label": "Get Categories",
+                      "name": "categories"
+                  },
+                  {
+                      "label": "Create Account",
+                      "name": "accounts"
+                  },
+                  {
+                      "label": "User Profile",
+                      "name": "accounts/profile"
+                  },
+                  {
+                      "label": "Get Zap Templates",
+                      "name": "zap-templates"
+                  },
+                  {
+                      "label": "Create a Zap",
+                      "name": "zaps"
+                  },
+                  {
+                      "label": "Get Zaps [v1]",
+                      "name": "zaps/v1"
+                  },
+                  {
+                      "label": "Get Zaps [v2]",
+                      "name": "zaps/v2"
+                  },
+                  {
+                      "label": "Get Actions",
+                      "name": "actions"
+                  },
+                  {
+                      "label": "Get Input Fields",
+                      "name": "actions/input-fields"
+                  },
+                  {
+                      "label": "Get Output Fields",
+                      "name": "actions/output-fields"
+                  },
+                  {
+                      "label": "Get Choices",
+                      "name": "actions/choices"
+                  },
+                  {
+                      "label": "Step Test",
+                      "name": "actions/step-test"
+                  },
+                  {
+                      "label": "Get Authentications",
+                      "name": "authentications"
+                  },
+                  {
+                      "label": "Create Authentication",
+                      "name": "authentications"
+                  }
+              ]
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "Payload",
+              "name": "payload",
+              "type": "json",
+              "placeholder": "{\"key\": \"value\"}",
+              "optional": true
+          },
+          {
+              "label": "Query Parameters",
+              "name": "queryParams",
+              "type": "json",
+              "placeholder": "{\"key\": \"value\"}",
+              "optional": true
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Authorization",
+              "name": "credentialMethod",
+              "type": "string",
+              "options": [
+                  {
+                      "label": "Bearer Token Auth",
+                      "name": "zapierBearerTokenAuth"
+                  }
+              ],
+              "default": "zapierBearerTokenAuth"
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
+  },
+  {
+      "label": "Discord",
+      "name": "discord",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Discord/discord.svg",
+      "type": "action",
+      "category": "Communication",
+      "version": 1,
+      "description": "Post message in Discord channel",
+      "incoming": 1,
+      "outgoing": 1,
+      "inputParameters": [
+          {
+              "label": "Webhook URL",
+              "name": "webhookUrl",
+              "type": "string",
+              "default": "",
+              "description": "Webhook URL for the channel. Learn how to get: https://www.youtube.com/watch?v=K8vgRWZnSZw"
+          },
+          {
+              "label": "Content",
+              "description": "Message contents (up to 2000 characters)",
+              "name": "content",
+              "type": "string",
+              "default": ""
+          },
+          {
+              "label": "Username",
+              "name": "username",
+              "type": "string",
+              "default": "",
+              "description": "Override the default username of the webhook",
+              "optional": true
+          },
+          {
+              "label": "Avatar URL",
+              "name": "avatarUrl",
+              "type": "string",
+              "default": "",
+              "description": "Override the default avatar of the webhook",
+              "optional": true
+          },
+          {
+              "label": "TTS",
+              "name": "tts",
+              "type": "boolean",
+              "default": false,
+              "description": "Send as Text To Speech message",
+              "optional": true
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
+  },
+  {
+      "label": "Send Email",
+      "name": "emailSend",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
+      "type": "action",
+      "category": "Communication",
+      "version": 1,
+      "description": "Send email to single or multiple receipients",
+      "incoming": 1,
+      "outgoing": 1,
+      "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Email Send Smtp",
+                      "name": "emailSendSmtp"
+                  }
+              ],
+              "default": "emailSendSmtp"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "From Email",
+              "name": "fromEmail",
+              "type": "string",
+              "default": "",
+              "description": "Email address of the sender."
+          },
+          {
+              "label": "To Email",
+              "name": "toEmail",
+              "type": "string",
+              "default": "",
+              "description": "Email address of the recipient. Multiple emails can be comma-separated.",
+              "optional": true
+          },
+          {
+              "label": "CC Email",
+              "name": "ccEmail",
+              "type": "string",
+              "default": "",
+              "description": "Email address of CC recipient. Multiple emails can be comma-separated.",
+              "optional": true
+          },
+          {
+              "label": "Subject",
+              "name": "subject",
+              "type": "string",
+              "default": "",
+              "description": "Subject line of the email."
+          },
+          {
+              "label": "Body - Plain Text",
+              "name": "text",
+              "type": "string",
+              "rows": 5,
+              "default": "",
+              "description": "Plain text message of email.",
+              "optional": true
+          },
+          {
+              "label": "Body - HTML",
+              "name": "html",
+              "type": "string",
+              "rows": 5,
+              "default": "",
+              "description": "HTML text message of email.",
+              "optional": true
+          },
+          {
+              "label": "Ignore SSL",
+              "name": "ignoreSSL",
+              "type": "boolean",
+              "default": false,
+              "description": "Send email regardless of SSL validation.",
+              "optional": true
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
+  },
+  {
+      "label": "Etherscan",
+      "name": "etherscan",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Etherscan/etherscan.svg",
+      "type": "action",
+      "category": "Block Explorer",
+      "version": 1,
+      "description": "Perform Etherscan operations",
+      "incoming": 1,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "API",
+              "name": "api",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Get Ether Balance for a Single Address",
+                      "name": "getEtherBalance",
+                      "description": "Returns the Ether balance of a given address."
+                  },
+                  {
+                      "label": "Get Ether Balance for Multiple Addresses(separated by a comma)",
+                      "name": "getEtherBalanceMulti",
+                      "description": "Returns the Ether balance of the addresses(each address separated by a comma) entered."
+                  },
+                  {
+                      "label": "Get transactions",
+                      "name": "getTransactions",
+                      "description": "Returns the list of transactions performed by an address, with optional pagination."
+                  },
+                  {
+                      "label": "Get internal transactions",
+                      "name": "getInternalTransactions",
+                      "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+                  },
+                  {
+                      "label": "Get internal transactions by hash",
+                      "name": "getInternalTransactionsByHash",
+                      "description": "Returns the list of internal transactions performed within a transaction."
+                  },
+                  {
+                      "label": "Get internal transactions by block",
+                      "name": "getInternalTransactionsByBlock",
+                      "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+                  },
+                  {
+                      "label": "Get list of Blocks Validated by Address",
+                      "name": "getBlocksValidated",
+                      "description": "Returns the list of blocks validated by an address."
+                  },
+                  {
+                      "label": "Get Contract ABI",
+                      "name": "getAbi",
+                      "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+                  },
+                  {
+                      "label": "Get Contract Source Code",
+                      "name": "getContractSourceCode",
+                      "description": "Returns the Solidity source code of a verified smart contract."
+                  },
+                  {
+                      "label": "Check Transaction Receipt Status",
+                      "name": "getTransactionReceiptStatus",
+                      "description": "Returns the status code of a transaction execution."
+                  },
+                  {
+                      "label": "Get ERC20 Token Supply",
+                      "name": "getErc20TokenSupply",
+                      "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+                  },
+                  {
+                      "label": "Get ERC20 Token Balance",
+                      "name": "getErc20TokenBalance",
+                      "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+                  },
+                  {
+                      "label": "Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO]",
+                      "name": "getHistoricalErc20TokenSupply",
+                      "description": "Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+                  },
+                  {
+                      "label": "Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO]",
+                      "name": "getHistoricalErc20TokenBalance",
+                      "description": "Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+                  },
+                  {
+                      "label": "Get Token Info [PRO]",
+                      "name": "getTokenInfo",
+                      "description": "Returns project information and social media links of an ERC-20/ERC-721 token."
+                  },
+                  {
+                      "label": "Get ETHER Price",
+                      "name": "getEtherPrice",
+                      "description": "Returns the latest price of 1 ETHER."
+                  },
+                  {
+                      "label": "Get Historical ETHER Price [PRO]",
+                      "name": "getHistoricalEtherPrice",
+                      "description": "Returns the historical price of ETHER."
+                  }
+              ],
+              "default": "getEtherBalance"
+          }
+      ],
+      "networks": [
+          {
+              "label": "Network",
+              "name": "network",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Mainnet",
+                      "name": "homestead"
+                  },
+                  {
+                      "label": "Goerli",
+                      "name": "goerli"
+                  }
+              ],
+              "default": "homestead"
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Etherscan API Key",
+                      "name": "etherscanApi"
+                  }
+              ],
+              "default": "etherscanApi"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "Address",
+              "name": "address",
+              "type": "string",
+              "description": "The address parameter(s) required",
+              "show": {
+                  "actions.api": [
+                      "getEtherBalance",
+                      "getHistoricalEtherBalance",
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getBlocksValidated",
+                      "getAbi",
+                      "getContractSourceCode",
+                      "getErc20TokenBalance",
+                      "getHistoricalErc20TokenBalance"
+                  ]
+              }
+          },
+          {
+              "label": "Block Number",
+              "name": "blockno",
+              "type": "number",
+              "description": "the block number to check balance for eg. 2000000",
+              "show": {
+                  "actions.api": [
+                      "getHistoricalEtherBalance",
+                      "getHistoricalErc20TokenSupply",
+                      "getHistoricalErc20TokenBalance"
+                  ]
+              }
+          },
+          {
+              "label": "Start Block",
+              "name": "startBlock",
+              "type": "number",
+              "optional": true,
+              "description": "the block number to start searching for transactions",
+              "show": {
+                  "actions.api": [
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getInternalTransactionsByBlock"
+                  ]
+              },
+              "default": 0
+          },
+          {
+              "label": "End Block",
+              "name": "endBlock",
+              "type": "number",
+              "optional": true,
+              "description": "the block number to stop searching for transactions",
+              "show": {
+                  "actions.api": [
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getInternalTransactionsByBlock"
+                  ]
+              }
+          },
+          {
+              "label": "Page",
+              "name": "page",
+              "type": "number",
+              "optional": true,
+              "description": "the page number, if pagination is enabled",
+              "show": {
+                  "actions.api": [
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getInternalTransactionsByBlock",
+                      "getBlocksValidated"
+                  ]
+              },
+              "default": 1
+          },
+          {
+              "label": "Offset",
+              "name": "offset",
+              "type": "number",
+              "optional": true,
+              "description": "the number of transactions displayed per page",
+              "show": {
+                  "actions.api": [
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getInternalTransactionsByBlock",
+                      "getBlocksValidated"
+                  ]
+              },
+              "default": 10
+          },
+          {
+              "label": "Sort By",
+              "name": "sortBy",
+              "type": "options",
+              "optional": true,
+              "options": [
+                  {
+                      "label": "Desc",
+                      "name": "desc"
+                  },
+                  {
+                      "label": "Asc",
+                      "name": "asc"
+                  }
+              ],
+              "show": {
+                  "actions.api": [
+                      "getTransactions",
+                      "getInternalTransactions",
+                      "getInternalTransactionsByBlock"
+                  ]
+              },
+              "default": "desc"
+          },
+          {
+              "label": "Transaction Hash",
+              "name": "txhash",
+              "type": "string",
+              "description": "the string representing the transaction hash to check for internal transactions",
+              "show": {
+                  "actions.api": [
+                      "getInternalTransactionsByHash",
+                      "getTransactionReceiptStatus"
+                  ]
+              }
+          },
+          {
+              "label": "Block Type",
+              "name": "blockType",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "blocks",
+                      "name": "blocks"
+                  }
+              ],
+              "default": "blocks",
+              "show": {
+                  "actions.api": [
+                      "getBlocksValidated"
+                  ]
+              }
+          },
+          {
+              "label": "Contract Address",
+              "name": "contractAddress",
+              "type": "string",
+              "description": "the contract address of the ERC-20 token",
+              "show": {
+                  "actions.api": [
+                      "getErc20TokenSupply",
+                      "getErc20TokenBalance",
+                      "getHistoricalErc20TokenSupply",
+                      "getHistoricalErc20TokenBalance",
+                      "getTokenInfo"
+                  ]
+              }
+          },
+          {
+              "label": "Tag",
+              "name": "tag",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "latest",
+                      "name": "latest"
+                  }
+              ],
+              "default": "latest",
+              "show": {
+                  "actions.api": [
+                      "getErc20TokenBalance"
+                  ]
+              }
+          },
+          {
+              "label": "Start Time",
+              "name": "startTime",
+              "type": "date",
+              "optional": true,
+              "show": {
+                  "actions.api": [
+                      "getHistoricalEtherPrice"
+                  ]
+              }
+          },
+          {
+              "label": "End Time",
+              "name": "endTime",
+              "type": "date",
+              "optional": true,
+              "show": {
+                  "actions.api": [
+                      "getHistoricalEtherPrice"
+                  ]
+              }
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Etherscan/Etherscan.js"
+  },
+  {
+      "label": "HTTP",
+      "name": "http",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/HTTP/http.svg",
+      "type": "action",
+      "category": "Development",
+      "version": 1,
+      "description": "Execute HTTP request",
+      "incoming": 1,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Method",
+              "name": "method",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "GET",
+                      "name": "GET"
+                  },
+                  {
+                      "label": "POST",
+                      "name": "POST"
+                  },
+                  {
+                      "label": "PUT",
+                      "name": "PUT"
+                  },
+                  {
+                      "label": "DELETE",
+                      "name": "DELETE"
+                  },
+                  {
+                      "label": "HEAD",
+                      "name": "HEAD"
+                  }
+              ],
+              "default": "GET",
+              "description": "HTTP method"
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Authorization",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Basic Auth",
+                      "name": "httpBasicAuth"
+                  },
+                  {
+                      "label": "Bearer Token Auth",
+                      "name": "httpBearerTokenAuth"
+                  },
+                  {
+                      "label": "No Auth",
+                      "name": "noAuth",
+                      "hideRegisteredCredential": true
+                  }
+              ],
+              "default": "noAuth"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "URL",
+              "name": "url",
+              "type": "string",
+              "default": "",
+              "placeholder": "http://<your-url>.com/"
+          },
+          {
+              "label": "Headers",
+              "name": "headers",
+              "type": "array",
+              "array": [
+                  {
+                      "label": "Key",
+                      "name": "key",
+                      "type": "string",
+                      "default": ""
+                  },
+                  {
+                      "label": "Value",
+                      "name": "value",
+                      "type": "string",
+                      "default": ""
+                  }
+              ],
+              "optional": true
+          },
+          {
+              "label": "Query Params",
+              "name": "queryParams",
+              "type": "array",
+              "array": [
+                  {
+                      "label": "Key",
+                      "name": "key",
+                      "type": "string",
+                      "default": ""
+                  },
+                  {
+                      "label": "Value",
+                      "name": "value",
+                      "type": "string",
+                      "default": ""
+                  }
+              ],
+              "optional": true
+          },
+          {
+              "label": "Body Type",
+              "name": "bodyType",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "JSON",
+                      "name": "json"
+                  },
+                  {
+                      "label": "Text",
+                      "name": "text"
+                  }
+              ],
+              "default": "json",
+              "optional": true
+          },
+          {
+              "label": "Body",
+              "name": "body",
+              "type": "json",
+              "show": {
+                  "inputParameters.bodyType": [
+                      "json"
+                  ]
+              },
+              "placeholder": "{\"var1\": \"value1\"}",
+              "optional": true
+          },
+          {
+              "label": "Body",
+              "name": "body",
+              "type": "string",
+              "show": {
+                  "inputParameters.bodyType": [
+                      "text"
+                  ]
+              },
+              "default": "",
+              "optional": true
+          },
+          {
+              "label": "Response Type",
+              "name": "responseType",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "JSON",
+                      "name": "json"
+                  },
+                  {
+                      "label": "Text",
+                      "name": "text"
+                  },
+                  {
+                      "label": "Array Buffer",
+                      "name": "arraybuffer"
+                  },
+                  {
+                      "label": "Raw (Base64)",
+                      "name": "base64"
+                  }
+              ],
+              "optional": true
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HTTP/HTTP.js"
+  },
+  {
+      "loadMethods": {},
+      "label": "Hugging Face",
+      "name": "huggingFace",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/HuggingFace/huggingface.png",
+      "type": "action",
+      "category": "Artificial Intelligence",
+      "version": 1,
+      "description": "Execute HuggingFace Inference API",
+      "incoming": 1,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Category",
+              "name": "category",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Image Classification",
+                      "name": "image-classification"
+                  },
+                  {
+                      "label": "Feature Extraction",
+                      "name": "feature-extraction"
+                  },
+                  {
+                      "label": "Object Detection",
+                      "name": "object-detection"
+                  },
+                  {
+                      "label": "Text Classification",
+                      "name": "text-classification"
+                  }
+              ]
+          },
+          {
+              "label": "Model",
+              "name": "model",
+              "type": "asyncOptions",
+              "loadMethod": "listModels"
+          },
+          {
+              "label": "Image File",
+              "name": "imageFile",
+              "type": "file",
+              "show": {
+                  "actions.category": [
+                      "image-classification",
+                      "object-detection"
+                  ]
+              }
+          },
+          {
+              "label": "Input Text",
+              "name": "inputText",
+              "type": "string",
+              "rows": 5,
+              "show": {
+                  "actions.category": [
+                      "feature-extraction",
+                      "text-classification"
+                  ]
+              }
+          },
+          {
+              "label": "Inference Endpoint",
+              "name": "inferenceURL",
+              "type": "string",
+              "optional": true,
+              "description": "If this is not specify, the default free URL with limited usage will be used"
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "string",
+              "options": [
+                  {
+                      "label": "HuggingFace Access Token",
+                      "name": "huggingFaceAccessToken"
+                  }
+              ],
+              "default": "huggingFaceAccessToken"
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HuggingFace/HuggingFace.js"
+  },
+  {
+      "label": "If Else",
+      "name": "ifElse",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/IfElse/ifelse.svg",
+      "version": 1,
+      "type": "action",
+      "category": "Utilities",
+      "description": "Split flows according to conditions set",
+      "incoming": 1,
+      "outgoing": 2,
+      "inputParameters": [
+          {
+              "label": "Mode",
+              "name": "mode",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "AND",
+                      "name": "and",
+                      "description": "When all conditions are met"
+                  },
+                  {
+                      "label": "OR",
+                      "name": "or",
+                      "description": "When any of the conditions is met"
+                  }
+              ],
+              "default": "or",
+              "description": "Type of conditions"
+          },
+          {
+              "label": "Conditions",
+              "name": "conditions",
+              "type": "array",
+              "description": "Values to compare",
+              "array": [
+                  {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "options",
+                      "options": [
+                          {
+                              "label": "String",
+                              "name": "string"
+                          },
+                          {
+                              "label": "Number",
+                              "name": "number"
+                          },
+                          {
+                              "label": "Boolean",
+                              "name": "boolean"
+                          }
+                      ],
+                      "default": "string"
+                  },
+                  {
+                      "label": "Value 1",
+                      "name": "value1",
+                      "type": "string",
+                      "default": "",
+                      "description": "First value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "string"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Operation",
+                      "name": "operation",
+                      "type": "options",
+                      "options": [
+                          {
+                              "label": "Contains",
+                              "name": "contains"
+                          },
+                          {
+                              "label": "Ends With",
+                              "name": "endsWith"
+                          },
+                          {
+                              "label": "Equal",
+                              "name": "equal"
+                          },
+                          {
+                              "label": "Not Contains",
+                              "name": "notContains"
+                          },
+                          {
+                              "label": "Not Equal",
+                              "name": "notEqual"
+                          },
+                          {
+                              "label": "Regex",
+                              "name": "regex"
+                          },
+                          {
+                              "label": "Starts With",
+                              "name": "startsWith"
+                          },
+                          {
+                              "label": "Is Empty",
+                              "name": "isEmpty"
+                          },
+                          {
+                              "label": "Not Empty",
+                              "name": "notEmpty"
+                          }
+                      ],
+                      "default": "equal",
+                      "description": "Type of operation",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "string"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Value 2",
+                      "name": "value2",
+                      "type": "string",
+                      "default": "",
+                      "description": "Second value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "string"
+                          ]
+                      },
+                      "hide": {
+                          "inputParameters.conditions[$index].operation": [
+                              "isEmpty",
+                              "notEmpty"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Value 1",
+                      "name": "value1",
+                      "type": "number",
+                      "default": "",
+                      "description": "First value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "number"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Operation",
+                      "name": "operation",
+                      "type": "options",
+                      "options": [
+                          {
+                              "label": "Smaller",
+                              "name": "smaller"
+                          },
+                          {
+                              "label": "Smaller Equal",
+                              "name": "smallerEqual"
+                          },
+                          {
+                              "label": "Equal",
+                              "name": "equal"
+                          },
+                          {
+                              "label": "Not Equal",
+                              "name": "notEqual"
+                          },
+                          {
+                              "label": "Larger",
+                              "name": "larger"
+                          },
+                          {
+                              "label": "Larger Equal",
+                              "name": "largerEqual"
+                          },
+                          {
+                              "label": "Is Empty",
+                              "name": "isEmpty"
+                          },
+                          {
+                              "label": "Not Empty",
+                              "name": "notEmpty"
+                          }
+                      ],
+                      "default": "equal",
+                      "description": "Type of operation",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "number"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Value 2",
+                      "name": "value2",
+                      "type": "number",
+                      "default": 0,
+                      "description": "Second value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "number"
+                          ]
+                      },
+                      "hide": {
+                          "inputParameters.conditions[$index].operation": [
+                              "isEmpty",
+                              "notEmpty"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Value 1",
+                      "name": "value1",
+                      "type": "boolean",
+                      "default": false,
+                      "description": "First value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "boolean"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Operation",
+                      "name": "operation",
+                      "type": "options",
+                      "options": [
+                          {
+                              "label": "Equal",
+                              "name": "equal"
+                          },
+                          {
+                              "label": "Not Equal",
+                              "name": "notEqual"
+                          }
+                      ],
+                      "default": "equal",
+                      "description": "Type of operation",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "boolean"
+                          ]
+                      }
+                  },
+                  {
+                      "label": "Value 2",
+                      "name": "value2",
+                      "type": "boolean",
+                      "default": false,
+                      "description": "Second value to be compared with",
+                      "show": {
+                          "inputParameters.conditions[$index].type": [
+                              "boolean"
+                          ]
+                      }
+                  }
+              ]
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/IfElse/IfElse.js"
+  },
+  {
+      "label": "ImageEditor",
+      "name": "imageEditor",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ImageEditor/image-editor.svg",
+      "type": "action",
+      "category": "Utilities",
+      "version": 1,
+      "description": "Edit image with different manipulation methods",
+      "incoming": 1,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Selection Method",
+              "name": "method",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Crop",
+                      "name": "crop",
+                      "description": "Crop image"
+                  },
+                  {
+                      "label": "Blur",
+                      "name": "blur",
+                      "description": "Quickly blur an image"
+                  },
+                  {
+                      "label": "Gaussian",
+                      "name": "gaussian",
+                      "description": "Hardcore blur"
+                  },
+                  {
+                      "label": "Invert",
+                      "name": "invert",
+                      "description": "Invert an images colors"
+                  },
+                  {
+                      "label": "Resize",
+                      "name": "resize",
+                      "description": "Resize an image"
+                  },
+                  {
+                      "label": "Cover",
+                      "name": "cover",
+                      "description": "Scale the image so the given width and height keeping the aspect ratio"
+                  },
+                  {
+                      "label": "Rotate",
+                      "name": "rotate",
+                      "description": "Rotate an image"
+                  },
+                  {
+                      "label": "Normalize",
+                      "name": "normalize",
+                      "description": "Normalize the colors in an image"
+                  },
+                  {
+                      "label": "Dither",
+                      "name": "dither",
+                      "description": "Apply a dither effect to an image"
+                  },
+                  {
+                      "label": "Scale",
+                      "name": "scale",
+                      "description": "Uniformly scales the image by a factor"
+                  }
+              ]
+          },
+          {
+              "label": "Image Raw Data (Base64)",
+              "name": "rawData",
+              "type": "string",
+              "placeholder": "data:image/png;base64,<base64_string>"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "Blur Pixel Radius",
+              "name": "blurPixel",
+              "type": "number",
+              "default": 5,
+              "show": {
+                  "actions.method": [
+                      "blur",
+                      "gaussian"
+                  ]
+              },
+              "description": "The pixel radius of the blur"
+          },
+          {
+              "label": "Width",
+              "name": "width",
+              "type": "number",
+              "default": 500,
+              "show": {
+                  "actions.method": [
+                      "crop"
+                  ]
+              },
+              "description": "Crop width"
+          },
+          {
+              "label": "Height",
+              "name": "height",
+              "type": "number",
+              "default": 500,
+              "show": {
+                  "actions.method": [
+                      "crop"
+                  ]
+              },
+              "description": "Crop height"
+          },
+          {
+              "label": "Position X",
+              "name": "positionX",
+              "type": "number",
+              "default": 10,
+              "show": {
+                  "actions.method": [
+                      "crop"
+                  ]
+              },
+              "description": "X (horizontal) position to crop from"
+          },
+          {
+              "label": "Position Y",
+              "name": "positionY",
+              "type": "number",
+              "default": 10,
+              "show": {
+                  "actions.method": [
+                      "crop"
+                  ]
+              },
+              "description": "Y (vertical) position to crop from"
+          },
+          {
+              "label": "Width",
+              "name": "width",
+              "type": "number",
+              "default": 500,
+              "show": {
+                  "actions.method": [
+                      "resize",
+                      "cover"
+                  ]
+              },
+              "description": "Resize width"
+          },
+          {
+              "label": "Height",
+              "name": "height",
+              "type": "number",
+              "default": 500,
+              "show": {
+                  "actions.method": [
+                      "resize",
+                      "cover"
+                  ]
+              },
+              "description": "Resize height"
+          },
+          {
+              "label": "Rotation Degree",
+              "name": "degree",
+              "type": "number",
+              "default": 90,
+              "show": {
+                  "actions.method": [
+                      "rotate"
+                  ]
+              }
+          },
+          {
+              "label": "Scale Factor",
+              "name": "factor",
+              "type": "number",
+              "default": 2,
+              "show": {
+                  "actions.method": [
+                      "scale"
+                  ]
+              }
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/ImageEditor/ImageEditor.js"
+  },
+  {
+      "label": "NodeJS",
+      "name": "nodeJS",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/NodeJS/nodejs.png",
+      "type": "action",
+      "category": "Development",
+      "version": 1,
+      "description": "Execute code within NodeVM sandbox",
+      "incoming": 1,
+      "outgoing": 1,
+      "inputParameters": [
+          {
+              "label": "Code",
+              "name": "code",
+              "type": "code",
+              "default": "console.info($nodeData);\nconst example = 'Hello World!';\nreturn example;",
+              "description": "Custom code to run"
+          },
+          {
+              "label": "External Modules",
+              "name": "external",
+              "type": "json",
+              "placeholder": "[\"axios\"]",
+              "description": "Import installed dependencies within Outerbridge",
+              "optional": true
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+  },
+  {
+      "loadMethods": {},
+      "label": "OpenAI",
+      "name": "openAI",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OpenAI/openai.png",
+      "type": "action",
+      "category": "Artificial Intelligence",
+      "version": 1,
+      "description": "ChatGPT, image generation or text completion from prompt via OpenAI API",
+      "incoming": 1,
+      "outgoing": 1,
+      "actions": [
+          {
+              "label": "Operation",
+              "name": "operation",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "ChatGPT",
+                      "name": "chatgpt"
+                  },
+                  {
+                      "label": "Generate Image via text prompt",
+                      "name": "generateImage"
+                  },
+                  {
+                      "label": "Generate Text Completion via text prompt",
+                      "name": "textCompletion"
+                  }
+              ]
+          }
+      ],
+      "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "OpenAI API Key",
+                      "name": "openAIApi"
+                  }
+              ],
+              "default": "openAIApi"
+          }
+      ],
+      "inputParameters": [
+          {
+              "label": "Model",
+              "name": "model",
+              "type": "asyncOptions",
+              "loadMethod": "listModels",
+              "description": "AI model to use.",
+              "default": "text-davinci-003",
+              "show": {
+                  "actions.operation": [
+                      "textCompletion"
+                  ]
+              }
+          },
+          {
+              "label": "Model",
+              "name": "model",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "gpt-3.5-turbo",
+                      "name": "gpt-3.5-turbo"
+                  },
+                  {
+                      "label": "gpt-3.5-turbo-0301",
+                      "name": "gpt-3.5-turbo-0301"
+                  }
+              ],
+              "description": "ChatGPT model to use.",
+              "default": "gpt-3.5-turbo",
+              "show": {
+                  "actions.operation": [
+                      "chatgpt"
+                  ]
+              }
+          },
+          {
+              "label": "Text Prompt",
+              "name": "prompt",
+              "type": "string",
+              "default": "",
+              "placeholder": "Write me a 250 words essay on fish",
+              "description": "The prompt for chatpgt",
+              "show": {
+                  "actions.operation": [
+                      "chatgpt"
+                  ]
+              }
+          },
+          {
+              "label": "Text Prompt",
+              "name": "prompt",
+              "type": "string",
+              "default": "",
+              "placeholder": "Say this is a test",
+              "description": "The prompt to generate completions for",
+              "show": {
+                  "actions.operation": [
+                      "textCompletion"
+                  ]
+              }
+          },
+          {
+              "label": "Image Description",
+              "name": "prompt",
+              "type": "string",
+              "default": "",
+              "placeholder": "Photograph of an astronaut riding a horse",
+              "description": "Description of the image you want to generated. The maximum length is 1000 characters.",
+              "show": {
+                  "actions.operation": [
+                      "generateImage"
+                  ]
+              }
+          },
+          {
+              "label": "Image Number",
+              "name": "imageNumber",
+              "type": "number",
+              "placeholder": "1",
+              "default": "1",
+              "description": "The number of images to generate. Must be between 1 and 10.",
+              "optional": true,
+              "show": {
+                  "actions.operation": [
+                      "generateImage"
+                  ]
+              }
+          },
+          {
+              "label": "Image Size",
+              "name": "imageSize",
+              "type": "options",
+              "description": "The size of the generated images.",
+              "options": [
+                  {
+                      "label": "256x256",
+                      "name": "256x256"
+                  },
+                  {
+                      "label": "512x512",
+                      "name": "512x512"
+                  },
+                  {
+                      "label": "1024x1024",
+                      "name": "1024x1024"
+                  }
+              ],
+              "optional": true,
+              "default": "1024x1024",
+              "show": {
+                  "actions.operation": [
+                      "generateImage"
+                  ]
+              }
+          },
+          {
+              "label": "Response Format",
+              "name": "response_format",
+              "type": "options",
+              "description": "The format in which the generated images are returned.",
+              "options": [
+                  {
+                      "label": "url",
+                      "name": "url"
+                  },
+                  {
+                      "label": "b64_json",
+                      "name": "b64_json"
+                  }
+              ],
+              "default": "url",
+              "optional": true,
+              "show": {
+                  "actions.operation": [
+                      "generateImage"
+                  ]
+              }
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+  },
+  {
+      "loadMethods": {},
+      "label": "Webhook",
+      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Webhook/webhook.svg",
+      "name": "webhook",
+      "type": "webhook",
+      "category": "Utilities",
+      "version": 2,
+      "description": "Start workflow when webhook is called",
+      "incoming": 0,
+      "outgoing": 1,
+      "inputParameters": [
+          {
+              "label": "HTTP Method",
+              "name": "httpMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "GET",
+                      "name": "GET"
+                  },
+                  {
+                      "label": "POST",
+                      "name": "POST"
+                  }
+              ],
+              "default": "GET",
+              "description": "The HTTP method to listen to."
+          },
+          {
+              "label": "Authorization",
+              "name": "authorization",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "API",
+                      "name": "headerAuth",
+                      "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+                  },
+                  {
+                      "label": "None",
+                      "name": "none"
+                  }
+              ],
+              "default": "none",
+              "description": "The way to authorize incoming webhook."
+          },
+          {
+              "label": "API key",
+              "name": "apiKey",
+              "type": "asyncOptions",
+              "loadMethod": "getAPIKeys",
+              "description": "Incoming call must consists header \"x-api-key\" with matching API key. You can create new key from the dashboard",
+              "show": {
+                  "inputParameters.authorization": [
+                      "headerAuth"
+                  ]
+              }
+          },
+          {
+              "label": "Response Code",
+              "name": "responseCode",
+              "type": "number",
+              "default": 200,
+              "description": "The HTTP response code to return when a HTTP request is made to this endpoint URL. Valid range: 1XX - 5XX"
+          },
+          {
+              "label": "What/How to Return",
+              "name": "returnType",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Immediate Reponse",
+                      "name": "immediateResponse",
+                      "description": "Returns response immediately once webhook is called"
+                  },
+                  {
+                      "label": "When Last Node Finishes",
+                      "name": "lastNodeResponse",
+                      "description": "Returns output response of the last executed node"
+                  }
+              ],
+              "default": "immediateResponse",
+              "description": "What data or message, and how should Webhook node return upon successful calling"
+          },
+          {
+              "label": "Response Data",
+              "name": "responseData",
+              "type": "string",
+              "default": "",
+              "description": "Custom response data to return when a HTTP request is made to this webhook endpoint URL. If not provided, default to: Webhook received!",
+              "optional": true,
+              "show": {
+                  "inputParameters.returnType": [
+                      "immediateResponse"
+                  ]
+              }
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+  }
+]
