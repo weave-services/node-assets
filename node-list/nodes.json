@@ -27,7 +27,7 @@
           {
               "label": "Connect Credential",
               "name": "credentialMethod",
-              "type": "options",
+              "type": “string,
               "options": [
                   {
                       "label": "Bearer Token Auth",
@@ -1734,5 +1734,127 @@
           }
       ],
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
-  }
+  },
+{
+  "loadMethods": {
+    "listModels": "listModels"
+  },
+  "label": "OpenAI Embeddings",
+  "name": "openAIEmbeddings",
+  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OpenAI/openai.png",
+  "type": "action",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Generate embeddings for a given text using OpenAI API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Generate Embeddings",
+          "name": "generateEmbeddings"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "OpenAI API Key",
+          "name": "openAIApi"
+        }
+      ],
+      "default": "openAIApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Model Name",
+      "name": "modelName",
+      "type": "asyncOptions",
+      "loadMethod": "listModels",
+      "description": "The OpenAI model to use for generating embeddings.",
+      "default": "text-embedding-ada-002",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    },
+    {
+      "label": "Text",
+      "name": "text",
+      "type": "string",
+      "default": "",
+      "placeholder": "Enter the text to generate embeddings for",
+      "description": "The input text for generating embeddings.",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    },
+    {
+      "label": "Strip New Lines",
+      "name": "stripNewLines",
+      "type": "boolean",
+      "optional": true,
+      "additionalParams": true,
+      "description": "Whether to strip new lines from the input text.",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    },
+    {
+      "label": "Batch Size",
+      "name": "batchSize",
+      "type": "number",
+      "optional": true,
+      "additionalParams": true,
+      "description": "The batch size for generating embeddings.",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    },
+    {
+      "label": "Timeout",
+      "name": "timeout",
+      "type": "number",
+      "optional": true,
+      "additionalParams": true,
+      "description": "The timeout for the API call.",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    },
+    {
+      "label": "Base Path",
+      "name": "basepath",
+      "type": "string",
+      "optional": true,
+      "additionalParams": true,
+      "description": "The base path for the OpenAI API.",
+      "show": {
+        "actions.operation": [
+          "generateEmbeddings"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAIEmbeddings.js"
+}
 ]
