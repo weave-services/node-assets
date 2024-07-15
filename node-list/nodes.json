@@ -1759,26 +1759,26 @@
       ]
     }
   ],
- "credentials": [
-          {
-              "label": "Credential Method",
-              "name": "credentialMethod",
-              "type": "options",
-              "options": [
-                  {
-                      "label": "OpenAI API Key",
-                      "name": "openAIApi"
-                  }
-              ],
-              "default": "openAIApi"
-          }
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "OpenAI API Key",
+          "name": "openAIApi"
+        }
       ],
+      "default": "openAIApi"
+    }
+  ],
   "inputParameters": [
-    
     {
       "label": "Model Name",
       "name": "model",
-      "type": "options",
+      "type": "asyncOptions",
+      "loadMethod": "listModels",
       "options": [
         {
           "label": "text-embedding-ada-002",
