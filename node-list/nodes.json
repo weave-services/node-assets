@@ -1763,7 +1763,7 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "string",
+      "type": "options",
       "options": [
         {
           "label": "OpenAI API Key",
