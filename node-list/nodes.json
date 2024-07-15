@@ -1774,9 +1774,10 @@
           }
       ],
   "inputParameters": [
+    
     {
       "label": "Model Name",
-      "name": "modelName",
+      "name": "model",
       "type": "options",
       "options": [
         {
