@@ -1777,8 +1777,7 @@
     {
       "label": "Model Name",
       "name": "modelName",
-      "loadMethod": "listModels",
-      "type": "asyncOptions",
+      "type": "options",
       "options": [
         {
           "label": "text-embedding-ada-002",
