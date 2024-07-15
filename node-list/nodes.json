@@ -1735,10 +1735,8 @@
       ],
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
-  {
-  "loadMethods": {
-    "listModels": "listModels"
-  },
+{
+  "loadMethods": {},
   "label": "OpenAI Embeddings",
   "name": "openAIEmbeddings",
   "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OpenAI/openai.png",
@@ -1779,8 +1777,17 @@
     {
       "label": "Model Name",
       "name": "modelName",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
+      "type": "options",
+      "options": [
+        {
+          "label": "text-embedding-ada-002",
+          "name": "text-embedding-ada-002"
+        },
+        {
+          "label": "text-similarity-ada-001",
+          "name": "text-similarity-ada-001"
+        }
+      ],
       "description": "The OpenAI model to use for generating embeddings.",
       "default": "text-embedding-ada-002",
       "show": {
