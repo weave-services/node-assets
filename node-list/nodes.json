@@ -1760,19 +1760,19 @@
     }
   ],
   "credentials": [
-    {
-      "label": "Credential Method",
-      "name": "credentialMethod",
-      "type": "string",
-      "options": [
-        {
-          "label": "OpenAI API Key",
-          "name": "openAIApi"
-        }
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "OpenAI API Key",
+                      "name": "openAIApi"
+                  }
+              ],
+              "default": "openAIApi"
+          }
       ],
-      "default": "openAIApi"
-    }
-  ],
   "inputParameters": [
     {
       "label": "Model",
