@@ -1777,19 +1777,6 @@
     {
       "label": "Model",
       "name": "model",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
-      "description": "AI model to use.",
-      "default": "text-embedding-ada-002",
-      "show": {
-        "actions.operation": [
-          "generateEmbeddings"
-        ]
-      }
-    },
-    {
-      "label": "Model",
-      "name": "model",
       "type": "options",
       "options": [
         {
