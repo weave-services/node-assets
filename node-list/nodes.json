@@ -1,5 +1,6 @@
 [
   {
+      "nodeState": null,
       "loadMethods": {},
       "label": "Azure OpenAI",
       "name": "azureOpenAI",
@@ -104,6 +105,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
   },
   {
+      "nodeState": null,
       "_events": {},
       "_eventsCount": 0,
       "loadMethods": {},
@@ -222,6 +224,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
   },
   {
+      "nodeState": null,
       "label": "Discord",
       "name": "discord",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Discord/discord.svg",
@@ -274,6 +277,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
   },
   {
+      "nodeState": null,
       "label": "Send Email",
       "name": "emailSend",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
@@ -358,6 +362,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
   },
   {
+      "nodeState": null,
       "label": "Etherscan",
       "name": "etherscan",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Etherscan/etherscan.svg",
@@ -699,6 +704,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Etherscan/Etherscan.js"
   },
   {
+      "nodeState": null,
       "label": "HTTP",
       "name": "http",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/HTTP/http.svg",
@@ -879,6 +885,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HTTP/HTTP.js"
   },
   {
+      "nodeState": null,
       "loadMethods": {},
       "label": "Hugging Face",
       "name": "huggingFace",
@@ -967,6 +974,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HuggingFace/HuggingFace.js"
   },
   {
+      "nodeState": null,
       "label": "If Else",
       "name": "ifElse",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/IfElse/ifelse.svg",
@@ -1230,6 +1238,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/IfElse/IfElse.js"
   },
   {
+      "nodeState": null,
       "label": "ImageEditor",
       "name": "imageEditor",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ImageEditor/image-editor.svg",
@@ -1418,6 +1427,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/ImageEditor/ImageEditor.js"
   },
   {
+      "nodeState": null,
       "label": "NodeJS",
       "name": "nodeJS",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/NodeJS/nodejs.png",
@@ -1635,6 +1645,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
   },
   {
+      "nodeState": null,
       "loadMethods": {},
       "label": "Webhook",
       "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Webhook/webhook.svg",
@@ -1736,6 +1747,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
 {
+  "nodeState": null,
   "loadMethods": {},
   "label": "OpenAI Embeddings",
   "name": "openAIEmbeddings",
