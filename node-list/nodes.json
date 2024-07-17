@@ -1457,6 +1457,7 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
   },
   {
+      "nodeState": null,
       "loadMethods": {},
       "label": "OpenAI",
       "name": "openAI",
