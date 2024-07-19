@@ -765,11 +765,13 @@
                       "hideRegisteredCredential": true
                   }
               ],
-              "default": "noAuth"
+              "default": "noAuth",
+              "description": "Select the type of authorization to be used"
           }
       ],
       "inputParameters": [
           {
+              "description": "Place the endpoint you want to target here",
               "label": "URL",
               "name": "url",
               "type": "string",
@@ -777,6 +779,7 @@
               "placeholder": "http://<your-url>.com/"
           },
           {
+              "description": "Indicate the headers you will be using",
               "label": "Headers",
               "name": "headers",
               "type": "array",
@@ -797,6 +800,7 @@
               "optional": true
           },
           {
+              "description": "Indicate the Query Params you will be using",
               "label": "Query Params",
               "name": "queryParams",
               "type": "array",
@@ -817,6 +821,7 @@
               "optional": true
           },
           {
+              "description": "Indicate the body type to be used json or text",
               "label": "Body Type",
               "name": "bodyType",
               "type": "options",
@@ -834,6 +839,7 @@
               "optional": true
           },
           {
+              "description": "Place a query body if applicable",
               "label": "Body",
               "name": "body",
               "type": "json",
@@ -846,6 +852,7 @@
               "optional": true
           },
           {
+              "description": "Place a query body if applicable",
               "label": "Body",
               "name": "body",
               "type": "string",
@@ -858,6 +865,7 @@
               "optional": true
           },
           {
+              "description": "Indicate the response type to be used json, text, array buffer or raw(base64)",
               "label": "Response Type",
               "name": "responseType",
               "type": "options",
@@ -898,6 +906,7 @@
       "outgoing": 1,
       "actions": [
           {
+              "description": "Select the type of Category",
               "label": "Category",
               "name": "category",
               "type": "options",
@@ -921,12 +930,14 @@
               ]
           },
           {
+              "description": "Select a model for the tasks you need to perform",
               "label": "Model",
               "name": "model",
               "type": "asyncOptions",
               "loadMethod": "listModels"
           },
           {
+              "description": "Select a image",
               "label": "Image File",
               "name": "imageFile",
               "type": "file",
@@ -938,6 +949,7 @@
               }
           },
           {
+              "description": "Insert a text",
               "label": "Input Text",
               "name": "inputText",
               "type": "string",
@@ -1011,6 +1023,7 @@
               "description": "Values to compare",
               "array": [
                   {
+                      "description": "Type of value to be used",
                       "label": "Type",
                       "name": "type",
                       "type": "options",
@@ -1250,6 +1263,7 @@
       "outgoing": 1,
       "actions": [
           {
+              "description": "EligeIndicate what editing you want to perform on the image",
               "label": "Selection Method",
               "name": "method",
               "type": "options",
@@ -1307,6 +1321,7 @@
               ]
           },
           {
+              "description": "Generate base64 code from an image",
               "label": "Image Raw Data (Base64)",
               "name": "rawData",
               "type": "string",
@@ -1473,6 +1488,7 @@
               "label": "Operation",
               "name": "operation",
               "type": "options",
+              "description": "Select the type of operation you want to perform",
               "options": [
                   {
                       "label": "ChatGPT",
@@ -1500,7 +1516,8 @@
                       "name": "openAIApi"
                   }
               ],
-              "default": "openAIApi"
+              "default": "openAIApiKey",
+              "description": "Use the api key provided by OpenAi"
           }
       ],
       "inputParameters": [
