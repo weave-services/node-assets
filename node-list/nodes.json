@@ -280,7 +280,7 @@
       "nodeState": null,
       "label": "Send Email",
       "name": "emailSend",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
+      "icon": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/emailsend_white.svg",
       "type": "action",
       "category": "Communication",
       "version": 1,
