@@ -9,7 +9,7 @@
       "category": "LLMs",
       "version": 1,
       "description": "Wrapper around Azure OpenAI large language models",
-      "incoming": 0,
+      "incoming": 1,
       "outgoing": 1,
       "actions": [
           {
@@ -116,7 +116,7 @@
       "category": "Integrations",
       "version": 1,
       "description": "Start workflow based on Zapier API events",
-      "incoming": 0,
+      "incoming": 1,
       "outgoing": 1,
       "actions": [
           {
