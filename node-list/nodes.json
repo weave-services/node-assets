@@ -4,7 +4,11 @@
       "loadMethods": {},
       "label": "Azure OpenAI",
       "name": "azureOpenAI",
-      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/1200px-Microsoft_Azure.svg.png",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/default.png",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/light.png",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/dark.png"
+      },
       "type": "action",
       "category": "LLMs",
       "version": 1,
@@ -111,7 +115,11 @@
       "loadMethods": {},
       "label": "Zapier API Trigger",
       "name": "ZapierAPITrigger",
-      "icon": "https://cdn.iconscout.com/icon/free/png-256/free-zapier-3629179-3030319.png",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/default.png",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/light.png",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/dark.png"
+      },
       "type": "action",
       "category": "Integrations",
       "version": 1,
@@ -227,7 +235,11 @@
       "nodeState": null,
       "label": "Discord",
       "name": "discord",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Discord/discord.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/dark.svg"
+      },
       "type": "action",
       "category": "Communication",
       "version": 1,
@@ -280,7 +292,11 @@
       "nodeState": null,
       "label": "Send Email",
       "name": "emailSend",
-      "icon": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/emailsend_white.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
+      },
       "type": "action",
       "category": "Communication",
       "version": 1,
@@ -365,7 +381,11 @@
       "nodeState": null,
       "label": "Etherscan",
       "name": "etherscan",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Etherscan/etherscan.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/dark.svg"
+      },
       "type": "action",
       "category": "Block Explorer",
       "version": 1,
@@ -707,7 +727,11 @@
       "nodeState": null,
       "label": "HTTP",
       "name": "http",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/HTTP/http.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/dark.svg"
+      },
       "type": "action",
       "category": "Development",
       "version": 1,
@@ -897,7 +921,11 @@
       "loadMethods": {},
       "label": "Hugging Face",
       "name": "huggingFace",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/HuggingFace/huggingface.png",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/default.png",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/light.png",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/dark.png"
+      },
       "type": "action",
       "category": "Artificial Intelligence",
       "version": 1,
@@ -989,7 +1017,11 @@
       "nodeState": null,
       "label": "If Else",
       "name": "ifElse",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/IfElse/ifelse.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/dark.svg"
+      },
       "version": 1,
       "type": "action",
       "category": "Utilities",
@@ -1254,7 +1286,11 @@
       "nodeState": null,
       "label": "ImageEditor",
       "name": "imageEditor",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ImageEditor/image-editor.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ImageEditor/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ImageEditor/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ImageEditor/dark.svg"
+      },
       "type": "action",
       "category": "Utilities",
       "version": 1,
@@ -1445,7 +1481,11 @@
       "nodeState": null,
       "label": "NodeJS",
       "name": "nodeJS",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/NodeJS/nodejs.png",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/default.png",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/light.png",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/dark.png"
+      },
       "type": "action",
       "category": "Development",
       "version": 1,
@@ -1476,7 +1516,11 @@
       "loadMethods": {},
       "label": "OpenAI",
       "name": "openAI",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OpenAI/openai.png",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+      },
       "type": "action",
       "category": "Artificial Intelligence",
       "version": 1,
@@ -1666,7 +1710,11 @@
       "nodeState": null,
       "loadMethods": {},
       "label": "Webhook",
-      "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Webhook/webhook.svg",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
+      },
       "name": "webhook",
       "type": "webhook",
       "category": "Utilities",
@@ -1769,7 +1817,11 @@
   "loadMethods": {},
   "label": "OpenAI Embeddings",
   "name": "openAIEmbeddings",
-  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OpenAI/openai.png",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/default.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/light.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/dark.svg"
+  },
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 1,
