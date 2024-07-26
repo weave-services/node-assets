@@ -289,12 +289,15 @@
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
   },
 {
+  "nodeState": null,
   "label": "Send Email",
   "name": "emailSend",
-  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg"
+  },
+  "version": 1,
   "type": "action",
   "category": "Communication",
-  "version": 1,
   "description": "Send email to single or multiple recipients",
   "incoming": 1,
   "outgoing": 1,
@@ -314,8 +317,9 @@
     {
       "label": "SMTP Credentials",
       "name": "smtpCredentials",
-      "type": "options",
-      "properties": [
+      "type": "array",
+      "description": "SMTP server credentials",
+      "array": [
         {
           "label": "Host",
           "name": "host",
