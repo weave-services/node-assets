@@ -1542,7 +1542,7 @@
               "label": "Code",
               "name": "code",
               "type": "code",
-              "default": "console.info($nodeData);\nconst example = 'Hello World!';\nreturn example;",
+              "default": "const example = 'Hello World!';\nreturn example;",
               "description": "Custom code to run"
           },
           {
