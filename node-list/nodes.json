@@ -292,9 +292,7 @@
   "nodeState": null,
   "label": "Send Email",
   "name": "emailSend",
-  "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg"
-  },
+  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
   "version": 1,
   "type": "action",
   "category": "Communication",
