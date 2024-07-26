@@ -315,7 +315,7 @@
       "label": "SMTP Credentials",
       "name": "smtpCredentials",
       "type": "options",
-      "properties": [
+      "options": [
         {
           "label": "Host",
           "name": "host",
