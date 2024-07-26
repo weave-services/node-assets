@@ -288,95 +288,134 @@
       ],
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
   },
-  {
-      "nodeState": null,
-      "label": "Send Email",
-      "name": "emailSend",
-      "icons": {
-        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
-        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
-        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
-      },
-      "type": "action",
-      "category": "Communication",
-      "version": 1,
-      "description": "Send email to single or multiple receipients",
-      "incoming": 1,
-      "outgoing": 1,
-      "credentials": [
-          {
-              "label": "Credential Method",
-              "name": "credentialMethod",
-              "type": "options",
-              "options": [
-                  {
-                      "label": "Email Send Smtp",
-                      "name": "emailSendSmtp"
-                  }
-              ],
-              "default": "emailSendSmtp"
-          }
+{
+  "label": "Send Email",
+  "name": "emailSend",
+  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/EmailSend/emailsend.svg",
+  "type": "action",
+  "category": "Communication",
+  "version": 1,
+  "description": "Send email to single or multiple recipients",
+  "incoming": 1,
+  "outgoing": 1,
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "Email Send Smtp",
+          "name": "emailSendSmtp"
+        }
       ],
-      "inputParameters": [
-          {
-              "label": "From Email",
-              "name": "fromEmail",
-              "type": "string",
-              "default": "",
-              "description": "Email address of the sender."
-          },
-          {
-              "label": "To Email",
-              "name": "toEmail",
-              "type": "string",
-              "default": "",
-              "description": "Email address of the recipient. Multiple emails can be comma-separated.",
-              "optional": true
-          },
-          {
-              "label": "CC Email",
-              "name": "ccEmail",
-              "type": "string",
-              "default": "",
-              "description": "Email address of CC recipient. Multiple emails can be comma-separated.",
-              "optional": true
-          },
-          {
-              "label": "Subject",
-              "name": "subject",
-              "type": "string",
-              "default": "",
-              "description": "Subject line of the email."
-          },
-          {
-              "label": "Body - Plain Text",
-              "name": "text",
-              "type": "string",
-              "rows": 5,
-              "default": "",
-              "description": "Plain text message of email.",
-              "optional": true
-          },
-          {
-              "label": "Body - HTML",
-              "name": "html",
-              "type": "string",
-              "rows": 5,
-              "default": "",
-              "description": "HTML text message of email.",
-              "optional": true
-          },
-          {
-              "label": "Ignore SSL",
-              "name": "ignoreSSL",
-              "type": "boolean",
-              "default": false,
-              "description": "Send email regardless of SSL validation.",
-              "optional": true
-          }
-      ],
-      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
-  },
+      "default": "emailSendSmtp"
+    },
+    {
+      "label": "SMTP Credentials",
+      "name": "smtpCredentials",
+      "type": "object",
+      "properties": [
+        {
+          "label": "Host",
+          "name": "host",
+          "type": "string",
+          "default": "",
+          "description": "SMTP server host."
+        },
+        {
+          "label": "Port",
+          "name": "port",
+          "type": "number",
+          "default": 587,
+          "description": "SMTP server port."
+        },
+        {
+          "label": "Secure",
+          "name": "secure",
+          "type": "boolean",
+          "default": false,
+          "description": "Use TLS for secure connection."
+        },
+        {
+          "label": "User",
+          "name": "user",
+          "type": "string",
+          "default": "",
+          "description": "Username for SMTP authentication.",
+          "optional": true
+        },
+        {
+          "label": "Password",
+          "name": "password",
+          "type": "string",
+          "default": "",
+          "description": "Password for SMTP authentication.",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "From Email",
+      "name": "fromEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of the sender."
+    },
+    {
+      "label": "To Email",
+      "name": "toEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of the recipient. Multiple emails can be comma-separated.",
+      "optional": true
+    },
+    {
+      "label": "CC Email",
+      "name": "ccEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of CC recipient. Multiple emails can be comma-separated.",
+      "optional": true
+    },
+    {
+      "label": "Subject",
+      "name": "subject",
+      "type": "string",
+      "default": "",
+      "description": "Subject line of the email."
+    },
+    {
+      "label": "Body - Plain Text",
+      "name": "text",
+      "type": "string",
+      "rows": 5,
+      "default": "",
+      "description": "Plain text message of email.",
+      "optional": true
+    },
+    {
+      "label": "Body - HTML",
+      "name": "html",
+      "type": "string",
+      "rows": 5,
+      "default": "",
+      "description": "HTML text message of email.",
+      "optional": true
+    },
+    {
+      "label": "Ignore SSL",
+      "name": "ignoreSSL",
+      "type": "boolean",
+      "default": false,
+      "description": "Send email regardless of SSL validation.",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
+},
   {
       "nodeState": null,
       "label": "Etherscan",
