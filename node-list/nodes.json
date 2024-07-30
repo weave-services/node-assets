@@ -112,9 +112,9 @@
   "label": "Arbiscan",
   "name": "arbiscan",
    "icons": {
-        "default": "https://lh3.googleusercontent.com/6Ga0aMydPrlZM_FgOaFwDhj1YsQWtrqhf_ZWCvy_xKTJRK1VwhKwRvUcIMF06V9dXapYIDxIBvGoEEFyo5dz=w160-h160",
-        "light": "https://lh3.googleusercontent.com/6Ga0aMydPrlZM_FgOaFwDhj1YsQWtrqhf_ZWCvy_xKTJRK1VwhKwRvUcIMF06V9dXapYIDxIBvGoEEFyo5dz=w160-h160",
-        "dark": "https://lh3.googleusercontent.com/6Ga0aMydPrlZM_FgOaFwDhj1YsQWtrqhf_ZWCvy_xKTJRK1VwhKwRvUcIMF06V9dXapYIDxIBvGoEEFyo5dz=w160-h160"
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png"
       },
   "type": "action",
   "category": "Block Explorer",
