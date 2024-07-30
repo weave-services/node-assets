@@ -220,20 +220,20 @@
       "default": "homestead"
     }
   ],
-  "credentials": [
-    {
-      "label": "Credential Method",
-      "name": "credentialMethod",
-      "type": "options",
-      "options": [
-        {
-          "label": "Arbiscan API Key",
-          "name": "arbiscanApi"
-        }
+ "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "string",
+              "options": [
+                  {
+                      "label": "Arbiscan API Key",
+                      "name": "arbiscanApi"
+                  }
+              ],
+              "default": "arbiscanApi"
+          }
       ],
-      "default": "arbiscanApi"
-    }
-  ],
   "inputParameters": [
     {
       "label": "Address",
