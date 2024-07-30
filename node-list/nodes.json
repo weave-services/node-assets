@@ -2075,9 +2075,9 @@
   "label": "Subscan",
   "name": "subscan",
   "icons": {
-    "default": "https://avatars.githubusercontent.com/u/89386456?v=4",
-    "light": "https://avatars.githubusercontent.com/u/89386456?v=4",
-    "dark": "https://avatars.githubusercontent.com/u/89386456?v=4"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png"
   },
   "type": "action",
   "category": "Block Explorer",
