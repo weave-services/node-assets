@@ -2071,10 +2071,14 @@
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAIEmbeddings.js"
 },
-  {
+{
   "label": "Subscan",
   "name": "subscan",
-  "icon": "https://subscan.io/static/media/logo.9e3a2632.svg",
+  "icons": {
+    "default": "https://subscan.io/static/media/logo.9e3a2632.svg",
+    "light": "https://subscan.io/static/media/logo.9e3a2632.svg",
+    "dark": "https://subscan.io/static/media/logo.9e3a2632.svg"
+  },
   "type": "action",
   "category": "Block Explorer",
   "version": 1,
@@ -2147,322 +2151,85 @@
       "name": "network",
       "type": "options",
       "options": [
-        {
-          "label": "Polkadot",
-          "name": "polkadot"
-        },
-        {
-          "label": "Kusama",
-          "name": "kusama"
-        },
-        {
-          "label": "Assethub Polkadot",
-          "name": "assethub-polkadot"
-        },
-        {
-          "label": "Assethub Kusama",
-          "name": "assethub-kusama"
-        },
-        {
-          "label": "Assethub Rococo",
-          "name": "assethub-rococo"
-        },
-        {
-          "label": "Assethub Westend",
-          "name": "assethub-westend"
-        },
-        {
-          "label": "Acala",
-          "name": "acala"
-        },
-        {
-          "label": "Acala Mandala",
-          "name": "acala-mandala"
-        },
-        {
-          "label": "Ajuna",
-          "name": "ajuna"
-        },
-        {
-          "label": "Alephzero",
-          "name": "alephzero"
-        },
-        {
-          "label": "Alephzero testnet",
-          "name": "alephzero-testnet"
-        },
-        {
-          "label": "Altair",
-          "name": "altair"
-        },
-        {
-          "label": "Astar",
-          "name": "astar"
-        },
-        {
-          "label": "Avail testnet",
-          "name": "avail-testnet"
-        },
-        {
-          "label": "Bajun",
-          "name": "bajun"
-        },
-        {
-          "label": "Basilisk",
-          "name": "basilisk"
-        },
-        {
-          "label": "Bifrost",
-          "name": "bifrost"
-        },
-        {
-          "label": "Bifrost Kusama",
-          "name": "bifrost-kusama"
-        },
-        {
-          "label": "BridgeHub Polkadot",
-          "name": "bridgehub-polkadot"
-        },
-        {
-          "label": "BridgeHub Kusama",
-          "name": "bridgehub-kusama"
-        },
-        {
-          "label": "BridgeHub Rococo",
-          "name": "bridgehub-rococo"
-        },
-        {
-          "label": "BridgeHub Westend",
-          "name": "bridgehub-westend"
-        },
-        {
-          "label": "Calamari",
-          "name": "calamari"
-        },
-        {
-          "label": "Centrifuge",
-          "name": "centrifuge"
-        },
-        {
-          "label": "Centrifuge Solo",
-          "name": "centrifuge-solo"
-        },
-        {
-          "label": "Clover",
-          "name": "clover"
-        },
-        {
-          "label": "Composable",
-          "name": "composable"
-        },
-        {
-          "label": "Continuum",
-          "name": "continuum"
-        },
-        {
-          "label": "Creditcoin",
-          "name": "creditcoin"
-        },
-        {
-          "label": "Creditcoin testnet",
-          "name": "creditcoin-testnet"
-        },
-        {
-          "label": "Crust",
-          "name": "crust"
-        },
-        {
-          "label": "Crust Shadow",
-          "name": "crust-shadow"
-        },
-        {
-          "label": "DeepBrain Chain",
-          "name": "dbc"
-        },
-        {
-          "label": "Dock",
-          "name": "dock"
-        },
-        {
-          "label": "Darwinia",
-          "name": "darwinia"
-        },
-        {
-          "label": "Enjin",
-          "name": "enjin"
-        },
-        {
-          "label": "Enjin-matrix",
-          "name": "enjin-matrix"
-        },
-        {
-          "label": "Enjin-canary-matrix",
-          "name": "enjin-canary-matrix"
-        },
-        {
-          "label": "Enjin-canary",
-          "name": "enjin-canary"
-        },
-        {
-          "label": "Humanode",
-          "name": "humanode"
-        },
-        {
-          "label": "HydraDX",
-          "name": "hydradx"
-        },
-        {
-          "label": "IntegriTEE",
-          "name": "integritee"
-        },
-        {
-          "label": "Interlay",
-          "name": "interlay"
-        },
-        {
-          "label": "Joystream",
-          "name": "joystream"
-        },
-        {
-          "label": "Karura",
-          "name": "karura"
-        },
-        {
-          "label": "Kintsugi",
-          "name": "kintsugi"
-        },
-        {
-          "label": "Khala",
-          "name": "khala"
-        },
-        {
-          "label": "Krest",
-          "name": "krest"
-        },
-        {
-          "label": "KILT Peregrine",
-          "name": "kilt-peregrine"
-        },
-        {
-          "label": "KILT Spiritnet",
-          "name": "kilt-spiritnet"
-        },
-        {
-          "label": "Mangata",
-          "name": "mangata"
-        },
-        {
-          "label": "Moonbase",
-          "name": "moonbase"
-        },
-        {
-          "label": "Moonbeam",
-          "name": "moonbeam"
-        },
-        {
-          "label": "Moonriver",
-          "name": "moonriver"
-        },
-        {
-          "label": "Manta",
-          "name": "manta"
-        },
-        {
-          "label": "Nodle",
-          "name": "nodle"
-        },
-        {
-          "label": "NeuroWeb",
-          "name": "neuroweb"
-        },
-        {
-          "label": "NeuroWeb Testnet",
-          "name": "neuroweb-testnet"
-        },
-        {
-          "label": "Peaq",
-          "name": "peaq"
-        },
-        {
-          "label": "Phala",
-          "name": "phala"
-        },
-        {
-          "label": "Picasso",
-          "name": "picasso"
-        },
-        {
-          "label": "Pioneer",
-          "name": "pioneer"
-        },
-        {
-          "label": "Polkadex",
-          "name": "polkadex"
-        },
-        {
-          "label": "Polkadex Parachain",
-          "name": "polkadex-parachain"
-        },
-        {
-          "label": "Polymesh",
-          "name": "polymesh"
-        },
-        {
-          "label": "Polymesh Testnet",
-          "name": "polymesh-testnet"
-        },
-        {
-          "label": "Quartz",
-          "name": "quartz"
-        },
-        {
-          "label": "Robonomics",
-          "name": "robonomics"
-        },
-        {
-          "label": "Rococo",
-          "name": "rococo"
-        },
-        {
-          "label": "Shibuya",
-          "name": "shibuya"
-        },
-        {
-          "label": "Shiden",
-          "name": "shiden"
-        },
-        {
-          "label": "SORA",
-          "name": "sora"
-        },
-        {
-          "label": "Subspace",
-          "name": "subspace"
-        },
-        {
-          "label": "Stafi",
-          "name": "stafi"
-        },
-        {
-          "label": "Turing",
-          "name": "turing"
-        },
-        {
-          "label": "Unique",
-          "name": "unique"
-        },
-        {
-          "label": "Vara",
-          "name": "vara"
-        },
-        {
-          "label": "Westend",
-          "name": "westend"
-        },
-        {
-          "label": "Zeitgeist",
-          "name": "zeitgeist"
-        }
+        { "label": "Polkadot", "name": "polkadot" },
+        { "label": "Kusama", "name": "kusama" },
+        { "label": "Assethub Polkadot", "name": "assethub-polkadot" },
+        { "label": "Assethub Kusama", "name": "assethub-kusama" },
+        { "label": "Assethub Rococo", "name": "assethub-rococo" },
+        { "label": "Assethub Westend", "name": "assethub-westend" },
+        { "label": "Acala", "name": "acala" },
+        { "label": "Acala Mandala", "name": "acala-mandala" },
+        { "label": "Ajuna", "name": "ajuna" },
+        { "label": "Alephzero", "name": "alephzero" },
+        { "label": "Alephzero testnet", "name": "alephzero-testnet" },
+        { "label": "Altair", "name": "altair" },
+        { "label": "Astar", "name": "astar" },
+        { "label": "Avail testnet", "name": "avail-testnet" },
+        { "label": "Bajun", "name": "bajun" },
+        { "label": "Basilisk", "name": "basilisk" },
+        { "label": "Bifrost", "name": "bifrost" },
+        { "label": "Bifrost Kusama", "name": "bifrost-kusama" },
+        { "label": "BridgeHub Polkadot", "name": "bridgehub-polkadot" },
+        { "label": "BridgeHub Kusama", "name": "bridgehub-kusama" },
+        { "label": "BridgeHub Rococo", "name": "bridgehub-rococo" },
+        { "label": "BridgeHub Westend", "name": "bridgehub-westend" },
+        { "label": "Calamari", "name": "calamari" },
+        { "label": "Centrifuge", "name": "centrifuge" },
+        { "label": "Centrifuge Solo", "name": "centrifuge-solo" },
+        { "label": "Clover", "name": "clover" },
+        { "label": "Composable", "name": "composable" },
+        { "label": "Continuum", "name": "continuum" },
+        { "label": "Creditcoin", "name": "creditcoin" },
+        { "label": "Creditcoin testnet", "name": "creditcoin-testnet" },
+        { "label": "Crust", "name": "crust" },
+        { "label": "Crust Shadow", "name": "crust-shadow" },
+        { "label": "DeepBrain Chain", "name": "dbc" },
+        { "label": "Dock", "name": "dock" },
+        { "label": "Darwinia", "name": "darwinia" },
+        { "label": "Enjin", "name": "enjin" },
+        { "label": "Enjin-matrix", "name": "enjin-matrix" },
+        { "label": "Enjin-canary-matrix", "name": "enjin-canary-matrix" },
+        { "label": "Enjin-canary", "name": "enjin-canary" },
+        { "label": "Humanode", "name": "humanode" },
+        { "label": "HydraDX", "name": "hydradx" },
+        { "label": "IntegriTEE", "name": "integritee" },
+        { "label": "Interlay", "name": "interlay" },
+        { "label": "Joystream", "name": "joystream" },
+        { "label": "Karura", "name": "karura" },
+        { "label": "Kintsugi", "name": "kintsugi" },
+        { "label": "Khala", "name": "khala" },
+        { "label": "Krest", "name": "krest" },
+        { "label": "KILT Peregrine", "name": "kilt-peregrine" },
+        { "label": "KILT Spiritnet", "name": "kilt-spiritnet" },
+        { "label": "Mangata", "name": "mangata" },
+        { "label": "Moonbase", "name": "moonbase" },
+        { "label": "Moonbeam", "name": "moonbeam" },
+        { "label": "Moonriver", "name": "moonriver" },
+        { "label": "Manta", "name": "manta" },
+        { "label": "Nodle", "name": "nodle" },
+        { "label": "NeuroWeb", "name": "neuroweb" },
+        { "label": "NeuroWeb Testnet", "name": "neuroweb-testnet" },
+        { "label": "Peaq", "name": "peaq" },
+        { "label": "Phala", "name": "phala" },
+        { "label": "Picasso", "name": "picasso" },
+        { "label": "Pioneer", "name": "pioneer" },
+        { "label": "Polkadex", "name": "polkadex" },
+        { "label": "Polkadex Parachain", "name": "polkadex-parachain" },
+        { "label": "Polymesh", "name": "polymesh" },
+        { "label": "Polymesh Testnet", "name": "polymesh-testnet" },
+        { "label": "Quartz", "name": "quartz" },
+        { "label": "Robonomics", "name": "robonomics" },
+        { "label": "Rococo", "name": "rococo" },
+        { "label": "Shibuya", "name": "shibuya" },
+        { "label": "Shiden", "name": "shiden" },
+        { "label": "SORA", "name": "sora" },
+        { "label": "Subspace", "name": "subspace" },
+        { "label": "Stafi", "name": "stafi" },
+        { "label": "Turing", "name": "turing" },
+        { "label": "Unique", "name": "unique" },
+        { "label": "Vara", "name": "vara" },
+        { "label": "Westend", "name": "westend" },
+        { "label": "Zeitgeist", "name": "zeitgeist" }
       ],
       "default": "polkadot"
     }
@@ -2471,7 +2238,7 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "options",
+      "type": "string",
       "options": [
         {
           "label": "Subscan API Key",
@@ -2554,6 +2321,6 @@
       "default": 10
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Subscan/subscan.js"
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
 }
 ]
