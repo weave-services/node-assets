@@ -111,7 +111,11 @@
 {
   "label": "Arbiscan",
   "name": "arbiscan",
-  "icon": "https://www.circle.com/hs-fs/hubfs/chains/Icon/Arbitrum-icon.png?width=200&height=200&name=Arbitrum-icon.png",
+   "icons": {
+        "default": "https://www.circle.com/hs-fs/hubfs/chains/Icon/Arbitrum-icon.png?width=200&height=200&name=Arbitrum-icon.png",
+        "light": "https://www.circle.com/hs-fs/hubfs/chains/Icon/Arbitrum-icon.png?width=200&height=200&name=Arbitrum-icon.png",
+        "dark": "https://www.circle.com/hs-fs/hubfs/chains/Icon/Arbitrum-icon.png?width=200&height=200&name=Arbitrum-icon.png"
+      },
   "type": "action",
   "category": "Block Explorer",
   "version": 1,
