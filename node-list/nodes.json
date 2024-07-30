@@ -108,14 +108,10 @@
       ],
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
   },
-  {
+{
   "label": "Arbiscan",
   "name": "arbiscan",
-   "icons": {
-        "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Arbiscan/arbiscan.png",
-        "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Arbiscan/arbiscan.png",
-        "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Arbiscan/arbiscan.png"
-      },
+  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Arbiscan/arbiscan.png",
   "type": "action",
   "category": "Block Explorer",
   "version": 1,
@@ -161,7 +157,7 @@
         {
           "label": "Get Contract ABI",
           "name": "getAbi",
-          "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+          "description": "Returns the contract Application Binary Interface (ABI) of a verified smart contract."
         },
         {
           "label": "Get Contract Source Code",
@@ -181,12 +177,12 @@
         {
           "label": "Get ERC20 Token Supply",
           "name": "getErc20TokenSupply",
-          "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          "description": "Returns the total supply of an ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
         },
         {
           "label": "Get ERC20 Token Balance",
           "name": "getErc20TokenBalance",
-          "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          "description": "Returns the current balance of an ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
         },
         {
           "label": "Get ETHER Price",
@@ -217,23 +213,23 @@
           "name": "arbitrum-goerli"
         }
       ],
-      "default": "homestead"
+      "default": "arbitrum"
     }
   ],
- "credentials": [
-          {
-              "label": "Credential Method",
-              "name": "credentialMethod",
-              "type": "string",
-              "options": [
-                  {
-                      "label": "Arbiscan API Key",
-                      "name": "arbiscanApi"
-                  }
-              ],
-              "default": "arbiscanApi"
-          }
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "Arbiscan API Key",
+          "name": "arbiscanApi"
+        }
       ],
+      "default": "arbiscanApi"
+    }
+  ],
   "inputParameters": [
     {
       "label": "Address",
