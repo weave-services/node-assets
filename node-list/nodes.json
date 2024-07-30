@@ -111,7 +111,7 @@
 {
   "label": "Arbiscan",
   "name": "arbiscan",
-  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Arbiscan/arbiscan.png",
+  "icon": "https://www.circle.com/hs-fs/hubfs/chains/Icon/Arbitrum-icon.png?width=200&height=200&name=Arbitrum-icon.png",
   "type": "action",
   "category": "Block Explorer",
   "version": 1,
