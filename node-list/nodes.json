@@ -2327,9 +2327,9 @@
   "label": "Typeform",
   "name": "typeform",
   "icons": {
-        "default": "https://seeklogo.com/images/T/typeform-logo-A4FC2E0B41-seeklogo.com.png",
-        "light": "https://seeklogo.com/images/T/typeform-logo-A4FC2E0B41-seeklogo.com.png",
-        "dark": "https://static-00.iconduck.com/assets.00/typeform-icon-161x256-6brcfhiy.png"
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg"
       },
   "type": "action",
   "category": "Communication",
