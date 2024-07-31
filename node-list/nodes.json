@@ -2366,7 +2366,7 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "options",
+      "type": "string",
       "options": [
         {
           "label": "Typeform API Key",
