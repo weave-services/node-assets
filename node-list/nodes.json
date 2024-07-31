@@ -2322,5 +2322,84 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
+},
+  {
+  "label": "Typeform",
+  "name": "typeform",
+  "icons": {
+        "default": "https://seeklogo.com/images/T/typeform-logo-A4FC2E0B41-seeklogo.com.png",
+        "light": "https://seeklogo.com/images/T/typeform-logo-A4FC2E0B41-seeklogo.com.png",
+        "dark": "https://static-00.iconduck.com/assets.00/typeform-icon-161x256-6brcfhiy.png"
+      },
+  "type": "action",
+  "category": "Communication",
+  "version": 1,
+  "description": "Perform Typeform operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get all forms",
+          "name": "getAllForms",
+          "description": "Returns all the forms associated with your account"
+        },
+        {
+          "label": "Get Typeform Responses",
+          "name": "getTypeformResponses",
+          "description": "Returns the submissions for your typeforms in JSON format"
+        },
+        {
+          "label": "Create Typeform ",
+          "name": "createTypeform",
+          "description": "Creates a typeform for you"
+        }
+      ],
+      "default": "getAllForms"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "Typeform API Key",
+          "name": "typeformApi"
+        }
+      ],
+      "default": "typeformApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Form Id",
+      "name": "formId",
+      "type": "string",
+      "description": "The form id to retrieve all the responses to your typeform",
+      "show": {
+        "actions.api": [
+          "getTypeformResponses"
+        ]
+      }
+    },
+    {
+      "label": "Request Body",
+      "name": "requestBody",
+      "type": "json",
+      "description": "The json object to create or update your typeform",
+      "show": {
+        "actions.api": [
+          "createTypeform"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Typeform/Typeform.js"
 }
 ]
