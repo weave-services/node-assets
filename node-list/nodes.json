@@ -1041,7 +1041,7 @@
   },
   {
       "nodeState": null,
-      "label": "HTTP",
+      "label": "Any REST API (HTTP)",
       "name": "http",
       "icons": {
         "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/default.svg",
