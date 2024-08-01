@@ -2401,5 +2401,114 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Typeform/Typeform.js"
+},
+  {
+  "loadMethods": {},
+  "label": "Mailchimp",
+  "name": "mailchimp",
+  "icons": {
+        "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+        "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+        "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg"
+      },
+  "type": "action",
+  "category": "Communication",
+  "version": 2,
+  "description": "Execute Mailchimp API integration",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get list of campaigns",
+          "name": "listCampaigns",
+          "description": "Returns the list of campaigns"
+        },
+        {
+          "label": "Get campaign",
+          "name": "getCampaign",
+          "description": "Return single campaign"
+        },
+        {
+          "label": "Delete campaign",
+          "name": "deleteCampaign",
+          "description": "It will delete campaigns"
+        },
+        {
+          "label": "Add user to subscribe list",
+          "name": "addUser",
+          "description": "Add or update user to a subscribe list"
+        },
+        {
+          "label": "Get user",
+          "name": "getUser",
+          "description": "Get information about a specific audience"
+        },
+        {
+          "label": "Get list of users",
+          "name": "listUsers",
+          "description": "Get information about list of members in a specific audience list"
+        }
+      ],
+      "default": "listCampaigns"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Mailchimp Credentials",
+          "name": "mailChimpCredential"
+        }
+      ],
+      "default": "mailChimpCredential"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Campaign",
+      "name": "campaignId",
+      "type": "asyncOptions",
+      "loadMethod": "getCampaigns",
+      "show": {
+        "actions.operation": [
+          "deleteCampaign",
+          "getCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Audience List",
+      "name": "listId",
+      "type": "asyncOptions",
+      "loadMethod": "getLists",
+      "show": {
+        "actions.operation": [
+          "addUser",
+          "getUser",
+          "listUsers"
+        ]
+      }
+    },
+    {
+      "label": "Customer Email",
+      "name": "email",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "addUser",
+          "getUser"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Mailchimp/Mailchimp.js"
 }
 ]
