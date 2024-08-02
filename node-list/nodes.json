@@ -3155,5 +3155,109 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Opensea/Opensea.js"
+},
+  {
+  "label": "OpenAI Assistants",
+  "name": "openaiAssistants",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+  },
+  "type": "action",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Perform operations with OpenAI Assistants API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Assistants",
+          "name": "listAssistants",
+          "description": "Fetches a list of all assistants."
+        },
+        {
+          "label": "Create Assistant",
+          "name": "createAssistant",
+          "description": "Creates a new assistant."
+        },
+        {
+          "label": "Get Assistant",
+          "name": "getAssistant",
+          "description": "Retrieves details of a specific assistant using the assistant ID."
+        },
+        {
+          "label": "Modify Assistant",
+          "name": "modifyAssistant",
+          "description": "Modifies an existing assistant using the assistant ID."
+        },
+        {
+          "label": "Delete Assistant",
+          "name": "deleteAssistant",
+          "description": "Deletes an assistant using the assistant ID."
+        }
+      ],
+      "default": "listAssistants"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "OpenAI API Key",
+          "name": "openAIApi"
+        }
+      ],
+      "default": "openAIApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Assistant ID",
+      "name": "assistant_id",
+      "type": "string",
+      "description": "The ID of the assistant.",
+      "show": {
+        "actions.api": [
+          "getAssistant",
+          "modifyAssistant",
+          "deleteAssistant"
+        ]
+      }
+    },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "description": "The name of the assistant.",
+      "show": {
+        "actions.api": [
+          "createAssistant",
+          "modifyAssistant"
+        ]
+      }
+    },
+    {
+      "label": "Configuration",
+      "name": "configuration",
+      "type": "json",
+      "description": "The configuration details for the assistant.",
+      "show": {
+        "actions.api": [
+          "createAssistant",
+          "modifyAssistant"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
 }
 ]
