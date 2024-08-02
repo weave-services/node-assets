@@ -1,3 +1,4 @@
+
 [
   {
       "nodeState": null,
@@ -559,6 +560,140 @@
       ],
       "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
   },
+{
+  "nodeState": null,
+  "label": "Send Email",
+  "name": "emailSend",
+  "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
+      },
+  "version": 1,
+  "type": "action",
+  "category": "Communication",
+  "description": "Send email to single or multiple recipients",
+  "incoming": 1,
+  "outgoing": 1,
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "Email Send Smtp",
+          "name": "emailSendSmtp"
+        }
+      ],
+      "default": "emailSendSmtp"
+    },
+    {
+      "label": "SMTP Credentials",
+      "name": "smtpCredentials",
+      "type": "array",
+      "description": "SMTP server credentials",
+      "array": [
+        {
+          "label": "Host",
+          "name": "host",
+          "type": "string",
+          "default": "",
+          "description": "SMTP server host."
+        },
+        {
+          "label": "Port",
+          "name": "port",
+          "type": "number",
+          "default": 587,
+          "description": "SMTP server port."
+        },
+        {
+          "label": "Secure",
+          "name": "secure",
+          "type": "boolean",
+          "default": false,
+          "description": "Use TLS for secure connection."
+        },
+        {
+          "label": "User",
+          "name": "user",
+          "type": "string",
+          "default": "",
+          "description": "Username for SMTP authentication.",
+          "optional": true
+        },
+        {
+          "label": "Password",
+          "name": "password",
+          "type": "string",
+          "default": "",
+          "description": "Password for SMTP authentication.",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "From Email",
+      "name": "fromEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of the sender."
+    },
+    {
+      "label": "To Email",
+      "name": "toEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of the recipient. Multiple emails can be comma-separated.",
+      "optional": true
+    },
+    {
+      "label": "CC Email",
+      "name": "ccEmail",
+      "type": "string",
+      "default": "",
+      "description": "Email address of CC recipient. Multiple emails can be comma-separated.",
+      "optional": true
+    },
+    {
+      "label": "Subject",
+      "name": "subject",
+      "type": "string",
+      "default": "",
+      "description": "Subject line of the email."
+    },
+    {
+      "label": "Body - Plain Text",
+      "name": "text",
+      "type": "string",
+      "rows": 5,
+      "default": "",
+      "description": "Plain text message of email.",
+      "optional": true
+    },
+    {
+      "label": "Body - HTML",
+      "name": "html",
+      "type": "string",
+      "rows": 5,
+      "default": "",
+      "description": "HTML text message of email.",
+      "optional": true
+    },
+    {
+      "label": "Ignore SSL",
+      "name": "ignoreSSL",
+      "type": "boolean",
+      "default": false,
+      "description": "Send email regardless of SSL validation.",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
+},
   {
       "nodeState": null,
       "label": "Etherscan",
@@ -1004,96 +1139,6 @@
                   }
               ],
               "optional": true
-          },
-          {
-      "nodeState": null,
-      "loadMethods": {},
-      "label": "Webhook",
-      "icons": {
-        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
-        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
-        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
-      },
-      "name": "webhook",
-      "type": "webhook",
-      "category": "Utilities",
-      "version": 2,
-      "description": "Start workflow when webhook is called",
-      "incoming": 0,
-      "outgoing": 1,
-      "inputParameters": [
-          {
-              "label": "HTTP Method",
-              "name": "httpMethod",
-              "type": "options",
-              "options": [
-                  {
-                      "label": "GET",
-                      "name": "GET"
-                  },
-                  {
-                      "label": "POST",
-                      "name": "POST"
-                  }
-              ],
-              "default": "GET",
-              "description": "The HTTP method to listen to."
-          },
-          {
-              "label": "Authorization",
-              "name": "authorization",
-              "type": "options",
-              "options": [
-                  {
-                      "label": "API",
-                      "name": "headerAuth",
-                      "description": "Webhook header must contains \"X-API-KEY\" with matching key"
-                  },
-                  {
-                      "label": "None",
-                      "name": "none"
-                  }
-              ],
-              "default": "none",
-              "description": "The way to authorize incoming webhook."
-          },
-          {
-              "label": "API key",
-              "name": "apiKey",
-              "type": "asyncOptions",
-              "loadMethod": "getAPIKeys",
-              "description": "Incoming call must consists header \"x-api-key\" with matching API key. You can create new key from the dashboard",
-              "show": {
-                  "inputParameters.authorization": [
-                      "headerAuth"
-                  ]
-              }
-          },
-          {
-              "label": "Response Code",
-              "name": "responseCode",
-              "type": "number",
-              "default": 200,
-              "description": "The HTTP response code to return when a HTTP request is made to this endpoint URL. Valid range: 1XX - 5XX"
-          },
-          {
-              "label": "What/How to Return",
-              "name": "returnType",
-              "type": "options",
-              "options": [
-                  {
-                      "label": "Immediate Reponse",
-                      "name": "immediateResponse",
-                      "description": "Returns response immediately once webhook is called"
-                  },
-                  {
-                      "label": "When Last Node Finishes",
-                      "name": "lastNodeResponse",
-                      "description": "Returns output response of the last executed node"
-                  }
-              ],
-              "default": "immediateResponse",
-              "description": "What data or message, and how should Webhook node return upon successful calling"
           },
           {
               "description": "Indicate the Query Params you will be using",
@@ -1792,6 +1837,112 @@
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
 },
+  {
+      "nodeState": null,
+      "loadMethods": {},
+      "label": "Webhook",
+      "icons": {
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
+      },
+      "name": "webhook",
+      "type": "webhook",
+      "category": "Utilities",
+      "version": 2,
+      "description": "Start workflow when webhook is called",
+      "incoming": 0,
+      "outgoing": 1,
+      "inputParameters": [
+          {
+              "label": "HTTP Method",
+              "name": "httpMethod",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "GET",
+                      "name": "GET"
+                  },
+                  {
+                      "label": "POST",
+                      "name": "POST"
+                  }
+              ],
+              "default": "GET",
+              "description": "The HTTP method to listen to."
+          },
+          {
+              "label": "Authorization",
+              "name": "authorization",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "API",
+                      "name": "headerAuth",
+                      "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+                  },
+                  {
+                      "label": "None",
+                      "name": "none"
+                  }
+              ],
+              "default": "none",
+              "description": "The way to authorize incoming webhook."
+          },
+          {
+              "label": "API key",
+              "name": "apiKey",
+              "type": "asyncOptions",
+              "loadMethod": "getAPIKeys",
+              "description": "Incoming call must consists header \"x-api-key\" with matching API key. You can create new key from the dashboard",
+              "show": {
+                  "inputParameters.authorization": [
+                      "headerAuth"
+                  ]
+              }
+          },
+          {
+              "label": "Response Code",
+              "name": "responseCode",
+              "type": "number",
+              "default": 200,
+              "description": "The HTTP response code to return when a HTTP request is made to this endpoint URL. Valid range: 1XX - 5XX"
+          },
+          {
+              "label": "What/How to Return",
+              "name": "returnType",
+              "type": "options",
+              "options": [
+                  {
+                      "label": "Immediate Reponse",
+                      "name": "immediateResponse",
+                      "description": "Returns response immediately once webhook is called"
+                  },
+                  {
+                      "label": "When Last Node Finishes",
+                      "name": "lastNodeResponse",
+                      "description": "Returns output response of the last executed node"
+                  }
+              ],
+              "default": "immediateResponse",
+              "description": "What data or message, and how should Webhook node return upon successful calling"
+          },
+          {
+              "label": "Response Data",
+              "name": "responseData",
+              "type": "string",
+              "default": "",
+              "description": "Custom response data to return when a HTTP request is made to this webhook endpoint URL. If not provided, default to: Webhook received!",
+              "optional": true,
+              "show": {
+                  "inputParameters.returnType": [
+                      "immediateResponse"
+                  ]
+              }
+          }
+      ],
+      "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+  },
 {
   "nodeState": null,
   "loadMethods": {},
