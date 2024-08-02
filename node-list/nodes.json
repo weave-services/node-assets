@@ -2520,5 +2520,640 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Mailchimp/Mailchimp.js"
+},
+  {
+  "label": "OpenSea",
+  "name": "opensea",
+   "icons": {
+        "default": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4",
+        "light": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4",
+        "dark": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4"
+      },
+  "type": "action",
+  "category": "NFT",
+  "version": 1,
+  "description": "Query OpenSea information",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Retrieve Assets",
+          "name": "retrieveAssets",
+          "description": "Returns a set of NFTs."
+        },
+        {
+          "label": "Retrieve Events",
+          "name": "retrieveEvents",
+          "description": "Returns a list of Events."
+        },
+        {
+          "label": "Retrieve Collections",
+          "name": "retrieveCollections",
+          "description": "Returns a list of collections supported and vetted by OpenSea."
+        },
+        {
+          "label": "Retrieve Bundles",
+          "name": "retrieveBundles",
+          "description": "Returns a list of bundles. Bundles are groups of NFTs for sale on OpenSea."
+        },
+        {
+          "label": "Retrieve An Asset",
+          "name": "retrieveAnAsset",
+          "description": "Fetch information about a single NFT, based on its contract address and token ID."
+        },
+        {
+          "label": "Retrieve A Contract",
+          "name": "retrieveAContract",
+          "description": "Fetch detailed information about a specified contract."
+        },
+        {
+          "label": "Retrieve A Collection",
+          "name": "retrieveACollection",
+          "description": "Retrieve more in-depth information about an individual collection, including real time statistics such as floor price."
+        },
+        {
+          "label": "Retrieve Collection Stats",
+          "name": "retrieveCollectionStats",
+          "description": "Fetch stats for a specific collection, including real-time floor price data."
+        }
+      ],
+      "default": ""
+    },
+    {
+      "label": "Event Type",
+      "name": "event_type",
+      "type": "options",
+      "options": [
+        {
+          "label": "Auctions",
+          "name": "created"
+        },
+        {
+          "label": "Sales",
+          "name": "successful"
+        },
+        {
+          "label": "Transfer",
+          "name": "transfer"
+        },
+        {
+          "label": "Approve",
+          "name": "approve"
+        },
+        {
+          "label": "Bid Entered",
+          "name": "bid_entered"
+        },
+        {
+          "label": "Bid Withdrawn",
+          "name": "bid_withdrawn"
+        },
+        {
+          "label": "Cancelled",
+          "name": "cancelled"
+        },
+        {
+          "label": "All Events",
+          "name": "all"
+        }
+      ],
+      "default": "",
+      "description": "The event type to filter",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Auction Type",
+      "name": "auction_type",
+      "type": "options",
+      "options": [
+        {
+          "label": "Sell to the highest bidder",
+          "name": "english",
+          "description": "The highest bid wins at the end"
+        },
+        {
+          "label": "Sell with a declining price",
+          "name": "dutch",
+          "description": "The price falls until someone purchases the item"
+        },
+        {
+          "label": "CryptoPunks Auctions",
+          "name": "min-price"
+        }
+      ],
+      "default": "",
+      "optional": true,
+      "description": "Filter by an auction type",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ],
+        "actions.event_type": [
+          "created"
+        ]
+      }
+    },
+    {
+      "label": "Environment",
+      "name": "environment",
+      "type": "options",
+      "description": "Environment to execute operation: Test or Main",
+      "options": [
+        {
+          "label": "TEST",
+          "name": "https://testnets-api.opensea.io/api/v1",
+          "description": "Testnet: https://testnets.opensea.io/"
+        },
+        {
+          "label": "MAIN",
+          "name": "https://api.opensea.io/api/v1",
+          "description": "Mainnet: https://opensea.io/"
+        }
+      ],
+      "default": ""
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "OpenSea API Key",
+          "name": "openSeaApi",
+          "description": "How to get API key: https://docs.opensea.io/reference/request-an-api-key"
+        }
+      ],
+      "default": "openSeaApi",
+      "show": {
+        "actions.environment": [
+          "https://api.opensea.io/api/v1"
+        ]
+      }
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Owner",
+      "name": "owner",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "The address of the owner of the assets",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Token Ids",
+      "name": "token_ids",
+      "type": "json",
+      "placeholder": "[\"1\", \"2\"]",
+      "optional": true,
+      "description": "An array of token IDs to search for",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Address",
+      "name": "asset_contract_address",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "The NFT contract address for the assets",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Addresses",
+      "name": "asset_contract_addresses",
+      "type": "json",
+      "placeholder": "[\"0xa\", \"0xb\"]",
+      "optional": true,
+      "description": "An array of contract addresses to search for",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Order By",
+      "name": "order_by",
+      "type": "options",
+      "options": [
+        {
+          "label": "Sale Date",
+          "name": "sale_date",
+          "description": "Last sale's transaction's timestamp"
+        },
+        {
+          "label": "Sale Count ",
+          "name": "sale_count",
+          "description": "Number of sales"
+        },
+        {
+          "label": "Sale Price ",
+          "name": "sale_price",
+          "description": "Last sale's total_price"
+        }
+      ],
+      "default": "",
+      "optional": true,
+      "description": "How to order the assets returned. By default, the API returns the fastest ordering. ",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Order Direction",
+      "name": "order_direction",
+      "type": "options",
+      "options": [
+        {
+          "label": "Descending",
+          "name": "desc"
+        },
+        {
+          "label": "Ascending",
+          "name": "asc"
+        }
+      ],
+      "default": "",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "default": "",
+      "optional": true,
+      "description": "Offset for pagination",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "default": 20,
+      "optional": true,
+      "description": "Limit for pagination. Defaults to 20, capped at 50.",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Collection",
+      "name": "collection",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "Limit responses to members of a collection. Case sensitive and must match the collection slug exactly. Will return all assets from all contracts in a collection.",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Include Orders",
+      "name": "include_orders",
+      "type": "boolean",
+      "default": false,
+      "optional": true,
+      "description": "A flag determining if order information should be included in the response.",
+      "show": {
+        "actions.operation": [
+          "retrieveAssets"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Address",
+      "name": "asset_contract_address",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "The NFT contract address for the assets for which to show events",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Collection Slug",
+      "name": "collection_slug",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "Events from a collection. For instance: if a collection url is: https://opensea.io/collection/my-collection-1, collection slug is my-collection-1.",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Token Id",
+      "name": "token_id",
+      "type": "number",
+      "default": "",
+      "optional": true,
+      "description": "The token's id to optionally filter by",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Account Address",
+      "name": "account_address",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "A user account's wallet address to filter for events on an account",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Only Opensea",
+      "name": "only_opensea",
+      "type": "boolean",
+      "default": false,
+      "optional": true,
+      "description": "Restrict to events on OpenSea auctions",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "default": "",
+      "description": "Offset for pagination",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "default": 20,
+      "optional": true,
+      "description": "Limit for pagination",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Occurred Before",
+      "name": "occurred_before",
+      "type": "date",
+      "optional": true,
+      "description": "Only show events listed before this date.",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Occurred After",
+      "name": "occurred_after",
+      "type": "date",
+      "optional": true,
+      "description": "Only show events listed after this date.",
+      "show": {
+        "actions.operation": [
+          "retrieveEvents"
+        ]
+      }
+    },
+    {
+      "label": "Asset Owner",
+      "name": "asset_owner",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "A wallet address. If specified, will return collections where the owner owns at least one asset belonging to smart contracts in the collection.",
+      "show": {
+        "actions.operation": [
+          "retrieveCollections"
+        ]
+      }
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "default": "",
+      "description": "Offset for pagination",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "retrieveCollections"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "default": 20,
+      "optional": true,
+      "description": "Limit for pagination",
+      "show": {
+        "actions.operation": [
+          "retrieveCollections"
+        ]
+      }
+    },
+    {
+      "label": "On Sale",
+      "name": "on_sale",
+      "type": "boolean",
+      "default": false,
+      "optional": true,
+      "description": "If set to true, only show bundles currently on sale. If set to false, only show bundles that have been sold or cancelled.",
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Owner",
+      "name": "owner",
+      "type": "string",
+      "default": "",
+      "description": "Account address of the owner of a bundle (and all assets within)",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Address",
+      "name": "asset_contract_address",
+      "type": "string",
+      "default": "",
+      "optional": true,
+      "description": "Contract address of all the assets in a bundle. Only works for homogenous bundles, not mixed ones.",
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Addresses",
+      "name": "asset_contract_addresses",
+      "type": "json",
+      "placeholder": "[\"0xa\", \"0xb\"]",
+      "optional": true,
+      "description": "An array of contract addresses to search for",
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Token Ids",
+      "name": "token_ids",
+      "type": "json",
+      "placeholder": "[\"1\", \"2\"]",
+      "optional": true,
+      "description": "A list of token IDs for showing only bundles with at least one of the token IDs in the list",
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "default": "",
+      "description": "Offset for pagination",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "default": 20,
+      "optional": true,
+      "description": "Limit for pagination",
+      "show": {
+        "actions.operation": [
+          "retrieveBundles"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Address",
+      "name": "asset_contract_address",
+      "type": "string",
+      "default": "",
+      "description": "The NFT contract address for the assets",
+      "show": {
+        "actions.operation": [
+          "retrieveAnAsset"
+        ]
+      }
+    },
+    {
+      "label": "Token Id",
+      "name": "token_id",
+      "type": "string",
+      "default": "",
+      "description": "Token ID for this item",
+      "show": {
+        "actions.operation": [
+          "retrieveAnAsset"
+        ]
+      }
+    },
+    {
+      "label": "Asset Contract Address",
+      "name": "asset_contract_address",
+      "type": "string",
+      "default": "",
+      "description": "The NFT contract address for the assets",
+      "show": {
+        "actions.operation": [
+          "retrieveAContract"
+        ]
+      }
+    },
+    {
+      "label": "Collection Slug",
+      "name": "collection_slug",
+      "type": "string",
+      "default": "",
+      "description": "For instance: if a collection url is: https://opensea.io/collection/my-collection-1, collection slug is my-collection-1.",
+      "show": {
+        "actions.operation": [
+          "retrieveACollection",
+          "retrieveCollectionStats"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Opensea/Opensea.js"
 }
 ]
