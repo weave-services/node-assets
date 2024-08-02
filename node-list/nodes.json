@@ -2525,9 +2525,9 @@
   "label": "OpenSea",
   "name": "opensea",
    "icons": {
-        "default": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4",
-        "light": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4",
-        "dark": "https://avatars.githubusercontent.com/u/34966464?s=200&v=4"
+        "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+        "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+        "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg"
       },
   "type": "action",
   "category": "NFT",
