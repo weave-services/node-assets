@@ -3787,5 +3787,145 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/BaseScan/BaseScan.js"
+},
+{
+  "label": "ChainLink",
+  "name": "chainLink",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+  },
+  "type": "action",
+  "category": "Decentralized Oracle Network",
+  "version": 1,
+  "description": "Execute ChainLink operations such as Data Feeds, Randomness, Oracles.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Price Feeds",
+          "name": "getPriceFeeds",
+          "description": "Get real-world market prices of assets using ChainLink Oracle."
+        },
+        {
+          "label": "Get Proof of Reserve",
+          "name": "getProofReserve",
+          "description": "Provide the status of the reserves for several assets."
+        },
+        {
+          "label": "Get NFT Floor Pricing",
+          "name": "getNFTFloorPricing",
+          "description": "Get the lowest price of an NFT in a collection using ChainLink Oracle, ONLY available on Goerli."
+        }
+      ],
+      "default": "getPriceFeeds"
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Ethereum Mainnet",
+          "name": "ethereum-mainnet"
+        },
+        {
+          "label": "Goerli Testnet",
+          "name": "goerli-testnet"
+        },
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum-mainnet"
+        }
+      ]
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders"
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customRPC"
+        ]
+      }
+    },
+    {
+      "label": "Websocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customWebsocket"
+        ]
+      }
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "ChainLink API Key",
+          "name": "chainLinkApi"
+        }
+      ],
+      "default": "chainLinkApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Pair",
+      "name": "pair",
+      "type": "asyncOptions",
+      "loadMethod": "getPairAddress",
+      "show": {
+        "actions.operation": [
+          "getPriceFeeds"
+        ]
+      }
+    },
+    {
+      "label": "Reserve",
+      "name": "reserve",
+      "type": "asyncOptions",
+      "loadMethod": "getReserveAddress",
+      "show": {
+        "actions.operation": [
+          "getProofReserve"
+        ]
+      }
+    },
+    {
+      "label": "NFT Collection",
+      "name": "nftCollection",
+      "type": "asyncOptions",
+      "loadMethod": "getNftCollection",
+      "show": {
+        "actions.operation": [
+          "getNFTFloorPricing"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/nodes/ChainLink/ChainLink.js"
 }
+
 ]
