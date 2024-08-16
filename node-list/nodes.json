@@ -3,7 +3,7 @@
   {
       "nodeState": null,
       "loadMethods": {},
-      "label": "Webhook",
+      "label": "Webhook Trigger",
       "icons": {
         "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
         "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
