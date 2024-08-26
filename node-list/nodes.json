@@ -3834,16 +3834,40 @@
       "type": "options",
       "options": [
         {
-          "label": "Ethereum Mainnet",
-          "name": "ethereum-mainnet"
+          "label": "Mainnet",
+          "name": "homestead"
         },
         {
-          "label": "Goerli Testnet",
-          "name": "goerli-testnet"
+          "label": "Polygon",
+          "name": "polygon"
         },
         {
-          "label": "Arbitrum Mainnet",
-          "name": "arbitrum-mainnet"
+          "label": "Optimism",
+          "name": "optimism"
+        },
+        {
+          "label": "Arbitrum One",
+          "name": "arbitrum"
+        },
+        {
+          "label": "Base",
+          "name": "base"
+        },
+        {
+          "label": "BNB Chain",
+          "name": "bsc"
+        },
+        {
+          "label": "Celo",
+          "name": "celo"
+        },
+        {
+          "label": "Avalanche",
+          "name": "avalanche"
+        },
+        {
+          "label": "Blast",
+          "name": "blast"
         }
       ]
     },
