@@ -139,7 +139,7 @@
           {
               "label": "Connect Credential",
               "name": "credentialMethod",
-              "type": "options",
+              "type": "string",
               "options": [
                   {
                       "label": "Bearer Token Auth",
