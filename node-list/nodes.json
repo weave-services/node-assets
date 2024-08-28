@@ -4349,6 +4349,99 @@
         }
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Uniswap/Uniswap.js"
+},
+  {
+  "label": "X API",
+  "name": "x",
+  "icons":  { "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png", "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png", "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png" },
+  "type": "action",
+  "category": "Communication",
+  "description": "Manage posts and lookup users using the X API v2",
+  "version": 1,
+  "incoming": 1,
+  "outgoing": 1,
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "X API Bearer Token",
+          "name": "xApi"
+        }
+      ],
+      "default": "xApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Action",
+      "name": "action",
+      "type": "options",
+      "description": "Select the action to perform.",
+      "options": [
+        {
+          "label": "Create Post",
+          "name": "createPost"
+        },
+        {
+          "label": "Delete Post",
+          "name": "deletePost"
+        },
+        {
+          "label": "Lookup User by ID",
+          "name": "lookupUserId"
+        },
+        {
+          "label": "Lookup User by Username",
+          "name": "lookupUsername"
+        }
+      ],
+      "default": "createPost"
+    },
+    {
+      "label": "Post Content",
+      "name": "postContent",
+      "type": "string",
+      "default": "",
+      "description": "The content of the post to be created (required for Create Post action).",
+      "visibleIf": {
+        "action": "createPost"
+      }
+    },
+    {
+      "label": "Post ID",
+      "name": "postId",
+      "type": "string",
+      "default": "",
+      "description": "The ID of the post to be deleted (required for Delete Post action).",
+      "visibleIf": {
+        "action": "deletePost"
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "default": "",
+      "description": "The ID of the user to look up (required for Lookup User by ID action).",
+      "visibleIf": {
+        "action": "lookupUserId"
+      }
+    },
+    {
+      "label": "Username",
+      "name": "username",
+      "type": "string",
+      "default": "",
+      "description": "The username of the user to look up (required for Lookup User by Username action).",
+      "visibleIf": {
+        "action": "lookupUsername"
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/X/X.js"
 }
 
 
