@@ -1,0 +1,98 @@
+{
+  "label": "X API",
+  "name": "x",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png"
+  },
+  "type": "action",
+  "category": "Communication",
+  "version": 1,
+  "description": "Manage posts and lookup users using the X API v2",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Action",
+      "name": "action",
+      "type": "options",
+      "options": [
+        {
+          "label": "Create Post",
+          "name": "createPost",
+          "description": "Creates a new post."
+        },
+        {
+          "label": "Delete Post",
+          "name": "deletePost",
+          "description": "Deletes an existing post."
+        },
+        {
+          "label": "Lookup User by ID",
+          "name": "lookupUserId",
+          "description": "Looks up a user by their ID."
+        },
+        {
+          "label": "Lookup User by Username",
+          "name": "lookupUsername",
+          "description": "Looks up a user by their username."
+        }
+      ],
+      "default": "createPost"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "X API Bearer Token",
+          "name": "xApi"
+        }
+      ],
+      "default": "xApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Post Content",
+      "name": "postContent",
+      "type": "string",
+      "description": "The content of the post to be created.",
+      "show": {
+        "actions.action": ["createPost"]
+      }
+    },
+    {
+      "label": "Post ID",
+      "name": "postId",
+      "type": "string",
+      "description": "The ID of the post to be deleted.",
+      "show": {
+        "actions.action": ["deletePost"]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "The ID of the user to look up.",
+      "show": {
+        "actions.action": ["lookupUserId"]
+      }
+    },
+    {
+      "label": "Username",
+      "name": "username",
+      "type": "string",
+      "description": "The username of the user to look up.",
+      "show": {
+        "actions.action": ["lookupUsername"]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/X/X.js"
+}
