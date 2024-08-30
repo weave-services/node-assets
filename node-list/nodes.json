@@ -324,6 +324,302 @@
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Scheduler/Scheduler.js"
   },
   {
+  "label": "GitHub Webhook",
+  "name": "GitHubWebhook",
+  "type": "webhook",
+  "version": 1,
+  "description": "Start workflow whenever a GitHub webhook event occurs",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+  },
+  "category": "Development",
+  "incoming": 0,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Events",
+      "name": "events",
+      "type": "options",
+      "options": [
+        {
+          "label": "Branch Protection Rule",
+          "name": "branch_protection_rule",
+          "description": "Activity related to a branch protection rule."
+        },
+        {
+          "label": "Check Run",
+          "name": "check_run",
+          "description": "Check run activity has occurred."
+        },
+        {
+          "label": "Check Suite",
+          "name": "check_suite",
+          "description": "Check suite activity has occurred."
+        },
+        {
+          "label": "Code Scanning Alert",
+          "name": "code_scanning_alert",
+          "description": "Activity related to code scanning alerts in a repository."
+        },
+        {
+          "label": "Commit Comment",
+          "name": "commit_comment",
+          "description": "A commit comment is created."
+        },
+        {
+          "label": "Create",
+          "name": "create",
+          "description": "A Git branch or tag is created."
+        },
+        {
+          "label": "Delete",
+          "name": "delete",
+          "description": "A Git branch or tag is deleted."
+        },
+        {
+          "label": "Dependabot Alert",
+          "name": "dependabot_alert",
+          "description": "Activity related to Dependabot alerts."
+        },
+        {
+          "label": "Deploy Key",
+          "name": "deploy_key",
+          "description": "A deploy key is added or removed from a repository."
+        },
+        {
+          "label": "Deployment",
+          "name": "deployment",
+          "description": "A deployment is created."
+        },
+        {
+          "label": "Deployment Status",
+          "name": "deployment_status",
+          "description": "A deployment status is created."
+        },
+        {
+          "label": "Discussion",
+          "name": "discussion",
+          "description": "Activity related to a discussion."
+        },
+        {
+          "label": "Discussion Comment",
+          "name": "discussion_comment",
+          "description": "Activity related to a comment in a discussion."
+        },
+        {
+          "label": "Fork",
+          "name": "fork",
+          "description": "A user forks a repository."
+        },
+        {
+          "label": "GitHub App Authorization",
+          "name": "github_app_authorization",
+          "description": "When someone revokes their authorization of a GitHub App, this event occurs."
+        },
+        {
+          "label": "Gollum",
+          "name": "gollum",
+          "description": "A wiki page is created or updated."
+        },
+        {
+          "label": "Installation",
+          "name": "installation",
+          "description": "Activity related to a GitHub App installation."
+        },
+        {
+          "label": "Installation Repositories",
+          "name": "installation_repositories",
+          "description": "Activity related to repositories being added to a GitHub App installation."
+        },
+        {
+          "label": "Issue Comment",
+          "name": "issue_comment",
+          "description": "Activity related to an issue or pull request comment."
+        },
+        {
+          "label": "Issues",
+          "name": "issues",
+          "description": "Activity related to an issue."
+        },
+        {
+          "label": "Label",
+          "name": "label",
+          "description": "Activity related to a label."
+        },
+        {
+          "label": "Marketplace Purchase",
+          "name": "marketplace_purchase",
+          "description": "Activity related to a GitHub Marketplace purchase."
+        },
+        {
+          "label": "Member",
+          "name": "member",
+          "description": "Activity related to repository collaborators."
+        },
+        {
+          "label": "Membership",
+          "name": "membership",
+          "description": "Activity related to team membership."
+        },
+        {
+          "label": "Merge Group",
+          "name": "merge_group",
+          "description": "Activity related to merge groups in a merge queue."
+        },
+        {
+          "label": "Meta",
+          "name": "meta",
+          "description": "The webhook this event is configured on was deleted."
+        },
+        {
+          "label": "Milestone",
+          "name": "milestone",
+          "description": "Activity related to milestones."
+        },
+        {
+          "label": "Organization",
+          "name": "organization",
+          "description": "Activity related to an organization and its members."
+        },
+        {
+          "label": "Org Block",
+          "name": "org_block",
+          "description": "Activity related to people being blocked in an organization."
+        },
+        {
+          "label": "Package",
+          "name": "package",
+          "description": "Activity related to GitHub Packages."
+        },
+        {
+          "label": "Page Build",
+          "name": "page_build",
+          "description": "Represents an attempted build of a GitHub Pages site."
+        },
+        {
+          "label": "Ping",
+          "name": "ping",
+          "description": "When you create a new webhook, we send you a simple ping event to let you know you have set up the webhook correctly."
+        },
+        {
+          "label": "Project",
+          "name": "project",
+          "description": "Activity related to classic projects."
+        },
+        {
+          "label": "Project Card",
+          "name": "project_card",
+          "description": "Activity related to cards in a classic project."
+        },
+        {
+          "label": "Project Column",
+          "name": "project_column",
+          "description": "Activity related to columns in a classic project."
+        },
+        {
+          "label": "Projects V2 Item",
+          "name": "projects_v2_item",
+          "description": "Activity related to items in a project."
+        },
+        {
+          "label": "Public",
+          "name": "public",
+          "description": "When a private repository is made public."
+        },
+        {
+          "label": "Pull Request",
+          "name": "pull_request",
+          "description": "Activity related to pull requests."
+        },
+        {
+          "label": "Pull Request Review",
+          "name": "pull_request_review",
+          "description": "Activity related to pull request reviews."
+        },
+        {
+          "label": "Pull Request Review Comment",
+          "name": "pull_request_review_comment",
+          "description": "Activity related to pull request review comments in the pull request unified diff."
+        },
+        {
+          "label": "Pull Request Review Thread",
+          "name": "pull_request_review_thread",
+          "description": "Activity related to a comment thread on a pull request being marked as resolved or unresolved."
+        },
+        {
+          "label": "Push",
+          "name": "push",
+          "description": "Activity related to one or more commits pushed to a repository branch or tag."
+        },
+        {
+          "label": "Release",
+          "name": "release",
+          "description": "Activity related to a release."
+        },
+        {
+          "label": "Repository Dispatch",
+          "name": "repository_dispatch",
+          "description": "Occurs when a GitHub App sends a POST request to the 'Create a repository dispatch event' endpoint."
+        },
+        {
+          "label": "Repository",
+          "name": "repository",
+          "description": "Activity related to a repository."
+        },
+        {
+          "label": "Repository Import",
+          "name": "repository_import",
+          "description": "Activity related to a repository being imported to GitHub."
+        },
+        {
+          "label": "Repository Vulnerability Alert",
+          "name": "repository_vulnerability_alert",
+          "description": "Activity related to security vulnerability alerts in a repository."
+        },
+        {
+          "label": "Security Advisory",
+          "name": "security_advisory",
+          "description": "Activity related to a security advisory reviewed by GitHub."
+        },
+        {
+          "label": "Sponsorship",
+          "name": "sponsorship",
+          "description": "Activity related to a sponsorship listing."
+        }
+      ],
+      "default": "push"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "GitHub Webhook Secret",
+          "name": "githubWebhookSecret"
+        }
+      ],
+      "default": "githubWebhookSecret"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Webhook Secret",
+      "name": "webhookSecret",
+      "type": "string",
+      "description": "The secret used to validate GitHub webhook requests.",
+      "optional": true,
+      "show": {
+        "actions.events": []
+      }
+    }
+  ]
+},
+  {
     "nodeState": null,
     "loadMethods": {},
     "label": "Azure OpenAI",
