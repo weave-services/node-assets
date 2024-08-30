@@ -370,7 +370,6 @@
           "name": "sponsorship",
           "description": "Activity related to a sponsorship listing."
         }
-        // Additional events can be added here
       ],
       "default": "push"
     }
