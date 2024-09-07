@@ -303,10 +303,6 @@
             },
             "options": [
               {
-                "label": "Seconds",
-                "name": "seconds"
-              },
-              {
                 "label": "Minutes",
                 "name": "minutes"
               },
