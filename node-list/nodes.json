@@ -108,7 +108,7 @@
   {
     "_events": {},
     "_eventsCount": 0,
-    "label": "Scheduler",
+    "label": "Scheduler Trigger",
     "name": "scheduler",
     "icons": {
       "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
