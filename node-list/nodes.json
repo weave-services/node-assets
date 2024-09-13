@@ -113,7 +113,7 @@
     "icons": {
       "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
       "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg"
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/02709375e19a733ba6db1fcb8ae8f597312a4099/nodes/Scheduler/darkmode.png"
     },
     "type": "scheduler",
     "category": "Utilities",
