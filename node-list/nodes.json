@@ -5173,6 +5173,5181 @@
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
 },
+[
+  {
+    "nodeState": null,
+    "loadMethods": {},
+    "label": "Webhook Trigger",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
+    },
+    "name": "webhook",
+    "type": "webhook",
+    "category": "Utilities",
+    "version": 2,
+    "description": "Start workflow when webhook is called",
+    "incoming": 0,
+    "outgoing": 1,
+    "inputParameters": [
+      {
+        "label": "HTTP Method",
+        "name": "httpMethod",
+        "type": "options",
+        "options": [
+          {
+            "label": "GET",
+            "name": "GET"
+          },
+          {
+            "label": "POST",
+            "name": "POST"
+          }
+        ],
+        "default": "GET",
+        "description": "The HTTP method to listen to."
+      },
+      {
+        "label": "Authorization",
+        "name": "authorization",
+        "type": "options",
+        "options": [
+          {
+            "label": "API",
+            "name": "headerAuth",
+            "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+          },
+          {
+            "label": "None",
+            "name": "none"
+          }
+        ],
+        "default": "none",
+        "description": "The way to authorize incoming webhook."
+      },
+      {
+        "label": "API key",
+        "name": "apiKey",
+        "type": "asyncOptions",
+        "loadMethod": "getAPIKeys",
+        "description": "Incoming call must consists header \"x-api-key\" with matching API key. You can create new key from the dashboard",
+        "show": {
+          "inputParameters.authorization": [
+            "headerAuth"
+          ]
+        }
+      },
+      {
+        "label": "Response Code",
+        "name": "responseCode",
+        "type": "number",
+        "default": 200,
+        "description": "The HTTP response code to return when a HTTP request is made to this endpoint URL. Valid range: 1XX - 5XX"
+      },
+      {
+        "label": "What/How to Return",
+        "name": "returnType",
+        "type": "options",
+        "options": [
+          {
+            "label": "Immediate Reponse",
+            "name": "immediateResponse",
+            "description": "Returns response immediately once webhook is called"
+          },
+          {
+            "label": "When Last Node Finishes",
+            "name": "lastNodeResponse",
+            "description": "Returns output response of the last executed node"
+          }
+        ],
+        "default": "immediateResponse",
+        "description": "What data or message, and how should Webhook node return upon successful calling"
+      },
+      {
+        "label": "Response Data",
+        "name": "responseData",
+        "type": "string",
+        "default": "",
+        "description": "Custom response data to return when a HTTP request is made to this webhook endpoint URL. If not provided, default to: Webhook received!",
+        "optional": true,
+        "show": {
+          "inputParameters.returnType": [
+            "immediateResponse"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+  },
+  {
+    "_events": {},
+    "_eventsCount": 0,
+    "label": "Scheduler Trigger",
+    "name": "scheduler",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/02709375e19a733ba6db1fcb8ae8f597312a4099/nodes/Scheduler/darkmode.png"
+    },
+    "type": "scheduler",
+    "category": "Utilities",
+    "version": 1.1,
+    "description": "Start workflow at scheduled times",
+    "incoming": 0,
+    "outgoing": 1,
+    "inputParameters": [
+      {
+        "label": "Pattern",
+        "name": "pattern",
+        "type": "options",
+        "options": [
+          {
+            "label": "Repetitive",
+            "name": "repetitive",
+            "description": "Workflow will be triggered repetitively every X"
+          },
+          {
+            "label": "Once",
+            "name": "once",
+            "description": "Workflow will be triggered only once at specific time"
+          }
+        ],
+        "default": "repetitive"
+      },
+      {
+        "label": "Date Time",
+        "name": "specificDateTime",
+        "type": "date",
+        "description": "Choose a specific date time to trigger the workflow once",
+        "show": {
+          "inputParameters.pattern": [
+            "once"
+          ]
+        }
+      },
+      {
+        "label": "Schedules",
+        "name": "scheduleTimes",
+        "type": "array",
+        "show": {
+          "inputParameters.pattern": [
+            "repetitive"
+          ]
+        },
+        "array": [
+          {
+            "label": "Mode",
+            "name": "mode",
+            "type": "options",
+            "options": [
+              {
+                "label": "Every Day",
+                "name": "everyDay"
+              },
+              {
+                "label": "Every Week",
+                "name": "everyWeek"
+              },
+              {
+                "label": "Every Month",
+                "name": "everyMonth"
+              },
+              {
+                "label": "Every X",
+                "name": "everyX"
+              },
+              {
+                "label": "Every Specific Time",
+                "name": "specific"
+              }
+            ],
+            "default": "everyDay"
+          },
+          {
+            "label": "Specific Date Time",
+            "name": "specificDateTime",
+            "type": "date",
+            "description": "Choose a specific date time to trigger the workflow",
+            "show": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "specific"
+              ]
+            }
+          },
+          {
+            "label": "Hour",
+            "name": "hour",
+            "type": "number",
+            "hide": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyX",
+                "specific"
+              ]
+            },
+            "default": 21,
+            "description": "[24H Format] Scheduled hour to trigger workflow"
+          },
+          {
+            "label": "Minute",
+            "name": "minute",
+            "type": "number",
+            "hide": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyX",
+                "specific"
+              ]
+            },
+            "default": 35,
+            "description": "[0 - 59] Scheduled minute to trigger workflow"
+          },
+          {
+            "label": "Day of Month",
+            "name": "dayOfMonth",
+            "type": "number",
+            "show": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyMonth"
+              ]
+            },
+            "default": 6,
+            "description": "[1 - 31] Scheduled day to trigger workflow"
+          },
+          {
+            "label": "Weekday",
+            "name": "weekday",
+            "type": "options",
+            "show": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyWeek"
+              ]
+            },
+            "options": [
+              {
+                "label": "Monday",
+                "name": "1"
+              },
+              {
+                "label": "Tuesday",
+                "name": "2"
+              },
+              {
+                "label": "Wednesday",
+                "name": "3"
+              },
+              {
+                "label": "Thursday",
+                "name": "4"
+              },
+              {
+                "label": "Friday",
+                "name": "5"
+              },
+              {
+                "label": "Saturday",
+                "name": "6"
+              },
+              {
+                "label": "Sunday",
+                "name": "0"
+              }
+            ],
+            "default": "3",
+            "description": "Scheduled weekday to trigger workflow"
+          },
+          {
+            "label": "Value",
+            "name": "value",
+            "type": "number",
+            "show": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyX"
+              ]
+            },
+            "default": 1,
+            "description": "Scheduled X seconds/minutes/hours to trigger workflow"
+          },
+          {
+            "label": "Unit",
+            "name": "unit",
+            "type": "options",
+            "show": {
+              "inputParameters.scheduleTimes[$index].mode": [
+                "everyX"
+              ]
+            },
+            "options": [
+              {
+                "label": "Minutes",
+                "name": "minutes"
+              },
+              {
+                "label": "Hours",
+                "name": "hours"
+              }
+            ],
+            "default": "hours",
+            "description": "Units of scheduled X seconds / minutes / hours"
+          }
+        ]
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Scheduler/Scheduler.js"
+  },
+  {
+  "label": "GitHub Webhook",
+  "name": "GitHubWebhook",
+  "type": "webhook",
+  "version": 1,
+  "description": "Start workflow whenever a GitHub webhook event occurs",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+  },
+  "category": "Development",
+  "incoming": 0,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Events",
+      "name": "events",
+      "type": "options",
+      "options": [
+        {
+          "label": "Branch Protection Rule",
+          "name": "branch_protection_rule",
+          "description": "Activity related to a branch protection rule."
+        },
+        {
+          "label": "Check Run",
+          "name": "check_run",
+          "description": "Check run activity has occurred."
+        },
+        {
+          "label": "Check Suite",
+          "name": "check_suite",
+          "description": "Check suite activity has occurred."
+        },
+        {
+          "label": "Code Scanning Alert",
+          "name": "code_scanning_alert",
+          "description": "Activity related to code scanning alerts in a repository."
+        },
+        {
+          "label": "Commit Comment",
+          "name": "commit_comment",
+          "description": "A commit comment is created."
+        },
+        {
+          "label": "Create",
+          "name": "create",
+          "description": "A Git branch or tag is created."
+        },
+        {
+          "label": "Delete",
+          "name": "delete",
+          "description": "A Git branch or tag is deleted."
+        },
+        {
+          "label": "Dependabot Alert",
+          "name": "dependabot_alert",
+          "description": "Activity related to Dependabot alerts."
+        },
+        {
+          "label": "Deploy Key",
+          "name": "deploy_key",
+          "description": "A deploy key is added or removed from a repository."
+        },
+        {
+          "label": "Deployment",
+          "name": "deployment",
+          "description": "A deployment is created."
+        },
+        {
+          "label": "Deployment Status",
+          "name": "deployment_status",
+          "description": "A deployment status is created."
+        },
+        {
+          "label": "Discussion",
+          "name": "discussion",
+          "description": "Activity related to a discussion."
+        },
+        {
+          "label": "Discussion Comment",
+          "name": "discussion_comment",
+          "description": "Activity related to a comment in a discussion."
+        },
+        {
+          "label": "Fork",
+          "name": "fork",
+          "description": "A user forks a repository."
+        },
+        {
+          "label": "GitHub App Authorization",
+          "name": "github_app_authorization",
+          "description": "When someone revokes their authorization of a GitHub App, this event occurs."
+        },
+        {
+          "label": "Gollum",
+          "name": "gollum",
+          "description": "A wiki page is created or updated."
+        },
+        {
+          "label": "Installation",
+          "name": "installation",
+          "description": "Activity related to a GitHub App installation."
+        },
+        {
+          "label": "Installation Repositories",
+          "name": "installation_repositories",
+          "description": "Activity related to repositories being added to a GitHub App installation."
+        },
+        {
+          "label": "Issue Comment",
+          "name": "issue_comment",
+          "description": "Activity related to an issue or pull request comment."
+        },
+        {
+          "label": "Issues",
+          "name": "issues",
+          "description": "Activity related to an issue."
+        },
+        {
+          "label": "Label",
+          "name": "label",
+          "description": "Activity related to a label."
+        },
+        {
+          "label": "Marketplace Purchase",
+          "name": "marketplace_purchase",
+          "description": "Activity related to a GitHub Marketplace purchase."
+        },
+        {
+          "label": "Member",
+          "name": "member",
+          "description": "Activity related to repository collaborators."
+        },
+        {
+          "label": "Membership",
+          "name": "membership",
+          "description": "Activity related to team membership."
+        },
+        {
+          "label": "Merge Group",
+          "name": "merge_group",
+          "description": "Activity related to merge groups in a merge queue."
+        },
+        {
+          "label": "Meta",
+          "name": "meta",
+          "description": "The webhook this event is configured on was deleted."
+        },
+        {
+          "label": "Milestone",
+          "name": "milestone",
+          "description": "Activity related to milestones."
+        },
+        {
+          "label": "Organization",
+          "name": "organization",
+          "description": "Activity related to an organization and its members."
+        },
+        {
+          "label": "Org Block",
+          "name": "org_block",
+          "description": "Activity related to people being blocked in an organization."
+        },
+        {
+          "label": "Package",
+          "name": "package",
+          "description": "Activity related to GitHub Packages."
+        },
+        {
+          "label": "Page Build",
+          "name": "page_build",
+          "description": "Represents an attempted build of a GitHub Pages site."
+        },
+        {
+          "label": "Ping",
+          "name": "ping",
+          "description": "When you create a new webhook, we send you a simple ping event to let you know you have set up the webhook correctly."
+        },
+        {
+          "label": "Project",
+          "name": "project",
+          "description": "Activity related to classic projects."
+        },
+        {
+          "label": "Project Card",
+          "name": "project_card",
+          "description": "Activity related to cards in a classic project."
+        },
+        {
+          "label": "Project Column",
+          "name": "project_column",
+          "description": "Activity related to columns in a classic project."
+        },
+        {
+          "label": "Projects V2 Item",
+          "name": "projects_v2_item",
+          "description": "Activity related to items in a project."
+        },
+        {
+          "label": "Public",
+          "name": "public",
+          "description": "When a private repository is made public."
+        },
+        {
+          "label": "Pull Request",
+          "name": "pull_request",
+          "description": "Activity related to pull requests."
+        },
+        {
+          "label": "Pull Request Review",
+          "name": "pull_request_review",
+          "description": "Activity related to pull request reviews."
+        },
+        {
+          "label": "Pull Request Review Comment",
+          "name": "pull_request_review_comment",
+          "description": "Activity related to pull request review comments in the pull request unified diff."
+        },
+        {
+          "label": "Pull Request Review Thread",
+          "name": "pull_request_review_thread",
+          "description": "Activity related to a comment thread on a pull request being marked as resolved or unresolved."
+        },
+        {
+          "label": "Push",
+          "name": "push",
+          "description": "Activity related to one or more commits pushed to a repository branch or tag."
+        },
+        {
+          "label": "Release",
+          "name": "release",
+          "description": "Activity related to a release."
+        },
+        {
+          "label": "Repository Dispatch",
+          "name": "repository_dispatch",
+          "description": "Occurs when a GitHub App sends a POST request to the 'Create a repository dispatch event' endpoint."
+        },
+        {
+          "label": "Repository",
+          "name": "repository",
+          "description": "Activity related to a repository."
+        },
+        {
+          "label": "Repository Import",
+          "name": "repository_import",
+          "description": "Activity related to a repository being imported to GitHub."
+        },
+        {
+          "label": "Repository Vulnerability Alert",
+          "name": "repository_vulnerability_alert",
+          "description": "Activity related to security vulnerability alerts in a repository."
+        },
+        {
+          "label": "Security Advisory",
+          "name": "security_advisory",
+          "description": "Activity related to a security advisory reviewed by GitHub."
+        },
+        {
+          "label": "Sponsorship",
+          "name": "sponsorship",
+          "description": "Activity related to a sponsorship listing."
+        }
+      ],
+      "default": "push"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "GitHub Webhook Secret",
+          "name": "githubWebhookSecret"
+        }
+      ],
+      "default": "githubWebhookSecret"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Webhook Secret",
+      "name": "webhookSecret",
+      "type": "string",
+      "description": "The secret used to validate GitHub webhook requests.",
+      "optional": true,
+      "show": {
+        "actions.events": []
+      }
+    }
+  ]
+},
+  {
+    "nodeState": null,
+    "loadMethods": {},
+    "label": "Azure OpenAI",
+    "name": "azureOpenAI",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/default.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/light.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/dark.png"
+    },
+    "type": "action",
+    "category": "LLMs",
+    "version": 1,
+    "description": "Wrapper around Azure OpenAI large language models",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Select Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Generate Text",
+            "name": "textCompletion"
+          }
+        ]
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Connect Credential",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Bearer Token Auth",
+            "name": "azureOpenAIApiKey"
+          }
+        ],
+        "default": "azureOpenAIApiKey"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Model Name",
+        "name": "modelName",
+        "type": "string",
+        "default": "text-davinci-003"
+      },
+      {
+        "label": "Temperature",
+        "name": "temperature",
+        "type": "number",
+        "step": 0.1,
+        "default": 0.9,
+        "optional": true
+      },
+      {
+        "label": "Max Tokens",
+        "name": "maxTokens",
+        "type": "number",
+        "step": 1,
+        "optional": true,
+        "additionalParams": true
+      },
+      {
+        "label": "Top Probability",
+        "name": "topP",
+        "type": "number",
+        "step": 0.1,
+        "optional": true,
+        "additionalParams": true
+      },
+      {
+        "label": "Frequency Penalty",
+        "name": "frequencyPenalty",
+        "type": "number",
+        "step": 0.1,
+        "optional": true,
+        "additionalParams": true
+      },
+      {
+        "label": "Presence Penalty",
+        "name": "presencePenalty",
+        "type": "number",
+        "step": 0.1,
+        "optional": true,
+        "additionalParams": true
+      },
+      {
+        "label": "Timeout",
+        "name": "timeout",
+        "type": "number",
+        "step": 1,
+        "optional": true,
+        "additionalParams": true
+      },
+      {
+        "label": "Best Of",
+        "name": "bestOf",
+        "type": "number",
+        "step": 1,
+        "optional": true,
+        "additionalParams": true
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
+  },
+  {
+    "label": "Arbiscan",
+    "name": "arbiscan",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png"
+    },
+    "type": "action",
+    "category": "Block Explorer",
+    "version": 1,
+    "description": "Perform Arbiscan operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Ether Balance for a Single Address",
+            "name": "getEtherBalance",
+            "description": "Returns the Ether balance of a given address."
+          },
+          {
+            "label": "Get Ether Balance for Multiple Addresses(separated by a comma)",
+            "name": "getEtherBalanceMulti",
+            "description": "Returns the Ether balance of the addresses(each address separated by a comma) entered."
+          },
+          {
+            "label": "Get transactions",
+            "name": "getTransactions",
+            "description": "Returns the list of transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions",
+            "name": "getInternalTransactions",
+            "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions by hash",
+            "name": "getInternalTransactionsByHash",
+            "description": "Returns the list of internal transactions performed within a transaction."
+          },
+          {
+            "label": "Get internal transactions by block",
+            "name": "getInternalTransactionsByBlock",
+            "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+          },
+          {
+            "label": "Get Contract ABI",
+            "name": "getAbi",
+            "description": "Returns the contract Application Binary Interface (ABI) of a verified smart contract."
+          },
+          {
+            "label": "Get Contract Source Code",
+            "name": "getContractSourceCode",
+            "description": "Returns the Solidity source code of a verified smart contract."
+          },
+          {
+            "label": "Check Transaction Receipt Status",
+            "name": "getTransactionReceiptStatus",
+            "description": "Returns the status code of a transaction execution."
+          },
+          {
+            "label": "Check Contract Execution Status",
+            "name": "getContractExecutionStatus",
+            "description": "Returns the status code of a contract execution."
+          },
+          {
+            "label": "Get ERC20 Token Supply",
+            "name": "getErc20TokenSupply",
+            "description": "Returns the total supply of an ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get ERC20 Token Balance",
+            "name": "getErc20TokenBalance",
+            "description": "Returns the current balance of an ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get ETHER Price",
+            "name": "getEtherPrice",
+            "description": "Returns the latest price of 1 ETHER."
+          },
+          {
+            "label": "Get Total Supply of Ether",
+            "name": "getEtherSupply",
+            "description": "Returns the current amount of Ether in circulation."
+          }
+        ],
+        "default": "getEtherBalance"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Arbitrum Mainnet",
+            "name": "arbitrum"
+          },
+          {
+            "label": "Arbitrum Goerli",
+            "name": "arbitrum-goerli"
+          }
+        ],
+        "default": "arbitrum"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "options",
+        "options": [
+          {
+            "label": "Arbiscan API Key",
+            "name": "arbiscanApi"
+          }
+        ],
+        "default": "arbiscanApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Address",
+        "name": "address",
+        "type": "string",
+        "description": "The address parameter(s) required",
+        "show": {
+          "actions.api": [
+            "getEtherBalance",
+            "getTransactions",
+            "getInternalTransactions",
+            "getAbi",
+            "getContractSourceCode",
+            "getErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Start Block",
+        "name": "startBlock",
+        "type": "number",
+        "optional": true,
+        "description": "the block number to start searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 0
+      },
+      {
+        "label": "End Block",
+        "name": "endBlock",
+        "type": "number",
+        "optional": true,
+        "description": "the block number to stop searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        }
+      },
+      {
+        "label": "Page",
+        "name": "page",
+        "type": "number",
+        "optional": true,
+        "description": "the page number, if pagination is enabled",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 1
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "optional": true,
+        "description": "the number of transactions displayed per page",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 10
+      },
+      {
+        "label": "Sort By",
+        "name": "sortBy",
+        "type": "options",
+        "optional": true,
+        "options": [
+          {
+            "label": "Desc",
+            "name": "desc"
+          },
+          {
+            "label": "Asc",
+            "name": "asc"
+          }
+        ],
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": "desc"
+      },
+      {
+        "label": "Transaction Hash",
+        "name": "txhash",
+        "type": "string",
+        "description": "the string representing the transaction hash to check for internal transactions",
+        "show": {
+          "actions.api": [
+            "getInternalTransactionsByHash",
+            "getTransactionReceiptStatus",
+            "getContractExecutionStatus"
+          ]
+        }
+      },
+      {
+        "label": "Contract Address",
+        "name": "contractAddress",
+        "type": "string",
+        "description": "the contract address of the ERC-20 token",
+        "show": {
+          "actions.api": [
+            "getErc20TokenSupply",
+            "getErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Tag",
+        "name": "tag",
+        "type": "options",
+        "options": [
+          {
+            "label": "latest",
+            "name": "latest"
+          }
+        ],
+        "default": "latest",
+        "show": {
+          "actions.api": [
+            "getErc20TokenBalance"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
+  },
+  {
+    "nodeState": null,
+    "_events": {},
+    "_eventsCount": 0,
+    "loadMethods": {},
+    "label": "Zapier API Trigger",
+    "name": "ZapierAPITrigger",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/default.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/light.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/dark.png"
+    },
+    "type": "action",
+    "category": "Integrations",
+    "version": 1,
+    "description": "Start workflow based on Zapier API events",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Select Endpoint",
+        "name": "endpoint",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Apps [v1]",
+            "name": "apps/v1"
+          },
+          {
+            "label": "Get Apps [v2]",
+            "name": "apps/v2"
+          },
+          {
+            "label": "Get Categories",
+            "name": "categories"
+          },
+          {
+            "label": "Create Account",
+            "name": "accounts"
+          },
+          {
+            "label": "User Profile",
+            "name": "accounts/profile"
+          },
+          {
+            "label": "Get Zap Templates",
+            "name": "zap-templates"
+          },
+          {
+            "label": "Create a Zap",
+            "name": "zaps"
+          },
+          {
+            "label": "Get Zaps [v1]",
+            "name": "zaps/v1"
+          },
+          {
+            "label": "Get Zaps [v2]",
+            "name": "zaps/v2"
+          },
+          {
+            "label": "Get Actions",
+            "name": "actions"
+          },
+          {
+            "label": "Get Input Fields",
+            "name": "actions/input-fields"
+          },
+          {
+            "label": "Get Output Fields",
+            "name": "actions/output-fields"
+          },
+          {
+            "label": "Get Choices",
+            "name": "actions/choices"
+          },
+          {
+            "label": "Step Test",
+            "name": "actions/step-test"
+          },
+          {
+            "label": "Get Authentications",
+            "name": "authentications"
+          },
+          {
+            "label": "Create Authentication",
+            "name": "authentications"
+          }
+        ]
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Payload",
+        "name": "payload",
+        "type": "json",
+        "placeholder": "{\"key\": \"value\"}",
+        "optional": true
+      },
+      {
+        "label": "Query Parameters",
+        "name": "queryParams",
+        "type": "json",
+        "placeholder": "{\"key\": \"value\"}",
+        "optional": true
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Authorization",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Bearer Token Auth",
+            "name": "zapierBearerTokenAuth"
+          }
+        ],
+        "default": "zapierBearerTokenAuth"
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
+  },
+  {
+    "nodeState": null,
+    "label": "Discord",
+    "name": "discord",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/dark.svg"
+    },
+    "type": "action",
+    "category": "Communication",
+    "version": 1,
+    "description": "Post message in Discord channel",
+    "incoming": 1,
+    "outgoing": 1,
+    "inputParameters": [
+      {
+        "label": "Webhook URL",
+        "name": "webhookUrl",
+        "type": "string",
+        "default": "",
+        "description": "Webhook URL for the channel. Learn how to get: https://www.youtube.com/watch?v=K8vgRWZnSZw"
+      },
+      {
+        "label": "Content",
+        "description": "Message contents (up to 2000 characters)",
+        "name": "content",
+        "type": "string",
+        "default": ""
+      },
+      {
+        "label": "Username",
+        "name": "username",
+        "type": "string",
+        "default": "",
+        "description": "Override the default username of the webhook",
+        "optional": true
+      },
+      {
+        "label": "Avatar URL",
+        "name": "avatarUrl",
+        "type": "string",
+        "default": "",
+        "description": "Override the default avatar of the webhook",
+        "optional": true
+      },
+      {
+        "label": "TTS",
+        "name": "tts",
+        "type": "boolean",
+        "default": false,
+        "description": "Send as Text To Speech message",
+        "optional": true
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
+  },
+  {
+    "nodeState": null,
+    "label": "Send Email",
+    "name": "emailSend",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
+    },
+    "version": 1,
+    "type": "action",
+    "category": "Communication",
+    "description": "Send email to single or multiple recipients",
+    "incoming": 1,
+    "outgoing": 1,
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "options",
+        "options": [
+          {
+            "label": "Email Send Smtp",
+            "name": "emailSendSmtp"
+          }
+        ],
+        "default": "emailSendSmtp"
+      },
+      {
+        "label": "SMTP Credentials",
+        "name": "smtpCredentials",
+        "type": "array",
+        "description": "SMTP server credentials",
+        "array": [
+          {
+            "label": "Host",
+            "name": "host",
+            "type": "string",
+            "default": "",
+            "description": "SMTP server host."
+          },
+          {
+            "label": "Port",
+            "name": "port",
+            "type": "number",
+            "default": 587,
+            "description": "SMTP server port."
+          },
+          {
+            "label": "Secure",
+            "name": "secure",
+            "type": "boolean",
+            "default": false,
+            "description": "Use TLS for secure connection."
+          },
+          {
+            "label": "User",
+            "name": "user",
+            "type": "string",
+            "default": "",
+            "description": "Username for SMTP authentication.",
+            "optional": true
+          },
+          {
+            "label": "Password",
+            "name": "password",
+            "type": "string",
+            "default": "",
+            "description": "Password for SMTP authentication.",
+            "optional": true
+          }
+        ]
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "From Email",
+        "name": "fromEmail",
+        "type": "string",
+        "default": "",
+        "description": "Email address of the sender."
+      },
+      {
+        "label": "To Email",
+        "name": "toEmail",
+        "type": "string",
+        "default": "",
+        "description": "Email address of the recipient. Multiple emails can be comma-separated.",
+        "optional": true
+      },
+      {
+        "label": "CC Email",
+        "name": "ccEmail",
+        "type": "string",
+        "default": "",
+        "description": "Email address of CC recipient. Multiple emails can be comma-separated.",
+        "optional": true
+      },
+      {
+        "label": "Subject",
+        "name": "subject",
+        "type": "string",
+        "default": "",
+        "description": "Subject line of the email."
+      },
+      {
+        "label": "Body - Plain Text",
+        "name": "text",
+        "type": "string",
+        "rows": 5,
+        "default": "",
+        "description": "Plain text message of email.",
+        "optional": true
+      },
+      {
+        "label": "Body - HTML",
+        "name": "html",
+        "type": "string",
+        "rows": 5,
+        "default": "",
+        "description": "HTML text message of email.",
+        "optional": true
+      },
+      {
+        "label": "Ignore SSL",
+        "name": "ignoreSSL",
+        "type": "boolean",
+        "default": false,
+        "description": "Send email regardless of SSL validation.",
+        "optional": true
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
+  },
+  {
+    "nodeState": null,
+    "label": "Etherscan",
+    "name": "etherscan",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/dark.svg"
+    },
+    "type": "action",
+    "category": "Block Explorer",
+    "version": 1,
+    "description": "Perform Etherscan operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Ether Balance for a Single Address",
+            "name": "getEtherBalance",
+            "description": "Returns the Ether balance of a given address."
+          },
+          {
+            "label": "Get Ether Balance for Multiple Addresses(separated by a comma)",
+            "name": "getEtherBalanceMulti",
+            "description": "Returns the Ether balance of the addresses(each address separated by a comma) entered."
+          },
+          {
+            "label": "Get transactions",
+            "name": "getTransactions",
+            "description": "Returns the list of transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions",
+            "name": "getInternalTransactions",
+            "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions by hash",
+            "name": "getInternalTransactionsByHash",
+            "description": "Returns the list of internal transactions performed within a transaction."
+          },
+          {
+            "label": "Get internal transactions by block",
+            "name": "getInternalTransactionsByBlock",
+            "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+          },
+          {
+            "label": "Get list of Blocks Validated by Address",
+            "name": "getBlocksValidated",
+            "description": "Returns the list of blocks validated by an address."
+          },
+          {
+            "label": "Get Contract ABI",
+            "name": "getAbi",
+            "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+          },
+          {
+            "label": "Get Contract Source Code",
+            "name": "getContractSourceCode",
+            "description": "Returns the Solidity source code of a verified smart contract."
+          },
+          {
+            "label": "Check Transaction Receipt Status",
+            "name": "getTransactionReceiptStatus",
+            "description": "Returns the status code of a transaction execution."
+          },
+          {
+            "label": "Get ERC20 Token Supply",
+            "name": "getErc20TokenSupply",
+            "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get ERC20 Token Balance",
+            "name": "getErc20TokenBalance",
+            "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO]",
+            "name": "getHistoricalErc20TokenSupply",
+            "description": "Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO]",
+            "name": "getHistoricalErc20TokenBalance",
+            "description": "Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+          },
+          {
+            "label": "Get Token Info [PRO]",
+            "name": "getTokenInfo",
+            "description": "Returns project information and social media links of an ERC-20/ERC-721 token."
+          },
+          {
+            "label": "Get ETHER Price",
+            "name": "getEtherPrice",
+            "description": "Returns the latest price of 1 ETHER."
+          },
+          {
+            "label": "Get Historical ETHER Price [PRO]",
+            "name": "getHistoricalEtherPrice",
+            "description": "Returns the historical price of ETHER."
+          }
+        ],
+        "default": "getEtherBalance"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Mainnet",
+            "name": "homestead"
+          },
+          {
+            "label": "Goerli",
+            "name": "goerli"
+          }
+        ],
+        "default": "homestead"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Etherscan API Key",
+            "name": "etherscanApi"
+          }
+        ],
+        "default": "etherscanApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Address",
+        "name": "address",
+        "type": "string",
+        "description": "The address parameter(s) required",
+        "show": {
+          "actions.api": [
+            "getEtherBalance",
+            "getHistoricalEtherBalance",
+            "getTransactions",
+            "getInternalTransactions",
+            "getBlocksValidated",
+            "getAbi",
+            "getContractSourceCode",
+            "getErc20TokenBalance",
+            "getHistoricalErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Block Number",
+        "name": "blockno",
+        "type": "number",
+        "description": "the block number to check balance for eg. 2000000",
+        "show": {
+          "actions.api": [
+            "getHistoricalEtherBalance",
+            "getHistoricalErc20TokenSupply",
+            "getHistoricalErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Start Block",
+        "name": "startBlock",
+        "type": "number",
+        "optional": true,
+        "description": "the block number to start searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 0
+      },
+      {
+        "label": "End Block",
+        "name": "endBlock",
+        "type": "number",
+        "optional": true,
+        "description": "the block number to stop searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        }
+      },
+      {
+        "label": "Page",
+        "name": "page",
+        "type": "number",
+        "optional": true,
+        "description": "the page number, if pagination is enabled",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock",
+            "getBlocksValidated"
+          ]
+        },
+        "default": 1
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "optional": true,
+        "description": "the number of transactions displayed per page",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock",
+            "getBlocksValidated"
+          ]
+        },
+        "default": 10
+      },
+      {
+        "label": "Sort By",
+        "name": "sortBy",
+        "type": "options",
+        "optional": true,
+        "options": [
+          {
+            "label": "Desc",
+            "name": "desc"
+          },
+          {
+            "label": "Asc",
+            "name": "asc"
+          }
+        ],
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": "desc"
+      },
+      {
+        "label": "Transaction Hash",
+        "name": "txhash",
+        "type": "string",
+        "description": "the string representing the transaction hash to check for internal transactions",
+        "show": {
+          "actions.api": [
+            "getInternalTransactionsByHash",
+            "getTransactionReceiptStatus"
+          ]
+        }
+      },
+      {
+        "label": "Block Type",
+        "name": "blockType",
+        "type": "options",
+        "options": [
+          {
+            "label": "blocks",
+            "name": "blocks"
+          }
+        ],
+        "default": "blocks",
+        "show": {
+          "actions.api": [
+            "getBlocksValidated"
+          ]
+        }
+      },
+      {
+        "label": "Contract Address",
+        "name": "contractAddress",
+        "type": "string",
+        "description": "the contract address of the ERC-20 token",
+        "show": {
+          "actions.api": [
+            "getErc20TokenSupply",
+            "getErc20TokenBalance",
+            "getHistoricalErc20TokenSupply",
+            "getHistoricalErc20TokenBalance",
+            "getTokenInfo"
+          ]
+        }
+      },
+      {
+        "label": "Tag",
+        "name": "tag",
+        "type": "options",
+        "options": [
+          {
+            "label": "latest",
+            "name": "latest"
+          }
+        ],
+        "default": "latest",
+        "show": {
+          "actions.api": [
+            "getErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Start Time",
+        "name": "startTime",
+        "type": "date",
+        "optional": true,
+        "show": {
+          "actions.api": [
+            "getHistoricalEtherPrice"
+          ]
+        }
+      },
+      {
+        "label": "End Time",
+        "name": "endTime",
+        "type": "date",
+        "optional": true,
+        "show": {
+          "actions.api": [
+            "getHistoricalEtherPrice"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Etherscan/Etherscan.js"
+  },
+  {
+    "nodeState": null,
+    "label": "Any REST API (HTTP)",
+    "name": "http",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/dark.svg"
+    },
+    "type": "action",
+    "category": "Development",
+    "version": 1,
+    "description": "Execute HTTP request",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Method",
+        "name": "method",
+        "type": "options",
+        "options": [
+          {
+            "label": "GET",
+            "name": "GET"
+          },
+          {
+            "label": "POST",
+            "name": "POST"
+          },
+          {
+            "label": "PUT",
+            "name": "PUT"
+          },
+          {
+            "label": "DELETE",
+            "name": "DELETE"
+          },
+          {
+            "label": "HEAD",
+            "name": "HEAD"
+          }
+        ],
+        "default": "GET",
+        "description": "HTTP method"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Authorization",
+        "name": "credentialMethod",
+        "type": "options",
+        "options": [
+          {
+            "label": "Basic Auth",
+            "name": "httpBasicAuth"
+          },
+          {
+            "label": "Bearer Token Auth",
+            "name": "httpBearerTokenAuth"
+          },
+          {
+            "label": "No Auth",
+            "name": "noAuth",
+            "hideRegisteredCredential": true
+          }
+        ],
+        "default": "noAuth",
+        "description": "Select the type of authorization to be used"
+      }
+    ],
+    "inputParameters": [
+      {
+        "description": "Place the endpoint you want to target here",
+        "label": "URL",
+        "name": "url",
+        "type": "string",
+        "default": "",
+        "placeholder": "http://<your-url>.com/"
+      },
+      {
+        "description": "Indicate the headers you will be using",
+        "label": "Headers",
+        "name": "headers",
+        "type": "array",
+        "array": [
+          {
+            "label": "Key",
+            "name": "key",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "label": "Value",
+            "name": "value",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "optional": true
+      },
+      {
+        "description": "Indicate the Query Params you will be using",
+        "label": "Query Params",
+        "name": "queryParams",
+        "type": "array",
+        "array": [
+          {
+            "label": "Key",
+            "name": "key",
+            "type": "string",
+            "default": ""
+          },
+          {
+            "label": "Value",
+            "name": "value",
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "optional": true
+      },
+      {
+        "description": "Indicate the body type to be used json or text",
+        "label": "Body Type",
+        "name": "bodyType",
+        "type": "options",
+        "options": [
+          {
+            "label": "JSON",
+            "name": "json"
+          },
+          {
+            "label": "Text",
+            "name": "text"
+          }
+        ],
+        "default": "json",
+        "optional": true
+      },
+      {
+        "description": "Place a query body if applicable",
+        "label": "Body",
+        "name": "body",
+        "type": "json",
+        "show": {
+          "inputParameters.bodyType": [
+            "json"
+          ]
+        },
+        "placeholder": "{\"var1\": \"value1\"}",
+        "optional": true
+      },
+      {
+        "description": "Place a query body if applicable",
+        "label": "Body",
+        "name": "body",
+        "type": "string",
+        "show": {
+          "inputParameters.bodyType": [
+            "text"
+          ]
+        },
+        "default": "",
+        "optional": true
+      },
+      {
+        "description": "Indicate the response type to be used json, text, array buffer or raw(base64)",
+        "label": "Response Type",
+        "name": "responseType",
+        "type": "options",
+        "options": [
+          {
+            "label": "JSON",
+            "name": "json"
+          },
+          {
+            "label": "Text",
+            "name": "text"
+          },
+          {
+            "label": "Array Buffer",
+            "name": "arraybuffer"
+          },
+          {
+            "label": "Raw (Base64)",
+            "name": "base64"
+          }
+        ],
+        "optional": true
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HTTP/HTTP.js"
+  },
+  {
+    "nodeState": null,
+    "loadMethods": {},
+    "label": "Hugging Face",
+    "name": "huggingFace",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/default.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/light.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/dark.png"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 1,
+    "description": "Execute HuggingFace Inference API",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "description": "Select the type of Category",
+        "label": "Category",
+        "name": "category",
+        "type": "options",
+        "options": [
+          {
+            "label": "Image Classification",
+            "name": "image-classification"
+          },
+          {
+            "label": "Feature Extraction",
+            "name": "feature-extraction"
+          },
+          {
+            "label": "Object Detection",
+            "name": "object-detection"
+          },
+          {
+            "label": "Text Classification",
+            "name": "text-classification"
+          }
+        ]
+      },
+      {
+        "description": "Select a model for the tasks you need to perform",
+        "label": "Model",
+        "name": "model",
+        "type": "asyncOptions",
+        "loadMethod": "listModels"
+      },
+      {
+        "description": "Select a image",
+        "label": "Image File",
+        "name": "imageFile",
+        "type": "file",
+        "show": {
+          "actions.category": [
+            "image-classification",
+            "object-detection"
+          ]
+        }
+      },
+      {
+        "description": "Insert a text",
+        "label": "Input Text",
+        "name": "inputText",
+        "type": "string",
+        "rows": 5,
+        "show": {
+          "actions.category": [
+            "feature-extraction",
+            "text-classification"
+          ]
+        }
+      },
+      {
+        "label": "Inference Endpoint",
+        "name": "inferenceURL",
+        "type": "string",
+        "optional": true,
+        "description": "If this is not specify, the default free URL with limited usage will be used"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "HuggingFace Access Token",
+            "name": "huggingFaceAccessToken"
+          }
+        ],
+        "default": "huggingFaceAccessToken"
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HuggingFace/HuggingFace.js"
+  },
+  {
+    "nodeState": null,
+    "label": "If Else",
+    "name": "ifElse",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/dark.svg"
+    },
+    "version": 1,
+    "type": "action",
+    "category": "Utilities",
+    "description": "Split flows according to conditions set",
+    "incoming": 1,
+    "outgoing": 2,
+    "inputParameters": [
+      {
+        "label": "Mode",
+        "name": "mode",
+        "type": "options",
+        "options": [
+          {
+            "label": "AND",
+            "name": "and",
+            "description": "When all conditions are met"
+          },
+          {
+            "label": "OR",
+            "name": "or",
+            "description": "When any of the conditions is met"
+          }
+        ],
+        "default": "or",
+        "description": "Type of conditions"
+      },
+      {
+        "label": "Conditions",
+        "name": "conditions",
+        "type": "array",
+        "description": "Values to compare",
+        "array": [
+          {
+            "description": "Type of value to be used",
+            "label": "Type",
+            "name": "type",
+            "type": "options",
+            "options": [
+              {
+                "label": "String",
+                "name": "string"
+              },
+              {
+                "label": "Number",
+                "name": "number"
+              },
+              {
+                "label": "Boolean",
+                "name": "boolean"
+              }
+            ],
+            "default": "string"
+          },
+          {
+            "label": "Value 1",
+            "name": "value1",
+            "type": "string",
+            "default": "",
+            "description": "First value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "string"
+              ]
+            }
+          },
+          {
+            "label": "Operation",
+            "name": "operation",
+            "type": "options",
+            "options": [
+              {
+                "label": "Contains",
+                "name": "contains"
+              },
+              {
+                "label": "Ends With",
+                "name": "endsWith"
+              },
+              {
+                "label": "Equal",
+                "name": "equal"
+              },
+              {
+                "label": "Not Contains",
+                "name": "notContains"
+              },
+              {
+                "label": "Not Equal",
+                "name": "notEqual"
+              },
+              {
+                "label": "Regex",
+                "name": "regex"
+              },
+              {
+                "label": "Starts With",
+                "name": "startsWith"
+              },
+              {
+                "label": "Is Empty",
+                "name": "isEmpty"
+              },
+              {
+                "label": "Not Empty",
+                "name": "notEmpty"
+              }
+            ],
+            "default": "equal",
+            "description": "Type of operation",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "string"
+              ]
+            }
+          },
+          {
+            "label": "Value 2",
+            "name": "value2",
+            "type": "string",
+            "default": "",
+            "description": "Second value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "string"
+              ]
+            },
+            "hide": {
+              "inputParameters.conditions[$index].operation": [
+                "isEmpty",
+                "notEmpty"
+              ]
+            }
+          },
+          {
+            "label": "Value 1",
+            "name": "value1",
+            "type": "number",
+            "default": "",
+            "description": "First value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "number"
+              ]
+            }
+          },
+          {
+            "label": "Operation",
+            "name": "operation",
+            "type": "options",
+            "options": [
+              {
+                "label": "Smaller",
+                "name": "smaller"
+              },
+              {
+                "label": "Smaller Equal",
+                "name": "smallerEqual"
+              },
+              {
+                "label": "Equal",
+                "name": "equal"
+              },
+              {
+                "label": "Not Equal",
+                "name": "notEqual"
+              },
+              {
+                "label": "Larger",
+                "name": "larger"
+              },
+              {
+                "label": "Larger Equal",
+                "name": "largerEqual"
+              },
+              {
+                "label": "Is Empty",
+                "name": "isEmpty"
+              },
+              {
+                "label": "Not Empty",
+                "name": "notEmpty"
+              }
+            ],
+            "default": "equal",
+            "description": "Type of operation",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "number"
+              ]
+            }
+          },
+          {
+            "label": "Value 2",
+            "name": "value2",
+            "type": "number",
+            "default": 0,
+            "description": "Second value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "number"
+              ]
+            },
+            "hide": {
+              "inputParameters.conditions[$index].operation": [
+                "isEmpty",
+                "notEmpty"
+              ]
+            }
+          },
+          {
+            "label": "Value 1",
+            "name": "value1",
+            "type": "boolean",
+            "default": false,
+            "description": "First value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "boolean"
+              ]
+            }
+          },
+          {
+            "label": "Operation",
+            "name": "operation",
+            "type": "options",
+            "options": [
+              {
+                "label": "Equal",
+                "name": "equal"
+              },
+              {
+                "label": "Not Equal",
+                "name": "notEqual"
+              }
+            ],
+            "default": "equal",
+            "description": "Type of operation",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "boolean"
+              ]
+            }
+          },
+          {
+            "label": "Value 2",
+            "name": "value2",
+            "type": "boolean",
+            "default": false,
+            "description": "Second value to be compared with",
+            "show": {
+              "inputParameters.conditions[$index].type": [
+                "boolean"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/IfElse/IfElse.js"
+  },
+  {
+    "nodeState": null,
+    "label": "NodeJS",
+    "name": "nodeJS",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/default.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/light.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/dark.png"
+    },
+    "type": "action",
+    "category": "Development",
+    "version": 1,
+    "description": "Execute code within NodeVM sandbox",
+    "incoming": 1,
+    "outgoing": 1,
+    "inputParameters": [
+      {
+        "label": "Code",
+        "name": "code",
+        "type": "code",
+        "default": "const example = 'Hello World!';\nreturn example;",
+        "description": "Custom code to run"
+      },
+      {
+        "label": "External Modules",
+        "name": "external",
+        "type": "json",
+        "placeholder": "[\"axios\"]",
+        "description": "Import installed dependencies within Outerbridge",
+        "optional": true
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+  },
+  {
+    "loadMethods": {},
+    "label": "OpenAI",
+    "name": "openAI",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 1,
+    "description": "ChatGPT, image generation or text completion from prompt via OpenAI API",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "ChatGPT",
+            "name": "chatgpt"
+          },
+          {
+            "label": "Generate Image via text prompt",
+            "name": "generateImage"
+          },
+          {
+            "label": "Generate Text Completion via text prompt",
+            "name": "textCompletion"
+          }
+        ]
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "OpenAI API Key",
+            "name": "openAIApi"
+          }
+        ],
+        "default": "openAIApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Model",
+        "name": "model",
+        "type": "asyncOptions",
+        "loadMethod": "listModels",
+        "description": "AI model to use.",
+        "default": "text-davinci-003",
+        "show": {
+          "actions.operation": [
+            "textCompletion"
+          ]
+        }
+      },
+      {
+        "label": "Model",
+        "name": "model",
+        "type": "options",
+        "options": [
+          {
+            "label": "gpt-3.5-turbo",
+            "name": "gpt-3.5-turbo"
+          },
+          {
+            "label": "gpt-3.5-turbo-0125",
+            "name": "gpt-3.5-turbo-0125"
+          },
+          {
+            "label": "gpt-4",
+            "name": "gpt-4"
+          },
+          {
+            "label": "gpt-4o",
+            "name": "gpt-4o"
+          },
+          {
+            "label": "gpt-4-turbo-preview",
+            "name": "gpt-4-turbo-preview"
+          }
+        ],
+        "description": "ChatGPT model to use.",
+        "default": "gpt-3.5-turbo",
+        "show": {
+          "actions.operation": [
+            "chatgpt"
+          ]
+        }
+      },
+      {
+        "label": "Text Prompt",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Write me a 250 words essay on fish",
+        "description": "The prompt for chatpgt",
+        "show": {
+          "actions.operation": [
+            "chatgpt"
+          ]
+        }
+      },
+      {
+        "label": "Text Prompt",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Say this is a test",
+        "description": "The prompt to generate completions for",
+        "show": {
+          "actions.operation": [
+            "textCompletion"
+          ]
+        }
+      },
+      {
+        "label": "Image Description",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Photograph of an astronaut riding a horse",
+        "description": "Description of the image you want to generated. The maximum length is 1000 characters.",
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Image Number",
+        "name": "imageNumber",
+        "type": "number",
+        "placeholder": "1",
+        "default": "1",
+        "description": "The number of images to generate. Must be between 1 and 10.",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Image Size",
+        "name": "imageSize",
+        "type": "options",
+        "description": "The size of the generated images.",
+        "options": [
+          {
+            "label": "256x256",
+            "name": "256x256"
+          },
+          {
+            "label": "512x512",
+            "name": "512x512"
+          },
+          {
+            "label": "1024x1024",
+            "name": "1024x1024"
+          }
+        ],
+        "optional": true,
+        "default": "1024x1024",
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Response Format",
+        "name": "response_format",
+        "type": "options",
+        "description": "The format in which the generated images are returned.",
+        "options": [
+          {
+            "label": "url",
+            "name": "url"
+          },
+          {
+            "label": "b64_json",
+            "name": "b64_json"
+          }
+        ],
+        "default": "url",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+  },
+  {
+    "nodeState": null,
+    "loadMethods": {},
+    "label": "OpenAI Embeddings",
+    "name": "openAIEmbeddings",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/dark.svg"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 1,
+    "description": "Generate embeddings for a given text using OpenAI API",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Generate Embeddings",
+            "name": "generateEmbeddings"
+          }
+        ]
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "OpenAI API Key",
+            "name": "openAIApi"
+          }
+        ],
+        "default": "openAIApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Model",
+        "name": "model",
+        "type": "options",
+        "options": [
+          {
+            "label": "text-embedding-ada-002",
+            "name": "text-embedding-ada-002"
+          },
+          {
+            "label": "text-similarity-ada-001",
+            "name": "text-similarity-ada-001"
+          },
+          {
+            "label": "text-embedding-babbage-001",
+            "name": "text-embedding-babbage-001"
+          }
+        ],
+        "description": "The OpenAI model to use for generating embeddings.",
+        "default": "text-embedding-ada-002",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      },
+      {
+        "label": "Text",
+        "name": "text",
+        "type": "string",
+        "default": "",
+        "placeholder": "Enter the text to generate embeddings for",
+        "description": "The input text for generating embeddings.",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      },
+      {
+        "label": "Strip New Lines",
+        "name": "stripNewLines",
+        "type": "boolean",
+        "optional": true,
+        "additionalParams": true,
+        "description": "Whether to strip new lines from the input text.",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      },
+      {
+        "label": "Batch Size",
+        "name": "batchSize",
+        "type": "number",
+        "optional": true,
+        "additionalParams": true,
+        "description": "The batch size for generating embeddings.",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      },
+      {
+        "label": "Timeout",
+        "name": "timeout",
+        "type": "number",
+        "optional": true,
+        "additionalParams": true,
+        "description": "The timeout for the API call.",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      },
+      {
+        "label": "Base Path",
+        "name": "basepath",
+        "type": "string",
+        "optional": true,
+        "additionalParams": true,
+        "description": "The base path for the OpenAI API.",
+        "show": {
+          "actions.operation": [
+            "generateEmbeddings"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAIEmbeddings.js"
+  },
+  {
+    "label": "Subscan",
+    "name": "subscan",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png"
+    },
+    "type": "action",
+    "category": "Block Explorer",
+    "version": 1,
+    "description": "Perform Subscan operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Account Info",
+            "name": "getAccountInfo",
+            "description": "Returns the account information of a given address."
+          },
+          {
+            "label": "Get Account Balance",
+            "name": "getAccountBalance",
+            "description": "Returns the balance of a given address."
+          },
+          {
+            "label": "Get Extrinsics",
+            "name": "getExtrinsics",
+            "description": "Returns the list of extrinsics performed by an address."
+          },
+          {
+            "label": "Get Transfers",
+            "name": "getTransfers",
+            "description": "Returns the list of transfers performed by an address."
+          },
+          {
+            "label": "Get Rewards",
+            "name": "getRewards",
+            "description": "Returns the list of rewards for a given address."
+          },
+          {
+            "label": "Get Slashes",
+            "name": "getSlashes",
+            "description": "Returns the list of slashes for a given address."
+          },
+          {
+            "label": "Get Staking Info",
+            "name": "getStakingInfo",
+            "description": "Returns the staking information for a given address."
+          },
+          {
+            "label": "Get Block Info",
+            "name": "getBlockInfo",
+            "description": "Returns information about a given block."
+          },
+          {
+            "label": "Get Event Info",
+            "name": "getEventInfo",
+            "description": "Returns information about a given event."
+          },
+          {
+            "label": "Get Validators",
+            "name": "getValidators",
+            "description": "Returns a list of validators."
+          }
+        ],
+        "default": "getAccountInfo"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Polkadot",
+            "name": "polkadot"
+          },
+          {
+            "label": "Kusama",
+            "name": "kusama"
+          },
+          {
+            "label": "Assethub Polkadot",
+            "name": "assethub-polkadot"
+          },
+          {
+            "label": "Assethub Kusama",
+            "name": "assethub-kusama"
+          },
+          {
+            "label": "Assethub Rococo",
+            "name": "assethub-rococo"
+          },
+          {
+            "label": "Assethub Westend",
+            "name": "assethub-westend"
+          },
+          {
+            "label": "Acala",
+            "name": "acala"
+          },
+          {
+            "label": "Acala Mandala",
+            "name": "acala-mandala"
+          },
+          {
+            "label": "Ajuna",
+            "name": "ajuna"
+          },
+          {
+            "label": "Alephzero",
+            "name": "alephzero"
+          },
+          {
+            "label": "Alephzero testnet",
+            "name": "alephzero-testnet"
+          },
+          {
+            "label": "Altair",
+            "name": "altair"
+          },
+          {
+            "label": "Astar",
+            "name": "astar"
+          },
+          {
+            "label": "Avail testnet",
+            "name": "avail-testnet"
+          },
+          {
+            "label": "Bajun",
+            "name": "bajun"
+          },
+          {
+            "label": "Basilisk",
+            "name": "basilisk"
+          },
+          {
+            "label": "Bifrost",
+            "name": "bifrost"
+          },
+          {
+            "label": "Bifrost Kusama",
+            "name": "bifrost-kusama"
+          },
+          {
+            "label": "BridgeHub Polkadot",
+            "name": "bridgehub-polkadot"
+          },
+          {
+            "label": "BridgeHub Kusama",
+            "name": "bridgehub-kusama"
+          },
+          {
+            "label": "BridgeHub Rococo",
+            "name": "bridgehub-rococo"
+          },
+          {
+            "label": "BridgeHub Westend",
+            "name": "bridgehub-westend"
+          },
+          {
+            "label": "Calamari",
+            "name": "calamari"
+          },
+          {
+            "label": "Centrifuge",
+            "name": "centrifuge"
+          },
+          {
+            "label": "Centrifuge Solo",
+            "name": "centrifuge-solo"
+          },
+          {
+            "label": "Clover",
+            "name": "clover"
+          },
+          {
+            "label": "Composable",
+            "name": "composable"
+          },
+          {
+            "label": "Continuum",
+            "name": "continuum"
+          },
+          {
+            "label": "Creditcoin",
+            "name": "creditcoin"
+          },
+          {
+            "label": "Creditcoin testnet",
+            "name": "creditcoin-testnet"
+          },
+          {
+            "label": "Crust",
+            "name": "crust"
+          },
+          {
+            "label": "Crust Shadow",
+            "name": "crust-shadow"
+          },
+          {
+            "label": "DeepBrain Chain",
+            "name": "dbc"
+          },
+          {
+            "label": "Dock",
+            "name": "dock"
+          },
+          {
+            "label": "Darwinia",
+            "name": "darwinia"
+          },
+          {
+            "label": "Enjin",
+            "name": "enjin"
+          },
+          {
+            "label": "Enjin-matrix",
+            "name": "enjin-matrix"
+          },
+          {
+            "label": "Enjin-canary-matrix",
+            "name": "enjin-canary-matrix"
+          },
+          {
+            "label": "Enjin-canary",
+            "name": "enjin-canary"
+          },
+          {
+            "label": "Humanode",
+            "name": "humanode"
+          },
+          {
+            "label": "HydraDX",
+            "name": "hydradx"
+          },
+          {
+            "label": "IntegriTEE",
+            "name": "integritee"
+          },
+          {
+            "label": "Interlay",
+            "name": "interlay"
+          },
+          {
+            "label": "Joystream",
+            "name": "joystream"
+          },
+          {
+            "label": "Karura",
+            "name": "karura"
+          },
+          {
+            "label": "Kintsugi",
+            "name": "kintsugi"
+          },
+          {
+            "label": "Khala",
+            "name": "khala"
+          },
+          {
+            "label": "Krest",
+            "name": "krest"
+          },
+          {
+            "label": "KILT Peregrine",
+            "name": "kilt-peregrine"
+          },
+          {
+            "label": "KILT Spiritnet",
+            "name": "kilt-spiritnet"
+          },
+          {
+            "label": "Mangata",
+            "name": "mangata"
+          },
+          {
+            "label": "Moonbase",
+            "name": "moonbase"
+          },
+          {
+            "label": "Moonbeam",
+            "name": "moonbeam"
+          },
+          {
+            "label": "Moonriver",
+            "name": "moonriver"
+          },
+          {
+            "label": "Manta",
+            "name": "manta"
+          },
+          {
+            "label": "Nodle",
+            "name": "nodle"
+          },
+          {
+            "label": "NeuroWeb",
+            "name": "neuroweb"
+          },
+          {
+            "label": "NeuroWeb Testnet",
+            "name": "neuroweb-testnet"
+          },
+          {
+            "label": "Peaq",
+            "name": "peaq"
+          },
+          {
+            "label": "Phala",
+            "name": "phala"
+          },
+          {
+            "label": "Picasso",
+            "name": "picasso"
+          },
+          {
+            "label": "Pioneer",
+            "name": "pioneer"
+          },
+          {
+            "label": "Polkadex",
+            "name": "polkadex"
+          },
+          {
+            "label": "Polkadex Parachain",
+            "name": "polkadex-parachain"
+          },
+          {
+            "label": "Polymesh",
+            "name": "polymesh"
+          },
+          {
+            "label": "Polymesh Testnet",
+            "name": "polymesh-testnet"
+          },
+          {
+            "label": "Quartz",
+            "name": "quartz"
+          },
+          {
+            "label": "Robonomics",
+            "name": "robonomics"
+          },
+          {
+            "label": "Rococo",
+            "name": "rococo"
+          },
+          {
+            "label": "Shibuya",
+            "name": "shibuya"
+          },
+          {
+            "label": "Shiden",
+            "name": "shiden"
+          },
+          {
+            "label": "SORA",
+            "name": "sora"
+          },
+          {
+            "label": "Subspace",
+            "name": "subspace"
+          },
+          {
+            "label": "Stafi",
+            "name": "stafi"
+          },
+          {
+            "label": "Turing",
+            "name": "turing"
+          },
+          {
+            "label": "Unique",
+            "name": "unique"
+          },
+          {
+            "label": "Vara",
+            "name": "vara"
+          },
+          {
+            "label": "Westend",
+            "name": "westend"
+          },
+          {
+            "label": "Zeitgeist",
+            "name": "zeitgeist"
+          }
+        ],
+        "default": "polkadot"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Subscan API Key",
+            "name": "subscanApi"
+          }
+        ],
+        "default": "subscanApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Address",
+        "name": "address",
+        "type": "string",
+        "description": "The address parameter(s) required",
+        "show": {
+          "actions.api": [
+            "getAccountInfo",
+            "getAccountBalance",
+            "getExtrinsics",
+            "getTransfers",
+            "getRewards",
+            "getSlashes",
+            "getStakingInfo"
+          ]
+        }
+      },
+      {
+        "label": "Block Number",
+        "name": "blockNumber",
+        "type": "number",
+        "description": "The block number to get information for",
+        "show": {
+          "actions.api": [
+            "getBlockInfo"
+          ]
+        }
+      },
+      {
+        "label": "Event ID",
+        "name": "eventId",
+        "type": "string",
+        "description": "The event ID to get information for",
+        "show": {
+          "actions.api": [
+            "getEventInfo"
+          ]
+        }
+      },
+      {
+        "label": "Page",
+        "name": "page",
+        "type": "number",
+        "optional": true,
+        "description": "The page number for pagination",
+        "show": {
+          "actions.api": [
+            "getExtrinsics",
+            "getTransfers",
+            "getRewards",
+            "getSlashes"
+          ]
+        },
+        "default": 1
+      },
+      {
+        "label": "Page Size",
+        "name": "pageSize",
+        "type": "number",
+        "optional": true,
+        "description": "The number of items per page",
+        "show": {
+          "actions.api": [
+            "getExtrinsics",
+            "getTransfers",
+            "getRewards",
+            "getSlashes"
+          ]
+        },
+        "default": 10
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
+  },
+  {
+    "label": "Typeform",
+    "name": "typeform",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/cqwwehj77ryhux9mwnoj.png"
+    },
+    "type": "action",
+    "category": "Communication",
+    "version": 1,
+    "description": "Perform Typeform operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get all forms",
+            "name": "getAllForms",
+            "description": "Returns all the forms associated with your account"
+          },
+          {
+            "label": "Get Typeform Responses",
+            "name": "getTypeformResponses",
+            "description": "Returns the submissions for your typeforms in JSON format"
+          },
+          {
+            "label": "Create Typeform ",
+            "name": "createTypeform",
+            "description": "Creates a typeform for you"
+          }
+        ],
+        "default": "getAllForms"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Typeform API Key",
+            "name": "typeformApi"
+          }
+        ],
+        "default": "typeformApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Form Id",
+        "name": "formId",
+        "type": "string",
+        "description": "The form id to retrieve all the responses to your typeform",
+        "show": {
+          "actions.api": [
+            "getTypeformResponses"
+          ]
+        }
+      },
+      {
+        "label": "Request Body",
+        "name": "requestBody",
+        "type": "json",
+        "description": "The json object to create or update your typeform",
+        "show": {
+          "actions.api": [
+            "createTypeform"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Typeform/Typeform.js"
+  },
+  {
+    "loadMethods": {},
+    "label": "Mailchimp",
+    "name": "mailchimp",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg"
+    },
+    "type": "action",
+    "category": "Communication",
+    "version": 2,
+    "description": "Execute Mailchimp API integration",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get list of campaigns",
+            "name": "listCampaigns",
+            "description": "Returns the list of campaigns"
+          },
+          {
+            "label": "Get campaign",
+            "name": "getCampaign",
+            "description": "Return single campaign"
+          },
+          {
+            "label": "Delete campaign",
+            "name": "deleteCampaign",
+            "description": "It will delete campaigns"
+          },
+          {
+            "label": "Add user to subscribe list",
+            "name": "addUser",
+            "description": "Add or update user to a subscribe list"
+          },
+          {
+            "label": "Get user",
+            "name": "getUser",
+            "description": "Get information about a specific audience"
+          },
+          {
+            "label": "Get list of users",
+            "name": "listUsers",
+            "description": "Get information about list of members in a specific audience list"
+          }
+        ],
+        "default": "listCampaigns"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Mailchimp Credentials",
+            "name": "mailChimpCredential"
+          }
+        ],
+        "default": "mailChimpCredential"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Campaign",
+        "name": "campaignId",
+        "type": "asyncOptions",
+        "loadMethod": "getCampaigns",
+        "show": {
+          "actions.operation": [
+            "deleteCampaign",
+            "getCampaign"
+          ]
+        }
+      },
+      {
+        "label": "Audience List",
+        "name": "listId",
+        "type": "asyncOptions",
+        "loadMethod": "getLists",
+        "show": {
+          "actions.operation": [
+            "addUser",
+            "getUser",
+            "listUsers"
+          ]
+        }
+      },
+      {
+        "label": "Customer Email",
+        "name": "email",
+        "type": "string",
+        "show": {
+          "actions.operation": [
+            "addUser",
+            "getUser"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Mailchimp/Mailchimp.js"
+  },
+  {
+    "label": "OpenSea",
+    "name": "opensea",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg"
+    },
+    "type": "action",
+    "category": "NFT",
+    "version": 1,
+    "description": "Query OpenSea information",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Retrieve Assets",
+            "name": "retrieveAssets",
+            "description": "Returns a set of NFTs."
+          },
+          {
+            "label": "Retrieve Events",
+            "name": "retrieveEvents",
+            "description": "Returns a list of Events."
+          },
+          {
+            "label": "Retrieve Collections",
+            "name": "retrieveCollections",
+            "description": "Returns a list of collections supported and vetted by OpenSea."
+          },
+          {
+            "label": "Retrieve Bundles",
+            "name": "retrieveBundles",
+            "description": "Returns a list of bundles. Bundles are groups of NFTs for sale on OpenSea."
+          },
+          {
+            "label": "Retrieve An Asset",
+            "name": "retrieveAnAsset",
+            "description": "Fetch information about a single NFT, based on its contract address and token ID."
+          },
+          {
+            "label": "Retrieve A Contract",
+            "name": "retrieveAContract",
+            "description": "Fetch detailed information about a specified contract."
+          },
+          {
+            "label": "Retrieve A Collection",
+            "name": "retrieveACollection",
+            "description": "Retrieve more in-depth information about an individual collection, including real time statistics such as floor price."
+          },
+          {
+            "label": "Retrieve Collection Stats",
+            "name": "retrieveCollectionStats",
+            "description": "Fetch stats for a specific collection, including real-time floor price data."
+          }
+        ],
+        "default": ""
+      },
+      {
+        "label": "Event Type",
+        "name": "event_type",
+        "type": "options",
+        "options": [
+          {
+            "label": "Auctions",
+            "name": "created"
+          },
+          {
+            "label": "Sales",
+            "name": "successful"
+          },
+          {
+            "label": "Transfer",
+            "name": "transfer"
+          },
+          {
+            "label": "Approve",
+            "name": "approve"
+          },
+          {
+            "label": "Bid Entered",
+            "name": "bid_entered"
+          },
+          {
+            "label": "Bid Withdrawn",
+            "name": "bid_withdrawn"
+          },
+          {
+            "label": "Cancelled",
+            "name": "cancelled"
+          },
+          {
+            "label": "All Events",
+            "name": "all"
+          }
+        ],
+        "default": "",
+        "description": "The event type to filter",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Auction Type",
+        "name": "auction_type",
+        "type": "options",
+        "options": [
+          {
+            "label": "Sell to the highest bidder",
+            "name": "english",
+            "description": "The highest bid wins at the end"
+          },
+          {
+            "label": "Sell with a declining price",
+            "name": "dutch",
+            "description": "The price falls until someone purchases the item"
+          },
+          {
+            "label": "CryptoPunks Auctions",
+            "name": "min-price"
+          }
+        ],
+        "default": "",
+        "optional": true,
+        "description": "Filter by an auction type",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ],
+          "actions.event_type": [
+            "created"
+          ]
+        }
+      },
+      {
+        "label": "Environment",
+        "name": "environment",
+        "type": "options",
+        "description": "Environment to execute operation: Test or Main",
+        "options": [
+          {
+            "label": "TEST",
+            "name": "https://testnets-api.opensea.io/api/v1",
+            "description": "Testnet: https://testnets.opensea.io/"
+          },
+          {
+            "label": "MAIN",
+            "name": "https://api.opensea.io/api/v1",
+            "description": "Mainnet: https://opensea.io/"
+          }
+        ],
+        "default": ""
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "OpenSea API Key",
+            "name": "openSeaApi",
+            "description": "How to get API key: https://docs.opensea.io/reference/request-an-api-key"
+          }
+        ],
+        "default": "openSeaApi",
+        "show": {
+          "actions.environment": [
+            "https://api.opensea.io/api/v1"
+          ]
+        }
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Owner",
+        "name": "owner",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "The address of the owner of the assets",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Token Ids",
+        "name": "token_ids",
+        "type": "json",
+        "placeholder": "[\"1\", \"2\"]",
+        "optional": true,
+        "description": "An array of token IDs to search for",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Address",
+        "name": "asset_contract_address",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "The NFT contract address for the assets",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Addresses",
+        "name": "asset_contract_addresses",
+        "type": "json",
+        "placeholder": "[\"0xa\", \"0xb\"]",
+        "optional": true,
+        "description": "An array of contract addresses to search for",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Order By",
+        "name": "order_by",
+        "type": "options",
+        "options": [
+          {
+            "label": "Sale Date",
+            "name": "sale_date",
+            "description": "Last sale's transaction's timestamp"
+          },
+          {
+            "label": "Sale Count ",
+            "name": "sale_count",
+            "description": "Number of sales"
+          },
+          {
+            "label": "Sale Price ",
+            "name": "sale_price",
+            "description": "Last sale's total_price"
+          }
+        ],
+        "default": "",
+        "optional": true,
+        "description": "How to order the assets returned. By default, the API returns the fastest ordering. ",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Order Direction",
+        "name": "order_direction",
+        "type": "options",
+        "options": [
+          {
+            "label": "Descending",
+            "name": "desc"
+          },
+          {
+            "label": "Ascending",
+            "name": "asc"
+          }
+        ],
+        "default": "",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": "",
+        "optional": true,
+        "description": "Offset for pagination",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Limit",
+        "name": "limit",
+        "type": "number",
+        "default": 20,
+        "optional": true,
+        "description": "Limit for pagination. Defaults to 20, capped at 50.",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Collection",
+        "name": "collection",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "Limit responses to members of a collection. Case sensitive and must match the collection slug exactly. Will return all assets from all contracts in a collection.",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Include Orders",
+        "name": "include_orders",
+        "type": "boolean",
+        "default": false,
+        "optional": true,
+        "description": "A flag determining if order information should be included in the response.",
+        "show": {
+          "actions.operation": [
+            "retrieveAssets"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Address",
+        "name": "asset_contract_address",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "The NFT contract address for the assets for which to show events",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Collection Slug",
+        "name": "collection_slug",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "Events from a collection. For instance: if a collection url is: https://opensea.io/collection/my-collection-1, collection slug is my-collection-1.",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Token Id",
+        "name": "token_id",
+        "type": "number",
+        "default": "",
+        "optional": true,
+        "description": "The token's id to optionally filter by",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Account Address",
+        "name": "account_address",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "A user account's wallet address to filter for events on an account",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Only Opensea",
+        "name": "only_opensea",
+        "type": "boolean",
+        "default": false,
+        "optional": true,
+        "description": "Restrict to events on OpenSea auctions",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": "",
+        "description": "Offset for pagination",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Limit",
+        "name": "limit",
+        "type": "number",
+        "default": 20,
+        "optional": true,
+        "description": "Limit for pagination",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Occurred Before",
+        "name": "occurred_before",
+        "type": "date",
+        "optional": true,
+        "description": "Only show events listed before this date.",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Occurred After",
+        "name": "occurred_after",
+        "type": "date",
+        "optional": true,
+        "description": "Only show events listed after this date.",
+        "show": {
+          "actions.operation": [
+            "retrieveEvents"
+          ]
+        }
+      },
+      {
+        "label": "Asset Owner",
+        "name": "asset_owner",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "A wallet address. If specified, will return collections where the owner owns at least one asset belonging to smart contracts in the collection.",
+        "show": {
+          "actions.operation": [
+            "retrieveCollections"
+          ]
+        }
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": "",
+        "description": "Offset for pagination",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "retrieveCollections"
+          ]
+        }
+      },
+      {
+        "label": "Limit",
+        "name": "limit",
+        "type": "number",
+        "default": 20,
+        "optional": true,
+        "description": "Limit for pagination",
+        "show": {
+          "actions.operation": [
+            "retrieveCollections"
+          ]
+        }
+      },
+      {
+        "label": "On Sale",
+        "name": "on_sale",
+        "type": "boolean",
+        "default": false,
+        "optional": true,
+        "description": "If set to true, only show bundles currently on sale. If set to false, only show bundles that have been sold or cancelled.",
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Owner",
+        "name": "owner",
+        "type": "string",
+        "default": "",
+        "description": "Account address of the owner of a bundle (and all assets within)",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Address",
+        "name": "asset_contract_address",
+        "type": "string",
+        "default": "",
+        "optional": true,
+        "description": "Contract address of all the assets in a bundle. Only works for homogenous bundles, not mixed ones.",
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Addresses",
+        "name": "asset_contract_addresses",
+        "type": "json",
+        "placeholder": "[\"0xa\", \"0xb\"]",
+        "optional": true,
+        "description": "An array of contract addresses to search for",
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Token Ids",
+        "name": "token_ids",
+        "type": "json",
+        "placeholder": "[\"1\", \"2\"]",
+        "optional": true,
+        "description": "A list of token IDs for showing only bundles with at least one of the token IDs in the list",
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": "",
+        "description": "Offset for pagination",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Limit",
+        "name": "limit",
+        "type": "number",
+        "default": 20,
+        "optional": true,
+        "description": "Limit for pagination",
+        "show": {
+          "actions.operation": [
+            "retrieveBundles"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Address",
+        "name": "asset_contract_address",
+        "type": "string",
+        "default": "",
+        "description": "The NFT contract address for the assets",
+        "show": {
+          "actions.operation": [
+            "retrieveAnAsset"
+          ]
+        }
+      },
+      {
+        "label": "Token Id",
+        "name": "token_id",
+        "type": "string",
+        "default": "",
+        "description": "Token ID for this item",
+        "show": {
+          "actions.operation": [
+            "retrieveAnAsset"
+          ]
+        }
+      },
+      {
+        "label": "Asset Contract Address",
+        "name": "asset_contract_address",
+        "type": "string",
+        "default": "",
+        "description": "The NFT contract address for the assets",
+        "show": {
+          "actions.operation": [
+            "retrieveAContract"
+          ]
+        }
+      },
+      {
+        "label": "Collection Slug",
+        "name": "collection_slug",
+        "type": "string",
+        "default": "",
+        "description": "For instance: if a collection url is: https://opensea.io/collection/my-collection-1, collection slug is my-collection-1.",
+        "show": {
+          "actions.operation": [
+            "retrieveACollection",
+            "retrieveCollectionStats"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Opensea/Opensea.js"
+  },
+  {
+    "label": "OpenAI Assistants",
+    "name": "openaiAssistants",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 1,
+    "description": "Perform operations with OpenAI Assistants API",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "List Assistants",
+            "name": "listAssistants",
+            "description": "Fetches a list of all assistants."
+          },
+          {
+            "label": "Create Assistant",
+            "name": "createAssistant",
+            "description": "Creates a new assistant."
+          },
+          {
+            "label": "Get Assistant",
+            "name": "getAssistant",
+            "description": "Retrieves details of a specific assistant using the assistant ID."
+          },
+          {
+            "label": "Modify Assistant",
+            "name": "modifyAssistant",
+            "description": "Modifies an existing assistant using the assistant ID."
+          },
+          {
+            "label": "Delete Assistant",
+            "name": "deleteAssistant",
+            "description": "Deletes an assistant using the assistant ID."
+          },
+          {
+            "label": "List Threads",
+            "name": "listThreads",
+            "description": "Fetches a list of all threads."
+          },
+          {
+            "label": "Create Thread",
+            "name": "createThread",
+            "description": "Creates a new thread."
+          },
+          {
+            "label": "Get Thread",
+            "name": "getThread",
+            "description": "Retrieves details of a specific thread using the thread ID."
+          },
+          {
+            "label": "List Messages",
+            "name": "listMessages",
+            "description": "Fetches a list of all messages."
+          },
+          {
+            "label": "Create Message",
+            "name": "createMessage",
+            "description": "Creates a new message."
+          },
+          {
+            "label": "Get Message",
+            "name": "getMessage",
+            "description": "Retrieves details of a specific message using the message ID."
+          },
+          {
+            "label": "List Runs",
+            "name": "listRuns",
+            "description": "Fetches a list of all runs."
+          },
+          {
+            "label": "Get Run",
+            "name": "getRun",
+            "description": "Retrieves details of a specific run using the run ID."
+          },
+          {
+            "label": "Cancel Run",
+            "name": "cancelRun",
+            "description": "Cancels a specific run using the run ID."
+          },
+          {
+            "label": "List Run Steps",
+            "name": "listRunSteps",
+            "description": "Fetches a list of all run steps."
+          },
+          {
+            "label": "Get Run Step",
+            "name": "getRunStep",
+            "description": "Retrieves details of a specific run step using the run step ID."
+          },
+          {
+            "label": "List Vector Stores",
+            "name": "listVectorStores",
+            "description": "Fetches a list of all vector stores."
+          },
+          {
+            "label": "Create Vector Store",
+            "name": "createVectorStore",
+            "description": "Creates a new vector store."
+          },
+          {
+            "label": "Get Vector Store",
+            "name": "getVectorStore",
+            "description": "Retrieves details of a specific vector store using the vector store ID."
+          },
+          {
+            "label": "Delete Vector Store",
+            "name": "deleteVectorStore",
+            "description": "Deletes a vector store using the vector store ID."
+          },
+          {
+            "label": "List Vector Store Files",
+            "name": "listVectorStoreFiles",
+            "description": "Fetches a list of all vector store files."
+          },
+          {
+            "label": "Upload Vector Store File",
+            "name": "uploadVectorStoreFile",
+            "description": "Uploads a new vector store file."
+          },
+          {
+            "label": "Get Vector Store File",
+            "name": "getVectorStoreFile",
+            "description": "Retrieves details of a specific vector store file using the file ID."
+          },
+          {
+            "label": "Delete Vector Store File",
+            "name": "deleteVectorStoreFile",
+            "description": "Deletes a vector store file using the file ID."
+          },
+          {
+            "label": "List Vector Store File Batches",
+            "name": "listVectorStoreFileBatches",
+            "description": "Fetches a list of all vector store file batches."
+          },
+          {
+            "label": "Create Vector Store File Batch",
+            "name": "createVectorStoreFileBatch",
+            "description": "Creates a new vector store file batch."
+          },
+          {
+            "label": "Get Vector Store File Batch",
+            "name": "getVectorStoreFileBatch",
+            "description": "Retrieves details of a specific vector store file batch using the batch ID."
+          },
+          {
+            "label": "Delete Vector Store File Batch",
+            "name": "deleteVectorStoreFileBatch",
+            "description": "Deletes a vector store file batch using the batch ID."
+          }
+        ],
+        "default": "listAssistants"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "OpenAI API Key",
+            "name": "openAIApi"
+          }
+        ],
+        "default": "openAIApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Assistant ID",
+        "name": "assistant_id",
+        "type": "string",
+        "description": "The ID of the assistant.",
+        "show": {
+          "actions.api": [
+            "getAssistant",
+            "modifyAssistant",
+            "deleteAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Thread ID",
+        "name": "thread_id",
+        "type": "string",
+        "description": "The ID of the thread.",
+        "show": {
+          "actions.api": [
+            "getThread"
+          ]
+        }
+      },
+      {
+        "label": "Message ID",
+        "name": "message_id",
+        "type": "string",
+        "description": "The ID of the message.",
+        "show": {
+          "actions.api": [
+            "getMessage"
+          ]
+        }
+      },
+      {
+        "label": "Run ID",
+        "name": "run_id",
+        "type": "string",
+        "description": "The ID of the run.",
+        "show": {
+          "actions.api": [
+            "getRun",
+            "cancelRun"
+          ]
+        }
+      },
+      {
+        "label": "Run Step ID",
+        "name": "run_step_id",
+        "type": "string",
+        "description": "The ID of the run step.",
+        "show": {
+          "actions.api": [
+            "getRunStep"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store ID",
+        "name": "vector_store_id",
+        "type": "string",
+        "description": "The ID of the vector store.",
+        "show": {
+          "actions.api": [
+            "getVectorStore",
+            "deleteVectorStore"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store File ID",
+        "name": "vector_store_file_id",
+        "type": "string",
+        "description": "The ID of the vector store file.",
+        "show": {
+          "actions.api": [
+            "getVectorStoreFile",
+            "deleteVectorStoreFile"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store File Batch ID",
+        "name": "vector_store_file_batch_id",
+        "type": "string",
+        "description": "The ID of the vector store file batch.",
+        "show": {
+          "actions.api": [
+            "getVectorStoreFileBatch",
+            "deleteVectorStoreFileBatch"
+          ]
+        }
+      },
+      {
+        "label": "Name",
+        "name": "name",
+        "type": "string",
+        "description": "The name of the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant",
+            "modifyAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Description",
+        "name": "description",
+        "type": "string",
+        "description": "The description of the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Functions",
+        "name": "functions",
+        "type": "json",
+        "description": "The functions for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Memory Settings",
+        "name": "memory_settings",
+        "type": "json",
+        "description": "The memory settings for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Log Settings",
+        "name": "log_settings",
+        "type": "json",
+        "description": "The log settings for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Configuration",
+        "name": "configuration",
+        "type": "json",
+        "description": "The configuration details for the assistant.",
+        "show": {
+          "actions.api": [
+            "modifyAssistant"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
+  },
+  {
+    "label": "BaseScan",
+    "name": "basescan",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png"
+    },
+    "type": "action",
+    "category": "Block Explorer",
+    "version": 1,
+    "description": "Perform BaseScan operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Base Balance for a Single Address",
+            "name": "getBaseBalance",
+            "description": "Returns the Base balance of a given address."
+          },
+          {
+            "label": "Get Base Balance for Multiple Addresses(separated by a comma)",
+            "name": "getBaseBalanceMulti",
+            "description": "Returns the Base balance of the addresses(each address separated by a comma) entered."
+          },
+          {
+            "label": "Get transactions",
+            "name": "getTransactions",
+            "description": "Returns the list of transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions",
+            "name": "getInternalTransactions",
+            "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+          },
+          {
+            "label": "Get internal transactions by hash",
+            "name": "getInternalTransactionsByHash",
+            "description": "Returns the list of internal transactions performed within a transaction."
+          },
+          {
+            "label": "Get internal transactions by block",
+            "name": "getInternalTransactionsByBlock",
+            "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+          },
+          {
+            "label": "Get list of Blocks Validated by Address",
+            "name": "getBlocksValidated",
+            "description": "Returns the list of blocks validated by an address."
+          },
+          {
+            "label": "Get Contract ABI",
+            "name": "getAbi",
+            "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+          },
+          {
+            "label": "Get Contract Source Code",
+            "name": "getContractSourceCode",
+            "description": "Returns the Solidity source code of a verified smart contract."
+          },
+          {
+            "label": "Check Transaction Receipt Status",
+            "name": "getTransactionReceiptStatus",
+            "description": "Returns the status code of a transaction execution."
+          },
+          {
+            "label": "Get ERC20 Token Supply",
+            "name": "getErc20TokenSupply",
+            "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation."
+          },
+          {
+            "label": "Get ERC20 Token Balance",
+            "name": "getErc20TokenBalance",
+            "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation."
+          },
+          {
+            "label": "Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO]",
+            "name": "getHistoricalErc20TokenSupply",
+            "description": "Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation."
+          },
+          {
+            "label": "Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO]",
+            "name": "getHistoricalErc20TokenBalance",
+            "description": "Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation."
+          },
+          {
+            "label": "Get Token Info [PRO]",
+            "name": "getTokenInfo",
+            "description": "Returns project information and social media links of an ERC-20/ERC-721 token."
+          },
+          {
+            "label": "Get BASE Price",
+            "name": "getBasePrice",
+            "description": "Returns the latest price of 1 BASE."
+          },
+          {
+            "label": "Get Historical BASE Price [PRO]",
+            "name": "getHistoricalBasePrice",
+            "description": "Returns the historical price of BASE."
+          }
+        ],
+        "default": "getBaseBalance"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Base Mainnet",
+            "name": "homestead"
+          },
+          {
+            "label": "Base Goerli",
+            "name": "goerli"
+          },
+          {
+            "label": "Base Sepolia",
+            "name": "sepolia"
+          }
+        ],
+        "default": "homestead"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "BaseScan API Key",
+            "name": "basescanApi"
+          }
+        ],
+        "default": "basescanApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Address",
+        "name": "address",
+        "type": "string",
+        "description": "The address parameter(s) required",
+        "show": {
+          "actions.api": [
+            "getBaseBalance",
+            "getTransactions",
+            "getInternalTransactions",
+            "getAbi",
+            "getContractSourceCode",
+            "getErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Start Block",
+        "name": "startBlock",
+        "type": "number",
+        "optional": true,
+        "description": "The block number to start searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 0
+      },
+      {
+        "label": "End Block",
+        "name": "endBlock",
+        "type": "number",
+        "optional": true,
+        "description": "The block number to stop searching for transactions",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        }
+      },
+      {
+        "label": "Page",
+        "name": "page",
+        "type": "number",
+        "optional": true,
+        "description": "The page number, if pagination is enabled",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 1
+      },
+      {
+        "label": "Offset",
+        "name": "offset",
+        "type": "number",
+        "optional": true,
+        "description": "The number of transactions displayed per page",
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": 10
+      },
+      {
+        "label": "Sort By",
+        "name": "sortBy",
+        "type": "options",
+        "optional": true,
+        "options": [
+          {
+            "label": "Desc",
+            "name": "desc"
+          },
+          {
+            "label": "Asc",
+            "name": "asc"
+          }
+        ],
+        "show": {
+          "actions.api": [
+            "getTransactions",
+            "getInternalTransactions",
+            "getInternalTransactionsByBlock"
+          ]
+        },
+        "default": "desc"
+      },
+      {
+        "label": "Transaction Hash",
+        "name": "txhash",
+        "type": "string",
+        "description": "The string representing the transaction hash to check for internal transactions",
+        "show": {
+          "actions.api": [
+            "getInternalTransactionsByHash",
+            "getTransactionReceiptStatus"
+          ]
+        }
+      },
+      {
+        "label": "Contract Address",
+        "name": "contractAddress",
+        "type": "string",
+        "description": "The contract address of the ERC-20 token",
+        "show": {
+          "actions.api": [
+            "getErc20TokenSupply",
+            "getErc20TokenBalance"
+          ]
+        }
+      },
+      {
+        "label": "Tag",
+        "name": "tag",
+        "type": "options",
+        "options": [
+          {
+            "label": "latest",
+            "name": "latest"
+          }
+        ],
+        "default": "latest",
+        "show": {
+          "actions.api": [
+            "getErc20TokenBalance"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/BaseScan/BaseScan.js"
+  },
+  {
+    "label": "ChainLink",
+    "name": "chainLink",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+    },
+    "type": "action",
+    "category": "Decentralized Oracle Network",
+    "version": 1,
+    "description": "Execute ChainLink operations such as Data Feeds, Randomness, Oracles.",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Get Price Feeds",
+            "name": "getPriceFeeds",
+            "description": "Get real-world market prices of assets using ChainLink Oracle."
+          },
+          {
+            "label": "Get Proof of Reserve",
+            "name": "getProofReserve",
+            "description": "Provide the status of the reserves for several assets."
+          },
+          {
+            "label": "Get NFT Floor Pricing",
+            "name": "getNFTFloorPricing",
+            "description": "Get the lowest price of an NFT in a collection using ChainLink Oracle, ONLY available on Goerli."
+          }
+        ],
+        "default": "getPriceFeeds"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Mainnet",
+            "name": "homestead"
+          },
+          {
+            "label": "Polygon",
+            "name": "polygon"
+          },
+          {
+            "label": "Optimism",
+            "name": "optimism"
+          },
+          {
+            "label": "Arbitrum One",
+            "name": "arbitrum"
+          },
+          {
+            "label": "Base",
+            "name": "base"
+          },
+          {
+            "label": "BNB Chain",
+            "name": "bsc"
+          },
+          {
+            "label": "Celo",
+            "name": "celo"
+          },
+          {
+            "label": "Avalanche",
+            "name": "avalanche"
+          },
+          {
+            "label": "Blast",
+            "name": "blast"
+          }
+        ]
+      },
+      {
+        "label": "Network Provider",
+        "name": "networkProvider",
+        "type": "asyncOptions",
+        "loadMethod": "getNetworkProviders"
+      },
+      {
+        "label": "RPC Endpoint",
+        "name": "jsonRPC",
+        "type": "string",
+        "default": "",
+        "show": {
+          "networks.networkProvider": [
+            "customRPC"
+          ]
+        }
+      },
+      {
+        "label": "Websocket Endpoint",
+        "name": "websocketRPC",
+        "type": "string",
+        "default": "",
+        "show": {
+          "networks.networkProvider": [
+            "customWebsocket"
+          ]
+        }
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "ChainLink API Key",
+            "name": "chainLinkApi"
+          }
+        ],
+        "default": "chainLinkApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Pair",
+        "name": "pair",
+        "type": "asyncOptions",
+        "loadMethod": "getPairAddress",
+        "show": {
+          "actions.operation": [
+            "getPriceFeeds"
+          ]
+        }
+      },
+      {
+        "label": "Reserve",
+        "name": "reserve",
+        "type": "asyncOptions",
+        "loadMethod": "getReserveAddress",
+        "show": {
+          "actions.operation": [
+            "getProofReserve"
+          ]
+        }
+      },
+      {
+        "label": "NFT Collection",
+        "name": "nftCollection",
+        "type": "asyncOptions",
+        "loadMethod": "getNftCollection",
+        "show": {
+          "actions.operation": [
+            "getNFTFloorPricing"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://example.com/nodes/ChainLink/ChainLink.js"
+  },
+  {
+    "loadMethods": {},
+    "label": "Uniswap",
+    "name": "uniswap",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
+      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png"
+    },
+    "type": "action",
+    "category": "Decentralized Finance",
+    "version": 1,
+    "description": "Execute Uniswap operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Swap Tokens",
+            "name": "swapTokens",
+            "description": "Supports Uniswap v2 and v3 prices together and returns the best price for swapping."
+          },
+          {
+            "label": "Get Pairs",
+            "name": "getPairs",
+            "description": "Get most liquid pairs."
+          },
+          {
+            "label": "Custom Query",
+            "name": "customQuery",
+            "description": "Custom subgraph query to retrieve more information."
+          }
+        ],
+        "default": "swapTokens"
+      }
+    ],
+    "networks": [
+      {
+        "label": "Network",
+        "name": "network",
+        "type": "options",
+        "options": [
+          {
+            "label": "Ethereum Mainnet",
+            "name": "homestead",
+            "parentGroup": "Ethereum"
+          },
+          {
+            "label": "Polygon (PoS)",
+            "name": "matic",
+            "parentGroup": "Polygon"
+          },
+          {
+            "label": "Optimism",
+            "name": "optimism",
+            "parentGroup": "Optimism"
+          },
+          {
+            "label": "Arbitrum One",
+            "name": "arbitrum",
+            "parentGroup": "Arbitrum"
+          },
+          {
+            "label": "Base",
+            "name": "base",
+            "parentGroup": "Base"
+          },
+          {
+            "label": "BNB Chain",
+            "name": "bnb",
+            "parentGroup": "BNB"
+          },
+          {
+            "label": "Celo",
+            "name": "celo",
+            "parentGroup": "Celo"
+          },
+          {
+            "label": "Avalanche",
+            "name": "avalanche",
+            "parentGroup": "Avalanche"
+          },
+          {
+            "label": "Blast",
+            "name": "blast",
+            "parentGroup": "Blast"
+          }
+        ],
+        "default": "homestead"
+      }
+    ],
+    "credentials": [],
+    "inputParameters": [
+      {
+        "label": "From Token",
+        "name": "fromToken",
+        "type": "asyncOptions",
+        "description": "Contract address of the token you want to convert FROM.",
+        "loadMethod": "getTokens",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "To Token",
+        "name": "toToken",
+        "type": "asyncOptions",
+        "description": "Contract address of the token you want to convert TO.",
+        "loadMethod": "getTokens",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "Amount To Swap",
+        "name": "amountToSwap",
+        "type": "number",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "Select Wallet",
+        "name": "wallet",
+        "type": "asyncOptions",
+        "description": "Wallet account to swap tokens.",
+        "loadFromDbCollections": [
+          "Wallet"
+        ],
+        "loadMethod": "getWallets",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "Query",
+        "name": "query",
+        "type": "string",
+        "rows": 10,
+        "show": {
+          "actions.operation": [
+            "customQuery"
+          ]
+        }
+      },
+      {
+        "label": "Slippage Tolerance (%)",
+        "name": "slippage",
+        "type": "number",
+        "default": 0.5,
+        "optional": true,
+        "description": "How large of a price movement to tolerate before trade will fail to execute. Default is 0.5%.",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "Tx Deadline (mins)",
+        "name": "deadlineMinutes",
+        "type": "number",
+        "default": 20,
+        "optional": true,
+        "description": "Minutes after which the transaction will fail. Default is 20 mins.",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      },
+      {
+        "label": "Disable Multihops",
+        "name": "disableMultihops",
+        "type": "boolean",
+        "default": false,
+        "optional": true,
+        "description": "Restricts swaps to direct pairs only. Default is false.",
+        "show": {
+          "actions.operation": [
+            "swapTokens"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Uniswap/Uniswap.js"
+  },
+  {
+    "label": "X API",
+    "name": "x",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png"
+    },
+    "type": "action",
+    "category": "Communication",
+    "description": "Manage posts and lookup users using the X API v2",
+    "version": 1,
+    "incoming": 1,
+    "outgoing": 1,
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "X API Bearer Token",
+            "name": "xApi"
+          }
+        ],
+        "default": "xApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Action",
+        "name": "action",
+        "type": "options",
+        "description": "Select the action to perform.",
+        "options": [
+          {
+            "label": "Create Post",
+            "name": "createPost"
+          },
+          {
+            "label": "Delete Post",
+            "name": "deletePost"
+          },
+          {
+            "label": "Lookup User by ID",
+            "name": "lookupUserId"
+          },
+          {
+            "label": "Lookup User by Username",
+            "name": "lookupUsername"
+          }
+        ],
+        "default": "createPost"
+      },
+      {
+        "label": "Post Content",
+        "name": "postContent",
+        "type": "string",
+        "default": "",
+        "description": "The content of the post to be created (required for Create Post action).",
+        "visibleIf": {
+          "action": "createPost"
+        }
+      },
+      {
+        "label": "Post ID",
+        "name": "postId",
+        "type": "string",
+        "default": "",
+        "description": "The ID of the post to be deleted (required for Delete Post action).",
+        "visibleIf": {
+          "action": "deletePost"
+        }
+      },
+      {
+        "label": "User ID",
+        "name": "userId",
+        "type": "string",
+        "default": "",
+        "description": "The ID of the user to look up (required for Lookup User by ID action).",
+        "visibleIf": {
+          "action": "lookupUserId"
+        }
+      },
+      {
+        "label": "Username",
+        "name": "username",
+        "type": "string",
+        "default": "",
+        "description": "The username of the user to look up (required for Lookup User by Username action).",
+        "visibleIf": {
+          "action": "lookupUsername"
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/X/X.js"
+  },
+{
+  "loadMethods": {},
+  "label": "Solidity",
+  "name": "solidity",
+  "icons": {
+    "default": "https://github.com/Outerbridgeio/Outerbridge/raw/refs/heads/master/packages/components/nodes/Solidity/solidity.svg",
+    "light": "https://github.com/Outerbridgeio/Outerbridge/raw/refs/heads/master/packages/components/nodes/Solidity/solidity.svg",
+    "dark": "https://github.com/Outerbridgeio/Outerbridge/raw/refs/heads/master/packages/components/nodes/Solidity/solidity.svg"
+  },
+  "type": "action",
+  "category": "Smart Contract",
+  "version": 1,
+  "description": "Compile and Deploy Solidity Code",
+  "incoming": 1,
+  "outgoing": 1,
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Mainnet",
+          "name": "homestead",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Goerli",
+          "name": "goerli",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Polygon Mainnet",
+          "name": "matic",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Polygon Mumbai",
+          "name": "maticmum",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Arbitrum Goerli",
+          "name": "arbitrum-goerli",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Optimism Mainnet",
+          "name": "optimism",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Optimism Goerli",
+          "name": "optimism-goerli",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Binance Smart Chain Mainnet",
+          "name": "bsc",
+          "parentGroup": "Binance Smart Chain"
+        },
+        {
+          "label": "Binance Smart Chain Testnet",
+          "name": "bsc-testnet",
+          "parentGroup": "Binance Smart Chain"
+        }
+      ],
+      "default": "goerli"
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders"
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customRPC"
+        ]
+      }
+    },
+    {
+      "label": "Websocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customWebsocket"
+        ]
+      }
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Alchemy API Key",
+          "name": "alchemyApi",
+          "show": {
+            "networks.networkProvider": [
+              "alchemy"
+            ]
+          }
+        },
+        {
+          "label": "Infura API Key",
+          "name": "infuraApi",
+          "show": {
+            "networks.networkProvider": [
+              "infura"
+            ]
+          }
+        },
+        {
+          "label": "QuickNode Endpoints",
+          "name": "quickNodeEndpoints",
+          "show": {
+            "networks.networkProvider": [
+              "quicknode"
+            ]
+          }
+        }
+      ],
+      "show": {
+        "networks.networkProvider": [
+          "alchemy",
+          "infura",
+          "quicknode"
+        ]
+      }
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Solidity Code",
+      "name": "code",
+      "type": "code",
+      "placeholder": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract MyToken is ERC20 {\n    constructor() ERC20(\"MyToken\", \"MTK\") {}\n}",
+      "description": "Custom Solidity code to compile and deploy"
+    },
+    {
+      "label": "Contract Name",
+      "name": "contractName",
+      "description": "Contract Name to deploy the Solidity Code",
+      "type": "string",
+      "default": "",
+      "placeholder": "MyContract"
+    },
+    {
+      "label": "Select Wallet",
+      "name": "wallet",
+      "type": "string",
+      "description": "Enter the wallet private key to deploy Solidity code",
+      "default": ""
+    },
+    {
+      "label": "Constructor Parameters",
+      "name": "parameters",
+      "type": "json",
+      "placeholder": "[ \"param1\", \"param2\" ]",
+      "description": "Input parameters for constructor",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
+},
   {
   "label": "Vercel",
   "name": "vercel",
