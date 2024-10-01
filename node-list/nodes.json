@@ -4993,7 +4993,8 @@
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/X/X.js"
   },
-  {
+{
+  "loadMethods": {},
   "label": "Solidity",
   "name": "solidity",
   "icons": {
@@ -5007,34 +5008,135 @@
   "description": "Compile and Deploy Solidity Code",
   "incoming": 1,
   "outgoing": 1,
-  "actions": [
-    {
-      "label": "Compile and Deploy Solidity Code",
-      "name": "deploySolidity",
-      "description": "Compile and deploy custom Solidity code."
-    }
-  ],
   "networks": [
     {
       "label": "Network",
       "name": "network",
       "type": "options",
       "options": [
-        { "label": "Ethereum Mainnet", "name": "ethereum" },
-        { "label": "Arbitrum", "name": "arbitrum" },
-        { "label": "Polygon", "name": "polygon" },
-        { "label": "Optimism", "name": "optimism" },
-        { "label": "Binance Smart Chain", "name": "bsc" }
+        {
+          "label": "Mainnet",
+          "name": "homestead",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Goerli",
+          "name": "goerli",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Polygon Mainnet",
+          "name": "matic",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Polygon Mumbai",
+          "name": "maticmum",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Arbitrum Goerli",
+          "name": "arbitrum-goerli",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Optimism Mainnet",
+          "name": "optimism",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Optimism Goerli",
+          "name": "optimism-goerli",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Binance Smart Chain Mainnet",
+          "name": "bsc",
+          "parentGroup": "Binance Smart Chain"
+        },
+        {
+          "label": "Binance Smart Chain Testnet",
+          "name": "bsc-testnet",
+          "parentGroup": "Binance Smart Chain"
+        }
       ],
-      "default": "ethereum"
+      "default": "goerli"
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders"
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customRPC"
+        ]
+      }
+    },
+    {
+      "label": "Websocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customWebsocket"
+        ]
+      }
     }
   ],
   "credentials": [
     {
-      "label": "Wallet Private Key",
-      "name": "walletPrivateKey",
+      "label": "Credential Method",
+      "name": "credentialMethod",
       "type": "string",
-      "description": "Private key of the wallet used to deploy the smart contract."
+      "options": [
+        {
+          "label": "Alchemy API Key",
+          "name": "alchemyApi",
+          "show": {
+            "networks.networkProvider": [
+              "alchemy"
+            ]
+          }
+        },
+        {
+          "label": "Infura API Key",
+          "name": "infuraApi",
+          "show": {
+            "networks.networkProvider": [
+              "infura"
+            ]
+          }
+        },
+        {
+          "label": "QuickNode Endpoints",
+          "name": "quickNodeEndpoints",
+          "show": {
+            "networks.networkProvider": [
+              "quicknode"
+            ]
+          }
+        }
+      ],
+      "show": {
+        "networks.networkProvider": [
+          "alchemy",
+          "infura",
+          "quicknode"
+        ]
+      }
     }
   ],
   "inputParameters": [
@@ -5042,24 +5144,33 @@
       "label": "Solidity Code",
       "name": "code",
       "type": "code",
-      "placeholder": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\ncontract MyContract {\n   // Your Solidity code here\n}",
-      "description": "Custom Solidity code to compile and deploy."
+      "placeholder": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/token/ERC20/ERC20.sol\";\n\ncontract MyToken is ERC20 {\n    constructor() ERC20(\"MyToken\", \"MTK\") {}\n}",
+      "description": "Custom Solidity code to compile and deploy"
     },
     {
       "label": "Contract Name",
       "name": "contractName",
+      "description": "Contract Name to deploy the Solidity Code",
       "type": "string",
-      "placeholder": "MyContract",
-      "description": "Name of the contract to deploy."
+      "default": "",
+      "placeholder": "MyContract"
+    },
+    {
+      "label": "Select Wallet",
+      "name": "wallet",
+      "type": "string",
+      "description": "Enter the wallet private key to deploy Solidity code",
+      "default": ""
     },
     {
       "label": "Constructor Parameters",
       "name": "parameters",
       "type": "json",
-      "optional": true,
-      "description": "Input parameters for the constructor, if any."
+      "placeholder": "[ \"param1\", \"param2\" ]",
+      "description": "Input parameters for constructor",
+      "optional": true
     }
   ],
-  "filePath": "https://your-repo-url/solidity.js"
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
 }
 ]
