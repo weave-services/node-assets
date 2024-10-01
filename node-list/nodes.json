@@ -5172,5 +5172,287 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
+},
+  {
+  "label": "Vercel",
+  "name": "vercel",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg"
+  },
+  "type": "action",
+  "category": "Developer Tools",
+  "version": 1,
+  "description": "Perform Vercel operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Deployments",
+          "name": "listDeployments",
+          "description": "Returns a list of deployments."
+        },
+        {
+          "label": "Get Deployment",
+          "name": "getDeployment",
+          "description": "Returns information about a specific deployment."
+        },
+        {
+          "label": "Create Deployment",
+          "name": "createDeployment",
+          "description": "Creates a new deployment."
+        },
+        {
+          "label": "Delete Deployment",
+          "name": "deleteDeployment",
+          "description": "Deletes a specific deployment."
+        },
+        {
+          "label": "List Projects",
+          "name": "listProjects",
+          "description": "Retrieves a list of projects."
+        },
+        {
+          "label": "Get Project",
+          "name": "getProject",
+          "description": "Returns information about a specific project."
+        },
+        {
+          "label": "Create Project",
+          "name": "createProject",
+          "description": "Creates a new project."
+        },
+        {
+          "label": "Update Project",
+          "name": "updateProject",
+          "description": "Updates an existing project."
+        },
+        {
+          "label": "Delete Project",
+          "name": "deleteProject",
+          "description": "Deletes a specific project."
+        }
+      ],
+      "default": "listDeployments"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Vercel API Key",
+          "name": "vercelApiKey"
+        }
+      ],
+      "default": "vercelApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Team ID",
+      "name": "teamId",
+      "type": "string",
+      "optional": true,
+      "description": "The ID of the team.",
+      "show": {
+        "actions.api": [
+          "listDeployments",
+          "listProjects",
+          "createDeployment",
+          "createProject",
+          "getProject",
+          "updateProject",
+          "deleteProject"
+        ]
+      }
+    },
+    {
+      "label": "Project ID",
+      "name": "projectId",
+      "type": "string",
+      "optional": true,
+      "description": "The ID of the project.",
+      "show": {
+        "actions.api": [
+          "listDeployments",
+          "createDeployment",
+          "getProject",
+          "updateProject",
+          "deleteProject"
+        ]
+      }
+    },
+    {
+      "label": "Deployment ID",
+      "name": "deploymentId",
+      "type": "string",
+      "description": "The ID of the deployment.",
+      "show": {
+        "actions.api": [
+          "getDeployment",
+          "deleteDeployment"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "optional": true,
+      "description": "Number of items to return.",
+      "default": 20,
+      "show": {
+        "actions.api": [
+          "listDeployments",
+          "listProjects"
+        ]
+      }
+    },
+    {
+      "label": "Since",
+      "name": "since",
+      "type": "number",
+      "optional": true,
+      "description": "Timestamp in milliseconds to filter items created after this time.",
+      "show": {
+        "actions.api": [
+          "listDeployments"
+        ]
+      }
+    },
+    {
+      "label": "Until",
+      "name": "until",
+      "type": "number",
+      "optional": true,
+      "description": "Timestamp in milliseconds to filter items created before this time.",
+      "show": {
+        "actions.api": [
+          "listDeployments"
+        ]
+      }
+    },
+    {
+      "label": "State",
+      "name": "state",
+      "type": "string",
+      "optional": true,
+      "description": "Filter deployments by state (e.g., 'READY', 'ERROR').",
+      "show": {
+        "actions.api": [
+          "listDeployments"
+        ]
+      }
+    },
+    {
+      "label": "Project Name",
+      "name": "projectName",
+      "type": "string",
+      "description": "Name of the project.",
+      "show": {
+        "actions.api": [
+          "createProject",
+          "updateProject"
+        ]
+      }
+    },
+    {
+      "label": "Framework",
+      "name": "framework",
+      "type": "string",
+      "optional": true,
+      "description": "Framework preset for the project.",
+      "show": {
+        "actions.api": [
+          "createProject",
+          "updateProject"
+        ]
+      }
+    },
+    {
+      "label": "Build Command",
+      "name": "buildCommand",
+      "type": "string",
+      "optional": true,
+      "description": "Build command for the project.",
+      "show": {
+        "actions.api": [
+          "createProject",
+          "updateProject"
+        ]
+      }
+    },
+    {
+      "label": "Output Directory",
+      "name": "outputDirectory",
+      "type": "string",
+      "optional": true,
+      "description": "Output directory for the project.",
+      "show": {
+        "actions.api": [
+          "createProject",
+          "updateProject"
+        ]
+      }
+    },
+    {
+      "label": "Environment Variables",
+      "name": "envVars",
+      "type": "json",
+      "optional": true,
+      "description": "Environment variables for the project (JSON format).",
+      "show": {
+        "actions.api": [
+          "createProject",
+          "updateProject",
+          "createDeployment"
+        ]
+      }
+    },
+    {
+      "label": "Source Files",
+      "name": "sourceFiles",
+      "type": "json",
+      "description": "An array of source files for deployment (JSON format).",
+      "show": {
+        "actions.api": [
+          "createDeployment"
+        ]
+      }
+    },
+    {
+      "label": "Deployment Name",
+      "name": "deploymentName",
+      "type": "string",
+      "description": "Name of the deployment.",
+      "show": {
+        "actions.api": [
+          "createDeployment"
+        ]
+      }
+    },
+    {
+      "label": "Target",
+      "name": "target",
+      "type": "string",
+      "optional": true,
+      "description": "Deployment target (e.g., 'production').",
+      "show": {
+        "actions.api": [
+          "createDeployment"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Vercel/Vercel.js"
 }
 ]
