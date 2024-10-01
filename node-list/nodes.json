@@ -5177,9 +5177,9 @@
   "label": "Vercel",
   "name": "vercel",
   "icons": {
-    "default": "https://assets.vercel.com/image/upload/v1572282926/front/favicon/vercel/76x76.png",
-    "light": "https://assets.vercel.com/image/upload/v1572282926/front/favicon/vercel/76x76.png",
-    "dark": "https://assets.vercel.com/image/upload/v1572282926/front/favicon/vercel/76x76.png"
+    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg"
   },
   "type": "action",
   "category": "Developer Tools",
