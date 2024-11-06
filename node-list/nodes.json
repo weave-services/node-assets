@@ -5892,7 +5892,7 @@
  {
   "loadMethods": {},
   "label": "GitHub",
-  "name": "GitHub",
+  "name": "github",
   "icons": {
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
