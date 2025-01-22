@@ -4255,7 +4255,7 @@
     },
     "type": "action",
     "category": "Artificial Intelligence",
-    "version": 1,
+    "version": 2,
     "description": "Perform operations with OpenAI Assistants API",
     "incoming": 1,
     "outgoing": 1,
