@@ -6512,5 +6512,256 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
-} 
+},
+	{
+  "loadMethods": {},
+  "label": "Create NFT",
+  "name": "createNFT",
+   "icons": {
+      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
+      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
+      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png"
+    },
+  "type": "action",
+  "category": "NFT",
+  "version": 1,
+  "description": "Create new NFT (ERC1155)",
+  "incoming": 1,
+  "outgoing": 1,
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Mainnet",
+          "name": "homestead",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Goerli",
+          "name": "goerli",
+          "parentGroup": "Ethereum"
+        },
+        {
+          "label": "Polygon Mainnet",
+          "name": "matic",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Polygon Mumbai",
+          "name": "maticmum",
+          "parentGroup": "Polygon"
+        },
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Arbitrum Goerli",
+          "name": "arbitrum-goerli",
+          "parentGroup": "Arbitrum"
+        },
+        {
+          "label": "Optimism Mainnet",
+          "name": "optimism",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Optimism Goerli",
+          "name": "optimism-goerli",
+          "parentGroup": "Optimism"
+        },
+        {
+          "label": "Binance Smart Chain Mainnet",
+          "name": "bsc",
+          "parentGroup": "Binance Smart Chain"
+        },
+        {
+          "label": "Binance Smart Chain Testnet",
+          "name": "bsc-testnet",
+          "parentGroup": "Binance Smart Chain"
+        }
+      ],
+      "default": "goerli"
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders"
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customRPC"
+        ]
+      }
+    },
+    {
+      "label": "Websocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": [
+          "customWebsocket"
+        ]
+      }
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Alchemy API Key",
+          "name": "alchemyApi",
+          "show": {
+            "networks.networkProvider": [
+              "alchemy"
+            ]
+          }
+        },
+        {
+          "label": "Infura API Key",
+          "name": "infuraApi",
+          "show": {
+            "networks.networkProvider": [
+              "infura"
+            ]
+          }
+        },
+        {
+          "label": "QuickNode Endpoints",
+          "name": "quickNodeEndpoints",
+          "show": {
+            "networks.networkProvider": [
+              "quicknode"
+            ]
+          }
+        }
+      ],
+      "show": {
+        "networks.networkProvider": [
+          "alchemy",
+          "infura",
+          "quicknode"
+        ]
+      }
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Select Wallet",
+      "name": "wallet",
+      "type": "asyncOptions",
+      "description": "Wallet account to create NFT.",
+      "loadFromDbCollections": [
+        "Wallet"
+      ],
+      "loadMethod": "getWallets"
+    },
+    {
+      "label": "NFT Metadata",
+      "name": "nftMetadata",
+      "type": "options",
+      "options": [
+        {
+          "label": "Ipfs Hash/Pin",
+          "name": "ipfsHash",
+          "description": "Ipfs hash/pin of the folder that contains the json metadata files"
+        },
+        {
+          "label": "URL",
+          "name": "url",
+          "description": "URL of the folder that contains the json metadata files. Ex: https://ipfs.io/ipfs/QmSPiKckfBDhw1pXdjHvU4jndN5pn4ZbKHeA9Nnn622C7U"
+        }
+      ],
+      "description": "Fetch metadata from a url OR using Ipfs hash/pin"
+    },
+    {
+      "label": "NFT Metadata URL",
+      "name": "nftMetadataJsonUrl",
+      "type": "string",
+      "placeholder": "https://ipfs.io/ipfs/QmSPiKckfBDhw1pXdjHvU4jndN5pn4ZbKHeA9Nnn622C7U",
+      "description": "URL of the folder that contains the json metadata files",
+      "show": {
+        "inputParameters.nftMetadata": [
+          "url"
+        ]
+      }
+    },
+    {
+      "label": "NFT Metadata Ipfs Hash/Pin",
+      "name": "nftMetadataHash",
+      "type": "string",
+      "placeholder": "QmexuwvmmtwsazQ7LK93SyVdFeYRnDbjET414y2xXiToM4",
+      "description": "Ipfs hash/pin of the folder that contains the json metadata files",
+      "show": {
+        "inputParameters.nftMetadata": [
+          "ipfsHash"
+        ]
+      }
+    },
+    {
+      "label": "Contract Name",
+      "name": "contractName",
+      "type": "string",
+      "default": "",
+      "placeholder": "MyContract",
+      "optional": true
+    },
+    {
+      "label": "Collection Name",
+      "name": "collectionName",
+      "type": "string",
+      "default": "",
+      "placeholder": "MyCollection",
+      "optional": true
+    },
+    {
+      "label": "Solidity Version",
+      "name": "solidityVersion",
+      "type": "options",
+      "description": "Soldity version to compile code for NFT creation",
+      "options": [
+        {
+          "label": "0.8.10",
+          "name": "0.8.10"
+        },
+        {
+          "label": "0.8.11",
+          "name": "0.8.11"
+        },
+        {
+          "label": "0.8.12",
+          "name": "0.8.12"
+        },
+        {
+          "label": "0.8.13",
+          "name": "0.8.13"
+        },
+        {
+          "label": "0.8.14",
+          "name": "0.8.14"
+        },
+        {
+          "label": "0.8.15",
+          "name": "0.8.15"
+        }
+      ],
+      "default": "0.8.15"
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/CreateNFT/CreateNFT.js"
+}
 ]
