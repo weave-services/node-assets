@@ -245,6 +245,104 @@
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/QuickNode/QuickNodeTrigger.js"
 },
+	{
+  "loadMethods": {},
+  "label": "YOP Mail",
+  "name": "yopMail",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "light": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "dark": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png"
+  },
+  "type": "action",
+  "category": "Email",
+  "version": 1,
+  "description": "Manage temporary email addresses using Easy-YOPmail for Node.js.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Generate Temporary Email",
+          "name": "generateEmail",
+          "description": "Generate a unique temporary email address."
+        },
+        {
+          "label": "Get Inbox",
+          "name": "getInbox",
+          "description": "Retrieve the inbox of a specified temporary email address."
+        },
+        {
+          "label": "Read Message",
+          "name": "readMessage",
+          "description": "Read a specific message from an inbox."
+        }
+      ],
+      "default": "generateEmail"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "YOPmail API Key",
+      "name": "apiKey",
+      "type": "string",
+      "description": "API key for accessing Easy-YOPmail functionalities.",
+      "optional": true
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Email Address",
+      "name": "emailAddress",
+      "type": "string",
+      "description": "The temporary email address to manage.",
+      "show": {
+        "actions.operation": [
+          "getInbox",
+          "readMessage"
+        ]
+      }
+    },
+    {
+      "label": "Message ID",
+      "name": "messageId",
+      "type": "string",
+      "description": "The ID of the message to read.",
+      "show": {
+        "actions.operation": [
+          "readMessage"
+        ]
+      }
+    },
+    {
+      "label": "Format",
+      "name": "format",
+      "type": "options",
+      "options": [
+        {
+          "label": "Text",
+          "name": "TXT"
+        },
+        {
+          "label": "HTML",
+          "name": "HTML"
+        }
+      ],
+      "default": "TXT",
+      "description": "The format in which to retrieve the message content.",
+      "show": {
+        "actions.operation": [
+          "readMessage"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/easyYopmail/easyYopmail.js"
+},
 	  {
     "nodeState": null,
     "loadMethods": {},
