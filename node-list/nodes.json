@@ -970,6 +970,170 @@
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
   },
+	{
+  "loadMethods": {},
+  "label": "zkSync Ethereum JSON-RPC API",
+  "name": "zkSyncEthereumJSONRPC",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
+  },
+  "type": "action",
+  "category": "Blockchain",
+  "version": 1,
+  "description": "Interact with zkSync's Ethereum-compatible JSON-RPC API to perform various blockchain operations.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Chain ID",
+          "name": "eth_chainId",
+          "description": "Retrieve the current chain ID."
+        },
+        {
+          "label": "Call Smart Contract",
+          "name": "eth_call",
+          "description": "Execute a new message call immediately without creating a transaction on the blockchain."
+        },
+        {
+          "label": "Estimate Gas",
+          "name": "eth_estimateGas",
+          "description": "Estimate the amount of gas needed to execute a transaction."
+        },
+        {
+          "label": "Get Block Number",
+          "name": "eth_blockNumber",
+          "description": "Retrieve the number of the most recent block."
+        },
+        {
+          "label": "Get Balance",
+          "name": "eth_getBalance",
+          "description": "Get the balance of an account at a specific block."
+        }
+      ],
+      "default": "eth_chainId"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "RPC Endpoint",
+      "name": "rpcEndpoint",
+      "type": "string",
+      "description": "The URL of the zkSync Ethereum JSON-RPC endpoint."
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "From Address",
+      "name": "from",
+      "type": "string",
+      "description": "The address the transaction is sent from.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "To Address",
+      "name": "to",
+      "type": "string",
+      "description": "The address the transaction is directed to.",
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "Gas",
+      "name": "gas",
+      "type": "string",
+      "description": "The gas provided for the transaction execution.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "Gas Price",
+      "name": "gasPrice",
+      "type": "string",
+      "description": "The gas price used for each paid gas.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "Value",
+      "name": "value",
+      "type": "string",
+      "description": "The value sent with this transaction.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "Data",
+      "name": "data",
+      "type": "string",
+      "description": "The compiled code of a contract OR the hash of the invoked method signature and encoded parameters.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_estimateGas"
+        ]
+      }
+    },
+    {
+      "label": "Block Parameter",
+      "name": "blockParameter",
+      "type": "string",
+      "description": "The block number or one of 'latest', 'earliest', 'pending'.",
+      "optional": true,
+      "default": "latest",
+      "show": {
+        "actions.operation": [
+          "eth_call",
+          "eth_getBalance"
+        ]
+      }
+    },
+    {
+      "label": "Address",
+      "name": "address",
+      "type": "string",
+      "description": "The address to get the balance of.",
+      "show": {
+        "actions.operation": [
+          "eth_getBalance"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/zkSyncEthereumJSONRPC/zkSyncEthereumJSONRPC.js"
+},
   {
     "label": "Arbiscan",
     "name": "arbiscan",
