@@ -4564,6 +4564,11 @@
             "description": "Fetches a list of all assistants."
           },
           {
+            "label": "Run Assistant With Thread",
+            "name": "sendMessageToThreadWithAssistant",
+            "description": "Recieves a response from the assistant for a specific thread"
+          },
+          {
             "label": "Create Assistant",
             "name": "createAssistant",
             "description": "Creates a new assistant."
@@ -4726,7 +4731,8 @@
           "actions.api": [
             "getAssistant",
             "modifyAssistant",
-            "deleteAssistant"
+            "deleteAssistant",
+            "sendMessageToThreadWithAssistant"
           ]
         }
       },
@@ -4737,7 +4743,19 @@
         "description": "The ID of the thread.",
         "show": {
           "actions.api": [
-            "getThread"
+            "getThread",
+            "sendMessageToThreadWithAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Message",
+        "name": "message",
+        "type": "string",
+        "description": "The message to send to the assistant on the thread",
+        "show": {
+          "actions.api": [
+            "sendMessageToThreadWithAssistant"
           ]
         }
       },
