@@ -7631,7 +7631,7 @@
 },
 {
   "loadMethods": {},
-  "label": "Space and Time API",
+  "label": "Space and Time SQL API",
   "name": "spaceAndTimeApi",
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
