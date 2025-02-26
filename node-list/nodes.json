@@ -672,7 +672,7 @@
   "icons": {
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "category": "Development",
   "incoming": 0,
@@ -6866,7 +6866,7 @@
   "icons": {
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "type": "action",
   "category": "Development",
