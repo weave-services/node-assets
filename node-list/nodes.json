@@ -7634,9 +7634,9 @@
   "label": "Space and Time SQL API",
   "name": "spaceAndTimeApi",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Database",
@@ -7810,9 +7810,9 @@
   "label": "Space and Time Encrypted API",
   "name": "spaceAndTimeEncryptedApi",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Database",
@@ -7906,9 +7906,9 @@
   "label": "Space and Time Auth API",
   "name": "spaceXTimeAuth",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Authentication",
@@ -8009,9 +8009,9 @@
   "label": "Space and Time Subscription API",
   "name": "spaceAndTimeSubscription",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Web3 Services",
