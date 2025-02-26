@@ -5634,6 +5634,39 @@
     ],
     "filePath": "https://example.com/nodes/ChainLink/ChainLink.js"
   },
+	{
+  "label": "Chainlink Functions",
+  "name": "chainlinkFunctions",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+  },
+  "type": "action",
+  "category": "Development",
+  "version": 1,
+  "description": "Execute code within NodeVM sandbox",
+  "incoming": 1,
+  "outgoing": 1,
+  "inputParameters": [
+    {
+      "label": "Code",
+      "name": "code",
+      "type": "code",
+      "default": "const characterId = args[0];\nconst apiResponse = await Functions.makeHttpRequest({ url: `https://swapi.info/api/people/${characterId}/` });\nif (apiResponse.error) {\n  console.error(JSON.stringify(apiResponse.error, null, 2));\n  throw new Error("Request failed");\n}\nconst { data } = apiResponse;\nconsole.info(JSON.stringify(data, null, 2));\nreturn Functions.encodeString(data.name);",
+      "description": "Custom code to run"
+    },
+    {
+      "label": "args",
+      "name": "args",
+      "type": "array",
+      "placeholder": "[\"axios\"]",
+      "description": "args",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+},
   {
     "loadMethods": {},
     "label": "Uniswap",
