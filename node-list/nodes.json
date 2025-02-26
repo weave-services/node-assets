@@ -8009,9 +8009,9 @@
   "label": "Space and Time Subscription API",
   "name": "spaceAndTimeSubscription",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/default.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/light.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/dark.svg"
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
   },
   "type": "action",
   "category": "Web3 Services",
