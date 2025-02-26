@@ -5641,7 +5641,8 @@
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
     "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
-  },  "type": "action",
+  },  
+  "type": "action",
   "category": "Development",
   "version": 1,
   "description": "Execute code within NodeVM sandbox",
