@@ -7804,5 +7804,204 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
-}	
+},
+	{
+  "loadMethods": {},
+  "label": "Space and Time Encrypted API",
+  "name": "spaceAndTimeEncryptedApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Database",
+  "version": 1,
+  "description": "Endpoints for executing SQL operations on encrypted tables, modifying encrypted data, and configuring dataset encryption in the Space and Time network.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Execute SQL Query on Encrypted Data",
+      "name": "executeEncryptedSQL"
+    },
+    {
+      "label": "Modify Encrypted Data (DML)",
+      "name": "modifyEncryptedData"
+    },
+    {
+      "label": "Configure Dataset Encryption",
+      "name": "configureEncryption"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Space and Time API Key",
+      "name": "credentialMethod",
+      "type": "string",
+      "description": "JWT Bearer token for authentication",
+      "default": ""
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "SQL Statement",
+      "name": "sqlText",
+      "type": "string",
+      "default": "",
+      "description": "The raw SQL text to execute.",
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL"
+        ]
+      }
+    },
+    {
+      "label": "Resources",
+      "name": "resources",
+      "type": "json",
+      "default": "{}",
+      "description": "List of tables or datasets to operate on.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    },
+    {
+      "label": "Row Count",
+      "name": "rowCount",
+      "type": "number",
+      "default": 0,
+      "description": "Number of rows affected (used in DML operations).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "modifyEncryptedData"
+        ]
+      }
+    },
+    {
+      "label": "Biscuits",
+      "name": "biscuits",
+      "type": "string",
+      "default": "",
+      "description": "Optional authorization tokens (comma-separated list).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTimeEncrypted.js"
+},
+	{
+  "label": "SpaceXTime",
+  "name": "spaceXTimeAuth",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Authentication",
+  "version": 1,
+  "description": "Execute SpaceXTime API operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Authenticate User",
+      "name": "authenticateUser",
+      "description": "Request a temporary authentication challenge for the given user."
+    },
+    {
+      "label": "Register User",
+      "name": "registerUser",
+      "description": "Request a temporary registration challenge for the given user."
+    },
+    {
+      "label": "Request Token",
+      "name": "requestToken",
+      "description": "Initiate a new authentication session by providing identity via signature to generate a new accessToken and refreshToken."
+    },
+    {
+      "label": "Refresh Token",
+      "name": "refreshToken",
+      "description": "Refresh an existing authenticated session by providing a valid refreshToken to generate a new accessToken and refreshToken."
+    },
+    {
+      "label": "Logout",
+      "name": "logout",
+      "description": "End an authenticated session with a refreshToken."
+    },
+    {
+      "label": "Validate Token",
+      "name": "validateToken",
+      "description": "Perform simple token validation and return claim metadata on success."
+    },
+    {
+      "label": "Check User Identity",
+      "name": "checkUserIdentity",
+      "description": "Checks if a given user identifier is in use across the platform, facilitating registration process."
+    },
+    {
+      "label": "Get Current Keychain",
+      "name": "getCurrentKeychain",
+      "description": "Retrieve public keys available for user authentication."
+    },
+    {
+      "label": "Add Key to Keychain",
+      "name": "addKeyToKeychain",
+      "description": "Add a new public key to your keychain for authentication."
+    },
+    {
+      "label": "Get Public Key Challenge",
+      "name": "getPublicKeyChallenge",
+      "description": "Request a challenge for adding a new public key."
+    }
+  ],
+  "credentials": [
+    {
+      "label": "SpaceXTime API Key",
+      "name": "spaceXTimeApiKey",
+      "type": "string",
+      "description": "API key required to authenticate requests to SpaceXTime."
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "API Action",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Authenticate User", "name": "authenticateUser" },
+        { "label": "Register User", "name": "registerUser" },
+        { "label": "Request Token", "name": "requestToken" },
+        { "label": "Refresh Token", "name": "refreshToken" },
+        { "label": "Logout", "name": "logout" },
+        { "label": "Validate Token", "name": "validateToken" },
+        { "label": "Check User Identity", "name": "checkUserIdentity" },
+        { "label": "Get Current Keychain", "name": "getCurrentKeychain" },
+        { "label": "Add Key to Keychain", "name": "addKeyToKeychain" },
+        { "label": "Get Public Key Challenge", "name": "getPublicKeyChallenge" }
+      ],
+      "default": "authenticateUser"
+    },
+    {
+      "label": "Input Parameters",
+      "name": "inputParameters",
+      "type": "object",
+      "description": "Payload parameters required for the selected action."
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/path-to-file.js"
+}
 ]
