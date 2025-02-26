@@ -2891,7 +2891,7 @@
     "icons": {
       "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
       "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
     },
     "type": "action",
     "category": "Artificial Intelligence",
