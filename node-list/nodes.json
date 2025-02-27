@@ -7495,6 +7495,42 @@
     ],
     "filePath": "https://example.com/firefliesai/firefliesai.js"
 },
+	{
+  "label": "Advanced Structured Output Parser",
+  "name": "advancedStructuredOutputParser",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "light": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "dark": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg"
+  },
+  "type": "action",
+  "category": "Output Parsing",
+  "version": 1,
+  "description": "Parse the output of an LLM call into a given structure by providing a Zod schema.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [],
+  "credentials": [],
+  "inputParameters": [
+    {
+      "label": "Autofix",
+      "name": "autofixParser",
+      "type": "boolean",
+      "optional": true,
+      "description": "In the event that the first call fails, will make another call to the model to fix any errors.",
+      "default": false
+    },
+    {
+      "label": "Example JSON",
+      "name": "exampleJson",
+      "type": "code",
+      "description": "Zod schema for the output of the model.",
+      "rows": 10,
+      "default": "z.object({\n  title: z.string(),\n  yearOfRelease: z.number().int(),\n  genres: z.enum([\n    \"Action\", \"Comedy\", \"Drama\", \"Fantasy\", \"Horror\",\n    \"Mystery\", \"Romance\", \"Science Fiction\", \"Thriller\", \"Documentary\"\n  ]).array().max(2),\n  shortDescription: z.string().max(500)\n})"
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo-path/nodes/main/nodes/AdvancedStructuredOutputParser/AdvancedStructuredOutputParser.js"
+},
 {
   "label": "GraphQL",
   "name": "graphQL",
