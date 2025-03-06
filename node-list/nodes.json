@@ -8418,5 +8418,231 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Nowhere/Nowhere.js"
+},
+	{
+  "loadMethods": {},
+  "label": "PureTalk",
+  "name": "pureTalk",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png"
+  },
+  "type": "action",
+  "category": "Telecommunications",
+  "version": 1,
+  "description": "Interact with the Puretalk AI® API to manage voices, AI assistants, phone numbers, calls, and related tasks.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        { "label": "Retrieve all voices", "name": "getVoices" },
+        { "label": "Retrieve a specific voice by ID", "name": "getVoice" },
+        { "label": "Create a new AI Assistant", "name": "createAssistant" },
+        { "label": "Retrieve all AI Assistants", "name": "getAssistants" },
+        { "label": "Retrieve a specific AI Assistant by ID", "name": "getAssistant" },
+        { "label": "Update an existing AI Assistant", "name": "updateAssistant" },
+        { "label": "Delete an AI Assistant by ID", "name": "deleteAssistant" },
+        { "label": "Retrieve chatbot configuration for an AI Assistant", "name": "getChatbotConfig" },
+        { "label": "Add or update a task for an AI Assistant", "name": "addOrUpdateTask" },
+        { "label": "Delete a task for an AI Assistant", "name": "deleteTask" },
+        { "label": "Retrieve all phone numbers", "name": "getPhoneNumbers" },
+        { "label": "Retrieve a specific phone number by ID", "name": "getPhoneNumber" },
+        { "label": "Delete a phone number by ID", "name": "deletePhoneNumber" },
+        { "label": "Connect a phone number", "name": "connectPhoneNumber" },
+        { "label": "Retrieve a list of calls", "name": "getCallList" },
+        { "label": "Retrieve details of a specific call by ID", "name": "getCall" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "PureTalk API Key", "name": "pureTalkApiKey" }
+      ],
+      "default": "pureTalkApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "description": "The page number for paginated results.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getVoices",
+          "getAssistants",
+          "getPhoneNumbers",
+          "getCallList"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "description": "The maximum number of results to return.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getVoices",
+          "getAssistants",
+          "getPhoneNumbers",
+          "getCallList"
+        ]
+      }
+    },
+    {
+      "label": "Voice ID",
+      "name": "voice_id",
+      "type": "number",
+      "description": "ID of the voice to retrieve.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getVoice"
+        ]
+      }
+    },
+    {
+      "label": "Assistant ID",
+      "name": "assistant_id",
+      "type": "string",
+      "description": "ID of the AI Assistant.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getAssistant",
+          "updateAssistant",
+          "deleteAssistant",
+          "getChatbotConfig",
+          "addOrUpdateTask",
+          "deleteTask"
+        ]
+      }
+    },
+    {
+      "label": "Assistant Name",
+      "name": "assistant_name",
+      "type": "string",
+      "description": "Name of the AI Assistant.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "createAssistant",
+          "updateAssistant"
+        ]
+      }
+    },
+    {
+      "label": "Assistant Configuration",
+      "name": "assistant_config",
+      "type": "string",
+      "description": "Configuration details for the AI Assistant (JSON format).",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "createAssistant",
+          "updateAssistant"
+        ]
+      }
+    },
+    {
+      "label": "LLM Task ID",
+      "name": "llm_task_id",
+      "type": "string",
+      "description": "Task ID for the LLM state.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "addOrUpdateTask"
+        ]
+      }
+    },
+    {
+      "label": "LLM Task State",
+      "name": "llm_task_state",
+      "type": "string",
+      "description": "State details for the LLM task (JSON format).",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "addOrUpdateTask"
+        ]
+      }
+    },
+    {
+      "label": "Task ID",
+      "name": "task_id",
+      "type": "string",
+      "description": "ID of the task to delete.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "deleteTask"
+        ]
+      }
+    },
+    {
+      "label": "Phone Number ID",
+      "name": "phone_number_id",
+      "type": "number",
+      "description": "ID of the phone number.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getPhoneNumber",
+          "deletePhoneNumber",
+          "connectPhoneNumber"
+        ]
+      }
+    },
+    {
+      "label": "Provider",
+      "name": "provider",
+      "type": "string",
+      "description": "Name of the provider to connect the phone number.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "connectPhoneNumber"
+        ]
+      }
+    },
+    {
+      "label": "Call ID",
+      "name": "call_id",
+      "type": "number",
+      "description": "ID of the call to retrieve.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getCall"
+        ]
+      }
+    },
+    {
+      "label": "Response Format",
+      "name": "responseType",
+      "type": "options",
+      "description": "The response format.",
+      "options": [
+        { "label": "JSON", "name": "json" },
+        { "label": "Base64", "name": "base64" }
+      ],
+      "default": "json",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/PureTalk/PureTalk.js"
 }
 ]
