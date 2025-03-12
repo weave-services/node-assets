@@ -1,0 +1,289 @@
+{
+  "label": "BaseScan",
+  "name": "basescan",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png"
+  },
+  "type": "action",
+  "category": "Block Explorer",
+  "version": 1,
+  "description": "Perform BaseScan operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Base Balance for a Single Address",
+          "name": "getBaseBalance",
+          "description": "Returns the Base balance of a given address."
+        },
+        {
+          "label": "Get Base Balance for Multiple Addresses(separated by a comma)",
+          "name": "getBaseBalanceMulti",
+          "description": "Returns the Base balance of the addresses(each address separated by a comma) entered."
+        },
+        {
+          "label": "Get transactions",
+          "name": "getTransactions",
+          "description": "Returns the list of transactions performed by an address, with optional pagination."
+        },
+        {
+          "label": "Get internal transactions",
+          "name": "getInternalTransactions",
+          "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+        },
+        {
+          "label": "Get internal transactions by hash",
+          "name": "getInternalTransactionsByHash",
+          "description": "Returns the list of internal transactions performed within a transaction."
+        },
+        {
+          "label": "Get internal transactions by block",
+          "name": "getInternalTransactionsByBlock",
+          "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+        },
+        {
+          "label": "Get list of Blocks Validated by Address",
+          "name": "getBlocksValidated",
+          "description": "Returns the list of blocks validated by an address."
+        },
+        {
+          "label": "Get Contract ABI",
+          "name": "getAbi",
+          "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+        },
+        {
+          "label": "Get Contract Source Code",
+          "name": "getContractSourceCode",
+          "description": "Returns the Solidity source code of a verified smart contract."
+        },
+        {
+          "label": "Check Transaction Receipt Status",
+          "name": "getTransactionReceiptStatus",
+          "description": "Returns the status code of a transaction execution."
+        },
+        {
+          "label": "Get ERC20 Token Supply",
+          "name": "getErc20TokenSupply",
+          "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation."
+        },
+        {
+          "label": "Get ERC20 Token Balance",
+          "name": "getErc20TokenBalance",
+          "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation."
+        },
+        {
+          "label": "Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO]",
+          "name": "getHistoricalErc20TokenSupply",
+          "description": "Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation."
+        },
+        {
+          "label": "Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO]",
+          "name": "getHistoricalErc20TokenBalance",
+          "description": "Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation."
+        },
+        {
+          "label": "Get Token Info [PRO]",
+          "name": "getTokenInfo",
+          "description": "Returns project information and social media links of an ERC-20/ERC-721 token."
+        },
+        {
+          "label": "Get BASE Price",
+          "name": "getBasePrice",
+          "description": "Returns the latest price of 1 BASE."
+        },
+        {
+          "label": "Get Historical BASE Price [PRO]",
+          "name": "getHistoricalBasePrice",
+          "description": "Returns the historical price of BASE."
+        }
+      ],
+      "default": "getBaseBalance"
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Base Mainnet",
+          "name": "homestead"
+        },
+        {
+          "label": "Base Goerli",
+          "name": "goerli"
+        },
+        {
+          "label": "Base Sepolia",
+          "name": "sepolia"
+        }
+      ],
+      "default": "homestead"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "BaseScan API Key",
+          "name": "basescanApi"
+        }
+      ],
+      "default": "basescanApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Address",
+      "name": "address",
+      "type": "string",
+      "description": "The address parameter(s) required",
+      "show": {
+        "actions.api": [
+          "getBaseBalance",
+          "getTransactions",
+          "getInternalTransactions",
+          "getAbi",
+          "getContractSourceCode",
+          "getErc20TokenBalance"
+        ]
+      }
+    },
+    {
+      "label": "Start Block",
+      "name": "startBlock",
+      "type": "number",
+      "optional": true,
+      "description": "The block number to start searching for transactions",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 0
+    },
+    {
+      "label": "End Block",
+      "name": "endBlock",
+      "type": "number",
+      "optional": true,
+      "description": "The block number to stop searching for transactions",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      }
+    },
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "optional": true,
+      "description": "The page number, if pagination is enabled",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 1
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "optional": true,
+      "description": "The number of transactions displayed per page",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 10
+    },
+    {
+      "label": "Sort By",
+      "name": "sortBy",
+      "type": "options",
+      "optional": true,
+      "options": [
+        {
+          "label": "Desc",
+          "name": "desc"
+        },
+        {
+          "label": "Asc",
+          "name": "asc"
+        }
+      ],
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": "desc"
+    },
+    {
+      "label": "Transaction Hash",
+      "name": "txhash",
+      "type": "string",
+      "description": "The string representing the transaction hash to check for internal transactions",
+      "show": {
+        "actions.api": [
+          "getInternalTransactionsByHash",
+          "getTransactionReceiptStatus"
+        ]
+      }
+    },
+    {
+      "label": "Contract Address",
+      "name": "contractAddress",
+      "type": "string",
+      "description": "The contract address of the ERC-20 token",
+      "show": {
+        "actions.api": [
+          "getErc20TokenSupply",
+          "getErc20TokenBalance"
+        ]
+      }
+    },
+    {
+      "label": "Tag",
+      "name": "tag",
+      "type": "options",
+      "options": [
+        {
+          "label": "latest",
+          "name": "latest"
+        }
+      ],
+      "default": "latest",
+      "show": {
+        "actions.api": [
+          "getErc20TokenBalance"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/BaseScan/BaseScan.js"
+}

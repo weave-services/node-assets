@@ -1,0 +1,82 @@
+{
+  "label": "GraphQL",
+  "name": "graphQL",
+    "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg"
+  },
+  "type": "action",
+  "category": "Development",
+  "version": 1,
+  "description": "Execute GraphQL request",
+  "incoming": 1,
+  "outgoing": 1,
+  "credentials": [
+    {
+      "label": "Authorization",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Basic Auth",
+          "name": "httpBasicAuth"
+        },
+        {
+          "label": "Bearer Token Auth",
+          "name": "httpBearerTokenAuth"
+        },
+        {
+          "label": "No Auth",
+          "name": "noAuth",
+          "hideRegisteredCredential": true
+        }
+      ],
+      "default": "noAuth"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "URL",
+      "name": "url",
+      "type": "string",
+      "default": "",
+      "placeholder": "http://<your-url>.com/"
+    },
+    {
+      "label": "Headers",
+      "name": "headers",
+      "type": "array",
+      "array": [
+        {
+          "label": "Key",
+          "name": "key",
+          "type": "string",
+          "default": ""
+        },
+        {
+          "label": "Value",
+          "name": "value",
+          "type": "string",
+          "default": ""
+        }
+      ],
+      "optional": true
+    },
+    {
+      "label": "GraphQL Body",
+      "name": "body",
+      "type": "json",
+      "placeholder": "{\n  me {\n    name\n  }\n}",
+      "optional": true
+    },
+    {
+      "label": "Variables",
+      "name": "variables",
+      "type": "json",
+      "placeholder": "{\"var1\": \"value1\"}",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GraphQL/GraphQL.js"
+}

@@ -1,0 +1,61 @@
+{
+  "loadMethods": {},
+  "label": "GET API Chain",
+  "name": "getApiChain",
+  "icons": {
+        "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/nodes/chains/ApiChain/get.svg",
+        "light": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/nodes/chains/ApiChain/get.svg",
+        "dark": "https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/nodes/chains/ApiChain/get.svg"
+  },
+  "type": "action",
+  "category": "Chains",
+  "version": 1,
+  "description": "Chain to run queries against GET API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [],
+  "credentials": [],
+  "inputParameters": [
+    {
+      "label": "Language Model",
+      "name": "model",
+      "type": "asyncOptions",
+      "loadMethod": "listModels",
+      "description": "AI model to use.",
+      "default": "text-davinci-003"
+    },
+    {
+      "label": "API Documentation",
+      "name": "apiDocs",
+      "type": "string",
+      "description": "Description of how API works. Please refer to more examples in the documentation.",
+      "rows": 4
+    },
+    {
+      "label": "Headers",
+      "name": "headers",
+      "type": "json",
+      "description": "Optional headers to include in the API request.",
+      "optional": true
+    },
+    {
+      "label": "URL Prompt",
+      "name": "urlPrompt",
+      "type": "string",
+      "description": "Prompt used to tell LLMs how to construct the URL. Must contain {api_docs} and {question}.",
+      "default": "You are given the below API Documentation:\n{api_docs}\nUsing this documentation, generate the full API url to call for answering the user question.\nYou should build the API url in order to get a response that is as short as possible, while still getting the necessary information to answer the question. Pay attention to deliberately exclude any unnecessary pieces of data in the API call.\n\nQuestion:{question}\nAPI url:",
+      "rows": 4,
+      "additionalParams": true
+    },
+    {
+      "label": "Answer Prompt",
+      "name": "ansPrompt",
+      "type": "string",
+      "description": "Prompt used to tell LLMs how to return the API response. Must contain {api_response}, {api_url}, and {question}.",
+      "default": "Given this {api_response} response for {api_url}. use the given response to answer this {question}",
+      "rows": 4,
+      "additionalParams": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repository/nodes/main/nodes/GETApiChain/GETApiChain.js"
+}

@@ -1,0 +1,283 @@
+	{
+    "label": "OpenAI Assistants V2",
+    "name": "openaiAssistantsV2",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 2,
+    "description": "Perform operations with OpenAI Assistants API",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "API",
+        "name": "api",
+        "type": "options",
+        "options": [
+          {
+            "label": "List Assistants",
+            "name": "listAssistants",
+            "description": "Fetches a list of all assistants."
+          },
+          {
+            "label": "Create Assistant",
+            "name": "createAssistant",
+            "description": "Creates a new assistant."
+          },
+          {
+            "label": "Get Assistant",
+            "name": "getAssistant",
+            "description": "Retrieves details of a specific assistant using the assistant ID."
+          },
+          {
+            "label": "Modify Assistant",
+            "name": "modifyAssistant",
+            "description": "Modifies an existing assistant using the assistant ID."
+          },
+          {
+            "label": "Delete Assistant",
+            "name": "deleteAssistant",
+            "description": "Deletes an assistant using the assistant ID."
+          },
+          {
+            "label": "List Threads",
+            "name": "listThreads",
+            "description": "Fetches a list of all threads."
+          },
+          {
+            "label": "Create Thread",
+            "name": "createThread",
+            "description": "Creates a new thread."
+          },
+          {
+            "label": "Get Thread",
+            "name": "getThread",
+            "description": "Retrieves details of a specific thread using the thread ID."
+          },
+          {
+            "label": "List Messages",
+            "name": "listMessages",
+            "description": "Fetches a list of all messages."
+          },
+          {
+            "label": "Create Message",
+            "name": "createMessage",
+            "description": "Creates a new message."
+          },
+          {
+            "label": "Get Message",
+            "name": "getMessage",
+            "description": "Retrieves details of a specific message using the message ID."
+          },
+          {
+            "label": "List Runs",
+            "name": "listRuns",
+            "description": "Fetches a list of all runs."
+          },
+          {
+            "label": "Get Run",
+            "name": "getRun",
+            "description": "Retrieves details of a specific run using the run ID."
+          },
+          {
+            "label": "Cancel Run",
+            "name": "cancelRun",
+            "description": "Cancels a specific run using the run ID."
+          },
+          {
+            "label": "List Run Steps",
+            "name": "listRunSteps",
+            "description": "Fetches a list of all run steps."
+          },
+          {
+            "label": "Get Run Step",
+            "name": "getRunStep",
+            "description": "Retrieves details of a specific run step using the run step ID."
+          }
+        ],
+        "default": "listAssistants"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "OpenAI API Key",
+            "name": "openAIApi"
+          }
+        ],
+        "default": "openAIApi"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Assistant ID",
+        "name": "assistant_id",
+        "type": "string",
+        "description": "The ID of the assistant.",
+        "show": {
+          "actions.api": [
+            "getAssistant",
+            "modifyAssistant",
+            "deleteAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Thread ID",
+        "name": "thread_id",
+        "type": "string",
+        "description": "The ID of the thread.",
+        "show": {
+          "actions.api": [
+            "getThread"
+          ]
+        }
+      },
+      {
+        "label": "Message ID",
+        "name": "message_id",
+        "type": "string",
+        "description": "The ID of the message.",
+        "show": {
+          "actions.api": [
+            "getMessage"
+          ]
+        }
+      },
+      {
+        "label": "Run ID",
+        "name": "run_id",
+        "type": "string",
+        "description": "The ID of the run.",
+        "show": {
+          "actions.api": [
+            "getRun",
+            "cancelRun"
+          ]
+        }
+      },
+      {
+        "label": "Run Step ID",
+        "name": "run_step_id",
+        "type": "string",
+        "description": "The ID of the run step.",
+        "show": {
+          "actions.api": [
+            "getRunStep"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store ID",
+        "name": "vector_store_id",
+        "type": "string",
+        "description": "The ID of the vector store.",
+        "show": {
+          "actions.api": [
+            "getVectorStore",
+            "deleteVectorStore"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store File ID",
+        "name": "vector_store_file_id",
+        "type": "string",
+        "description": "The ID of the vector store file.",
+        "show": {
+          "actions.api": [
+            "getVectorStoreFile",
+            "deleteVectorStoreFile"
+          ]
+        }
+      },
+      {
+        "label": "Vector Store File Batch ID",
+        "name": "vector_store_file_batch_id",
+        "type": "string",
+        "description": "The ID of the vector store file batch.",
+        "show": {
+          "actions.api": [
+            "getVectorStoreFileBatch",
+            "deleteVectorStoreFileBatch"
+          ]
+        }
+      },
+      {
+        "label": "Name",
+        "name": "name",
+        "type": "string",
+        "description": "The name of the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant",
+            "modifyAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Description",
+        "name": "description",
+        "type": "string",
+        "description": "The description of the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Functions",
+        "name": "functions",
+        "type": "json",
+        "description": "The functions for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Memory Settings",
+        "name": "memory_settings",
+        "type": "json",
+        "description": "The memory settings for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Log Settings",
+        "name": "log_settings",
+        "type": "json",
+        "description": "The log settings for the assistant.",
+        "show": {
+          "actions.api": [
+            "createAssistant"
+          ]
+        }
+      },
+      {
+        "label": "Configuration",
+        "name": "configuration",
+        "type": "json",
+        "description": "The configuration details for the assistant.",
+        "show": {
+          "actions.api": [
+            "modifyAssistant"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
+  }

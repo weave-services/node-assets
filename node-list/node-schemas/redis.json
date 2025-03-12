@@ -1,0 +1,186 @@
+{
+    "loadMethods": {},
+    "label": "Redis",
+    "name": "redis",
+    "icon": "https://www.svgrepo.com/show/303460/redis-logo.svg",
+    "type": "action",
+    "category": "Database",
+    "version": 1,
+    "description": "Execute Redis operations",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+        {
+            "label": "Operation",
+            "name": "operation",
+            "type": "options",
+            "options": [
+                {
+                    "label": "Delete",
+                    "name": "delete",
+                    "description": "Delete a key from Redis"
+                },
+                {
+                    "label": "Get",
+                    "name": "get",
+                    "description": "Get the value of a key from Redis"
+                },
+                {
+                    "label": "Set",
+                    "name": "set",
+                    "description": "Set the value of a key in Redis"
+                },
+                {
+                    "label": "Increment",
+                    "name": "incr",
+                    "description": "Atomically increment a key by 1. Creates the key if it does not exist."
+                },
+                {
+                    "label": "Keys",
+                    "name": "keys",
+                    "description": "Returns all keys matching a pattern"
+                },
+                {
+                    "label": "Publish",
+                    "name": "publish",
+                    "description": "Publish a message to a Redis channel"
+                },
+                {
+                    "label": "Push",
+                    "name": "push",
+                    "description": "Push data to a Redis list"
+                },
+                {
+                    "label": "Pop",
+                    "name": "pop",
+                    "description": "Pop data from a Redis list"
+                }
+            ],
+            "default": "get"
+        }
+    ],
+    "credentials": [
+        {
+            "label": "Redis Credentials",
+            "name": "redisCredentials",
+            "type": "object",
+            "properties": [
+                {
+                    "label": "Host",
+                    "name": "host",
+                    "type": "string",
+                    "default": "localhost",
+                    "required": true
+                },
+                {
+                    "label": "Port",
+                    "name": "port",
+                    "type": "number",
+                    "default": 6379,
+                    "required": true
+                },
+                {
+                    "label": "Password",
+                    "name": "password",
+                    "type": "string",
+                    "default": "",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "inputParameters": [
+        {
+            "label": "Key",
+            "name": "key",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["delete", "get", "set", "incr"]
+            }
+        },
+        {
+            "label": "Value",
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["set"]
+            }
+        },
+        {
+            "label": "Key Pattern",
+            "name": "keyPattern",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["keys"]
+            }
+        },
+        {
+            "label": "Channel",
+            "name": "channel",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["publish"]
+            }
+        },
+        {
+            "label": "Message Data",
+            "name": "messageData",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["publish", "push"]
+            }
+        },
+        {
+            "label": "List",
+            "name": "list",
+            "type": "string",
+            "required": true,
+            "show": {
+                "actions.operation": ["push", "pop"]
+            }
+        },
+        {
+            "label": "Tail",
+            "name": "tail",
+            "type": "boolean",
+            "default": false,
+            "show": {
+                "actions.operation": ["push", "pop"]
+            }
+        },
+        {
+            "label": "Property Name",
+            "name": "propertyName",
+            "type": "string",
+            "default": "propertyName",
+            "show": {
+                "actions.operation": ["get", "pop"]
+            }
+        },
+        {
+            "label": "Expire",
+            "name": "expire",
+            "type": "boolean",
+            "default": false,
+            "show": {
+                "actions.operation": ["incr"]
+            }
+        },
+        {
+            "label": "TTL",
+            "name": "ttl",
+            "type": "number",
+            "default": 60,
+            "show": {
+                "actions.operation": ["incr"],
+                "inputParameters.expire": [true]
+            }
+        }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Redis/redis.js"
+}

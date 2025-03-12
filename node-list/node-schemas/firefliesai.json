@@ -1,0 +1,150 @@
+{
+  "loadMethods": {},
+  "label": "Fireflies AI",
+  "name": "firefliesai",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
+    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
+    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png"
+  },
+  "type": "action",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Perform Fireflies AI operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operations",
+      "name": "operations",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get AI Apps",
+          "name": "getAIApps",
+          "description": "Query the list of AI App outputs."
+        },
+        {
+          "label": "Get User Details",
+          "name": "getUser",
+          "description": "Query user details."
+        },
+        {
+          "label": "Get Users List",
+          "name": "getUsers",
+          "description": "Query a list of users."
+        },
+        {
+          "label": "Get Transcript Details",
+          "name": "getTranscript",
+          "description": "Query transcript details."
+        },
+        {
+          "label": "Get Transcripts List",
+          "name": "getTranscripts",
+          "description": "Query a list of transcripts."
+        },
+        {
+          "label": "Get Bite Details",
+          "name": "getBite",
+          "description": "Query bite details."
+        },
+        {
+          "label": "Get Bites List",
+          "name": "getBites",
+          "description": "Query a list of bites."
+        }
+      ],
+      "default": "getAIApps"
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Main",
+          "name": "main"
+        }
+      ],
+      "default": "main"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "API Key",
+          "name": "apiKey"
+        }
+      ],
+      "default": "apiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "App ID",
+      "name": "app_id",
+      "type": "string",
+      "description": "The ID of the AI App.",
+      "show": {
+        "actions.operations": [
+          "getAIApps"
+        ]
+      }
+    },
+    {
+      "label": "Transcript ID",
+      "name": "transcript_id",
+      "type": "string",
+      "description": "The ID of the transcript.",
+      "show": {
+        "actions.operations": [
+          "getTranscript",
+          "getBites"
+        ]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "user_id",
+      "type": "string",
+      "description": "The ID of the user.",
+      "show": {
+        "actions.operations": [
+          "getUser"
+        ]
+      }
+    },
+    {
+      "label": "From Date",
+      "name": "fromDate",
+      "type": "date",
+      "optional": true,
+      "description": "The start date for filtering transcripts.",
+      "show": {
+        "actions.operations": [
+          "getTranscripts"
+        ]
+      }
+    },
+    {
+      "label": "To Date",
+      "name": "toDate",
+      "type": "date",
+      "optional": true,
+      "description": "The end date for filtering transcripts.",
+      "show": {
+        "actions.operations": [
+          "getTranscripts"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/firefliesai/firefliesai.js"
+}

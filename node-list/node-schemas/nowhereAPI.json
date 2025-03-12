@@ -1,0 +1,160 @@
+{
+  "loadMethods": {},
+  "label": "Nowhere API",
+  "name": "nowhereAPI",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png"
+  },
+  "type": "action",
+  "category": "Virtual Spaces",
+  "version": 1,
+  "description": "Manage stations, spaces, and user roles via the Nowhere API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get User Info",
+          "name": "getUserInfo"
+        },
+        {
+          "label": "Get Embed Link",
+          "name": "getEmbedLink"
+        },
+        {
+          "label": "Create Station",
+          "name": "createStation"
+        },
+        {
+          "label": "Update Station",
+          "name": "updateStation"
+        },
+        {
+          "label": "Create Space",
+          "name": "createSpace"
+        },
+        {
+          "label": "Update Space",
+          "name": "updateSpace"
+        },
+        {
+          "label": "Manage Station Roles",
+          "name": "manageStationRoles"
+        },
+        {
+          "label": "Manage Space Roles",
+          "name": "manageSpaceRoles"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Nowhere API Key",
+          "name": "nowhereApiKey"
+        }
+      ],
+      "default": "nowhereApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "API Key",
+      "name": "apiKey",
+      "type": "string",
+      "description": "Your Nowhere API key",
+      "optional": false
+    },
+    {
+      "label": "Space ID",
+      "name": "spaceId",
+      "type": "string",
+      "description": "The ID of the space for operations like fetching embed links",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getEmbedLink",
+          "createSpace",
+          "updateSpace",
+          "manageSpaceRoles"
+        ]
+      }
+    },
+    {
+      "label": "Station ID",
+      "name": "stationId",
+      "type": "string",
+      "description": "The ID of the station for operations like updating or managing roles",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "updateStation",
+          "manageStationRoles"
+        ]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "The ID of the user for managing station or space roles",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "manageStationRoles",
+          "manageSpaceRoles"
+        ]
+      }
+    },
+    {
+      "label": "Station Data",
+      "name": "stationData",
+      "type": "json",
+      "description": "JSON data for creating or updating a station",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createStation",
+          "updateStation"
+        ]
+      }
+    },
+    {
+      "label": "Space Data",
+      "name": "spaceData",
+      "type": "json",
+      "description": "JSON data for creating or updating a space",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createSpace",
+          "updateSpace"
+        ]
+      }
+    },
+    {
+      "label": "Embed Link Options",
+      "name": "embedOptions",
+      "type": "json",
+      "description": "Options for fetching the embed link",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getEmbedLink"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Nowhere/Nowhere.js"
+}

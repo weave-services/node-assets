@@ -1,0 +1,196 @@
+{
+  "label": "NVIDIA NIM",
+  "name": "nvidiaNIM",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/nvidia-nim/nodes/main/nodes/NVIDIA/default.svg",
+    "light": "https://raw.githubusercontent.com/nvidia-nim/nodes/main/nodes/NVIDIA/light.svg",
+    "dark": "https://raw.githubusercontent.com/nvidia-nim/nodes/main/nodes/NVIDIA/dark.svg"
+  },
+  "type": "action",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Access NVIDIA NIM API for various tasks including chat, code generation, and retrieval via generative AI models",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Chat Completion",
+          "name": "chatCompletion"
+        },
+        {
+          "label": "Code Completion",
+          "name": "codeCompletion"
+        },
+        {
+          "label": "Retrieval",
+          "name": "retrieval"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "NVIDIA NIM API Key",
+          "name": "nvidiaNIMApiKey"
+        }
+      ],
+      "default": "nvidiaNIMApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Model (Chat Completion)",
+      "name": "chatModel",
+      "type": "options",
+      "options": [
+        {
+          "label": "01-ai/yi-large",
+          "name": "01-ai/yi-large"
+        },
+        {
+          "label": "aisingapore/sea-lion-7b-instruct",
+          "name": "aisingapore/sea-lion-7b-instruct"
+        },
+        {
+          "label": "meta/llama2-70b",
+          "name": "meta/llama2-70b"
+        },
+        {
+          "label": "meta/llama3-70b",
+          "name": "meta/llama3-70b"
+        },
+        {
+          "label": "mistralai/mistral-7b-instruct",
+          "name": "mistralai/mistral-7b-instruct"
+        },
+        {
+          "label": "nvidia/nemotron-4-340b-instruct",
+          "name": "nvidia/nemotron-4-340b-instruct"
+        }
+      ],
+      "description": "Select the chat model to use for generating chat completions.",
+      "show": {
+        "actions.operation": [
+          "chatCompletion"
+        ]
+      }
+    },
+    {
+      "label": "Model (Code Completion)",
+      "name": "codeModel",
+      "type": "options",
+      "options": [
+        {
+          "label": "bigcode/starcoder2-7b",
+          "name": "bigcode/starcoder2-7b"
+        },
+        {
+          "label": "bigcode/starcoder2-15b",
+          "name": "bigcode/starcoder2-15b"
+        },
+        {
+          "label": "mistralai/codestral-22b-instruct-v0.1",
+          "name": "mistralai/codestral-22b-instruct-v0.1"
+        },
+        {
+          "label": "ibm/granite-34b-code-instruct",
+          "name": "ibm/granite-34b-code-instruct"
+        },
+        {
+          "label": "ibm/granite-8b-code-instruct",
+          "name": "ibm/granite-8b-code-instruct"
+        },
+        {
+          "label": "meta/codellama-70b",
+          "name": "meta/codellama-70b"
+        }
+      ],
+      "description": "Select the model to use for generating code completions.",
+      "show": {
+        "actions.operation": [
+          "codeCompletion"
+        ]
+      }
+    },
+    {
+      "label": "Model (Retrieval)",
+      "name": "retrievalModel",
+      "type": "options",
+      "options": [
+        {
+          "label": "baai/bge-m3",
+          "name": "baai/bge-m3"
+        },
+        {
+          "label": "nvidia/nvclip",
+          "name": "nvidia/nvclip"
+        },
+        {
+          "label": "nvidia/nv-embed-v1",
+          "name": "nvidia/nv-embed-v1"
+        },
+        {
+          "label": "nvidia/nv-embedqa-mistral-7b-v2",
+          "name": "nvidia/nv-embedqa-mistral-7b-v2"
+        },
+        {
+          "label": "nvidia/nv-rerankqa-mistral-4b-v3",
+          "name": "nvidia/nv-rerankqa-mistral-4b-v3"
+        }
+      ],
+      "description": "Select the model to use for retrieval tasks.",
+      "show": {
+        "actions.operation": [
+          "retrieval"
+        ]
+      }
+    },
+    {
+      "label": "Prompt",
+      "name": "prompt",
+      "type": "string",
+      "default": "",
+      "placeholder": "Enter your prompt here",
+      "description": "The input prompt for generating a completion (chat or code) or performing a retrieval task.",
+      "show": {
+        "actions.operation": [
+          "chatCompletion",
+          "codeCompletion",
+          "retrieval"
+        ]
+      }
+    },
+    {
+      "label": "Number of Responses",
+      "name": "numResponses",
+      "type": "number",
+      "default": 1,
+      "description": "The number of responses to generate."
+    },
+    {
+      "label": "Max Tokens",
+      "name": "maxTokens",
+      "type": "number",
+      "default": 256,
+      "description": "The maximum number of tokens to generate."
+    },
+    {
+      "label": "Temperature",
+      "name": "temperature",
+      "type": "number",
+      "default": 0.7,
+      "description": "Adjust the creativity of the responses (0 = deterministic, 1 = more creative)."
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/nvidia-nim/nodes/main/nodes/NVIDIA/NIM.js"
+}

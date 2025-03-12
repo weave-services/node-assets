@@ -1,0 +1,142 @@
+{
+  "label": "ERC20 Function",
+  "name": "erc20Function",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg"
+  },
+  "type": "action",
+  "category": "Cryptocurrency",
+  "version": 1,
+  "description": "Execute ERC20 functions such as balanceOf, transferFrom, approve, and more.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Function",
+      "name": "function",
+      "type": "options",
+      "options": [
+        { "label": "Approve", "name": "approve" },
+        { "label": "Allowance", "name": "allowance" },
+        { "label": "Balance Of", "name": "balanceOf" },
+        { "label": "Transfer From", "name": "transferFrom" },
+        { "label": "Decimals", "name": "decimals" },
+        { "label": "Name", "name": "name" },
+        { "label": "Symbol", "name": "symbol" },
+        { "label": "Total Supply", "name": "totalSupply" }
+      ]
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        { "label": "Ethereum Mainnet", "name": "homestead" },
+        { "label": "Goerli Testnet", "name": "goerli" },
+        { "label": "Polygon Mainnet", "name": "matic" },
+        { "label": "Polygon Mumbai", "name": "maticmum" },
+        { "label": "Arbitrum Mainnet", "name": "arbitrum" },
+        { "label": "Arbitrum Goerli", "name": "arbitrum-goerli" },
+        { "label": "Optimism Mainnet", "name": "optimism" },
+        { "label": "Optimism Goerli", "name": "optimism-goerli" }
+      ]
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders"
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": ["customRPC"]
+      }
+    },
+    {
+      "label": "Websocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "show": {
+        "networks.networkProvider": ["customWebsocket"]
+      }
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "Alchemy API Key", "name": "alchemyApi" },
+        { "label": "Infura API Key", "name": "infuraApi" }
+      ],
+      "show": {
+        "networks.networkProvider": ["alchemy", "infura"]
+      }
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "ERC20 Token Address",
+      "name": "erc20TokenAddress",
+      "type": "string",
+      "description": "The address of the ERC20 token."
+    },
+    {
+      "label": "Spender Address",
+      "name": "spender",
+      "type": "string",
+      "description": "The address that will be allowed to spend tokens (only required for 'approve' and 'allowance').",
+      "optional": true,
+      "show": {
+        "actions.function": ["approve", "allowance"]
+      }
+    },
+    {
+      "label": "Amount",
+      "name": "amount",
+      "type": "string",
+      "description": "Amount of tokens to approve or transfer.",
+      "optional": true,
+      "show": {
+        "actions.function": ["approve", "transferFrom"]
+      }
+    },
+    {
+      "label": "Sender Address",
+      "name": "sender",
+      "type": "string",
+      "description": "The address of the sender (only required for 'transferFrom').",
+      "optional": true,
+      "show": {
+        "actions.function": ["transferFrom"]
+      }
+    },
+    {
+      "label": "Recipient Address",
+      "name": "recipient",
+      "type": "string",
+      "description": "The address of the recipient (only required for 'transferFrom').",
+      "optional": true,
+      "show": {
+        "actions.function": ["transferFrom"]
+      }
+    },
+    {
+      "label": "Wallet Private Key",
+      "name": "walletPrivateKey",
+      "type": "string",
+      "description": "The private key of the wallet that is performing the transaction."
+    }
+  ],
+  "filePath": "https://path/to/ERC20Function.js"
+}
