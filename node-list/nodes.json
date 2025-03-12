@@ -4760,6 +4760,27 @@
         }
       },
       {
+          "label": "Functions",
+          "name": "openAIAssistantFunctions",
+          "type": "array",
+          "description": "The function to send to the assistant on the thread",
+          "array": [
+              {
+                  "label": "Function Name",
+                  "name": "functionName",
+                  "type": "string",
+                  "description": "The function to send to the assistant on the thread"
+              },
+              {
+                  "label": "Webhook URL",
+                  "name": "webhookURL",
+                  "type": "string",
+                  "description": "The function to send to the assistant on the thread"
+              }
+          ],
+          "optional": true
+      },
+      {
         "label": "Message ID",
         "name": "message_id",
         "type": "string",
