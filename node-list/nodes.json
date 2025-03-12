@@ -105,6 +105,95 @@
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
+	  {
+    "nodeState": null,
+    "loadMethods": {},
+    "label": "Websockets Trigger",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Real-Time-Data-API-WebSockets.png",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Real-Time-Data-API-WebSockets.png",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Real-Time-Data-API-WebSockets.png"
+    },
+    "name": "websocket",
+    "type": "webhook",
+    "category": "Utilities",
+    "version": 2,
+    "description": "Start workflow when webhook is called",
+    "incoming": 0,
+    "outgoing": 1,
+    "inputParameters": [
+      {
+        "label": "Authorization",
+        "name": "authorization",
+        "type": "options",
+        "options": [
+          {
+            "label": "API",
+            "name": "headerAuth",
+            "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+          },
+          {
+            "label": "None",
+            "name": "none"
+          }
+        ],
+        "default": "none",
+        "description": "The way to authorize incoming webhook."
+      },
+      {
+        "label": "API key",
+        "name": "apiKey",
+        "type": "asyncOptions",
+        "loadMethod": "getAPIKeys",
+        "description": "Incoming call must consists header \"x-api-key\" with matching API key. You can create new key from the dashboard",
+        "show": {
+          "inputParameters.authorization": [
+            "headerAuth"
+          ]
+        }
+      },
+      {
+        "label": "Response Code",
+        "name": "responseCode",
+        "type": "number",
+        "default": 200,
+        "description": "The WS response code to return when a WS stream is made to this endpoint URL. Valid range: 1XX - 5XX"
+      },
+      {
+        "label": "What/How to Return",
+        "name": "returnType",
+        "type": "options",
+        "options": [
+          {
+            "label": "Immediate Reponse",
+            "name": "immediateResponse",
+            "description": "Returns response immediately once webhook is called"
+          },
+          {
+            "label": "When Last Node Finishes",
+            "name": "lastNodeResponse",
+            "description": "Returns output response of the last executed node"
+          }
+        ],
+        "default": "immediateResponse",
+        "description": "What data or message, and how should Webhook node return upon successful calling"
+      },
+      {
+        "label": "Response Data",
+        "name": "responseData",
+        "type": "string",
+        "default": "",
+        "description": "Custom response data to return when a HTTP request is made to this webhook endpoint URL. If not provided, default to: Webhook received!",
+        "optional": true,
+        "show": {
+          "inputParameters.returnType": [
+            "immediateResponse"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+  },
 	{
   "_events": {},
   "_eventsCount": 0,
@@ -672,7 +761,7 @@
   "icons": {
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "category": "Development",
   "incoming": 0,
@@ -1359,6 +1448,278 @@
     }
   ],
   "filePath": "https://example.com/zksyncL2JSONRPC/zksyncL2JSONRPC.js"
+},
+
+{
+  "label": "Optimism Scan",
+  "name": "opscan",
+   "icons": {
+        "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
+        "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
+        "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg"
+      },
+  "type": "action",
+  "category": "Block Explorer",
+  "version": 1,
+  "description": "Perform Arbiscan operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Ether Balance for a Single Address",
+          "name": "getEtherBalance",
+          "description": "Returns the Ether balance of a given address."
+        },
+        {
+          "label": "Get Ether Balance for Multiple Addresses(separated by a comma)",
+          "name": "getEtherBalanceMulti",
+          "description": "Returns the Ether balance of the addresses(each address separated by a comma) entered."
+        },
+        {
+          "label": "Get transactions",
+          "name": "getTransactions",
+          "description": "Returns the list of transactions performed by an address, with optional pagination."
+        },
+        {
+          "label": "Get internal transactions",
+          "name": "getInternalTransactions",
+          "description": "Returns the list of internal transactions performed by an address, with optional pagination."
+        },
+        {
+          "label": "Get internal transactions by hash",
+          "name": "getInternalTransactionsByHash",
+          "description": "Returns the list of internal transactions performed within a transaction."
+        },
+        {
+          "label": "Get internal transactions by block",
+          "name": "getInternalTransactionsByBlock",
+          "description": "Returns the list of internal transactions performed within a block range, with optional pagination."
+        },
+        {
+          "label": "Get Contract ABI",
+          "name": "getAbi",
+          "description": "Returns the contract Application Binary Interface ( ABI ) of a verified smart contract."
+        },
+        {
+          "label": "Get Contract Source Code",
+          "name": "getContractSourceCode",
+          "description": "Returns the Solidity source code of a verified smart contract."
+        },
+        {
+          "label": "Check Transaction Receipt Status",
+          "name": "getTransactionReceiptStatus",
+          "description": "Returns the status code of a transaction execution."
+        },
+        {
+          "label": "Check Contract Execution Status",
+          "name": "getContractExecutionStatus",
+          "description": "Returns the status code of a contract execution."
+        },
+        {
+          "label": "Get ERC20 Token Supply",
+          "name": "getErc20TokenSupply",
+          "description": "Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+        },
+        {
+          "label": "Get ERC20 Token Balance",
+          "name": "getErc20TokenBalance",
+          "description": "Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.\n                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+        },
+        {
+          "label": "Get ETHER Price",
+          "name": "getEtherPrice",
+          "description": "Returns the latest price of 1 ETHER."
+        },
+        {
+          "label": "Get Total Supply of Ether",
+          "name": "getEtherSupply",
+          "description": "Returns the current amount of Ether in circulation."
+        }
+      ],
+      "default": "getEtherBalance"
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum"
+        },
+        {
+          "label": "Arbitrum Goerli",
+          "name": "arbitrum-goerli"
+        }
+      ],
+      "default": "homestead"
+    }
+  ],
+ "credentials": [
+          {
+              "label": "Credential Method",
+              "name": "credentialMethod",
+              "type": "string",
+              "options": [
+                  {
+                      "label": "Arbiscan API Key",
+                      "name": "arbiscanApi"
+                  }
+              ],
+              "default": "arbiscanApi"
+          }
+      ],
+  "inputParameters": [
+    {
+      "label": "Address",
+      "name": "address",
+      "type": "string",
+      "description": "The address parameter(s) required",
+      "show": {
+        "actions.api": [
+          "getEtherBalance",
+          "getTransactions",
+          "getInternalTransactions",
+          "getAbi",
+          "getContractSourceCode",
+          "getErc20TokenBalance"
+        ]
+      }
+    },
+    {
+      "label": "Start Block",
+      "name": "startBlock",
+      "type": "number",
+      "optional": true,
+      "description": "the block number to start searching for transactions",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 0
+    },
+    {
+      "label": "End Block",
+      "name": "endBlock",
+      "type": "number",
+      "optional": true,
+      "description": "the block number to stop searching for transactions",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      }
+    },
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "optional": true,
+      "description": "the page number, if pagination is enabled",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 1
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "optional": true,
+      "description": "the number of transactions displayed per page",
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": 10
+    },
+    {
+      "label": "Sort By",
+      "name": "sortBy",
+      "type": "options",
+      "optional": true,
+      "options": [
+        {
+          "label": "Desc",
+          "name": "desc"
+        },
+        {
+          "label": "Asc",
+          "name": "asc"
+        }
+      ],
+      "show": {
+        "actions.api": [
+          "getTransactions",
+          "getInternalTransactions",
+          "getInternalTransactionsByBlock"
+        ]
+      },
+      "default": "desc"
+    },
+    {
+      "label": "Transaction Hash",
+      "name": "txhash",
+      "type": "string",
+      "description": "the string representing the transaction hash to check for internal transactions",
+      "show": {
+        "actions.api": [
+          "getInternalTransactionsByHash",
+          "getTransactionReceiptStatus",
+          "getContractExecutionStatus"
+        ]
+      }
+    },
+    {
+      "label": "Contract Address",
+      "name": "contractAddress",
+      "type": "string",
+      "description": "the contract address of the ERC-20 token",
+      "show": {
+        "actions.api": [
+          "getErc20TokenSupply",
+          "getErc20TokenBalance"
+        ]
+      }
+    },
+    {
+      "label": "Tag",
+      "name": "tag",
+      "type": "options",
+      "options": [
+        {
+          "label": "latest",
+          "name": "latest"
+        }
+      ],
+      "default": "latest",
+      "show": {
+        "actions.api": [
+          "getErc20TokenBalance"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
 },
   {
     "label": "Arbiscan",
@@ -2891,7 +3252,7 @@
     "icons": {
       "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
       "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
     },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -4564,6 +4925,11 @@
             "description": "Fetches a list of all assistants."
           },
           {
+            "label": "Run Assistant With Thread",
+            "name": "sendMessageToThreadWithAssistant",
+            "description": "Recieves a response from the assistant for a specific thread"
+          },
+          {
             "label": "Create Assistant",
             "name": "createAssistant",
             "description": "Creates a new assistant."
@@ -4726,7 +5092,8 @@
           "actions.api": [
             "getAssistant",
             "modifyAssistant",
-            "deleteAssistant"
+            "deleteAssistant",
+            "sendMessageToThreadWithAssistant"
           ]
         }
       },
@@ -4737,31 +5104,43 @@
         "description": "The ID of the thread.",
         "show": {
           "actions.api": [
-            "getThread"
+            "getThread",
+            "sendMessageToThreadWithAssistant"
           ]
         }
       },
       {
-        "label": "Functions",
-        "name": "openAIAssistantFunctions",
-        "type": "array",
-        "description": "The function to send to the assistant on the thread",
-        "array": [
-            {
-                "label": "Function Name",
-                "name": "functionName",
-                "type": "string",
-                "description": "The function to send to the assistant on the thread"
-            },
-            {
-                "label": "Webhook URL",
-                "name": "webhookURL",
-                "type": "string",
-                "description": "The function to send to the assistant on the thread"
-            }
-        ],
-        "optional": true
-    },
+        "label": "Message",
+        "name": "message",
+        "type": "string",
+        "description": "The message to send to the assistant on the thread",
+        "show": {
+          "actions.api": [
+            "sendMessageToThreadWithAssistant"
+          ]
+        }
+      },
+      {
+          "label": "Functions",
+          "name": "openAIAssistantFunctions",
+          "type": "array",
+          "description": "The function to send to the assistant on the thread",
+          "array": [
+              {
+                  "label": "Function Name",
+                  "name": "functionName",
+                  "type": "string",
+                  "description": "The function to send to the assistant on the thread"
+              },
+              {
+                  "label": "Webhook URL",
+                  "name": "webhookURL",
+                  "type": "string",
+                  "description": "The function to send to the assistant on the thread"
+              }
+          ],
+          "optional": true
+      },
       {
         "label": "Message ID",
         "name": "message_id",
@@ -5637,6 +6016,39 @@
     ],
     "filePath": "https://example.com/nodes/ChainLink/ChainLink.js"
   },
+{
+  "label": "Chainlink Functions",
+  "name": "chainlinkFunctions",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+  },  
+  "type": "action",
+  "category": "Development",
+  "version": 1,
+  "description": "Execute code within NodeVM sandbox",
+  "incoming": 1,
+  "outgoing": 1,
+  "inputParameters": [
+    {
+      "label": "Code",
+      "name": "code",
+      "type": "code",
+      "default": "console.info($nodeData);\nconst example = 'Hello World!';\nreturn example;",
+      "description": "Custom code to run"
+    },
+    {
+      "label": "External Modules",
+      "name": "external",
+      "type": "json",
+      "placeholder": "[\"axios\"]",
+      "description": "Import installed dependencies within Outerbridge",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+},
   {
     "loadMethods": {},
     "label": "Uniswap",
@@ -6836,7 +7248,7 @@
   "icons": {
     "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
     "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png"
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "type": "action",
   "category": "Development",
@@ -7465,6 +7877,42 @@
     ],
     "filePath": "https://example.com/firefliesai/firefliesai.js"
 },
+	{
+  "label": "Advanced Structured Output Parser",
+  "name": "advancedStructuredOutputParser",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "light": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "dark": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg"
+  },
+  "type": "action",
+  "category": "Output Parsing",
+  "version": 1,
+  "description": "Parse the output of an LLM call into a given structure by providing a Zod schema.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [],
+  "credentials": [],
+  "inputParameters": [
+    {
+      "label": "Autofix",
+      "name": "autofixParser",
+      "type": "boolean",
+      "optional": true,
+      "description": "In the event that the first call fails, will make another call to the model to fix any errors.",
+      "default": false
+    },
+    {
+      "label": "Example JSON",
+      "name": "exampleJson",
+      "type": "code",
+      "description": "Zod schema for the output of the model.",
+      "rows": 10,
+      "default": "z.object({\n  title: z.string(),\n  yearOfRelease: z.number().int(),\n  genres: z.enum([\n    \"Action\", \"Comedy\", \"Drama\", \"Fantasy\", \"Horror\",\n    \"Mystery\", \"Romance\", \"Science Fiction\", \"Thriller\", \"Documentary\"\n  ]).array().max(2),\n  shortDescription: z.string().max(500)\n})"
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo-path/nodes/main/nodes/AdvancedStructuredOutputParser/AdvancedStructuredOutputParser.js"
+},
 {
   "label": "GraphQL",
   "name": "graphQL",
@@ -7634,12 +8082,12 @@
 },
 {
   "loadMethods": {},
-  "label": "Space and Time API",
+  "label": "Space and Time SQL API",
   "name": "spaceAndTimeApi",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Database",
@@ -7807,5 +8255,687 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
-}	
+},
+	{
+  "loadMethods": {},
+  "label": "Space and Time Encrypted API",
+  "name": "spaceAndTimeEncryptedApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+  },
+  "type": "action",
+  "category": "Database",
+  "version": 1,
+  "description": "Endpoints for executing SQL operations on encrypted tables, modifying encrypted data, and configuring dataset encryption in the Space and Time network.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Execute SQL Query on Encrypted Data",
+      "name": "executeEncryptedSQL"
+    },
+    {
+      "label": "Modify Encrypted Data (DML)",
+      "name": "modifyEncryptedData"
+    },
+    {
+      "label": "Configure Dataset Encryption",
+      "name": "configureEncryption"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Space and Time API Key",
+      "name": "credentialMethod",
+      "type": "string",
+      "description": "JWT Bearer token for authentication",
+      "default": ""
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "SQL Statement",
+      "name": "sqlText",
+      "type": "string",
+      "default": "",
+      "description": "The raw SQL text to execute.",
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL"
+        ]
+      }
+    },
+    {
+      "label": "Resources",
+      "name": "resources",
+      "type": "json",
+      "default": "{}",
+      "description": "List of tables or datasets to operate on.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    },
+    {
+      "label": "Row Count",
+      "name": "rowCount",
+      "type": "number",
+      "default": 0,
+      "description": "Number of rows affected (used in DML operations).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "modifyEncryptedData"
+        ]
+      }
+    },
+    {
+      "label": "Biscuits",
+      "name": "biscuits",
+      "type": "string",
+      "default": "",
+      "description": "Optional authorization tokens (comma-separated list).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTimeEncrypted.js"
+},
+	{
+  "label": "Space and Time Auth API",
+  "name": "spaceXTimeAuth",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+  },
+  "type": "action",
+  "category": "Authentication",
+  "version": 1,
+  "description": "Execute SpaceXTime API operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Authenticate User",
+      "name": "authenticateUser",
+      "description": "Request a temporary authentication challenge for the given user."
+    },
+    {
+      "label": "Register User",
+      "name": "registerUser",
+      "description": "Request a temporary registration challenge for the given user."
+    },
+    {
+      "label": "Request Token",
+      "name": "requestToken",
+      "description": "Initiate a new authentication session by providing identity via signature to generate a new accessToken and refreshToken."
+    },
+    {
+      "label": "Refresh Token",
+      "name": "refreshToken",
+      "description": "Refresh an existing authenticated session by providing a valid refreshToken to generate a new accessToken and refreshToken."
+    },
+    {
+      "label": "Logout",
+      "name": "logout",
+      "description": "End an authenticated session with a refreshToken."
+    },
+    {
+      "label": "Validate Token",
+      "name": "validateToken",
+      "description": "Perform simple token validation and return claim metadata on success."
+    },
+    {
+      "label": "Check User Identity",
+      "name": "checkUserIdentity",
+      "description": "Checks if a given user identifier is in use across the platform, facilitating registration process."
+    },
+    {
+      "label": "Get Current Keychain",
+      "name": "getCurrentKeychain",
+      "description": "Retrieve public keys available for user authentication."
+    },
+    {
+      "label": "Add Key to Keychain",
+      "name": "addKeyToKeychain",
+      "description": "Add a new public key to your keychain for authentication."
+    },
+    {
+      "label": "Get Public Key Challenge",
+      "name": "getPublicKeyChallenge",
+      "description": "Request a challenge for adding a new public key."
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Space and Time API Key",
+      "name": "spaceXTimeApiKey",
+      "type": "string",
+      "description": "API key required to authenticate requests to SpaceXTime."
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "API Action",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Authenticate User", "name": "authenticateUser" },
+        { "label": "Register User", "name": "registerUser" },
+        { "label": "Request Token", "name": "requestToken" },
+        { "label": "Refresh Token", "name": "refreshToken" },
+        { "label": "Logout", "name": "logout" },
+        { "label": "Validate Token", "name": "validateToken" },
+        { "label": "Check User Identity", "name": "checkUserIdentity" },
+        { "label": "Get Current Keychain", "name": "getCurrentKeychain" },
+        { "label": "Add Key to Keychain", "name": "addKeyToKeychain" },
+        { "label": "Get Public Key Challenge", "name": "getPublicKeyChallenge" }
+      ],
+      "default": "authenticateUser"
+    },
+    {
+      "label": "Input Parameters",
+      "name": "inputParameters",
+      "type": "object",
+      "description": "Payload parameters required for the selected action."
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/path-to-file.js"
+},
+	{
+  "loadMethods": {},
+  "label": "Space and Time Subscription API",
+  "name": "spaceAndTimeSubscription",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+  },
+  "type": "action",
+  "category": "Web3 Services",
+  "version": 1,
+  "description": "Manage your Space and Time subscription, users, and settings via API.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        { "label": "Get Subscription Info", "name": "getSubscriptionInfo" },
+        { "label": "Get Subscription Users", "name": "getSubscriptionUsers" },
+        { "label": "Set Subscription Name", "name": "setSubscriptionName" },
+        { "label": "Create Subscription Invite", "name": "createSubscriptionInvite" },
+        { "label": "Join Subscription", "name": "joinSubscription" },
+        { "label": "Set User Role", "name": "setUserRole" },
+        { "label": "Remove User", "name": "removeUser" },
+        { "label": "Leave Subscription", "name": "leaveSubscription" },
+        { "label": "Get Subscription Balance", "name": "getSubscriptionBalance" },
+        { "label": "Get Usage Config", "name": "getUsageConfig" },
+        { "label": "Set Usage Config", "name": "setUsageConfig" },
+        { "label": "Get Credit Offerings", "name": "getCreditOfferings" },
+        { "label": "Get Free Queries", "name": "getFreeQueries" },
+        { "label": "Get Default Free Queries", "name": "getDefaultFreeQueries" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "Space and Time API Key", "name": "spaceAndTimeApi" }
+      ],
+      "default": "spaceAndTimeApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Subscription Name",
+      "name": "subscriptionName",
+      "type": "string",
+      "description": "The new name of your subscription.",
+      "optional": false,
+      "show": { "actions.operation": ["setSubscriptionName"] }
+    },
+    {
+      "label": "Role",
+      "name": "role",
+      "type": "options",
+      "options": [
+        { "label": "Owner", "name": "owner" },
+        { "label": "Admin", "name": "admin" },
+        { "label": "Member", "name": "member" }
+      ],
+      "description": "Role to assign in the subscription.",
+      "show": { "actions.operation": ["createSubscriptionInvite", "setUserRole"] }
+    },
+    {
+      "label": "Join Code",
+      "name": "joinCode",
+      "type": "string",
+      "description": "The invitation code to join a subscription.",
+      "optional": false,
+      "show": { "actions.operation": ["joinSubscription"] }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "ID of the user to modify.",
+      "optional": false,
+      "show": { "actions.operation": ["setUserRole", "removeUser"] }
+    },
+    {
+      "label": "Usage Config",
+      "name": "config",
+      "type": "string",
+      "description": "Configuration settings for usage limits.",
+      "optional": false,
+      "show": { "actions.operation": ["setUsageConfig"] }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
+},
+	{
+  "loadMethods": {},
+  "label": "Nowhere API",
+  "name": "nowhereAPI",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png"
+  },
+  "type": "action",
+  "category": "Virtual Spaces",
+  "version": 1,
+  "description": "Manage stations, spaces, and user roles via the Nowhere API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get User Info",
+          "name": "getUserInfo"
+        },
+        {
+          "label": "Get Embed Link",
+          "name": "getEmbedLink"
+        },
+        {
+          "label": "Create Station",
+          "name": "createStation"
+        },
+        {
+          "label": "Update Station",
+          "name": "updateStation"
+        },
+        {
+          "label": "Create Space",
+          "name": "createSpace"
+        },
+        {
+          "label": "Update Space",
+          "name": "updateSpace"
+        },
+        {
+          "label": "Manage Station Roles",
+          "name": "manageStationRoles"
+        },
+        {
+          "label": "Manage Space Roles",
+          "name": "manageSpaceRoles"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Nowhere API Key",
+          "name": "nowhereApiKey"
+        }
+      ],
+      "default": "nowhereApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "API Key",
+      "name": "apiKey",
+      "type": "string",
+      "description": "Your Nowhere API key",
+      "optional": false
+    },
+    {
+      "label": "Space ID",
+      "name": "spaceId",
+      "type": "string",
+      "description": "The ID of the space for operations like fetching embed links",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getEmbedLink",
+          "createSpace",
+          "updateSpace",
+          "manageSpaceRoles"
+        ]
+      }
+    },
+    {
+      "label": "Station ID",
+      "name": "stationId",
+      "type": "string",
+      "description": "The ID of the station for operations like updating or managing roles",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "updateStation",
+          "manageStationRoles"
+        ]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "The ID of the user for managing station or space roles",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "manageStationRoles",
+          "manageSpaceRoles"
+        ]
+      }
+    },
+    {
+      "label": "Station Data",
+      "name": "stationData",
+      "type": "json",
+      "description": "JSON data for creating or updating a station",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createStation",
+          "updateStation"
+        ]
+      }
+    },
+    {
+      "label": "Space Data",
+      "name": "spaceData",
+      "type": "json",
+      "description": "JSON data for creating or updating a space",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createSpace",
+          "updateSpace"
+        ]
+      }
+    },
+    {
+      "label": "Embed Link Options",
+      "name": "embedOptions",
+      "type": "json",
+      "description": "Options for fetching the embed link",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getEmbedLink"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Nowhere/Nowhere.js"
+},
+	{
+  "loadMethods": {},
+  "label": "PureTalk",
+  "name": "pureTalk",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png"
+  },
+  "type": "action",
+  "category": "Telecommunications",
+  "version": 1,
+  "description": "Interact with the Puretalk AI® API to manage voices, AI assistants, phone numbers, calls, and related tasks.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        { "label": "Retrieve all voices", "name": "getVoices" },
+        { "label": "Retrieve a specific voice by ID", "name": "getVoice" },
+        { "label": "Create a new AI Assistant", "name": "createAssistant" },
+        { "label": "Retrieve all AI Assistants", "name": "getAssistants" },
+        { "label": "Retrieve a specific AI Assistant by ID", "name": "getAssistant" },
+        { "label": "Update an existing AI Assistant", "name": "updateAssistant" },
+        { "label": "Delete an AI Assistant by ID", "name": "deleteAssistant" },
+        { "label": "Retrieve chatbot configuration for an AI Assistant", "name": "getChatbotConfig" },
+        { "label": "Add or update a task for an AI Assistant", "name": "addOrUpdateTask" },
+        { "label": "Delete a task for an AI Assistant", "name": "deleteTask" },
+        { "label": "Retrieve all phone numbers", "name": "getPhoneNumbers" },
+        { "label": "Retrieve a specific phone number by ID", "name": "getPhoneNumber" },
+        { "label": "Delete a phone number by ID", "name": "deletePhoneNumber" },
+        { "label": "Connect a phone number", "name": "connectPhoneNumber" },
+        { "label": "Retrieve a list of calls", "name": "getCallList" },
+        { "label": "Retrieve details of a specific call by ID", "name": "getCall" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "PureTalk API Key", "name": "pureTalkApiKey" }
+      ],
+      "default": "pureTalkApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "description": "The page number for paginated results.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getVoices",
+          "getAssistants",
+          "getPhoneNumbers",
+          "getCallList"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "description": "The maximum number of results to return.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getVoices",
+          "getAssistants",
+          "getPhoneNumbers",
+          "getCallList"
+        ]
+      }
+    },
+    {
+      "label": "Voice ID",
+      "name": "voice_id",
+      "type": "number",
+      "description": "ID of the voice to retrieve.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getVoice"
+        ]
+      }
+    },
+    {
+      "label": "Assistant ID",
+      "name": "assistant_id",
+      "type": "string",
+      "description": "ID of the AI Assistant.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getAssistant",
+          "updateAssistant",
+          "deleteAssistant",
+          "getChatbotConfig",
+          "addOrUpdateTask",
+          "deleteTask"
+        ]
+      }
+    },
+    {
+      "label": "Assistant Name",
+      "name": "assistant_name",
+      "type": "string",
+      "description": "Name of the AI Assistant.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "createAssistant",
+          "updateAssistant"
+        ]
+      }
+    },
+    {
+      "label": "Assistant Configuration",
+      "name": "assistant_config",
+      "type": "string",
+      "description": "Configuration details for the AI Assistant (JSON format).",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "createAssistant",
+          "updateAssistant"
+        ]
+      }
+    },
+    {
+      "label": "LLM Task ID",
+      "name": "llm_task_id",
+      "type": "string",
+      "description": "Task ID for the LLM state.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "addOrUpdateTask"
+        ]
+      }
+    },
+    {
+      "label": "LLM Task State",
+      "name": "llm_task_state",
+      "type": "string",
+      "description": "State details for the LLM task (JSON format).",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "addOrUpdateTask"
+        ]
+      }
+    },
+    {
+      "label": "Task ID",
+      "name": "task_id",
+      "type": "string",
+      "description": "ID of the task to delete.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "deleteTask"
+        ]
+      }
+    },
+    {
+      "label": "Phone Number ID",
+      "name": "phone_number_id",
+      "type": "number",
+      "description": "ID of the phone number.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getPhoneNumber",
+          "deletePhoneNumber",
+          "connectPhoneNumber"
+        ]
+      }
+    },
+    {
+      "label": "Provider",
+      "name": "provider",
+      "type": "string",
+      "description": "Name of the provider to connect the phone number.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "connectPhoneNumber"
+        ]
+      }
+    },
+    {
+      "label": "Call ID",
+      "name": "call_id",
+      "type": "number",
+      "description": "ID of the call to retrieve.",
+      "optional": false,
+      "show": {
+        "actions.operation": [
+          "getCall"
+        ]
+      }
+    },
+    {
+      "label": "Response Format",
+      "name": "responseType",
+      "type": "options",
+      "description": "The response format.",
+      "options": [
+        { "label": "JSON", "name": "json" },
+        { "label": "Base64", "name": "base64" }
+      ],
+      "default": "json",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/PureTalk/PureTalk.js"
+}
 ]
