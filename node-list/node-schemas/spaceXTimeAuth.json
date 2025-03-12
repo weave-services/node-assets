@@ -1,0 +1,346 @@
+{
+  "loadMethods": {},
+  "label": "SpaceAndTimeAuth",
+  "name": "spaceAndTimeAuth",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Authentication",
+  "version": 1,
+  "description": "Execute Space and Time Security/Auth REST API operations.",
+  "incoming": 1,
+  "outgoing": 1,
+
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Authenticate User",
+          "name": "authenticateUser"
+        },
+        {
+          "label": "Register User",
+          "name": "registerUser"
+        },
+        {
+          "label": "Request Token",
+          "name": "requestToken"
+        },
+        {
+          "label": "Refresh Token",
+          "name": "refreshToken"
+        },
+        {
+          "label": "Logout",
+          "name": "logout"
+        },
+        {
+          "label": "Validate Token",
+          "name": "validateToken"
+        },
+        {
+          "label": "Check User Identity",
+          "name": "checkUserIdentity"
+        },
+        {
+          "label": "Get Current Keychain",
+          "name": "getCurrentKeychain"
+        },
+        {
+          "label": "Add Key to Keychain",
+          "name": "addKeyToKeychain"
+        },
+        {
+          "label": "Get Public Key Challenge",
+          "name": "getPublicKeyChallenge"
+        }
+      ]
+    }
+  ],
+
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "SpaceAndTime API Key",
+          "name": "spaceAndTimeApi"
+        }
+      ],
+      "default": "spaceAndTimeApi"
+    }
+  ],
+
+  "inputParameters": [
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "default": "",
+      "placeholder": "myUserId",
+      "description": "Unique user identifier required for Authenticate User.",
+      "show": {
+        "actions.operation": [
+          "authenticateUser"
+        ]
+      }
+    },
+    {
+      "label": "Prefix",
+      "name": "prefix",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "Optional message prefix",
+      "description": "Optional prefix for signature verification.",
+      "show": {
+        "actions.operation": [
+          "authenticateUser"
+        ]
+      }
+    },
+
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "default": "",
+      "placeholder": "myUserId",
+      "description": "Unique user identifier required for Register User.",
+      "show": {
+        "actions.operation": [
+          "registerUser"
+        ]
+      }
+    },
+    {
+      "label": "Email",
+      "name": "email",
+      "type": "string",
+      "default": "",
+      "placeholder": "you@example.com",
+      "description": "Unique email address (used for account recovery).",
+      "show": {
+        "actions.operation": [
+          "registerUser"
+        ]
+      }
+    },
+    {
+      "label": "Prefix",
+      "name": "prefix",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "Optional message prefix",
+      "description": "Optional prefix for signature verification.",
+      "show": {
+        "actions.operation": [
+          "registerUser"
+        ]
+      }
+    },
+    {
+      "label": "Join Code",
+      "name": "joinCode",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "Optional subscription code",
+      "description": "Unique code to join a specific subscription (optional).",
+      "show": {
+        "actions.operation": [
+          "registerUser"
+        ]
+      }
+    },
+
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "default": "",
+      "placeholder": "myUserId",
+      "description": "Unique user identifier for requesting a token.",
+      "show": {
+        "actions.operation": [
+          "requestToken"
+        ]
+      }
+    },
+    {
+      "label": "Auth Code",
+      "name": "authCode",
+      "type": "string",
+      "default": "",
+      "placeholder": "authCode received from /v1/auth/code",
+      "description": "The random code obtained from the authentication or registration code endpoint.",
+      "show": {
+        "actions.operation": [
+          "requestToken"
+        ]
+      }
+    },
+    {
+      "label": "Signature",
+      "name": "signature",
+      "type": "string",
+      "default": "",
+      "placeholder": "hex-encoded signature",
+      "description": "Hex-encoded signature calculated using the authCode and your private key.",
+      "show": {
+        "actions.operation": [
+          "requestToken"
+        ]
+      }
+    },
+    {
+      "label": "Public Key",
+      "name": "key",
+      "type": "string",
+      "default": "",
+      "placeholder": "public key material",
+      "description": "The public key used by the platform to validate signatures.",
+      "show": {
+        "actions.operation": [
+          "requestToken"
+        ]
+      }
+    },
+    {
+      "label": "Scheme",
+      "name": "scheme",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "ed25519 or chain id",
+      "description": "The key scheme (algorithm). Required for new keys, optional otherwise.",
+      "show": {
+        "actions.operation": [
+          "requestToken"
+        ]
+      }
+    },
+
+    {
+      "label": "Refresh Token",
+      "name": "refreshToken",
+      "type": "string",
+      "default": "",
+      "placeholder": "existing refresh token (JWT)",
+      "description": "A valid refresh token used to get new tokens.",
+      "show": {
+        "actions.operation": [
+          "refreshToken"
+        ]
+      }
+    },
+
+    {
+      "label": "Logout Refresh Token",
+      "name": "refreshToken",
+      "type": "string",
+      "default": "",
+      "placeholder": "existing refresh token (JWT)",
+      "description": "A valid refresh token to end an authenticated session.",
+      "show": {
+        "actions.operation": [
+          "logout"
+        ]
+      }
+    },
+
+    {
+      "label": "User ID to Check",
+      "name": "id",
+      "type": "string",
+      "default": "",
+      "placeholder": "myUserId",
+      "description": "Checks if this userId is already in use on the platform.",
+      "show": {
+        "actions.operation": [
+          "checkUserIdentity"
+        ]
+      }
+    },
+
+    {
+      "label": "Auth Code",
+      "name": "authCode",
+      "type": "string",
+      "default": "",
+      "placeholder": "code from /v1/auth/keys/code",
+      "description": "Secure, randomly generated code for adding a new public key.",
+      "show": {
+        "actions.operation": [
+          "addKeyToKeychain"
+        ]
+      }
+    },
+    {
+      "label": "Signature",
+      "name": "signature",
+      "type": "string",
+      "default": "",
+      "placeholder": "hex-encoded signature",
+      "description": "Hex-encoded signature calculated using the authCode and your private key.",
+      "show": {
+        "actions.operation": [
+          "addKeyToKeychain"
+        ]
+      }
+    },
+    {
+      "label": "Public Key",
+      "name": "key",
+      "type": "string",
+      "default": "",
+      "placeholder": "public key material",
+      "description": "The new public key to add to your keychain.",
+      "show": {
+        "actions.operation": [
+          "addKeyToKeychain"
+        ]
+      }
+    },
+    {
+      "label": "Scheme",
+      "name": "scheme",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "ed25519 or chain id",
+      "description": "The key scheme (algorithm). Required for new keys, optional otherwise.",
+      "show": {
+        "actions.operation": [
+          "addKeyToKeychain"
+        ]
+      }
+    },
+
+    {
+      "label": "Prefix",
+      "name": "prefix",
+      "type": "string",
+      "optional": true,
+      "default": "",
+      "placeholder": "Optional message prefix",
+      "description": "Optional prefix for signature verification challenge.",
+      "show": {
+        "actions.operation": [
+          "getPublicKeyChallenge"
+        ]
+      }
+    }
+  ],
+
+  "filePath": "https://raw.githubusercontent.com/your-repo/path-to-file.js"
+}

@@ -1,0 +1,292 @@
+{
+  "label": "Confidential Compute Launcher",
+  "name": "confidentialComputeLauncher",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png"
+  },
+  "type": "action",
+  "category": "Cloud Compute",
+  "version": 1,
+  "description": "Launch confidential compute instances on various cloud providers",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Cloud Provider",
+      "name": "cloudProvider",
+      "type": "options",
+      "options": [
+        {
+          "label": "Amazon Web Services (AWS)",
+          "name": "aws",
+          "description": "Launch confidential compute instances on AWS"
+        },
+        {
+          "label": "Microsoft Azure",
+          "name": "azure",
+          "description": "Launch confidential compute instances on Azure"
+        },
+        {
+          "label": "Google Cloud Platform (GCP)",
+          "name": "gcp",
+          "description": "Launch confidential compute instances on GCP"
+        },
+        {
+          "label": "IBM Cloud",
+          "name": "ibm",
+          "description": "Launch confidential compute instances on IBM Cloud"
+        }
+      ],
+      "default": "aws"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "AWS Access Keys",
+          "name": "awsAccessKeys"
+        },
+        {
+          "label": "Azure Service Principal",
+          "name": "azureServicePrincipal"
+        },
+        {
+          "label": "GCP Service Account",
+          "name": "gcpServiceAccount"
+        },
+        {
+          "label": "IBM Cloud API Key",
+          "name": "ibmApiKey"
+        }
+      ],
+      "default": "awsAccessKeys"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Instance Name",
+      "name": "instanceName",
+      "type": "string",
+      "description": "The name of the instance to create"
+    },
+    {
+      "label": "Region",
+      "name": "region",
+      "type": "options",
+      "description": "The cloud region to launch the instance in",
+      "options": [
+        {
+          "label": "US East (N. Virginia)",
+          "name": "us-east-1",
+          "show": {
+            "actions.cloudProvider": [
+              "aws"
+            ]
+          }
+        },
+        {
+          "label": "US West (Oregon)",
+          "name": "us-west-2",
+          "show": {
+            "actions.cloudProvider": [
+              "aws"
+            ]
+          }
+        },
+        {
+          "label": "East US",
+          "name": "eastus",
+          "show": {
+            "actions.cloudProvider": [
+              "azure"
+            ]
+          }
+        },
+        {
+          "label": "West Europe",
+          "name": "westeurope",
+          "show": {
+            "actions.cloudProvider": [
+              "azure"
+            ]
+          }
+        },
+        {
+          "label": "us-central1",
+          "name": "us-central1",
+          "show": {
+            "actions.cloudProvider": [
+              "gcp"
+            ]
+          }
+        },
+        {
+          "label": "europe-west1",
+          "name": "europe-west1",
+          "show": {
+            "actions.cloudProvider": [
+              "gcp"
+            ]
+          }
+        },
+        {
+          "label": "US South",
+          "name": "us-south",
+          "show": {
+            "actions.cloudProvider": [
+              "ibm"
+            ]
+          }
+        },
+        {
+          "label": "EU Germany",
+          "name": "eu-de",
+          "show": {
+            "actions.cloudProvider": [
+              "ibm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Instance Type",
+      "name": "instanceType",
+      "type": "options",
+      "description": "The type of confidential compute instance",
+      "options": [
+        {
+          "label": "C5 instances with Nitro Enclaves",
+          "name": "c5n",
+          "show": {
+            "actions.cloudProvider": [
+              "aws"
+            ]
+          }
+        },
+        {
+          "label": "M5 instances with Nitro Enclaves",
+          "name": "m5n",
+          "show": {
+            "actions.cloudProvider": [
+              "aws"
+            ]
+          }
+        },
+        {
+          "label": "DCsv2-Series",
+          "name": "DCsv2",
+          "show": {
+            "actions.cloudProvider": [
+              "azure"
+            ]
+          }
+        },
+        {
+          "label": "DCsv3-Series",
+          "name": "DCsv3",
+          "show": {
+            "actions.cloudProvider": [
+              "azure"
+            ]
+          }
+        },
+        {
+          "label": "N2D Confidential VM",
+          "name": "n2d-confidential",
+          "show": {
+            "actions.cloudProvider": [
+              "gcp"
+            ]
+          }
+        },
+        {
+          "label": "E2 Confidential VM",
+          "name": "e2-confidential",
+          "show": {
+            "actions.cloudProvider": [
+              "gcp"
+            ]
+          }
+        },
+        {
+          "label": "Confidential Computing Virtual Servers",
+          "name": "cc-virtual-server",
+          "show": {
+            "actions.cloudProvider": [
+              "ibm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Image ID",
+      "name": "imageId",
+      "type": "string",
+      "description": "The ID of the image to use for the instance"
+    },
+    {
+      "label": "Network Configuration",
+      "name": "networkConfiguration",
+      "type": "collection",
+      "description": "Network settings for the instance",
+      "options": [
+        {
+          "label": "VPC ID",
+          "name": "vpcId",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "label": "Subnet ID",
+          "name": "subnetId",
+          "type": "string",
+          "optional": true
+        },
+        {
+          "label": "Security Group IDs",
+          "name": "securityGroupIds",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      ]
+    },
+    {
+      "label": "User Data",
+      "name": "userData",
+      "type": "string",
+      "description": "User data to provide when launching the instance",
+      "optional": true
+    },
+    {
+      "label": "Tags",
+      "name": "tags",
+      "type": "collection",
+      "description": "Tags to assign to the instance",
+      "optional": true,
+      "options": [
+        {
+          "label": "Key",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "label": "Value",
+          "name": "value",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/ConfidentialCompute/ConfidentialCompute.js"
+}

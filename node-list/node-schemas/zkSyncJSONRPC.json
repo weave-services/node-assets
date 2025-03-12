@@ -1,0 +1,128 @@
+{
+  "loadMethods": {},
+  "label": "zkSync L2 JSON-RPC",
+  "name": "zkSyncL2JSONRPC",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
+  },
+  "type": "action",
+  "category": "Blockchain",
+  "version": 1,
+  "description": "Interact with the zkSync Layer 2 JSON-RPC API for various blockchain operations.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Estimate Fee",
+      "name": "zks_estimateFee",
+      "description": "Estimate the fee for a given transaction call."
+    },
+    {
+      "label": "Estimate Gas for L1 to L2",
+      "name": "zks_estimateGasL1ToL2",
+      "description": "Estimate the gas required for a transaction from Layer 1 to Layer 2."
+    },
+    {
+      "label": "Get Bridge Contracts",
+      "name": "zks_getBridgeContracts",
+      "description": "Retrieve the addresses of bridge contracts for tokens on L2."
+    },
+    {
+      "label": "Get L1 Chain ID",
+      "name": "zks_L1ChainId",
+      "description": "Return the chain ID of the connected Layer 1 network."
+    },
+    {
+      "label": "Get L2 to L1 Log Proof",
+      "name": "zks_getL2ToL1LogProof",
+      "description": "Generate a proof for an L2 → L1 log."
+    },
+    {
+      "label": "Get Main Contract",
+      "name": "zks_getMainContract",
+      "description": "Retrieve the address of the zkSync main contract."
+    },
+    {
+      "label": "Get Testnet Paymaster",
+      "name": "zks_getTestnetPaymaster",
+      "description": "Retrieve the address of the testnet paymaster (only available on testnet)."
+    }
+  ],
+  "credentials": [
+    {
+      "label": "zkSync RPC Endpoint",
+      "name": "rpcEndpoint",
+      "type": "string",
+      "description": "The RPC endpoint URL for the zkSync network.",
+      "default": "https://mainnet.era.zksync.io"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "From Address",
+      "name": "from",
+      "type": "string",
+      "description": "The sender's address.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "zks_estimateFee",
+          "zks_estimateGasL1ToL2"
+        ]
+      }
+    },
+    {
+      "label": "To Address",
+      "name": "to",
+      "type": "string",
+      "description": "The recipient's address.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "zks_estimateFee",
+          "zks_estimateGasL1ToL2"
+        ]
+      }
+    },
+    {
+      "label": "Data",
+      "name": "data",
+      "type": "string",
+      "description": "The data payload for the transaction.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "zks_estimateFee",
+          "zks_estimateGasL1ToL2"
+        ]
+      }
+    },
+    {
+      "label": "Log Index",
+      "name": "logIndex",
+      "type": "number",
+      "description": "The index of the log entry to prove.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "zks_getL2ToL1LogProof"
+        ]
+      }
+    },
+    {
+      "label": "Transaction Hash",
+      "name": "transactionHash",
+      "type": "string",
+      "description": "The hash of the transaction containing the log.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "zks_getL2ToL1LogProof"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/zksyncL2JSONRPC/zksyncL2JSONRPC.js"
+}

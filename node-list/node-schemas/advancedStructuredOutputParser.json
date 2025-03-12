@@ -1,0 +1,86 @@
+{
+  "nodeState": null,
+  "label": "Structured Output Parser",
+  "name": "structuredOutputParser",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "light": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "dark": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg"
+  },
+  "version": 1,
+  "type": "action",
+  "category": "Output Parsing",
+  "description": "Parse the output of an LLM call into a given (JSON) structure.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Parse Output",
+      "name": "parseOutput",
+      "type": "options",
+      "options": [
+        {
+          "label": "Structured Parsing",
+          "name": "structuredParsing",
+          "description": "Parse LLM output into a structured format using a predefined JSON schema."
+        }
+      ],
+      "default": "structuredParsing"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Autofix",
+      "name": "autofixParser",
+      "type": "boolean",
+      "optional": true,
+      "default": false,
+      "description": "In the event that the first call fails, will make another call to the model to fix any errors."
+    },
+    {
+      "label": "Output Fields",
+      "name": "outputFields",
+      "type": "array",
+      "description": "Define multiple structured output fields for LLM responses.",
+      "array": [
+        {
+          "label": "Property Name",
+          "name": "propertyName",
+          "type": "string",
+          "default": "",
+          "description": "The name of the property in the JSON output."
+        },
+        {
+          "label": "Property Type",
+          "name": "propertyType",
+          "type": "options",
+          "options": [
+            {
+              "label": "String",
+              "name": "string"
+            },
+            {
+              "label": "Number",
+              "name": "number"
+            },
+            {
+              "label": "Boolean",
+              "name": "boolean"
+            }
+          ],
+          "default": "string",
+          "description": "Select the type of the property."
+        },
+        {
+          "label": "Property Description",
+          "name": "propertyDescription",
+          "type": "string",
+          "default": "",
+          "description": "A brief description of what this property represents.",
+          "optional": true
+        }
+      ]
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo-path/nodes/main/nodes/StructuredOutputParser/StructuredOutputParser.js"
+}

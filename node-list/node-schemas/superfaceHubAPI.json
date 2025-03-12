@@ -1,0 +1,85 @@
+{
+  "loadMethods": {},
+  "label": "Superface Hub API",
+  "name": "superfaceHubAPI",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png"
+  },
+  "type": "action",
+  "category": "API Integration",
+  "version": 1,
+  "description": "Integrate with Superface Hub API to access various external services through function calls.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Available Functions",
+          "name": "listFunctions",
+          "description": "Retrieve a list of functions currently available for use."
+        },
+        {
+          "label": "Generate User Session",
+          "name": "generateSession",
+          "description": "Generate a temporary URL for users to configure their access credentials."
+        },
+        {
+          "label": "Perform Function",
+          "name": "performFunction",
+          "description": "Execute a specified function with provided parameters."
+        }
+      ],
+      "default": "listFunctions"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Superface API Token",
+      "name": "apiToken",
+      "type": "string",
+      "description": "API token for authenticating with the Superface Hub API."
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "Unique identifier for the user in the format 'your_agent_name|unique_user_id'.",
+      "show": {
+        "actions.operation": [
+          "generateSession"
+        ]
+      }
+    },
+    {
+      "label": "Function Name",
+      "name": "functionName",
+      "type": "string",
+      "description": "The name of the function to perform, e.g., 'weather__current-weather__CurrentWeather'.",
+      "show": {
+        "actions.operation": [
+          "performFunction"
+        ]
+      }
+    },
+    {
+      "label": "Function Parameters",
+      "name": "functionParameters",
+      "type": "json",
+      "description": "JSON object containing parameters required by the function.",
+      "show": {
+        "actions.operation": [
+          "performFunction"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/superfaceHubAPI/superfaceHubAPI.js"
+}

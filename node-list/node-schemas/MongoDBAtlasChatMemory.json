@@ -1,0 +1,106 @@
+{
+  "loadMethods": {},
+  "label": "MongoDB Atlas Chat Memory",
+  "name": "MongoDBAtlasChatMemory",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/your-repo/node-assets/main/nodes/MongoDBAtlas/default.svg",
+    "light": "https://raw.githubusercontent.com/your-repo/node-assets/main/nodes/MongoDBAtlas/light.svg",
+    "dark": "https://raw.githubusercontent.com/your-repo/node-assets/main/nodes/MongoDBAtlas/dark.svg"
+  },
+  "type": "memory",
+  "category": "Storage",
+  "version": 1.0,
+  "description": "Stores conversation history in MongoDB Atlas for long-term memory.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [],
+  "credentials": [
+    {
+      "label": "Connect Credential",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "MongoDB URL API",
+          "name": "mongoDBUrlApi"
+        }
+      ],
+      "default": "mongoDBUrlApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Database",
+      "name": "databaseName",
+      "type": "string",
+      "placeholder": "<DB_NAME>",
+      "description": "The name of the database to store chat history."
+    },
+    {
+      "label": "Collection Name",
+      "name": "collectionName",
+      "type": "string",
+      "placeholder": "<COLLECTION_NAME>",
+      "description": "The name of the collection within the database."
+    },
+    {
+      "label": "Session ID",
+      "name": "sessionId",
+      "type": "string",
+      "description": "Unique identifier for the chat session. If not specified, a random ID will be used.",
+      "optional": true,
+      "default": ""
+    },
+    {
+      "label": "Memory Key",
+      "name": "memoryKey",
+      "type": "string",
+      "default": "chat_history",
+      "description": "Key for storing chat history within the memory instance."
+    }
+  ],
+  "methods": [
+    {
+      "name": "getMessages",
+      "description": "Fetches all messages for the given session ID.",
+      "returns": "array",
+      "parameters": [
+        {
+          "name": "sessionId",
+          "type": "string",
+          "description": "The ID of the session to fetch messages for."
+        }
+      ]
+    },
+    {
+      "name": "addMessage",
+      "description": "Adds a new message to the chat history for the specified session.",
+      "parameters": [
+        {
+          "name": "message",
+          "type": "object",
+          "description": "The message to add, in JSON format."
+        },
+        {
+          "name": "sessionId",
+          "type": "string",
+          "optional": true,
+          "description": "Optional session ID. Uses the current session ID if not specified."
+        }
+      ]
+    },
+    {
+      "name": "clearMessages",
+      "description": "Clears all messages for the specified session ID.",
+      "parameters": [
+        {
+          "name": "sessionId",
+          "type": "string",
+          "optional": true,
+          "description": "Optional session ID. Clears messages for the current session if not specified."
+        }
+      ]
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/MongoDBAtlas/MongoDBAtlasChatMemory.js"
+}

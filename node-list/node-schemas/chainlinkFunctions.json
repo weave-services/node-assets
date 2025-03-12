@@ -1,0 +1,103 @@
+{
+  "label": "Chainlink Functions",
+  "name": "chainlinkFunctions",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+  },
+  "type": "action",
+  "category": "Development",
+  "version": 1,
+  "description": "Execute code within NodeVM sandbox",
+  "incoming": 1,
+  "outgoing": 1,
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        {
+          "label": "Ethereum Mainnet",
+          "name": "ethereum-mainnet"
+        },
+        {
+          "label": "Sepolia Testnet",
+          "name": "sepolia-testnet"
+        },
+        {
+          "label": "Polygon Mainnet",
+          "name": "polygon-mainnet"
+        },
+        {
+          "label": "Polygon Amoy Testnet",
+          "name": "polygon-amoy-testnet"
+        },
+        {
+          "label": "Avalanche Mainnet",
+          "name": "avalanche-mainnet"
+        },
+        {
+          "label": "Avalanche Fuji Testnet",
+          "name": "avalanche-fuji-testnet"
+        },
+        {
+          "label": "Arbitrum Mainnet",
+          "name": "arbitrum-mainnet"
+        },
+        {
+          "label": "Arbitrum Sepolia Testnet",
+          "name": "arbitrum-sepolia-testnet"
+        },
+        {
+          "label": "BASE Mainnet",
+          "name": "base-mainnet"
+        },
+        {
+          "label": "BASE Sepolia Testnet",
+          "name": "base-sepolia-testnet"
+        },
+        {
+          "label": "OP Mainnet",
+          "name": "op-mainnet"
+        },
+        {
+          "label": "OP Sepolia",
+          "name": "op-sepolia"
+        },
+        {
+          "label": "Soneium Minato Testnet",
+          "name": "soneium-minato-testnet"
+        },
+        {
+          "label": "Celo Mainnet",
+          "name": "celo-mainnet"
+        },
+        {
+          "label": "Celo Alfajores Testnet",
+          "name": "celo-alfajores-testnet"
+        }
+      ],
+      "default": "ethereum-mainnet"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Code",
+      "name": "code",
+      "type": "code",
+      "default": "// This function gets details about Star Wars characters. This example showcases usage of HTTP requests and console.logs.\n// Argument: characterId (e.g., 1, 2, 3, etc.)\nconst characterId = args[0];\n\n// Execute the API request\nconst apiResponse = await Functions.makeHttpRequest({\n  url: `https://swapi.dev/api/people/${characterId}/`\n});\n\nif (apiResponse.error) {\n  console.error(apiResponse.error);\n  throw Error('Request failed');\n}\n\nconst { data } = apiResponse;\n\nconsole.log('API response data:', JSON.stringify(data, null, 2));\n\n// Return Character Name\nreturn Functions.encodeString(data.name);",
+      "description": "Custom code to run"
+    },
+    {
+      "label": "External Modules",
+      "name": "external",
+      "type": "json",
+      "placeholder": "[\"axios\"]",
+      "description": "Import installed dependencies within Outerbridge",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+}

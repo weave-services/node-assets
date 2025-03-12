@@ -1,0 +1,176 @@
+{
+  "loadMethods": {},
+  "label": "Space and Time API",
+  "name": "spaceAndTimeApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Database",
+  "version": 1,
+  "description": "SQL Operations REST APIs for executing SQL statements, configuring resources, encryption, and querying views on the Space and Time network.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Execute SQL",
+          "name": "executeSql"
+        },
+        {
+          "label": "Configure Resources (DDL)",
+          "name": "configureResourcesDDL"
+        },
+        {
+          "label": "Modify Data (DML)",
+          "name": "modifyDataDML"
+        },
+        {
+          "label": "Execute Queries (DQL)",
+          "name": "executeQueriesDQL"
+        },
+        {
+          "label": "Configure Encryption",
+          "name": "configureEncryption"
+        },
+        {
+          "label": "View Query",
+          "name": "viewQuery"
+        },
+        {
+          "label": "Refresh Materialized View",
+          "name": "refreshMaterializedView"
+        },
+        {
+          "label": "Get Materialized View Last Refresh",
+          "name": "getLastRefreshed"
+        },
+        {
+          "label": "Execute Content Query",
+          "name": "executeContentQuery"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "apikey",
+      "name": "credentialMethod",
+      "type": "string",
+      "description": "JWT Bearer token for authentication",
+      "default": ""
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "SQL Statement",
+      "name": "sqlText",
+      "type": "code",
+      "default": "",
+      "description": "The raw SQL text to execute.",
+      "show": {
+        "actions.operation": [
+          "executeSql",
+          "configureResourcesDDL",
+          "modifyDataDML",
+          "executeQueriesDQL",
+          "executeContentQuery"
+        ]
+      }
+    },
+    {
+      "label": "Biscuits",
+      "name": "biscuits",
+      "type": "string",
+      "default": "",
+      "description": "Optional authorization tokens (comma-separated list).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeSql",
+          "configureResourcesDDL",
+          "modifyDataDML",
+          "executeQueriesDQL",
+          "executeContentQuery",
+          "viewQuery",
+          "refreshMaterializedView",
+          "getLastRefreshed",
+          "configureEncryption"
+        ]
+      }
+    },
+    {
+      "label": "Validate Request",
+      "name": "validate",
+      "type": "boolean",
+      "default": false,
+      "description": "Determines whether to validate the SQL statement prior to execution.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeSql",
+          "executeContentQuery"
+        ]
+      }
+    },
+    {
+      "label": "Use Encryption",
+      "name": "useEncryption",
+      "type": "boolean",
+      "default": false,
+      "description": "Determines whether to automatically encrypt/decrypt data in the request and response.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeSql"
+        ]
+      }
+    },
+    {
+      "label": "View ID",
+      "name": "viewId",
+      "type": "string",
+      "default": "",
+      "description": "The view resource identifier (e.g. SCHEMA_NAME.VIEW_NAME).",
+      "show": {
+        "actions.operation": [
+          "viewQuery",
+          "refreshMaterializedView",
+          "getLastRefreshed"
+        ]
+      }
+    },
+    {
+      "label": "Query Parameters",
+      "name": "parameters",
+      "type": "json",
+      "default": "{}",
+      "description": "A JSON object containing parameter key/value pairs for a parameterized view.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "viewQuery"
+        ]
+      }
+    },
+    {
+      "label": "Encryption Request",
+      "name": "encryptionRequest",
+      "type": "json",
+      "default": "{}",
+      "description": "JSON payload for configuring dataset/table encryption.",
+      "show": {
+        "actions.operation": [
+          "configureEncryption"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
+}

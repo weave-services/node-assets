@@ -1,0 +1,252 @@
+{
+  "label": "Subscan",
+  "name": "subscan",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png"
+  },
+  "type": "action",
+  "category": "Block Explorer",
+  "version": 1,
+  "description": "Perform Subscan operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Account Info",
+          "name": "getAccountInfo",
+          "description": "Returns the account information of a given address."
+        },
+        {
+          "label": "Get Account Balance",
+          "name": "getAccountBalance",
+          "description": "Returns the balance of a given address."
+        },
+        {
+          "label": "Get Extrinsics",
+          "name": "getExtrinsics",
+          "description": "Returns the list of extrinsics performed by an address."
+        },
+        {
+          "label": "Get Transfers",
+          "name": "getTransfers",
+          "description": "Returns the list of transfers performed by an address."
+        },
+        {
+          "label": "Get Rewards",
+          "name": "getRewards",
+          "description": "Returns the list of rewards for a given address."
+        },
+        {
+          "label": "Get Slashes",
+          "name": "getSlashes",
+          "description": "Returns the list of slashes for a given address."
+        },
+        {
+          "label": "Get Staking Info",
+          "name": "getStakingInfo",
+          "description": "Returns the staking information for a given address."
+        },
+        {
+          "label": "Get Block Info",
+          "name": "getBlockInfo",
+          "description": "Returns information about a given block."
+        },
+        {
+          "label": "Get Event Info",
+          "name": "getEventInfo",
+          "description": "Returns information about a given event."
+        },
+        {
+          "label": "Get Validators",
+          "name": "getValidators",
+          "description": "Returns a list of validators."
+        }
+      ],
+      "default": "getAccountInfo"
+    }
+  ],
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        { "label": "Polkadot", "name": "polkadot" },
+        { "label": "Kusama", "name": "kusama" },
+        { "label": "Assethub Polkadot", "name": "assethub-polkadot" },
+        { "label": "Assethub Kusama", "name": "assethub-kusama" },
+        { "label": "Assethub Rococo", "name": "assethub-rococo" },
+        { "label": "Assethub Westend", "name": "assethub-westend" },
+        { "label": "Acala", "name": "acala" },
+        { "label": "Acala Mandala", "name": "acala-mandala" },
+        { "label": "Ajuna", "name": "ajuna" },
+        { "label": "Alephzero", "name": "alephzero" },
+        { "label": "Alephzero testnet", "name": "alephzero-testnet" },
+        { "label": "Altair", "name": "altair" },
+        { "label": "Astar", "name": "astar" },
+        { "label": "Avail testnet", "name": "avail-testnet" },
+        { "label": "Bajun", "name": "bajun" },
+        { "label": "Basilisk", "name": "basilisk" },
+        { "label": "Bifrost", "name": "bifrost" },
+        { "label": "Bifrost Kusama", "name": "bifrost-kusama" },
+        { "label": "BridgeHub Polkadot", "name": "bridgehub-polkadot" },
+        { "label": "BridgeHub Kusama", "name": "bridgehub-kusama" },
+        { "label": "BridgeHub Rococo", "name": "bridgehub-rococo" },
+        { "label": "BridgeHub Westend", "name": "bridgehub-westend" },
+        { "label": "Calamari", "name": "calamari" },
+        { "label": "Centrifuge", "name": "centrifuge" },
+        { "label": "Centrifuge Solo", "name": "centrifuge-solo" },
+        { "label": "Clover", "name": "clover" },
+        { "label": "Composable", "name": "composable" },
+        { "label": "Continuum", "name": "continuum" },
+        { "label": "Creditcoin", "name": "creditcoin" },
+        { "label": "Creditcoin testnet", "name": "creditcoin-testnet" },
+        { "label": "Crust", "name": "crust" },
+        { "label": "Crust Shadow", "name": "crust-shadow" },
+        { "label": "DeepBrain Chain", "name": "dbc" },
+        { "label": "Dock", "name": "dock" },
+        { "label": "Darwinia", "name": "darwinia" },
+        { "label": "Enjin", "name": "enjin" },
+        { "label": "Enjin-matrix", "name": "enjin-matrix" },
+        { "label": "Enjin-canary-matrix", "name": "enjin-canary-matrix" },
+        { "label": "Enjin-canary", "name": "enjin-canary" },
+        { "label": "Humanode", "name": "humanode" },
+        { "label": "HydraDX", "name": "hydradx" },
+        { "label": "IntegriTEE", "name": "integritee" },
+        { "label": "Interlay", "name": "interlay" },
+        { "label": "Joystream", "name": "joystream" },
+        { "label": "Karura", "name": "karura" },
+        { "label": "Kintsugi", "name": "kintsugi" },
+        { "label": "Khala", "name": "khala" },
+        { "label": "Krest", "name": "krest" },
+        { "label": "KILT Peregrine", "name": "kilt-peregrine" },
+        { "label": "KILT Spiritnet", "name": "kilt-spiritnet" },
+        { "label": "Mangata", "name": "mangata" },
+        { "label": "Moonbase", "name": "moonbase" },
+        { "label": "Moonbeam", "name": "moonbeam" },
+        { "label": "Moonriver", "name": "moonriver" },
+        { "label": "Manta", "name": "manta" },
+        { "label": "Nodle", "name": "nodle" },
+        { "label": "NeuroWeb", "name": "neuroweb" },
+        { "label": "NeuroWeb Testnet", "name": "neuroweb-testnet" },
+        { "label": "Peaq", "name": "peaq" },
+        { "label": "Phala", "name": "phala" },
+        { "label": "Picasso", "name": "picasso" },
+        { "label": "Pioneer", "name": "pioneer" },
+        { "label": "Polkadex", "name": "polkadex" },
+        { "label": "Polkadex Parachain", "name": "polkadex-parachain" },
+        { "label": "Polymesh", "name": "polymesh" },
+        { "label": "Polymesh Testnet", "name": "polymesh-testnet" },
+        { "label": "Quartz", "name": "quartz" },
+        { "label": "Robonomics", "name": "robonomics" },
+        { "label": "Rococo", "name": "rococo" },
+        { "label": "Shibuya", "name": "shibuya" },
+        { "label": "Shiden", "name": "shiden" },
+        { "label": "SORA", "name": "sora" },
+        { "label": "Subspace", "name": "subspace" },
+        { "label": "Stafi", "name": "stafi" },
+        { "label": "Turing", "name": "turing" },
+        { "label": "Unique", "name": "unique" },
+        { "label": "Vara", "name": "vara" },
+        { "label": "Westend", "name": "westend" },
+        { "label": "Zeitgeist", "name": "zeitgeist" }
+      ],
+      "default": "polkadot"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Subscan API Key",
+          "name": "subscanApi"
+        }
+      ],
+      "default": "subscanApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Address",
+      "name": "address",
+      "type": "string",
+      "description": "The address parameter(s) required",
+      "show": {
+        "actions.api": [
+          "getAccountInfo",
+          "getAccountBalance",
+          "getExtrinsics",
+          "getTransfers",
+          "getRewards",
+          "getSlashes",
+          "getStakingInfo"
+        ]
+      }
+    },
+    {
+      "label": "Block Number",
+      "name": "blockNumber",
+      "type": "number",
+      "description": "The block number to get information for",
+      "show": {
+        "actions.api": [
+          "getBlockInfo"
+        ]
+      }
+    },
+    {
+      "label": "Event ID",
+      "name": "eventId",
+      "type": "string",
+      "description": "The event ID to get information for",
+      "show": {
+        "actions.api": [
+          "getEventInfo"
+        ]
+      }
+    },
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "optional": true,
+      "description": "The page number for pagination",
+      "show": {
+        "actions.api": [
+          "getExtrinsics",
+          "getTransfers",
+          "getRewards",
+          "getSlashes"
+        ]
+      },
+      "default": 1
+    },
+    {
+      "label": "Page Size",
+      "name": "pageSize",
+      "type": "number",
+      "optional": true,
+      "description": "The number of items per page",
+      "show": {
+        "actions.api": [
+          "getExtrinsics",
+          "getTransfers",
+          "getRewards",
+          "getSlashes"
+        ]
+      },
+      "default": 10
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
+}

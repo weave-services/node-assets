@@ -1,0 +1,91 @@
+{
+    "loadMethods": {},
+    "label": "Zapier API Trigger",
+    "name": "ZapierAPITrigger",
+    "icon": "https://cdn.iconscout.com/icon/free/png-256/free-zapier-3629179-3030319.png",
+    "type": "action",
+    "category": "Integrations",
+    "version": 1,
+    "description": "Start workflow based on Zapier API events",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+        {
+            "label": "Select Endpoint",
+            "name": "endpoint",
+            "type": "options",
+            "options": [
+                { "label": "Get Apps [v1]", "name": "apps/v1", "method": "GET" },
+                { "label": "Get Apps [v2]", "name": "apps/v2", "method": "GET" },
+                { "label": "Get Categories", "name": "categories", "method": "GET" },
+                { "label": "Create Account", "name": "accounts", "method": "POST" },
+                { "label": "User Profile", "name": "accounts/profile", "method": "GET" },
+                { "label": "Get Zap Templates", "name": "zap-templates", "method": "GET" },
+                { "label": "Create a Zap", "name": "zaps", "method": "POST" },
+                { "label": "Get Zaps [v1]", "name": "zaps/v1", "method": "GET" },
+                { "label": "Get Zaps [v2]", "name": "zaps/v2", "method": "GET" },
+                { "label": "Get Actions", "name": "actions", "method": "GET" },
+                { "label": "Get Input Fields", "name": "actions/input-fields", "method": "POST" },
+                { "label": "Get Output Fields", "name": "actions/output-fields", "method": "POST" },
+                { "label": "Get Choices", "name": "actions/choices", "method": "POST" },
+                { "label": "Step Test", "name": "actions/step-test", "method": "POST" },
+                { "label": "Get Authentications", "name": "authentications", "method": "GET" },
+                { "label": "Create Authentication", "name": "authentications/create", "method": "POST" }
+            ]
+        }
+    ],
+    "credentials": [
+        {
+            "label": "Authorization",
+            "name": "credentialMethod",
+            "type": "string",
+            "options": [
+                {
+                    "label": "Bearer Token Auth",
+                    "name": "zapierBearerTokenAuth"
+                }
+            ],
+            "default": "zapierBearerTokenAuth"
+        }
+    ],
+    "inputParameters": [
+        {
+            "label": "Payload",
+            "name": "payload",
+            "type": "json",
+            "placeholder": "{\"key\": \"value\"}",
+            "optional": true,
+            "show": {
+                "actions.endpoint": [
+                    "accounts",
+                    "zaps",
+                    "actions/input-fields",
+                    "actions/output-fields",
+                    "actions/choices",
+                    "actions/step-test",
+                    "authentications/create"
+                ]
+            }
+        },
+        {
+            "label": "Query Parameters",
+            "name": "queryParams",
+            "type": "json",
+            "placeholder": "{\"key\": \"value\"}",
+            "optional": true,
+            "show": {
+                "actions.endpoint": [
+                    "apps/v1",
+                    "apps/v2",
+                    "categories",
+                    "zap-templates",
+                    "zaps/v1",
+                    "zaps/v2",
+                    "actions",
+                    "authentications"
+                ]
+            }
+        }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
+}

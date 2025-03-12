@@ -1,0 +1,97 @@
+{
+  "loadMethods": {},
+  "label": "Space and Time Subscription API",
+  "name": "spaceAndTimeSubscription",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/default.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/light.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/SpaceAndTime/dark.svg"
+  },
+  "type": "action",
+  "category": "Web3 Services",
+  "version": 1,
+  "description": "Manage your Space and Time subscription, users, and settings via API.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        { "label": "Get Subscription Info", "name": "getSubscriptionInfo" },
+        { "label": "Get Subscription Users", "name": "getSubscriptionUsers" },
+        { "label": "Set Subscription Name", "name": "setSubscriptionName" },
+        { "label": "Create Subscription Invite", "name": "createSubscriptionInvite" },
+        { "label": "Join Subscription", "name": "joinSubscription" },
+        { "label": "Set User Role", "name": "setUserRole" },
+        { "label": "Remove User", "name": "removeUser" },
+        { "label": "Leave Subscription", "name": "leaveSubscription" },
+        { "label": "Get Subscription Balance", "name": "getSubscriptionBalance" },
+        { "label": "Get Usage Config", "name": "getUsageConfig" },
+        { "label": "Set Usage Config", "name": "setUsageConfig" },
+        { "label": "Get Credit Offerings", "name": "getCreditOfferings" },
+        { "label": "Get Free Queries", "name": "getFreeQueries" },
+        { "label": "Get Default Free Queries", "name": "getDefaultFreeQueries" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "Space and Time API Key", "name": "spaceAndTimeApi" }
+      ],
+      "default": "spaceAndTimeApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Subscription Name",
+      "name": "subscriptionName",
+      "type": "string",
+      "description": "The new name of your subscription.",
+      "optional": false,
+      "show": { "actions.operation": ["setSubscriptionName"] }
+    },
+    {
+      "label": "Role",
+      "name": "role",
+      "type": "options",
+      "options": [
+        { "label": "Owner", "name": "owner" },
+        { "label": "Admin", "name": "admin" },
+        { "label": "Member", "name": "member" }
+      ],
+      "description": "Role to assign in the subscription.",
+      "show": { "actions.operation": ["createSubscriptionInvite", "setUserRole"] }
+    },
+    {
+      "label": "Join Code",
+      "name": "joinCode",
+      "type": "string",
+      "description": "The invitation code to join a subscription.",
+      "optional": false,
+      "show": { "actions.operation": ["joinSubscription"] }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "ID of the user to modify.",
+      "optional": false,
+      "show": { "actions.operation": ["setUserRole", "removeUser"] }
+    },
+    {
+      "label": "Usage Config",
+      "name": "config",
+      "type": "string",
+      "description": "Configuration settings for usage limits.",
+      "optional": false,
+      "show": { "actions.operation": ["setUsageConfig"] }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
+}

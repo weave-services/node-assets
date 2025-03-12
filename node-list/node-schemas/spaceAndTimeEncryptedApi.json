@@ -1,0 +1,109 @@
+{
+  "loadMethods": {},
+  "label": "Space and Time Encrypted API",
+  "name": "spaceAndTimeEncryptedApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Database",
+  "version": 1,
+  "description": "Endpoints for executing SQL operations on encrypted tables, modifying encrypted data, and configuring dataset encryption in the Space and Time network.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Execute SQL Query on Encrypted Data",
+          "name": "executeEncryptedSQL"
+        },
+        {
+          "label": "Modify Encrypted Data (DML)",
+          "name": "modifyEncryptedData"
+        },
+        {
+          "label": "Configure Dataset Encryption",
+          "name": "configureEncryption"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Space and Time API Key",
+          "name": "spaceAndTimeApiKey"
+        }
+      ],
+      "default": "spaceAndTimeApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "SQL Statement",
+      "name": "sqlText",
+      "type": "string",
+      "default": "",
+      "description": "The raw SQL text to execute.",
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL"
+        ]
+      }
+    },
+    {
+      "label": "Resources",
+      "name": "resources",
+      "type": "string",
+      "default": "{}",
+      "description": "List of tables or datasets to operate on.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    },
+    {
+      "label": "Row Count",
+      "name": "rowCount",
+      "type": "number",
+      "default": 0,
+      "description": "Number of rows affected (used in DML operations).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "modifyEncryptedData"
+        ]
+      }
+    },
+    {
+      "label": "Biscuits",
+      "name": "biscuits",
+      "type": "string",
+      "default": "",
+      "description": "Optional authorization tokens (comma-separated list).",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "executeEncryptedSQL",
+          "modifyEncryptedData",
+          "configureEncryption"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTimeEncrypted.js"
+}
