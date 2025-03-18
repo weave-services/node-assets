@@ -3160,11 +3160,11 @@
     "loadMethods": {},
     "label": "OpenAI",
     "name": "openAI",
-    "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
-    },
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
+  },
     "type": "action",
     "category": "Artificial Intelligence",
     "version": 1,
@@ -3365,11 +3365,11 @@
     "loadMethods": {},
     "label": "OpenAI Embeddings",
     "name": "openAIEmbeddings",
-    "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAIEmbeddings/dark.svg"
-    },
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
+  },
     "type": "action",
     "category": "Artificial Intelligence",
     "version": 1,
