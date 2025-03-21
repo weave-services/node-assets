@@ -8172,9 +8172,9 @@
   "label": "Space and Time Gateway (Secrets Proxy)",
   "name": "sxtGatewayProxy",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Secrets Management",
