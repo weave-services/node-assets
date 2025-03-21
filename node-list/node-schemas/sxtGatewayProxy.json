@@ -1,0 +1,406 @@
+
+{
+  "loadMethods": {},
+  "label": "Space and Time Gateway (Secrets Proxy)",
+  "name": "sxtGatewayProxy",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-list/refs/heads/main/spaceandtime.png"
+  },
+  "type": "action",
+  "category": "Secrets Management",
+  "version": 1,
+  "description": "Integration for Gateway (Secrets Proxy) REST APIs for centralized secrets management, authentication, and SQL proxy operations.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Register",
+          "name": "register"
+        },
+        {
+          "label": "Login",
+          "name": "login"
+        },
+        {
+          "label": "Add Existing User",
+          "name": "add-existing-user"
+        },
+        {
+          "label": "Reset Password",
+          "name": "reset-password"
+        },
+        {
+          "label": "Refresh Session",
+          "name": "refresh-session"
+        },
+        {
+          "label": "Convert Session",
+          "name": "convert-session"
+        },
+        {
+          "label": "API Key Authentication",
+          "name": "apikey-authn"
+        },
+        {
+          "label": "Get All Biscuits",
+          "name": "get-all-biscuits"
+        },
+        {
+          "label": "Get All User Biscuits",
+          "name": "get-all-user-biscuits"
+        },
+        {
+          "label": "Add User Biscuit",
+          "name": "add-user-biscuit"
+        },
+        {
+          "label": "Get User Biscuit by Name",
+          "name": "get-user-biscuit-by-name"
+        },
+        {
+          "label": "Remove User Biscuit",
+          "name": "remove-user-biscuit"
+        },
+        {
+          "label": "Set Permission",
+          "name": "set-permission"
+        },
+        {
+          "label": "Remove Permission",
+          "name": "remove-permission"
+        },
+        {
+          "label": "Get User Permissions",
+          "name": "get-user-permissions"
+        },
+        {
+          "label": "Get Resource Permissions",
+          "name": "get-resource-permissions"
+        },
+        {
+          "label": "Get API Keys",
+          "name": "get-api-keys"
+        },
+        {
+          "label": "Create API Key",
+          "name": "create-api-key"
+        },
+        {
+          "label": "Delete API Key",
+          "name": "delete-api-key"
+        },
+        {
+          "label": "Execute Proxy SQL (Generic)",
+          "name": "execute-proxy-sql-generic"
+        },
+        {
+          "label": "Execute Proxy SQL (Content Queries)",
+          "name": "execute-proxy-sql-content-queries"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Gateway API Key",
+          "name": "gatewayApiKey"
+        }
+      ],
+      "default": "gatewayApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "User identifier for registration, login, or password reset",
+      "show": {
+        "actions.operation": [
+          "register",
+          "login",
+          "reset-password"
+        ]
+      }
+    },
+    {
+      "label": "Password",
+      "name": "password",
+      "type": "string",
+      "description": "Password for registration or login",
+      "show": {
+        "actions.operation": [
+          "register",
+          "login"
+        ]
+      }
+    },
+    {
+      "label": "Join Code",
+      "name": "joinCode",
+      "type": "string",
+      "description": "Subscription join code for registration",
+      "show": {
+        "actions.operation": [
+          "register"
+        ]
+      }
+    },
+    {
+      "label": "Access Token",
+      "name": "accessToken",
+      "type": "string",
+      "description": "Access token used for adding an existing user or converting a session",
+      "show": {
+        "actions.operation": [
+          "add-existing-user",
+          "convert-session"
+        ]
+      }
+    },
+    {
+      "label": "Temp Password",
+      "name": "tempPassword",
+      "type": "string",
+      "description": "Temporary password for resetting password",
+      "show": {
+        "actions.operation": [
+          "reset-password"
+        ]
+      }
+    },
+    {
+      "label": "New Password",
+      "name": "newPassword",
+      "type": "string",
+      "description": "New password for resetting password",
+      "show": {
+        "actions.operation": [
+          "reset-password"
+        ]
+      }
+    },
+    {
+      "label": "Session ID",
+      "name": "sid",
+      "type": "string",
+      "description": "Session identifier for session-related operations and biscuit management",
+      "show": {
+        "actions.operation": [
+          "refresh-session",
+          "get-all-biscuits",
+          "get-all-user-biscuits",
+          "add-user-biscuit",
+          "get-user-biscuit-by-name",
+          "remove-user-biscuit",
+          "set-permission",
+          "remove-permission",
+          "get-user-permissions",
+          "get-resource-permissions",
+          "get-api-keys",
+          "create-api-key",
+          "delete-api-key"
+        ]
+      }
+    },
+    {
+      "label": "Biscuit Name",
+      "name": "biscuitName",
+      "type": "string",
+      "description": "Name of the biscuit for retrieval or deletion",
+      "show": {
+        "actions.operation": [
+          "get-user-biscuit-by-name",
+          "remove-user-biscuit"
+        ]
+      }
+    },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "description": "Unique name for a new user biscuit",
+      "show": {
+        "actions.operation": [
+          "add-user-biscuit"
+        ]
+      }
+    },
+    {
+      "label": "Biscuit",
+      "name": "biscuit",
+      "type": "string",
+      "description": "Base64 encoded biscuit payload",
+      "show": {
+        "actions.operation": [
+          "add-user-biscuit"
+        ]
+      }
+    },
+    {
+      "label": "Public Key",
+      "name": "publicKey",
+      "type": "string",
+      "description": "Public key associated with the biscuit",
+      "show": {
+        "actions.operation": [
+          "add-user-biscuit"
+        ]
+      }
+    },
+    {
+      "label": "Resource ID",
+      "name": "resourceId",
+      "type": "string",
+      "description": "Resource identifier for permission operations or resource permissions",
+      "show": {
+        "actions.operation": [
+          "set-permission",
+          "remove-permission",
+          "get-resource-permissions"
+        ]
+      }
+    },
+    {
+      "label": "Resource Type",
+      "name": "resourceType",
+      "type": "options",
+      "description": "Type of resource",
+      "options": [
+        {
+          "label": "DB Table",
+          "name": "DB_TABLE"
+        },
+        {
+          "label": "DB Schema",
+          "name": "DB_SCHEMA"
+        }
+      ],
+      "show": {
+        "actions.operation": [
+          "set-permission",
+          "remove-permission",
+          "get-resource-permissions"
+        ]
+      }
+    },
+    {
+      "label": "Target User ID",
+      "name": "targetUserId",
+      "type": "string",
+      "description": "User identifier for setting or removing permissions",
+      "show": {
+        "actions.operation": [
+          "set-permission",
+          "remove-permission"
+        ]
+      }
+    },
+    {
+      "label": "Access Level",
+      "name": "accessLevel",
+      "type": "options",
+      "description": "Access level for permission",
+      "options": [
+        {
+          "label": "Read Only",
+          "name": "READ-ONLY"
+        },
+        {
+          "label": "Read Write",
+          "name": "READ-WRITE"
+        },
+        {
+          "label": "Configure",
+          "name": "CONFIGURE"
+        }
+      ],
+      "show": {
+        "actions.operation": [
+          "set-permission"
+        ]
+      }
+    },
+    {
+      "label": "Key ID",
+      "name": "keyId",
+      "type": "string",
+      "description": "Identifier of the API key to delete",
+      "show": {
+        "actions.operation": [
+          "delete-api-key"
+        ]
+      }
+    },
+    {
+      "label": "Description",
+      "name": "description",
+      "type": "string",
+      "description": "Description for creating a new API key",
+      "show": {
+        "actions.operation": [
+          "create-api-key"
+        ]
+      }
+    },
+    {
+      "label": "SQL Text",
+      "name": "sqlText",
+      "type": "string",
+      "description": "The SQL statement to execute",
+      "show": {
+        "actions.operation": [
+          "execute-proxy-sql-generic"
+        ]
+      }
+    },
+    {
+      "label": "Query ID",
+      "name": "queryId",
+      "type": "string",
+      "description": "Unique identifier for the content query",
+      "show": {
+        "actions.operation": [
+          "execute-proxy-sql-content-queries"
+        ]
+      }
+    },
+    {
+      "label": "Query Slug",
+      "name": "querySlug",
+      "type": "string",
+      "description": "Slug for the content query",
+      "show": {
+        "actions.operation": [
+          "execute-proxy-sql-content-queries"
+        ]
+      }
+    },
+    {
+      "label": "Biscuits",
+      "name": "biscuits",
+      "type": "string",
+      "description": "Optional biscuits for SQL authorization (comma-separated if multiple)",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "execute-proxy-sql-generic",
+          "execute-proxy-sql-content-queries"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GatewayProxy/GatewayProxy.js"
+}
