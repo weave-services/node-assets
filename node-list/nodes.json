@@ -6436,6 +6436,132 @@
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
 },
+	
+{
+  "loadMethods": {
+    "listModels": "listModels"
+  },
+  "label": "NVIDIA NIM API",
+  "name": "nvidiaNim",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png"
+  },
+  "type": "action",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Interact with NVIDIA NIM API to create chat completions, list available models, or retrieve model metadata.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "NIM API Action",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Create Chat Completion",
+          "name": "createChatCompletion",
+          "description": "Create a chat completion using NVIDIA NIM API."
+        },
+        {
+          "label": "List Available Models",
+          "name": "listModels",
+          "description": "List all available models for inference."
+        },
+        {
+          "label": "Get Model Metadata",
+          "name": "getModelMetadata",
+          "description": "Retrieve metadata for a specific model."
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "NVIDIA NIM API Key",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "NVIDIA NIM API Key",
+          "name": "nvidiaNimApiKey"
+        }
+      ],
+      "default": "nvidiaNimApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Model",
+      "name": "model",
+      "type": "asyncOptions",
+      "loadMethod": "listModels",
+      "description": "AI model to use.",
+      "default": "",
+      "show": {
+        "actions.api": [
+          "createChatCompletion",
+          "getModelMetadata"
+        ]
+      }
+    },
+    {
+      "label": "Prompt",
+      "name": "prompt",
+      "type": "string",
+      "default": "",
+      "placeholder": "Enter your prompt here",
+      "description": "The prompt to send to the model.",
+      "show": {
+        "actions.api": [
+          "createChatCompletion"
+        ]
+      }
+    },
+    {
+      "label": "Max Tokens",
+      "name": "maxTokens",
+      "type": "number",
+      "description": "The maximum number of tokens to generate.",
+      "default": 100,
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createChatCompletion"
+        ]
+      }
+    },
+    {
+      "label": "Temperature",
+      "name": "temperature",
+      "type": "number",
+      "description": "Controls randomness in the output.",
+      "default": 0.7,
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createChatCompletion"
+        ]
+      }
+    },
+    {
+      "label": "Top P",
+      "name": "topP",
+      "type": "number",
+      "description": "Nucleus sampling parameter (between 0 and 1).",
+      "default": 1.0,
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createChatCompletion"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-org/nodes/main/nodes/NVIDIA_NIM/NVIDIA_NIM.js"
+},
 {
   "label": "Vercel",
   "name": "vercel",
