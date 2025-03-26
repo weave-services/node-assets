@@ -9,7 +9,7 @@
   "type": "action",
   "category": "Web Scraping",
   "version": 1,
-  "description": "Extracts data from web pages using customizable extraction rules.",
+  "description": "Extracts data from web pages using customizable extraction rules with Puppeteer.",
   "incoming": 1,
   "outgoing": 1,
   "actions": [
@@ -30,20 +30,6 @@
         }
       ],
       "default": "scrapeWebpage"
-    }
-  ],
-  "credentials": [
-    {
-      "label": "Credential Method",
-      "name": "credentialMethod",
-      "type": "string",
-      "options": [
-        {
-          "label": "DataScraper API Key",
-          "name": "datascraperApiKey"
-        }
-      ],
-      "default": "datascraperApiKey"
     }
   ],
   "inputParameters": [
