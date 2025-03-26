@@ -1,0 +1,83 @@
+{
+  "label": "DataScraper",
+  "name": "datascraper",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/default.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/light.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/dark.png"
+  },
+  "type": "action",
+  "category": "Web Scraping",
+  "version": 1,
+  "description": "Extracts data from web pages using customizable extraction rules.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Action",
+      "name": "action",
+      "type": "options",
+      "options": [
+        {
+          "label": "Scrape Webpage",
+          "name": "scrapeWebpage",
+          "description": "Scrapes data from a webpage given a URL and extraction rules."
+        },
+        {
+          "label": "Extract Element",
+          "name": "extractElement",
+          "description": "Extracts a specific element from the webpage using a CSS selector."
+        }
+      ],
+      "default": "scrapeWebpage"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "DataScraper API Key",
+          "name": "datascraperApiKey"
+        }
+      ],
+      "default": "datascraperApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "URL",
+      "name": "url",
+      "type": "string",
+      "default": "",
+      "description": "The URL of the webpage to scrape."
+    },
+    {
+      "label": "Extraction Rules",
+      "name": "rules",
+      "type": "string",
+      "default": "",
+      "description": "A JSON string specifying the extraction rules for scraping data.",
+      "show": {
+        "actions.action": [
+          "scrapeWebpage"
+        ]
+      }
+    },
+    {
+      "label": "CSS Selector",
+      "name": "cssSelector",
+      "type": "string",
+      "default": "",
+      "description": "The CSS selector to target a specific element on the page.",
+      "show": {
+        "actions.action": [
+          "extractElement"
+        ]
+      }
+    }
+  ],
+  "filePath": null
+}
