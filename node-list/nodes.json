@@ -108,7 +108,7 @@
 {
   "loadMethods": {},
   "label": "Model Context Protocol",
-  "name": "modelContextProtocol",
+  "name": "modelContextProtocolTestOld",
   "icons": {
     "default": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
     "light": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
@@ -9552,13 +9552,13 @@
 },
 {
   "label": "Model Context Protocol",
-  "name": "modelContextProtocolTest",
+  "name": "modelContextProtocol",
   "icons": {
     "default": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
     "light": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
     "dark": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg"
   },
-  "type": "trigger",
+  "type": "webhook",
   "category": "Agent Orchestration",
   "version": 1,
   "description": "Executes tools defined in the Model Context Protocol serverless environment.",
