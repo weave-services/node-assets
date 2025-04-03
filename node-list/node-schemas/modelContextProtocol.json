@@ -36,7 +36,7 @@
       "label": "Arguments",
       "name": "arguments",
       "type": "string",
-      "default": "{\"operation\": \"add\", \"numbers\": [1, 2, 3]}",
+      "default": "{\"prompt\": \"add these numbers\",\"operation\": \"add\", \"numbers\": [1, 2, 3]}"
       "description": "JSON payload of arguments required by the tool.",
       "show": { "actions.toolName": ["calculator"] }
     }
