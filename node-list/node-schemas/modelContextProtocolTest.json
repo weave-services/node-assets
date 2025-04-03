@@ -2,9 +2,9 @@
   "label": "Model Context Protocol",
   "name": "modelContextProtocolTest",
   "icons": {
-    "default": "https://example.com/mcp-icon.png",
-    "light": "https://example.com/mcp-icon-light.png",
-    "dark": "https://example.com/mcp-icon-dark.png"
+    "default": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
+    "light": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
+    "dark": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg"
   },
   "type": "trigger",
   "category": "Agent Orchestration",
