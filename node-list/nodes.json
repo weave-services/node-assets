@@ -9549,5 +9549,50 @@
     }
   ],
   "filePath": null
+},
+{
+  "label": "Model Context Protocol",
+  "name": "modelContextProtocolTest",
+  "icons": {
+    "default": "https://example.com/mcp-icon.png",
+    "light": "https://example.com/mcp-icon-light.png",
+    "dark": "https://example.com/mcp-icon-dark.png"
+  },
+  "type": "trigger",
+  "category": "Agent Orchestration",
+  "version": 1,
+  "description": "Executes tools defined in the Model Context Protocol serverless environment.",
+  "incoming": 0,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Tool to Execute",
+      "name": "toolName",
+      "type": "options",
+      "options": [
+        { "label": "Calculator", "name": "calculator" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [{ "label": "MCP API Key", "name": "apiKey" }],
+      "default": "apiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Arguments",
+      "name": "arguments",
+      "type": "string",
+      "default": "{\"operation\": \"add\", \"numbers\": [1, 2, 3]}",
+      "description": "JSON payload of arguments required by the tool.",
+      "show": { "actions.toolName": ["calculator"] }
+    }
+  ],
+  "filePath": null
 }
 ]
