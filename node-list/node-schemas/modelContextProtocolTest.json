@@ -39,6 +39,19 @@
       "default": "{\"operation\": \"add\", \"numbers\": [1, 2, 3]}",
       "description": "JSON payload of arguments required by the tool.",
       "show": { "actions.toolName": ["calculator"] }
+    },
+    {
+      "label": "Model",
+      "name": "model",
+      "type": "options",
+      "options": [
+        { "label": "GPT‑4o", "name": "gpt-4o" },
+        { "label": "GPT‑3.5 Turbo", "name": "gpt-3.5-turbo" },
+        { "label": "Claude 3.5 Haiku", "name": "claude-3-5-haiku-20250219" },
+        { "label": "Claude 3.7 Sonnet", "name": "claude-3-7-sonnet-20250219" }
+      ],
+      "default": "gpt-4o",
+      "description": "Select the model to use for processing the prompt."
     }
   ],
   "filePath": null
