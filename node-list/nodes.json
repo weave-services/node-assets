@@ -970,9 +970,9 @@
       "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/dark.png"
     },
     "type": "action",
-    "category": "LLMs",
+    "category": "Artificial Intelligence",
     "version": 1,
-    "description": "Wrapper around Azure OpenAI large language models",
+    "description": "Wrapper around Azure OpenAI Enterprise for OpenAI large language models",
     "incoming": 1,
     "outgoing": 1,
     "actions": [
