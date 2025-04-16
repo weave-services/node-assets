@@ -1,0 +1,352 @@
+{
+  "loadMethods": {},
+  "label": "Instagram",
+  "name": "instagram",
+  "icons": {
+    "default": "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067",
+    "light":   "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067",
+    "dark":    "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067"
+  },
+  "type": "action",
+  "category": "Social Media",
+  "version": 1,
+  "description": "Interact with Instagram’s private API: login, fetch profiles/posts/followers, comment, like, upload and manage direct messages, 2FA, registration, etc.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        { "label": "Login",                          "name": "login" },
+        { "label": "Authenticate 2FA",               "name": "authenticateUser2FA" },
+        { "label": "Submit 2FA Code",                "name": "submit2FA" },
+        { "label": "Register Username & Password",   "name": "register" },
+        { "label": "Reset Password",                 "name": "resetPassword" },
+        { "label": "Register Phone",                 "name": "registerPhone" },
+        { "label": "Verify Phone",                   "name": "verifyPhone" },
+        { "label": "Register Email",                 "name": "registerEmail" },
+        { "label": "Verify Email",                   "name": "verifyEmail" },
+        { "label": "Register Device",                "name": "registerDevice" },
+        { "label": "Solve Challenge",                "name": "solveInstagramChallenge" },
+        { "label": "Get User ID",                    "name": "getUserId" },
+        { "label": "Get Profile Data",               "name": "getProfileData" },
+        { "label": "Get Post Data",                  "name": "getPostData" },
+        { "label": "Get Location Data",              "name": "getLocationData" },
+        { "label": "Get Hashtag Data",               "name": "getHashtagData" },
+        { "label": "Fetch Followers",                "name": "fetchFollowers" },
+        { "label": "Fetch Following",                "name": "fetchFollowing" },
+        { "label": "Fetch Posts",                    "name": "fetchPosts" },
+        { "label": "Fetch Tagged Posts",             "name": "fetchTaggedPosts" },
+        { "label": "Fetch Post Comments",            "name": "fetchPostComments" },
+        { "label": "Fetch Post Likes",               "name": "fetchPostLikes" },
+        { "label": "Like Post",                      "name": "likePost" },
+        { "label": "Like Story",                     "name": "likeStory" },
+        { "label": "Comment On Post",                "name": "commentOnPost" },
+        { "label": "Follow Profile",                 "name": "followProfile" },
+        { "label": "Unfollow Profile",               "name": "unfollowProfile" },
+        { "label": "Upload Post",                    "name": "uploadPost" },
+        { "label": "Upload Story",                   "name": "uploadStory" },
+        { "label": "Upload Avatar",                  "name": "uploadAvatar" },
+        { "label": "Search",                         "name": "search" },
+        { "label": "Get Profile Suggestions",        "name": "getProfileSuggestions" },
+        { "label": "Fetch Direct Messages",          "name": "fetchDirectMessages" },
+        { "label": "Create DM Thread",               "name": "createDirectMessageThread" },
+        { "label": "Send Direct Message",            "name": "sendDirectMessage" },
+        { "label": "Fetch DM Thread",                "name": "fetchDirectMessageThread" }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Proxy (optional)",
+      "name": "proxy",
+      "type": "string",
+      "placeholder": "host:port or user:pass@host:port",
+      "optional": true
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Username",
+      "name": "username",
+      "type": "string",
+      "default": "",
+      "description": "Instagram username",
+      "show": {
+        "actions.operation": [
+          "login",
+          "authenticateUser2FA",
+          "register",
+          "getUserId"
+        ]
+      }
+    },
+    {
+      "label": "Password",
+      "name": "password",
+      "type": "string",
+      "default": "",
+      "placeholder": "••••••••",
+      "description": "Instagram password",
+      "show": {
+        "actions.operation": [
+          "login",
+          "authenticateUser2FA",
+          "register"
+        ]
+      }
+    },
+    {
+      "label": "2FA Code",
+      "name": "code",
+      "type": "string",
+      "default": "",
+      "description": "Two‑factor authentication code",
+      "show": {
+        "actions.operation": [
+          "submit2FA"
+        ]
+      }
+    },
+    {
+      "label": "Profile Identifier",
+      "name": "profileId",
+      "type": "string",
+      "default": "",
+      "description": "Numeric user ID or username",
+      "show": {
+        "actions.operation": [
+          "getProfileData",
+          "fetchFollowers",
+          "fetchFollowing",
+          "fetchPosts",
+          "fetchTaggedPosts",
+          "getPostData",
+          "getLocationData",
+          "getHashtagData",
+          "fetchPostComments",
+          "fetchPostLikes",
+          "followProfile",
+          "unfollowProfile",
+          "createDirectMessageThread",
+          "fetchDirectMessageThread"
+        ]
+      }
+    },
+    {
+      "label": "Post ID",
+      "name": "postId",
+      "type": "string",
+      "default": "",
+      "description": "Media/post ID",
+      "show": {
+        "actions.operation": [
+          "getPostData",
+          "fetchPostComments",
+          "fetchPostLikes",
+          "likePost",
+          "likeStory",
+          "commentOnPost"
+        ]
+      }
+    },
+    {
+      "label": "Location",
+      "name": "location",
+      "type": "string",
+      "default": "",
+      "description": "Location ID or slug",
+      "show": {
+        "actions.operation": [
+          "getLocationData"
+        ]
+      }
+    },
+    {
+      "label": "Hashtag",
+      "name": "hashtag",
+      "type": "string",
+      "default": "",
+      "description": "Hashtag (without #)",
+      "show": {
+        "actions.operation": [
+          "getHashtagData"
+        ]
+      }
+    },
+    {
+      "label": "Count",
+      "name": "count",
+      "type": "number",
+      "default": 12,
+      "optional": true,
+      "description": "Number of items to fetch",
+      "show": {
+        "actions.operation": [
+          "fetchFollowers",
+          "fetchFollowing",
+          "fetchPosts",
+          "fetchTaggedPosts",
+          "fetchDirectMessages"
+        ]
+      }
+    },
+    {
+      "label": "Search Query",
+      "name": "query",
+      "type": "string",
+      "default": "",
+      "description": "Text to search for users or tags",
+      "show": {
+        "actions.operation": [
+          "search"
+        ]
+      }
+    },
+    {
+      "label": "Comment Text",
+      "name": "comment",
+      "type": "string",
+      "default": "",
+      "placeholder": "Your comment",
+      "description": "Text to post on a comment",
+      "show": {
+        "actions.operation": [
+          "commentOnPost"
+        ]
+      }
+    },
+    {
+      "label": "Caption",
+      "name": "caption",
+      "type": "string",
+      "default": "",
+      "placeholder": "Your caption",
+      "description": "Caption for a new post",
+      "show": {
+        "actions.operation": [
+          "uploadPost"
+        ]
+      }
+    },
+    {
+      "label": "Image File",
+      "name": "image",
+      "type": "file",
+      "default": "",
+      "description": "Image to upload (post, story or avatar)",
+      "show": {
+        "actions.operation": [
+          "uploadPost",
+          "uploadStory",
+          "uploadAvatar"
+        ]
+      }
+    },
+    {
+      "label": "Message Text",
+      "name": "message",
+      "type": "string",
+      "default": "",
+      "placeholder": "Your DM message",
+      "description": "Direct message text",
+      "show": {
+        "actions.operation": [
+          "sendDirectMessage"
+        ]
+      }
+    },
+    {
+      "label": "Thread ID",
+      "name": "threadId",
+      "type": "string",
+      "default": "",
+      "description": "DM thread ID",
+      "show": {
+        "actions.operation": [
+          "sendDirectMessage",
+          "fetchDirectMessageThread"
+        ]
+      }
+    },
+    {
+      "label": "Email",
+      "name": "email",
+      "type": "string",
+      "default": "",
+      "description": "Email address",
+      "show": {
+        "actions.operation": [
+          "resetPassword",
+          "registerEmail",
+          "verifyEmail"
+        ]
+      }
+    },
+    {
+      "label": "Phone",
+      "name": "phone",
+      "type": "string",
+      "default": "",
+      "description": "Phone number",
+      "show": {
+        "actions.operation": [
+          "registerPhone",
+          "verifyPhone"
+        ]
+      }
+    },
+    {
+      "label": "OTP",
+      "name": "OTP",
+      "type": "string",
+      "default": "",
+      "description": "One‑time code sent to phone/email",
+      "show": {
+        "actions.operation": [
+          "verifyPhone",
+          "verifyEmail"
+        ]
+      }
+    },
+    {
+      "label": "Biography",
+      "name": "biography",
+      "type": "string",
+      "default": "",
+      "description": "New user biography",
+      "show": {
+        "actions.operation": [
+          "setUserBiography"
+        ]
+      }
+    },
+    {
+      "label": "Challenge Anchor",
+      "name": "anchor",
+      "type": "string",
+      "default": "",
+      "description": "Anchor token for a challenge",
+      "show": {
+        "actions.operation": [
+          "solveInstagramChallenge"
+        ]
+      }
+    },
+    {
+      "label": "CAPTCHA Data",
+      "name": "captchaData",
+      "type": "object",
+      "default": {},
+      "description": "Payload for CAPTCHA challenge",
+      "show": {
+        "actions.operation": [
+          "solveInstagramChallenge"
+        ]
+      }
+    }
+  ],
+  "filePath": "./modules/Instagram.js"
+}
