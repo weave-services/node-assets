@@ -3,9 +3,9 @@
   "label": "LangChain Web Browser",
   "name": "langchainWebBrowser",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/default.svg",
-    "light":   "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/light.svg",
-    "dark":    "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/dark.svg"
+    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
+    "light":   "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
+    "dark":    "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg"
   },
   "type": "action",
   "category": "Web",
