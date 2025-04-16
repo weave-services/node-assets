@@ -1,0 +1,89 @@
+{
+  "loadMethods": {},
+  "label": "LangChain Web Browser",
+  "name": "langchainWebBrowser",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/default.svg",
+    "light":   "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/light.svg",
+    "dark":    "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/LangChainWebBrowser/dark.svg"
+  },
+  "type": "action",
+  "category": "Web",
+  "version": 1,
+  "description": "Open a URL or run a live web search via LangChain’s WebBrowser tool, optionally summarized by an LLM.",
+  "incoming": 1,
+  "outgoing": 1,
+
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Browse / Search",
+          "name": "browse",
+          "description": "Pass a full URL to fetch + parse it, or a plain question / keyword to search the web."
+        }
+      ]
+    }
+  ],
+
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "OpenAI API Key", "name": "openAIApi" }
+      ],
+      "default": "openAIApi",
+      "description": "Leave blank if you only need raw page text (no LLM summarization)."
+    }
+  ],
+
+  "inputParameters": [
+    {
+      "label": "Query or URL",
+      "name": "query",
+      "type": "string",
+      "placeholder": "https://example.com  OR  “What is LangChain?”",
+      "description": "Full URL **or** natural‑language query.",
+      "show": { "actions.operation": ["browse"] }
+    },
+    {
+      "label": "Model",
+      "name": "modelName",
+      "type": "options",
+      "options": [
+        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
+        { "label": "gpt-4o-mini",   "name": "gpt-4o-mini" },
+        { "label": "gpt-4",         "name": "gpt-4" }
+      ],
+      "optional": true,
+      "default": "gpt-3.5-turbo",
+      "description": "Ignored if you don’t supply an API key.",
+      "show": { "actions.operation": ["browse"] }
+    },
+    {
+      "label": "Temperature",
+      "name": "temperature",
+      "type": "number",
+      "optional": true,
+      "default": 0.0,
+      "description": "0 – 1. Higher is more creative.",
+      "show": { "actions.operation": ["browse"] }
+    },
+    {
+      "label": "Max Depth",
+      "name": "maxDepth",
+      "type": "number",
+      "optional": true,
+      "default": 1,
+      "description": "How many link hops the browser may follow.",
+      "show": { "actions.operation": ["browse"] }
+    }
+  ],
+
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/LangChainWebBrowser/LangChainWebBrowser.js"
+}
