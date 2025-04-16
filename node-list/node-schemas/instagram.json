@@ -3,9 +3,9 @@
   "label": "Instagram",
   "name": "instagram",
   "icons": {
-    "default": "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067",
-    "light":   "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067",
-    "dark":    "https://camo.githubusercontent.com/410e5a119beaec19ed6330e4fa63665cde2da3d5e0d6794daa7742470a7fa2bc/68747470733a2f2f692e696d6775722e636f6d2f734a7a665a734c2e6a7067"
+    "default": "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
+    "light":   "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
+    "dark":    "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png"
   },
   "type": "action",
   "category": "Social Media",
