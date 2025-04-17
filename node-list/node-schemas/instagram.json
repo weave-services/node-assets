@@ -81,7 +81,8 @@
           "register",
           "getUserId",
           "fetchPosts",
-          "fetchDirectMessages"
+          "fetchDirectMessages",
+          "getProfileSuggestions"
         ]
       }
     },
@@ -111,7 +112,8 @@
           "register",
           "getUserId",
           "fetchPosts",
-          "fetchDirectMessages"
+          "fetchDirectMessages",
+          "getProfileSuggestions"
         ]
       }
     },
