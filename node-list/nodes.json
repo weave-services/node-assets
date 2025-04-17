@@ -2027,6 +2027,8 @@
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
   },
 	{
+	"nodeState": null,
+    "loadMethods": {},
   "label": "Microsoft Teams",
   "name": "teams",
   "icons": {
