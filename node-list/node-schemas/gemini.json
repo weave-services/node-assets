@@ -81,62 +81,62 @@
           ]
         }
       },
-      // {
-      //   "label": "Max Tokens",
-      //   "name": "max_tokens",
-      //   "type": "number",
-      //   "description": "The maximum number of tokens to generate.",
-      //   "optional": true,
-      //   "default": 2000,
-      //   "show": {
-      //     "actions.operation": [
-      //       "chatgpt",
-      //       "textCompletion"
-      //     ]
-      //   }
-      // },
-      // {
-      //   "label": "Top P",
-      //   "name": "top_p",
-      //   "type": "number",
-      //   "description": "Nucleus sampling parameter to control diversity (between 0 and 1).",
-      //   "optional": true,
-      //   "default": 1.0,
-      //   "show": {
-      //     "actions.operation": [
-      //       "chatgpt",
-      //       "textCompletion"
-      //     ]
-      //   }
-      // },
-      // {
-      //   "label": "Temperature",
-      //   "name": "temperature",
-      //   "type": "number",
-      //   "description": "Controls randomness in output (between 0 and 1).",
-      //   "optional": true,
-      //   "default": 0.7,
-      //   "show": {
-      //     "actions.operation": [
-      //       "chatgpt",
-      //       "textCompletion"
-      //     ]
-      //   }
-      // },
-      // {
-      //   "label": "Top K",
-      //   "name": "top_k",
-      //   "type": "number",
-      //   "description": "Limits number of options considered at each token generation (for certain models).",
-      //   "optional": true,
-      //   "default": 40,
-      //   "show": {
-      //     "actions.operation": [
-      //       "chatgpt",
-      //       "textCompletion"
-      //     ]
-      //   }
-      // },
+      {
+       "label": "Max Tokens",
+      "name": "max_tokens",
+        "type": "number",
+       "description": "The maximum number of tokens to generate.",
+"optional": true,
+      "default": 2000,
+       "show": {
+       "actions.operation": [
+          "chatgpt",
+             "textCompletion"
+           ]
+         }
+       },
+       {
+         "label": "Top P",
+         "name": "top_p",
+         "type": "number",
+         "description": "Nucleus sampling parameter to control diversity (between 0 and 1).",
+         "optional": true,
+         "default": 1.0,
+         "show": {
+           "actions.operation": [
+             "chatgpt",
+             "textCompletion"
+           ]
+         }
+       },
+       {
+         "label": "Temperature",
+         "name": "temperature",
+         "type": "number",
+         "description": "Controls randomness in output (between 0 and 1).",
+   "optional": true,
+   "default": 0.7,
+   "show": {
+     "actions.operation": [
+           "chatgpt",
+          "textCompletion"
+           ]
+        }
+       },
+ {
+   "label": "Top K",
+         "name": "top_k",
+   "type": "number",
+        "description": "Limits number of options considered at each token generation (for certain models).",
+        "optional": true,
+        "default": 40,
+       "show": {
+          "actions.operation": [
+           "chatgpt",
+           "textCompletion"
+          ]
+         }
+     },
       {
         "label": "Text Prompt",
         "name": "prompt",
@@ -257,4 +257,4 @@
       }
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Gemini2/Gemini2.js"
-  }
+  },
