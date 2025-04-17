@@ -92,7 +92,7 @@
       "description": "Instagram username you want to lookup",
       "show": {
         "actions.operation": [
-          "getUserId",
+          "getUserId"
         ]
       }
     },
