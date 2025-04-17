@@ -959,6 +959,266 @@
     }
   ]
 },
+{
+    "loadMethods": {},
+    "label": "Google Gemini",
+    "name": "gemini",
+    "icons": {
+      "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/default.svg",
+      "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/light.svg",
+      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/dark.svg"
+    },
+    "type": "action",
+    "category": "Artificial Intelligence",
+    "version": 2,
+    "description": "Chat completions (and embeddings) via Gemini 2 models using OpenAI API compatibility",
+    "incoming": 1,
+    "outgoing": 1,
+    "actions": [
+      {
+        "label": "Operation",
+        "name": "operation",
+        "type": "options",
+        "options": [
+          {
+            "label": "Chat Completions",
+            "name": "chatgpt"
+          }
+        ],
+        "default": "chatgpt"
+      }
+    ],
+    "credentials": [
+      {
+        "label": "Credential Method",
+        "name": "credentialMethod",
+        "type": "string",
+        "options": [
+          {
+            "label": "Gemini API Key",
+            "name": "AIzaSyDEZjExPtxcLAA_QeJi-BALM6KXjiXtk9w"
+          }
+        ],
+        "default": "AIzaSyDEZjExPtxcLAA_QeJi-BALM6KXjiXtk9w"
+      }
+    ],
+    "inputParameters": [
+      {
+        "label": "Model",
+        "name": "model",
+        "type": "asyncOptions",
+        "loadMethod": "listModels",
+        "description": "Gemini 2 model to use for text completions.",
+        "default": "gemini-2.0-flash",
+        "show": {
+          "actions.operation": [
+            "textCompletion"
+          ]
+        }
+      },
+      {
+        "label": "Model",
+        "name": "model",
+        "type": "options",
+        "options": [
+          {
+            "label": "Gemini 2.0 Flash",
+            "name": "gemini-2.0-flash"
+          },
+          {
+            "label": "Gemini 2.0 Flash-Lite",
+            "name": "gemini-2.0-flash-lite"
+          },
+          {
+            "label": "Gemini 1.5 Pro",
+            "name": "gemini-1.5-pro"
+          }
+        ],
+        "description": "Gemini 2 model to use for chat completions.",
+        "default": "gemini-1.5-pro",
+        "show": {
+          "actions.operation": [
+            "chatgpt"
+          ]
+        }
+      },
+      // {
+      //   "label": "Max Tokens",
+      //   "name": "max_tokens",
+      //   "type": "number",
+      //   "description": "The maximum number of tokens to generate.",
+      //   "optional": true,
+      //   "default": 2000,
+      //   "show": {
+      //     "actions.operation": [
+      //       "chatgpt",
+      //       "textCompletion"
+      //     ]
+      //   }
+      // },
+      // {
+      //   "label": "Top P",
+      //   "name": "top_p",
+      //   "type": "number",
+      //   "description": "Nucleus sampling parameter to control diversity (between 0 and 1).",
+      //   "optional": true,
+      //   "default": 1.0,
+      //   "show": {
+      //     "actions.operation": [
+      //       "chatgpt",
+      //       "textCompletion"
+      //     ]
+      //   }
+      // },
+      // {
+      //   "label": "Temperature",
+      //   "name": "temperature",
+      //   "type": "number",
+      //   "description": "Controls randomness in output (between 0 and 1).",
+      //   "optional": true,
+      //   "default": 0.7,
+      //   "show": {
+      //     "actions.operation": [
+      //       "chatgpt",
+      //       "textCompletion"
+      //     ]
+      //   }
+      // },
+      // {
+      //   "label": "Top K",
+      //   "name": "top_k",
+      //   "type": "number",
+      //   "description": "Limits number of options considered at each token generation (for certain models).",
+      //   "optional": true,
+      //   "default": 40,
+      //   "show": {
+      //     "actions.operation": [
+      //       "chatgpt",
+      //       "textCompletion"
+      //     ]
+      //   }
+      // },
+      {
+        "label": "Text Prompt",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Write me a 250 words essay on fish",
+        "description": "The prompt for chat completions",
+        "show": {
+          "actions.operation": [
+            "chatgpt"
+          ]
+        }
+      },
+      {
+        "label": "Image URL",
+        "name": "imageURL",
+        "type": "string",
+        "default": "{{webhook_0.data.base64GIF}}",
+        "placeholder": "Say this is a test",
+        "description": "The base64 encoded image",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "textCompletion",
+            "chatgpt"
+          ]
+        }
+      },
+      {
+        "label": "Text Prompt",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Say this is a test",
+        "description": "The prompt to generate text completions",
+        "show": {
+          "actions.operation": [
+            "textCompletion"
+          ]
+        }
+      },
+      {
+        "label": "Image Description",
+        "name": "prompt",
+        "type": "string",
+        "default": "",
+        "placeholder": "Photograph of an astronaut riding a horse",
+        "description": "Description of the image you want to generate. The maximum length is 1000 characters.",
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Image Number",
+        "name": "imageNumber",
+        "type": "number",
+        "placeholder": "1",
+        "default": "1",
+        "description": "The number of images to generate. Must be between 1 and 10.",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Image Size",
+        "name": "imageSize",
+        "type": "options",
+        "description": "The size of the generated images.",
+        "options": [
+          {
+            "label": "256x256",
+            "name": "256x256"
+          },
+          {
+            "label": "512x512",
+            "name": "512x512"
+          },
+          {
+            "label": "1024x1024",
+            "name": "1024x1024"
+          }
+        ],
+        "optional": true,
+        "default": "1024x1024",
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      },
+      {
+        "label": "Response Format",
+        "name": "response_format",
+        "type": "options",
+        "description": "The format in which the generated images are returned.",
+        "options": [
+          {
+            "label": "url",
+            "name": "url"
+          },
+          {
+            "label": "b64_json",
+            "name": "b64_json"
+          }
+        ],
+        "default": "url",
+        "optional": true,
+        "show": {
+          "actions.operation": [
+            "generateImage"
+          ]
+        }
+      }
+    ],
+    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Gemini2/Gemini2.js"
+  },
   {
     "nodeState": null,
     "loadMethods": {},
