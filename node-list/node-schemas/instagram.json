@@ -84,6 +84,18 @@
         ]
       }
     },
+     {
+      "label": "UsernameQuery",
+      "name": "usernameQuery",
+      "type": "string",
+      "default": "",
+      "description": "Instagram username you want to lookup",
+      "show": {
+        "actions.operation": [
+          "getUserId",
+        ]
+      }
+    },
     {
       "label": "Password",
       "name": "password",
