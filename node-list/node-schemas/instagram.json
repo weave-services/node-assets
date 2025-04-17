@@ -80,7 +80,8 @@
           "authenticateUser2FA",
           "register",
           "getUserId",
-          "fetchPosts"
+          "fetchPosts",
+          "fetchDirectMessages"
         ]
       }
     },
@@ -109,7 +110,8 @@
           "authenticateUser2FA",
           "register",
           "getUserId",
-          "fetchPosts"
+          "fetchPosts",
+          "fetchDirectMessages"
         ]
       }
     },
