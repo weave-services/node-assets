@@ -79,7 +79,8 @@
           "login",
           "authenticateUser2FA",
           "register",
-          "getUserId"
+          "getUserId",
+          "fetchPosts"
         ]
       }
     },
@@ -94,7 +95,9 @@
         "actions.operation": [
           "login",
           "authenticateUser2FA",
-          "register"
+          "register",
+          "getUserId",
+          "fetchPosts"
         ]
       }
     },
