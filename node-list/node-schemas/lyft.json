@@ -1,11 +1,11 @@
 {
   "loadMethods": {},
-  "label": "Model Context Protocol",
-  "name": "modelContextProtocol",
+  "label": "Lyft",
+  "name": "lyft",
   "icons": {
-    "default": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
-    "light": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
-    "dark": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png"
   },
   "type": "webhook",
   "category": "Artificial Intelligence",
