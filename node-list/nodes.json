@@ -1219,6 +1219,107 @@
     ],
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Gemini2/Gemini2.js"
   },
+	{
+  "loadMethods": {},
+  "label": "Lyft",
+  "name": "lyft",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png"
+  },
+  "type": "webhook",
+  "category": "Artificial Intelligence",
+  "version": 1,
+  "description": "Enrich and extend AI models with memory, tools, and templated context using MCP.",
+  "incoming": 0,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Order Ride",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Use Prompt Template",
+          "name": "promptTemplate"
+        },
+        {
+          "label": "Call a Tool",
+          "name": "callTool"
+        },
+        {
+          "label": "Fetch Context Memory",
+          "name": "getMemory"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "MCP API Key",
+          "name": "mcpApiKey"
+        }
+      ],
+      "default": "mcpApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Template Name",
+      "name": "templateName",
+      "type": "string",
+      "description": "Name of the prompt template to use.",
+      "show": {
+        "actions.operation": ["promptTemplate"]
+      }
+    },
+    {
+      "label": "Variables",
+      "name": "templateVariables",
+      "type": "json",
+      "description": "Key-value pairs to fill the template.",
+      "default": "{}",
+      "show": {
+        "actions.operation": ["promptTemplate"]
+      }
+    },
+    {
+      "label": "Tool Name",
+      "name": "toolName",
+      "type": "string",
+      "description": "The name of the tool you'd like to run.",
+      "show": {
+        "actions.operation": ["callTool"]
+      }
+    },
+    {
+      "label": "Tool Input",
+      "name": "toolInput",
+      "type": "json",
+      "description": "Input to provide to the tool.",
+      "default": "{}",
+      "show": {
+        "actions.operation": ["callTool"]
+      }
+    },
+    {
+      "label": "Memory Key",
+      "name": "memoryKey",
+      "type": "string",
+      "description": "Key or namespace to fetch context memory from.",
+      "show": {
+        "actions.operation": ["getMemory"]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/ModelContextProtocol/ModelContextProtocol.js"
+},
   {
     "nodeState": null,
     "loadMethods": {},
