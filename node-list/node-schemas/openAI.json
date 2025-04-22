@@ -1,10 +1,11 @@
+
 {
   "loadMethods": {},
   "label": "OpenAI",
   "name": "openAI",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
     "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
   },
   "type": "action",
@@ -168,6 +169,15 @@
           "chatgpt"
         ]
       }
+    },
+      {
+      "label": "Stream",
+      "name": "stream",
+      "type": "boolean",
+      "description": "Stream tokens as they arrive (only for chatgpt/textCompletion).",
+      "optional": true,
+      "default": false,
+      "show": { "actions.operation": ["chatgpt", "textCompletion"] }
     },
     {
       "label": "Text Prompt",
