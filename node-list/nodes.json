@@ -1068,29 +1068,13 @@
         ]
       }
     },
-    {
+     {
       "label": "Messages",
       "name": "messages",
-      "type": "array",
-      "description": "A sequence of messages to send (role/content pairs).",
-      "items": {
-        "type": "object",
-        "properties": {
-          "role": {
-            "type": "string",
-            "enum": ["system", "user", "assistant"]
-          },
-          "content": {
-            "type": "string"
-          }
-        }
-      },
-      "default": [
-        {
-          "role": "user",
-          "content": ""
-        }
-      ],
+      "type": "string",
+      "default": "",
+      "placeholder": "Say this is a test",
+      "description": "The prompt to generate completions for",
       "show": {
         "actions.operation": [
           "chatCompletion"
