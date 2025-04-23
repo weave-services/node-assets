@@ -77,20 +77,41 @@
           "name": "gpt-3.5-turbo-0125"
         },
         {
-          "label": "gpt-4",
-          "name": "gpt-4"
+          "label": "gpt-4.1-preview",
+          "name": "gpt-4.1"
         },
         {
           "label": "gpt-4o",
           "name": "gpt-4o"
+        },
+                  {
+          "label": "gpt-4o-mini",
+          "name": "gpt-4o-mini"
+        },
+                          {
+          "label": "gpt-4o-search-preview",
+          "name": "gpt-4o-search-preview"
         },
         {
           "label": "gpt-4-turbo-preview",
           "name": "gpt-4-turbo-preview"
         },
             {
-          "label": "gpt-4o-mini",
-          "name": "gpt-4o-mini"
+          "label": "gpt-4.1-mini",
+          "name": "gpt-4.1-mini"
+        },
+        
+                {
+          "label": "gpt-4.1-nano",
+          "name": "gpt-4.1-nano"
+        },
+                {
+          "label": "o1-mini",
+          "name": "o1-mini"
+        },
+            {
+          "label": "o1-preview",
+          "name": "o1-preview"
         }
       ],
       "description": "ChatGPT model to use.",
@@ -107,7 +128,7 @@
       "type": "number",
       "description": "The maximum number of tokens to generate.",
       "optional": true,
-      "default": 100,
+      "default": 4096,
       "show": {
         "actions.operation": [
           "chatgpt",
@@ -136,20 +157,6 @@
       "description": "Controls randomness in output (between 0 and 1).",
       "optional": true,
       "default": 0.7,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
-    },
-    {
-      "label": "Top K",
-      "name": "top_k",
-      "type": "number",
-      "description": "Limits number of options considered at each token generation (for certain models).",
-      "optional": true,
-      "default": 40,
       "show": {
         "actions.operation": [
           "chatgpt",
