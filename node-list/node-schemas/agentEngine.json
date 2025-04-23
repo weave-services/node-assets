@@ -12,8 +12,8 @@
   "category": "Artificial Intelligence",
   "version": 1,
   "description": "Agent Engine similar to n8ns",
-  "incoming": 4,
-  "outgoing": 1,
+  "incoming": 1,
+  "outgoing": 4,
   "actions": [
     {
       "label": "Operation",
