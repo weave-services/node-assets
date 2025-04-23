@@ -72,7 +72,7 @@
           {
             "label": "Tool Code",
             "name": "mcpToolCode",
-            "type": "code",
+            "type": "string",
             "description": "The code for the tool"
           }
       ],
