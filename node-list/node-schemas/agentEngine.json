@@ -4,9 +4,9 @@
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png"
   },
   "type": "action",
   "category": "Artificial Intelligence",
