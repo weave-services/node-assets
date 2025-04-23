@@ -116,7 +116,7 @@
       "description": "The prompt to generate completions for",
       "show": {
         "actions.operation": [
-          "textCompletion"
+          "chatCompletion"
         ]
       }
     },
