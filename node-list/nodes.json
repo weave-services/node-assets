@@ -9935,6 +9935,16 @@
       "options": [
         { "label": "Calculator", "name": "calculator" }
       ]
+    },
+    {
+      "label": "MCP Client & Server, Client, or Server",
+      "name": "mcpType",
+      "type": "options",
+      "options": [
+        { "label": "MCP Server & Client", "name": "mcpServerAndClient" },
+        { "label": "MCP Client", "name": "mcpClient" },
+        { "label": "MCP Server", "name": "mcpServer" }
+      ]
     }
   ],
   "credentials": [
@@ -9943,18 +9953,47 @@
       "name": "credentialMethod",
       "type": "string",
       "options": [{ "label": "MCP API Key", "name": "apiKey" }],
-      "default": "apiKey"
+      "default": "apiKey",
+      "show": { "actions.mcpType": ["mcpServerAndClient", "mcpClient"] }
     }
   ],
   "inputParameters": [
     {
-      "label": "Arguments",
-      "name": "arguments",
+      "label": "MCP Server URL",
+      "name": "mcpServerURL",
       "type": "string",
-      "default": "{\"operation\": \"add\", \"numbers\": [1, 2, 3]}",
-      "description": "JSON payload of arguments required by the tool.",
-      "show": { "actions.toolName": ["calculator"] }
-    }
+      "default": "URL",
+      "description": "MCP Server URL",
+      "show": { "actions.mcpType": ["mcpClient"] }
+    },
+    {
+      "label": "Tools",
+      "name": "mcpServerTools",
+      "type": "array",
+      "description": "The tools that the MCP server offers",
+      "array": [
+          {
+              "label": "Tool Name",
+              "name": "toolName",
+              "type": "string",
+              "description": "The tool name"
+          },
+          {
+              "label": "Tool URL",
+              "name": "mcpToolURL",
+              "type": "string",
+              "description": "The code for the tool"
+          },
+          {
+            "label": "Tool Code",
+            "name": "mcpToolCode",
+            "type": "code",
+            "description": "The code for the tool"
+          }
+      ],
+      "optional": true,
+      "show": { "actions.mcpType": ["mcpServer", "mcpServerAndClient"] }
+  }
   ],
   "filePath": null
 },
