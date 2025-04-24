@@ -44,6 +44,14 @@
   ],
   "inputParameters": [
     {
+      "label": "Message",
+      "name": "message",
+      "type": "string",
+      "default": "Message",
+      "description": "MCP Client Message",
+      "show": { "actions.mcpType": ["mcpClient", "mcpServerAndClient"] }
+    },
+    {
       "label": "MCP Server URL",
       "name": "mcpServerURL",
       "type": "string",
