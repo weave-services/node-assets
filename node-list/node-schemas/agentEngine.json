@@ -13,7 +13,7 @@
   "version": 1,
   "description": "Agent Engine similar to n8ns",
   "incoming": 1,
-  "outgoing": 2,
+  "outgoing": 1,
   "actions": [
     {
       "label": "Operation",
