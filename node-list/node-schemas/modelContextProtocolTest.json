@@ -10,7 +10,7 @@
   "category": "Agent Orchestration",
   "version": 1,
   "description": "Executes tools defined in the Model Context Protocol serverless environment.",
-  "incoming": 1,
+  "incoming": 0,
   "outgoing": 1,
   "actions": [
     {
