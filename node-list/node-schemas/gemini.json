@@ -189,6 +189,20 @@
         }
       },
       {
+        "label": "Chat History",
+        "name": "chatHistory",
+        "type": "json",
+        "default": "",
+        "placeholder": "",
+        "description": "Chat History",
+        "show": {
+          "actions.operation": [
+            "textCompletion",
+            "chatCompletionsWithHistory"
+          ]
+        }
+      },
+      {
         "label": "Image Description",
         "name": "prompt",
         "type": "string",
