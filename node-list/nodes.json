@@ -1262,7 +1262,7 @@
     {
       "label": "Chat History",
       "name": "chatHistory",
-      "type": "json",
+      "type": "string",
       "default": "",
       "placeholder": "",
       "description": "Chat History",
