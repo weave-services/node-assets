@@ -1138,10 +1138,10 @@
       "options": [
         {
           "label": "Gemini API Key",
-          "name": "AIzaSyDEZjExPtxcLAA_QeJi-BALM6KXjiXtk9w"
+          "name": ""
         }
       ],
-      "default": "AIzaSyDEZjExPtxcLAA_QeJi-BALM6KXjiXtk9w"
+      "default": ""
     }
   ],
   "inputParameters": [
