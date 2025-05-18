@@ -4,9 +4,9 @@
     "loadMethods": {},
     "label": "Webhook Trigger",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Webhook/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Webhook/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Webhook/dark.svg"
     },
     "name": "webhook",
     "type": "webhook",
@@ -103,7 +103,7 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
 	{
   "_events": {},
@@ -112,9 +112,9 @@
   "label": "QuickNode Trigger",
   "name": "quickNodeTrigger",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg",
+    "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/QuickNode/quicknode.svg"
   },
   "type": "trigger",
   "category": "Network Provider",
@@ -243,16 +243,16 @@
       "loadMethod": "getUnsubscribeOperations"
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/QuickNode/QuickNodeTrigger.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/QuickNode/QuickNodeTrigger.js"
 },
 	{
   "loadMethods": {},
   "label": "YOP Mail",
   "name": "yopMail",
   "icons": {
-    "default": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
-    "light": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
-    "dark": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png"
+    "default": "https://rawcdn.githack.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "light": "https://rawcdn.githack.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "dark": "https://rawcdn.githack.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png"
   },
   "type": "action",
   "category": "Email",
@@ -348,9 +348,9 @@
     "loadMethods": {},
     "label": "Alchemy Webhook",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/nodes/Alchemy/alchemy.svg"
     },
     "name": "AlchemyWebhook",
     "type": "webhook",
@@ -447,7 +447,7 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
   {
     "_events": {},
@@ -455,9 +455,9 @@
     "label": "Scheduler Trigger",
     "name": "scheduler",
     "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/02709375e19a733ba6db1fcb8ae8f597312a4099/nodes/Scheduler/darkmode.png"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Scheduler/scheduler.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/02709375e19a733ba6db1fcb8ae8f597312a4099/nodes/Scheduler/darkmode.png"
     },
     "type": "scheduler",
     "category": "Utilities",
@@ -661,7 +661,7 @@
         ]
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Scheduler/Scheduler.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Scheduler/Scheduler.js"
   },
   {
   "label": "GitHub Webhook",
@@ -670,9 +670,9 @@
   "version": 1,
   "description": "Start workflow whenever a GitHub webhook event occurs",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "category": "Development",
   "incoming": 0,
@@ -964,9 +964,9 @@
   "label": "Tinfoil.sh Confidential AI API",
   "name": "tinfoilAI",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tinfoil.png"
   },
   "type": "action",
   "category": "Artificial Intelligence",
@@ -1102,9 +1102,9 @@
   "label": "Google Gemini",
   "name": "gemini",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/default.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/light.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/dark.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/default.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/light.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/gemini/nodes/Gemini/dark.svg"
   },
   "type": "action",
   "category": "Artificial Intelligence",
@@ -1379,16 +1379,16 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Gemini2/Gemini2.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Gemini2/Gemini2.js"
 },
 	{
   "loadMethods": {},
   "label": "Lyft",
   "name": "lyft",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/3c742a177e34046a671d4a5e798857303deca92a/node-list/lyft.png"
   },
   "type": "webhook",
   "category": "Artificial Intelligence",
@@ -1480,7 +1480,7 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/ModelContextProtocol/ModelContextProtocol.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/ModelContextProtocol/ModelContextProtocol.js"
 },
   {
     "nodeState": null,
@@ -1488,9 +1488,9 @@
     "label": "Azure OpenAI",
     "name": "azureOpenAI",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/default.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/light.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/AzureOpenAI/dark.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/AzureOpenAI/default.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/AzureOpenAI/light.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/AzureOpenAI/dark.png"
     },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -1589,16 +1589,16 @@
         "additionalParams": true
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/AzureOpenAI/azureopenai.js"
   },
 	{
   "loadMethods": {},
   "label": "zkSync Ethereum JSON-RPC API",
   "name": "zkSyncEthereumJSONRPC",
   "icons": {
-    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
-    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
-    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
+    "default": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "light": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "dark": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
   },
   "type": "action",
   "category": "Blockchain",
@@ -1760,9 +1760,9 @@
   "label": "zkSync L2 JSON-RPC",
   "name": "zkSyncL2JSONRPC",
   "icons": {
-    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
-    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
-    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
+    "default": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "light": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png",
+    "dark": "https://rawcdn.githack.com/fruitbox12/ndoes/a9ab5c0b47803102408f1533a28c9116d6d2f14c/packages/server/nodes/73895099.png"
   },
   "type": "action",
   "category": "Blockchain",
@@ -1888,9 +1888,9 @@
   "label": "Optimism Scan",
   "name": "opscan",
    "icons": {
-        "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
-        "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
-        "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg"
+        "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
+        "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg",
+        "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/OptimismScan/optimismScan.svg"
       },
   "type": "action",
   "category": "Block Explorer",
@@ -2153,15 +2153,15 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
 },
   {
     "label": "Arbiscan",
     "name": "arbiscan",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Arbiscan/arbitrum.png"
     },
     "type": "action",
     "category": "Block Explorer",
@@ -2424,7 +2424,7 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Arbiscan/Arbiscan.js"
   },
   {
     "nodeState": null,
@@ -2434,9 +2434,9 @@
     "label": "Zapier API Trigger",
     "name": "ZapierAPITrigger",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/default.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/light.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/dark.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/default.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/light.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/ZapierAPITrigger/dark.png"
     },
     "type": "action",
     "category": "Integrations",
@@ -2547,7 +2547,7 @@
         "default": "zapierBearerTokenAuth"
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Zapier/zapier.js"
   },
 	{
 	"nodeState": null,
@@ -2555,9 +2555,9 @@
   "label": "Microsoft Teams",
   "name": "teams",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg",
+    "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/refs/heads/master/packages/components/nodes/Teams/teams.svg"
   },
   "type": "action",
   "category": "Communication",
@@ -2587,9 +2587,9 @@
     "label": "Discord",
     "name": "discord",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Discord/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Discord/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Discord/dark.svg"
     },
     "type": "action",
     "category": "Communication",
@@ -2637,16 +2637,16 @@
         "optional": true
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Discord/Discord.js"
   },
   {
     "nodeState": null,
     "label": "Send Email",
     "name": "emailSend",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/EmailSend/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/EmailSend/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/EmailSend/dark.svg"
     },
     "version": 1,
     "type": "action",
@@ -2771,16 +2771,16 @@
         "optional": true
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/EmailSend/EmailSend.js"
   },
   {
     "nodeState": null,
     "label": "Etherscan",
     "name": "etherscan",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Etherscan/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Etherscan/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Etherscan/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Etherscan/dark.svg"
     },
     "type": "action",
     "category": "Block Explorer",
@@ -3117,16 +3117,16 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Etherscan/Etherscan.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Etherscan/Etherscan.js"
   },
   {
     "nodeState": null,
     "label": "Any REST API (HTTP)",
     "name": "http",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HTTP/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HTTP/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HTTP/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HTTP/dark.svg"
     },
     "type": "action",
     "category": "Development",
@@ -3310,7 +3310,7 @@
         "optional": true
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HTTP/HTTP.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/HTTP/HTTP.js"
   },
   {
     "nodeState": null,
@@ -3318,9 +3318,9 @@
     "label": "Hugging Face",
     "name": "huggingFace",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/default.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/light.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/HuggingFace/dark.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HuggingFace/default.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HuggingFace/light.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/HuggingFace/dark.png"
     },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -3407,16 +3407,16 @@
         "default": "huggingFaceAccessToken"
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/HuggingFace/HuggingFace.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/HuggingFace/HuggingFace.js"
   },
   {
     "nodeState": null,
     "label": "If Else",
     "name": "ifElse",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/IfElse/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/IfElse/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/IfElse/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/IfElse/dark.svg"
     },
     "version": 1,
     "type": "action",
@@ -3676,16 +3676,16 @@
         ]
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/IfElse/IfElse.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/IfElse/IfElse.js"
   },
   {
     "nodeState": null,
     "label": "NodeJS",
     "name": "nodeJS",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/default.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/light.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/NodeJS/dark.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/NodeJS/default.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/NodeJS/light.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/NodeJS/dark.png"
     },
     "type": "action",
     "category": "Development",
@@ -3710,7 +3710,7 @@
         "optional": true
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
   },
   
 {
@@ -3718,9 +3718,9 @@
   "label": "OpenAI",
   "name": "openAI",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
   },
   "type": "action",
   "category": "Artificial Intelligence",
@@ -3984,7 +3984,7 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
 },
   {
     "nodeState": null,
@@ -3992,9 +3992,9 @@
     "label": "OpenAI Embeddings",
     "name": "openAIEmbeddings",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/1681038242chatgpt-logo-png.svg"
   },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -4122,15 +4122,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAIEmbeddings.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAIEmbeddings.js"
   },
   {
     "label": "Subscan",
     "name": "subscan",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Subscan/subscan.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Subscan/subscan.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Subscan/subscan.png"
     },
     "type": "action",
     "category": "Block Explorer",
@@ -4611,15 +4611,15 @@
         "default": 10
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
+    "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/Subscan/Subscan.js"
   },
   {
     "label": "Typeform",
     "name": "typeform",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Typeform/cqwwehj77ryhux9mwnoj.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Typeform/typeform-icon.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Typeform/cqwwehj77ryhux9mwnoj.png"
     },
     "type": "action",
     "category": "Communication",
@@ -4690,16 +4690,16 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Typeform/Typeform.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Typeform/Typeform.js"
   },
   {
     "loadMethods": {},
     "label": "Mailchimp",
     "name": "mailchimp",
     "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg",
+      "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Mailchimp/mailchimp.svg"
     },
     "type": "action",
     "category": "Communication",
@@ -4799,15 +4799,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Mailchimp/Mailchimp.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Mailchimp/Mailchimp.js"
   },
   {
     "label": "OpenSea",
     "name": "opensea",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/Opensea/opensea.svg"
     },
     "type": "action",
     "category": "NFT",
@@ -5434,15 +5434,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Opensea/Opensea.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Opensea/Opensea.js"
   },
   {
     "label": "OpenAI Assistants",
     "name": "openaiAssistants",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
     },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -5816,15 +5816,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
   },
 	{
     "label": "OpenAI Assistants V2",
     "name": "openaiAssistantsV2",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/default.svg",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/light.svg",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/OpenAI/dark.svg"
     },
     "type": "action",
     "category": "Artificial Intelligence",
@@ -6099,15 +6099,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/OpenAIAssistants/OpenAIAssistants.js"
   },
   {
     "label": "BaseScan",
     "name": "basescan",
     "icons": {
-      "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
-      "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
-      "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png"
+      "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+      "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png",
+      "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/BaseScan/8RFezC-o_400x400.png"
     },
     "type": "action",
     "category": "Block Explorer",
@@ -6388,15 +6388,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/BaseScan/BaseScan.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/BaseScan/BaseScan.js"
   },
   {
     "label": "ChainLink",
     "name": "chainLink",
     "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+      "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
     },
     "type": "action",
     "category": "Decentralized Oracle Network",
@@ -6557,9 +6557,9 @@
   "label": "Chainlink Functions",
   "name": "chainlinkFunctions",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg",
+    "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ChainLink/chainlink.svg"
   },  
   "type": "action",
   "category": "Development",
@@ -6584,16 +6584,16 @@
       "optional": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/NodeJS/NodeJS.js"
 },
   {
     "loadMethods": {},
     "label": "Uniswap",
     "name": "uniswap",
     "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png",
+      "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Uniswap/uniswap.png"
     },
     "type": "action",
     "category": "Decentralized Finance",
@@ -6783,15 +6783,15 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Uniswap/Uniswap.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Uniswap/Uniswap.js"
   },
   {
     "label": "X API",
     "name": "x",
     "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png",
+      "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Twitter/Twitter-Logo.png"
     },
     "type": "action",
     "category": "Communication",
@@ -6880,7 +6880,7 @@
         }
       }
     ],
-    "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/X/X.js"
+    "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/X/X.js"
   },
 {
   "loadMethods": {},
@@ -7060,7 +7060,7 @@
       "optional": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/Solidity/Solidity.js"
 },
 	
 {
@@ -7070,9 +7070,9 @@
   "label": "NVIDIA NIM API",
   "name": "nvidiaNim",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/nvidia.png"
   },
   "type": "action",
   "category": "Artificial Intelligence",
@@ -7186,15 +7186,15 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-org/nodes/main/nodes/NVIDIA_NIM/NVIDIA_NIM.js"
+  "filePath": "https://rawcdn.githack.com/your-org/nodes/main/nodes/NVIDIA_NIM/NVIDIA_NIM.js"
 },
 {
   "label": "Vercel",
   "name": "vercel",
   "icons": {
-    "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
-    "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
-    "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg"
+    "default": "https://rawcdn.githack.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "light": "https://rawcdn.githack.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg",
+    "dark": "https://rawcdn.githack.com/fruitbox12/ndoes/refs/heads/mains/vercel-icon.svg"
   },
   "type": "action",
   "category": "Developer Tools",
@@ -7468,15 +7468,15 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Vercel/Vercel.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/Vercel/Vercel.js"
 },
   {
   "label": "ERC20 Function",
   "name": "erc20Function",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg",
+    "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/ERC20Function/erc20.svg"
   },
   "type": "action",
   "category": "Cryptocurrency",
@@ -7616,9 +7616,9 @@
   "label": "Confidential Compute Launcher",
   "name": "confidentialComputeLauncher",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/OpenEnclave.png"
   },
   "type": "action",
   "category": "Cloud Compute",
@@ -7902,16 +7902,16 @@
       ]
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/ConfidentialCompute/ConfidentialCompute.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/ConfidentialCompute/ConfidentialCompute.js"
 },
  {
   "loadMethods": {},
   "label": "GitHub",
   "name": "github",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
   },
   "type": "action",
   "category": "Development",
@@ -8137,16 +8137,16 @@
       "optional": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
 },
 	{
   "loadMethods": {},
   "label": "Create NFT",
   "name": "createNFT",
    "icons": {
-      "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
-      "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
-      "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png"
+      "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
+      "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png",
+      "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/CreateNFT/createNFT.png"
     },
   "type": "action",
   "category": "NFT",
@@ -8388,16 +8388,16 @@
       "default": "0.8.15"
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/CreateNFT/CreateNFT.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/CreateNFT/CreateNFT.js"
 },
 	{
     "nodeState": null,
     "label": "Fireflies AI",
     "name": "firefliesai",
     "icons": {
-        "default": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
-        "light": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
-        "dark": "https://raw.githubusercontent.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png"
+        "default": "https://rawcdn.githack.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
+        "light": "https://rawcdn.githack.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png",
+        "dark": "https://rawcdn.githack.com/fruitbox12/ndoes/b28b1ac6380c29d57c333334e870350fcab79eb8/packages/server/nodes/fireflies.png"
     },
     "type": "action",
     "category": "AI",
@@ -8544,9 +8544,9 @@
   "label": "Advanced Structured Output Parser",
   "name": "advancedStructuredOutputParser",
   "icons": {
-    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
-    "light": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
-    "dark": "https://raw.githubusercontent.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg"
+    "default": "https://rawcdn.githack.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "light": "https://rawcdn.githack.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg",
+    "dark": "https://rawcdn.githack.com/FlowiseAI/Flowise/refs/heads/main/packages/components/nodes/outputparsers/StructuredOutputParser/structure.svg"
   },
   "type": "action",
   "category": "Output Parsing",
@@ -8574,15 +8574,15 @@
       "default": "z.object({\n  title: z.string(),\n  yearOfRelease: z.number().int(),\n  genres: z.enum([\n    \"Action\", \"Comedy\", \"Drama\", \"Fantasy\", \"Horror\",\n    \"Mystery\", \"Romance\", \"Science Fiction\", \"Thriller\", \"Documentary\"\n  ]).array().max(2),\n  shortDescription: z.string().max(500)\n})"
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo-path/nodes/main/nodes/AdvancedStructuredOutputParser/AdvancedStructuredOutputParser.js"
+  "filePath": "https://rawcdn.githack.com/your-repo-path/nodes/main/nodes/AdvancedStructuredOutputParser/AdvancedStructuredOutputParser.js"
 },
 {
   "label": "GraphQL",
   "name": "graphQL",
     "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg"
+    "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
+    "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg",
+    "dark": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GraphQL/graphql.svg"
   },
   "type": "action",
   "category": "Development",
@@ -8656,16 +8656,16 @@
       "optional": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GraphQL/GraphQL.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/GraphQL/GraphQL.js"
 },
 {
   "loadMethods": {},
   "label": "Superface Hub API",
   "name": "superfaceHubAPI",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/Superface-logo.png"
   },
   "type": "action",
   "category": "API Integration",
@@ -8748,9 +8748,9 @@
   "label": "Space and Time SQL API",
   "name": "spaceAndTimeApi",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Database",
@@ -8917,16 +8917,16 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
 },
 	{
   "loadMethods": {},
   "label": "Space and Time Gateway (Secrets Proxy)",
   "name": "sxtGatewayProxy",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Secrets Management",
@@ -9322,16 +9322,16 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GatewayProxy/GatewayProxy.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/GatewayProxy/GatewayProxy.js"
 },
 	{
   "loadMethods": {},
   "label": "Space and Time Encrypted API",
   "name": "spaceAndTimeEncryptedApi",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Database",
@@ -9419,15 +9419,15 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTimeEncrypted.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTimeEncrypted.js"
 },
 	{
   "label": "Space and Time Auth API",
   "name": "spaceXTimeAuth",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Authentication",
@@ -9521,16 +9521,16 @@
       "description": "Payload parameters required for the selected action."
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/path-to-file.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/path-to-file.js"
 },
 	{
   "loadMethods": {},
   "label": "Space and Time Subscription API",
   "name": "spaceAndTimeSubscription",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/sxtLogo-3c3ae808.svg"
   },
   "type": "action",
   "category": "Web3 Services",
@@ -9618,16 +9618,16 @@
       "show": { "actions.operation": ["setUsageConfig"] }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/SpaceAndTime/SpaceAndTime.js"
 },
 	{
   "loadMethods": {},
   "label": "Nowhere API",
   "name": "nowhereAPI",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/10545480.png"
   },
   "type": "action",
   "category": "Virtual Spaces",
@@ -9778,16 +9778,16 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Nowhere/Nowhere.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/Nowhere/Nowhere.js"
 },
 	{
   "loadMethods": {},
   "label": "PureTalk",
   "name": "pureTalk",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/pure.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/pure.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/pure.png"
   },
   "type": "action",
   "category": "Telecommunications",
@@ -10004,15 +10004,15 @@
       "optional": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/PureTalk/PureTalk.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/PureTalk/PureTalk.js"
 },
 	{
   "label": "DataScraper",
   "name": "datascraper",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/default.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/light.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/DataScraper/dark.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/DataScraper/default.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/DataScraper/light.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/main/nodes/DataScraper/dark.png"
   },
   "type": "action",
   "category": "Web Scraping",
@@ -10079,9 +10079,9 @@
   "label": "Model Context Protocol",
   "name": "modelContextProtocolTest",
   "icons": {
-    "default": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
-    "light": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
-    "dark": "https://raw.githubusercontent.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg"
+    "default": "https://rawcdn.githack.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
+    "light": "https://rawcdn.githack.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg",
+    "dark": "https://rawcdn.githack.com/nerding-io/n8n-nodes-mcp/575ac49928e8fa192191f0a8f631e407c071fdfb/nodes/McpClient/mcpClient.svg"
   },
   "type": "trigger",
   "category": "Agent Orchestration",
@@ -10125,9 +10125,9 @@
   "label": "Instagram",
   "name": "instagram",
   "icons": {
-    "default": "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
-    "light":   "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
-    "dark":    "https://raw.githubusercontent.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png"
+    "default": "https://rawcdn.githack.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
+    "light":   "https://rawcdn.githack.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png",
+    "dark":    "https://rawcdn.githack.com/tomnemec/Instagram-social-icons/refs/heads/master/insta.png"
   },
   "type": "action",
   "category": "Social Media",
@@ -10477,9 +10477,9 @@
   "label": "LangChain Web Browser",
   "name": "langchainWebBrowser",
   "icons": {
-    "default": "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
-    "light":   "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
-    "dark":    "https://raw.githubusercontent.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg"
+    "default": "https://rawcdn.githack.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
+    "light":   "https://rawcdn.githack.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg",
+    "dark":    "https://rawcdn.githack.com/FlowiseAI/Flowise/9d9135bed53796b50517e0423bbb3073732cf886/packages/components/nodes/tools/SearchApi/searchapi.svg"
   },
   "type": "action",
   "category": "Web",
@@ -10559,16 +10559,16 @@
     }
   ],
 
-  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/LangChainWebBrowser/LangChainWebBrowser.js"
+  "filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/LangChainWebBrowser/LangChainWebBrowser.js"
 },
 {
 "loadMethods": {},
 "label": "GitHub OAuth Test",
 "name": "github",
 "icons": {
-  "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-  "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
-  "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
+  "default": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+  "light": "https://rawcdn.githack.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GitHub/GitHub-Logo.png",
+  "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/github-icon-1024x994-4h5sdmko.png"
 },
 "type": "action",
 "category": "Development",
@@ -10794,7 +10794,7 @@
     "optional": true
   }
 ],
-"filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
+"filePath": "https://rawcdn.githack.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
 },
 	
 {
@@ -10802,9 +10802,9 @@
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png"
+    "default": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
+    "light": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png",
+    "dark": "https://rawcdn.githack.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/agent2.png"
   },
   "type": "action",
   "category": "Artificial Intelligence",
@@ -11075,6 +11075,6 @@
       }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+  "filePath": "https://rawcdn.githack.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
 }
 ]
