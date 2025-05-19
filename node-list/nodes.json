@@ -11076,5 +11076,1359 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+},
+{
+  "loadMethods": {},
+  "label": "Apify",
+  "name": "apify",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png"
+  },
+  "type": "action",
+  "category": "Web Scraping",
+  "version": 1,
+  "description": "Manage Apify Actors, tasks, runs, storages (datasets, key-value stores, request queues), schedules, webhooks and more via the Apify REST API",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get list of Actors",
+          "name": "getListOfActors"
+        },
+        {
+          "label": "Create Actor",
+          "name": "createActor"
+        },
+        {
+          "label": "Get Actor",
+          "name": "getActor"
+        },
+        {
+          "label": "Update Actor",
+          "name": "updateActor"
+        },
+        {
+          "label": "Delete Actor",
+          "name": "deleteActor"
+        },
+        {
+          "label": "Actor version - Get list of versions",
+          "name": "getListOfVersions"
+        },
+        {
+          "label": "Actor version - Create version",
+          "name": "createVersion"
+        },
+        {
+          "label": "Actor version - Get version",
+          "name": "getVersion"
+        },
+        {
+          "label": "Actor version - Update version",
+          "name": "updateVersion"
+        },
+        {
+          "label": "Actor version - Delete version",
+          "name": "deleteVersion"
+        },
+        {
+          "label": "Environment variable - Get list of environment variables",
+          "name": "getListOfEnvVars"
+        },
+        {
+          "label": "Environment variable - Create environment variable",
+          "name": "createEnvVar"
+        },
+        {
+          "label": "Environment variable - Get environment variable",
+          "name": "getEnvVar"
+        },
+        {
+          "label": "Environment variable - Update environment variable",
+          "name": "updateEnvVar"
+        },
+        {
+          "label": "Environment variable - Delete environment variable",
+          "name": "deleteEnvVar"
+        },
+        {
+          "label": "Actor build - Get list of builds",
+          "name": "getListOfBuilds"
+        },
+        {
+          "label": "Actor build - Build Actor",
+          "name": "buildActor"
+        },
+        {
+          "label": "Actor build - Get default build",
+          "name": "getDefaultBuild"
+        },
+        {
+          "label": "Actor build - Get build",
+          "name": "getBuildByActor"
+        },
+        {
+          "label": "Actor build - Abort build",
+          "name": "abortBuildByActor"
+        },
+        {
+          "label": "Actor build - Get OpenAPI definition",
+          "name": "getBuildOpenApiActor"
+        },
+        {
+          "label": "Actor run - Get list of runs",
+          "name": "getListOfRuns"
+        },
+        {
+          "label": "Run Actor",
+          "name": "runActor"
+        },
+        {
+          "label": "Run Actor synchronously with input and return output",
+          "name": "runActorSync"
+        },
+        {
+          "label": "Run Actor synchronously with input and get dataset items",
+          "name": "runActorSyncDataset"
+        },
+        {
+          "label": "Resurrect run",
+          "name": "resurrectRun"
+        },
+        {
+          "label": "Actor run - Get last run",
+          "name": "getLastRun"
+        },
+        {
+          "label": "Get list of webhooks (actor)",
+          "name": "getListOfActorWebhooks"
+        },
+        {
+          "label": "Get user builds list",
+          "name": "getUserBuildsList"
+        },
+        {
+          "label": "Get build",
+          "name": "getBuild"
+        },
+        {
+          "label": "Delete build",
+          "name": "deleteBuild"
+        },
+        {
+          "label": "Abort build",
+          "name": "abortBuild"
+        },
+        {
+          "label": "Get build log",
+          "name": "getBuildLog"
+        },
+        {
+          "label": "Get OpenAPI definition (build)",
+          "name": "getBuildOpenApi"
+        },
+        {
+          "label": "Get user runs list",
+          "name": "getUserRunsList"
+        },
+        {
+          "label": "Get run",
+          "name": "getRun"
+        },
+        {
+          "label": "Update status message",
+          "name": "updateRunStatus"
+        },
+        {
+          "label": "Delete run",
+          "name": "deleteRun"
+        },
+        {
+          "label": "Abort run",
+          "name": "abortRun"
+        },
+        {
+          "label": "Metamorph run",
+          "name": "metamorphRun"
+        },
+        {
+          "label": "Reboot run",
+          "name": "rebootRun"
+        },
+        {
+          "label": "Get list of tasks",
+          "name": "getListOfTasks"
+        },
+        {
+          "label": "Create task",
+          "name": "createTask"
+        },
+        {
+          "label": "Get task",
+          "name": "getTask"
+        },
+        {
+          "label": "Update task",
+          "name": "updateTask"
+        },
+        {
+          "label": "Delete task",
+          "name": "deleteTask"
+        },
+        {
+          "label": "Get task input",
+          "name": "getTaskInput"
+        },
+        {
+          "label": "Update task input",
+          "name": "updateTaskInput"
+        },
+        {
+          "label": "Get list of webhooks (task)",
+          "name": "getListOfTaskWebhooks"
+        },
+        {
+          "label": "Get list of task runs",
+          "name": "getListOfTaskRuns"
+        },
+        {
+          "label": "Run task",
+          "name": "runTask"
+        },
+        {
+          "label": "Run task synchronously with input and return output",
+          "name": "runTaskSync"
+        },
+        {
+          "label": "Run task synchronously with input and get dataset items",
+          "name": "runTaskSyncDataset"
+        },
+        {
+          "label": "Task run - Get last run",
+          "name": "getLastTaskRun"
+        },
+        {
+          "label": "Get list of datasets",
+          "name": "getListOfDatasets"
+        },
+        {
+          "label": "Create dataset",
+          "name": "createDataset"
+        },
+        {
+          "label": "Get dataset",
+          "name": "getDataset"
+        },
+        {
+          "label": "Update dataset",
+          "name": "updateDataset"
+        },
+        {
+          "label": "Delete dataset",
+          "name": "deleteDataset"
+        },
+        {
+          "label": "Get items",
+          "name": "getItems"
+        },
+        {
+          "label": "Store items",
+          "name": "storeItems"
+        },
+        {
+          "label": "Get dataset statistics",
+          "name": "getDatasetStats"
+        },
+        {
+          "label": "Get list of key-value stores",
+          "name": "getListOfKeyValueStores"
+        },
+        {
+          "label": "Create key-value store",
+          "name": "createKeyValueStore"
+        },
+        {
+          "label": "Get store",
+          "name": "getStore"
+        },
+        {
+          "label": "Update store",
+          "name": "updateStore"
+        },
+        {
+          "label": "Delete store",
+          "name": "deleteStore"
+        },
+        {
+          "label": "Get list of keys",
+          "name": "getListOfKeys"
+        },
+        {
+          "label": "Get record",
+          "name": "getRecord"
+        },
+        {
+          "label": "Store record",
+          "name": "storeRecord"
+        },
+        {
+          "label": "Delete record",
+          "name": "deleteRecord"
+        },
+        {
+          "label": "Get list of request queues",
+          "name": "getListOfRequestQueues"
+        },
+        {
+          "label": "Create request queue",
+          "name": "createRequestQueue"
+        },
+        {
+          "label": "Get request queue",
+          "name": "getRequestQueue"
+        },
+        {
+          "label": "Update request queue",
+          "name": "updateRequestQueue"
+        },
+        {
+          "label": "Delete request queue",
+          "name": "deleteRequestQueue"
+        },
+        {
+          "label": "Add request",
+          "name": "addRequest"
+        },
+        {
+          "label": "Add requests",
+          "name": "addRequests"
+        },
+        {
+          "label": "Delete requests",
+          "name": "deleteRequests"
+        },
+        {
+          "label": "List requests",
+          "name": "getListOfRequests"
+        },
+        {
+          "label": "Get request",
+          "name": "getRequest"
+        },
+        {
+          "label": "Update request",
+          "name": "updateRequest"
+        },
+        {
+          "label": "Delete request",
+          "name": "deleteRequest"
+        },
+        {
+          "label": "Get head",
+          "name": "getHead"
+        },
+        {
+          "label": "Get head and lock",
+          "name": "getHeadAndLock"
+        },
+        {
+          "label": "Prolong request lock",
+          "name": "prolongRequestLock"
+        },
+        {
+          "label": "Delete request lock",
+          "name": "deleteRequestLock"
+        },
+        {
+          "label": "Get list of webhooks (all)",
+          "name": "getListOfWebhooks"
+        },
+        {
+          "label": "Create webhook",
+          "name": "createWebhook"
+        },
+        {
+          "label": "Get webhook",
+          "name": "getWebhook"
+        },
+        {
+          "label": "Update webhook",
+          "name": "updateWebhook"
+        },
+        {
+          "label": "Delete webhook",
+          "name": "deleteWebhook"
+        },
+        {
+          "label": "Test webhook",
+          "name": "testWebhook"
+        },
+        {
+          "label": "Get list of webhook dispatches",
+          "name": "getWebhookDispatches"
+        },
+        {
+          "label": "Get webhook dispatch",
+          "name": "getWebhookDispatch"
+        },
+        {
+          "label": "Get list of schedules",
+          "name": "getListOfSchedules"
+        },
+        {
+          "label": "Create schedule",
+          "name": "createSchedule"
+        },
+        {
+          "label": "Get schedule",
+          "name": "getSchedule"
+        },
+        {
+          "label": "Update schedule",
+          "name": "updateSchedule"
+        },
+        {
+          "label": "Delete schedule",
+          "name": "deleteSchedule"
+        },
+        {
+          "label": "Get schedule log",
+          "name": "getScheduleLog"
+        },
+        {
+          "label": "Get list of Actors in store",
+          "name": "getListOfActorsInStore"
+        },
+        {
+          "label": "Get log",
+          "name": "getLog"
+        },
+        {
+          "label": "Get public user data",
+          "name": "getPublicUserData"
+        },
+        {
+          "label": "Get private user data",
+          "name": "getPrivateUserData"
+        },
+        {
+          "label": "Get monthly usage",
+          "name": "getMonthlyUsage"
+        },
+        {
+          "label": "Get limits",
+          "name": "getLimits"
+        },
+        {
+          "label": "Update limits",
+          "name": "updateLimits"
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Apify API Token",
+          "name": "apifyApi"
+        }
+      ],
+      "default": "apifyApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Actor ID or Name",
+      "name": "actorId",
+      "type": "asyncOptions",
+      "loadMethod": "listActors",
+      "description": "ID or username~actorName of the Actor",
+      "show": {
+        "actions.operation": [
+          "getActor",
+          "updateActor",
+          "deleteActor",
+          "getListOfVersions",
+          "createVersion",
+          "getVersion",
+          "updateVersion",
+          "deleteVersion",
+          "getListOfEnvVars",
+          "createEnvVar",
+          "getEnvVar",
+          "updateEnvVar",
+          "deleteEnvVar",
+          "getListOfBuilds",
+          "buildActor",
+          "getDefaultBuild",
+          "getBuildByActor",
+          "abortBuildByActor",
+          "getBuildOpenApiActor",
+          "getListOfRuns",
+          "runActor",
+          "runActorSync",
+          "runActorSyncDataset",
+          "resurrectRun",
+          "getLastRun",
+          "getListOfActorWebhooks",
+          "createTask"
+        ]
+      }
+    },
+    {
+      "label": "Actor Version",
+      "name": "version",
+      "type": "string",
+      "description": "Version number or tag of the Actor",
+      "show": {
+        "actions.operation": [
+          "getListOfVersions",
+          "createVersion",
+          "getVersion",
+          "updateVersion",
+          "deleteVersion",
+          "getListOfEnvVars",
+          "createEnvVar",
+          "getEnvVar",
+          "updateEnvVar",
+          "deleteEnvVar"
+        ]
+      }
+    },
+    {
+      "label": "Env Var Name",
+      "name": "envVarName",
+      "type": "string",
+      "description": "Name of the environment variable",
+      "show": {
+        "actions.operation": [
+          "getEnvVar",
+          "updateEnvVar",
+          "deleteEnvVar"
+        ]
+      }
+    },
+    {
+      "label": "Env Var Value",
+      "name": "envVarValue",
+      "type": "string",
+      "description": "Value for the environment variable",
+      "show": {
+        "actions.operation": [
+          "createEnvVar",
+          "updateEnvVar"
+        ]
+      }
+    },
+    {
+      "label": "Build ID",
+      "name": "buildId",
+      "type": "string",
+      "description": "ID of the Actor build",
+      "show": {
+        "actions.operation": [
+          "getBuildByActor",
+          "abortBuildByActor",
+          "getBuildOpenApiActor",
+          "getBuild",
+          "deleteBuild",
+          "abortBuild",
+          "getBuildLog",
+          "getBuildOpenApi"
+        ]
+      }
+    },
+    {
+      "label": "Run ID",
+      "name": "runId",
+      "type": "string",
+      "description": "ID of the Actor run",
+      "show": {
+        "actions.operation": [
+          "getRun",
+          "updateRunStatus",
+          "deleteRun",
+          "abortRun",
+          "metamorphRun",
+          "rebootRun",
+          "resurrectRun"
+        ]
+      }
+    },
+    {
+      "label": "Task ID or Name",
+      "name": "taskId",
+      "type": "asyncOptions",
+      "loadMethod": "listTasks",
+      "description": "ID or name of the Actor task",
+      "show": {
+        "actions.operation": [
+          "getTask",
+          "updateTask",
+          "deleteTask",
+          "getTaskInput",
+          "updateTaskInput",
+          "getListOfTaskWebhooks",
+          "getListOfTaskRuns",
+          "runTask",
+          "runTaskSync",
+          "runTaskSyncDataset",
+          "getLastTaskRun"
+        ]
+      }
+    },
+    {
+      "label": "Dataset ID or Name",
+      "name": "datasetId",
+      "type": "asyncOptions",
+      "loadMethod": "listDatasets",
+      "description": "ID or name of the Dataset",
+      "show": {
+        "actions.operation": [
+          "getDataset",
+          "updateDataset",
+          "deleteDataset",
+          "getItems",
+          "storeItems",
+          "getDatasetStats"
+        ]
+      }
+    },
+    {
+      "label": "Key-Value Store ID or Name",
+      "name": "storeId",
+      "type": "asyncOptions",
+      "loadMethod": "listStores",
+      "description": "ID or name of the Key-Value Store",
+      "show": {
+        "actions.operation": [
+          "getStore",
+          "updateStore",
+          "deleteStore",
+          "getListOfKeys",
+          "getRecord",
+          "storeRecord",
+          "deleteRecord"
+        ]
+      }
+    },
+    {
+      "label": "Request Queue ID or Name",
+      "name": "queueId",
+      "type": "asyncOptions",
+      "loadMethod": "listRequestQueues",
+      "description": "ID or name of the Request Queue",
+      "show": {
+        "actions.operation": [
+          "getRequestQueue",
+          "updateRequestQueue",
+          "deleteRequestQueue",
+          "addRequest",
+          "addRequests",
+          "deleteRequests",
+          "getListOfRequests",
+          "getRequest",
+          "updateRequest",
+          "deleteRequest",
+          "getHead",
+          "getHeadAndLock",
+          "prolongRequestLock",
+          "deleteRequestLock"
+        ]
+      }
+    },
+    {
+      "label": "Request ID",
+      "name": "requestId",
+      "type": "string",
+      "description": "ID of the request in the queue",
+      "show": {
+        "actions.operation": [
+          "getRequest",
+          "updateRequest",
+          "deleteRequest",
+          "prolongRequestLock",
+          "deleteRequestLock"
+        ]
+      }
+    },
+    {
+      "label": "Webhook ID",
+      "name": "webhookId",
+      "type": "string",
+      "description": "ID of the webhook",
+      "show": {
+        "actions.operation": [
+          "getWebhook",
+          "updateWebhook",
+          "deleteWebhook",
+          "testWebhook",
+          "getWebhookDispatches",
+          "getWebhookDispatch"
+        ]
+      }
+    },
+    {
+      "label": "Dispatch ID",
+      "name": "dispatchId",
+      "type": "string",
+      "description": "ID of the webhook dispatch",
+      "show": {
+        "actions.operation": [
+          "getWebhookDispatch"
+        ]
+      }
+    },
+    {
+      "label": "Schedule ID",
+      "name": "scheduleId",
+      "type": "string",
+      "description": "ID of the schedule",
+      "show": {
+        "actions.operation": [
+          "getSchedule",
+          "updateSchedule",
+          "deleteSchedule",
+          "getScheduleLog"
+        ]
+      }
+    },
+    {
+      "label": "Log ID",
+      "name": "logId",
+      "type": "string",
+      "description": "ID of the log",
+      "show": {
+        "actions.operation": [
+          "getLog"
+        ]
+      }
+    },
+    {
+      "label": "Username or User ID",
+      "name": "userIdOrName",
+      "type": "string",
+      "description": "Username or user ID for public user data",
+      "show": {
+        "actions.operation": [
+          "getPublicUserData"
+        ]
+      }
+    },
+    {
+      "label": "My Actors Only",
+      "name": "my",
+      "type": "boolean",
+      "description": "Set true to list only Actors created by the user",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getListOfActors"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "description": "Maximum number of items to return",
+      "default": 100,
+      "show": {
+        "actions.operation": [
+          "getListOfActors",
+          "getListOfTasks",
+          "getListOfDatasets",
+          "getListOfKeyValueStores",
+          "getListOfRequestQueues",
+          "getListOfRequests",
+          "getListOfWebhooks",
+          "getListOfActorWebhooks",
+          "getListOfTaskWebhooks",
+          "getWebhookDispatches",
+          "getListOfSchedules",
+          "getListOfActorsInStore",
+          "getUserBuildsList",
+          "getUserRunsList",
+          "getListOfRuns",
+          "getListOfTaskRuns"
+        ]
+      }
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "number",
+      "description": "Number of items to skip (for pagination)",
+      "default": 0,
+      "show": {
+        "actions.operation": [
+          "getListOfActors",
+          "getListOfTasks",
+          "getListOfDatasets",
+          "getListOfKeyValueStores",
+          "getListOfRequestQueues",
+          "getListOfRequests",
+          "getListOfWebhooks",
+          "getListOfActorWebhooks",
+          "getListOfTaskWebhooks",
+          "getWebhookDispatches",
+          "getListOfSchedules",
+          "getListOfActorsInStore",
+          "getUserBuildsList",
+          "getUserRunsList",
+          "getListOfRuns",
+          "getListOfTaskRuns"
+        ]
+      }
+    },
+    {
+      "label": "Sort Descending",
+      "name": "desc",
+      "type": "boolean",
+      "description": "Sort records in descending order",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getListOfActors",
+          "getListOfTasks",
+          "getListOfDatasets",
+          "getListOfKeyValueStores",
+          "getListOfRequestQueues",
+          "getListOfWebhooks",
+          "getListOfActorWebhooks",
+          "getListOfTaskWebhooks",
+          "getListOfSchedules",
+          "getUserBuildsList",
+          "getUserRunsList",
+          "getListOfRuns",
+          "getListOfTaskRuns"
+        ]
+      }
+    },
+    {
+      "label": "Status filter",
+      "name": "status",
+      "type": "options",
+      "options": [
+        {
+          "label": "READY",
+          "name": "READY"
+        },
+        {
+          "label": "RUNNING",
+          "name": "RUNNING"
+        },
+        {
+          "label": "SUCCEEDED",
+          "name": "SUCCEEDED"
+        },
+        {
+          "label": "FAILED",
+          "name": "FAILED"
+        },
+        {
+          "label": "ABORTED",
+          "name": "ABORTED"
+        },
+        {
+          "label": "TIMED-OUT",
+          "name": "TIMED-OUT"
+        }
+      ],
+      "description": "Filter runs by status",
+      "show": {
+        "actions.operation": [
+          "getListOfRuns",
+          "getUserRunsList",
+          "getListOfTaskRuns"
+        ]
+      }
+    },
+    {
+      "label": "Format",
+      "name": "format",
+      "type": "options",
+      "options": [
+        {
+          "label": "JSON",
+          "name": "json"
+        },
+        {
+          "label": "JSONL",
+          "name": "jsonl"
+        },
+        {
+          "label": "XML",
+          "name": "xml"
+        },
+        {
+          "label": "HTML",
+          "name": "html"
+        },
+        {
+          "label": "CSV",
+          "name": "csv"
+        },
+        {
+          "label": "XLSX",
+          "name": "xlsx"
+        },
+        {
+          "label": "RSS",
+          "name": "rss"
+        }
+      ],
+      "description": "Format of the output",
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Delimiter",
+      "name": "delimiter",
+      "type": "string",
+      "description": "Delimiter character for CSV format (default is comma)",
+      "default": ",",
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Include BOM",
+      "name": "bom",
+      "type": "boolean",
+      "description": "Include BOM (Byte Order Mark) in CSV output",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Download Attachment",
+      "name": "attachment",
+      "type": "boolean",
+      "description": "Force file download attachment in response",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Skip Hidden Fields",
+      "name": "clean",
+      "type": "boolean",
+      "description": "Skip hidden fields (clean output)",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Fields to Include",
+      "name": "fields",
+      "type": "string",
+      "description": "Comma-separated list of fields to include (optional)",
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Unwind Field",
+      "name": "unwind",
+      "type": "string",
+      "description": "Field name to unwind array items (optional)",
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Skip Header Row",
+      "name": "skipHeaderRow",
+      "type": "boolean",
+      "description": "Skip header row in CSV/XLSX output",
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "getItems",
+          "runActorSyncDataset",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Input (JSON)",
+      "name": "input",
+      "type": "string",
+      "description": "Input JSON for the Actor or task (if required)",
+      "show": {
+        "actions.operation": [
+          "runActor",
+          "runActorSync",
+          "runActorSyncDataset",
+          "runTask",
+          "runTaskSync",
+          "runTaskSyncDataset",
+          "updateTaskInput"
+        ]
+      }
+    },
+    {
+      "label": "Memory (MB)",
+      "name": "memory",
+      "type": "number",
+      "description": "Memory limit for run in megabytes (optional)",
+      "show": {
+        "actions.operation": [
+          "runActor",
+          "runActorSync",
+          "runActorSyncDataset",
+          "runTask",
+          "runTaskSync",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Timeout (seconds)",
+      "name": "timeout",
+      "type": "number",
+      "description": "Run timeout in seconds (optional)",
+      "show": {
+        "actions.operation": [
+          "runActor",
+          "runActorSync",
+          "runActorSyncDataset",
+          "runTask",
+          "runTaskSync",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Build Tag or Number",
+      "name": "build",
+      "type": "string",
+      "description": "Actor build tag or version number to run (optional, default is latest)",
+      "show": {
+        "actions.operation": [
+          "runActor",
+          "runActorSync",
+          "runActorSyncDataset",
+          "runTask",
+          "runTaskSync",
+          "runTaskSyncDataset"
+        ]
+      }
+    },
+    {
+      "label": "Status Message",
+      "name": "statusMessage",
+      "type": "string",
+      "description": "Status message to set for the Actor run",
+      "show": {
+        "actions.operation": [
+          "updateRunStatus"
+        ]
+      }
+    },
+    {
+      "label": "Target Actor ID or Name",
+      "name": "targetActorId",
+      "type": "string",
+      "description": "Actor ID to metamorph into or to run in schedule (optional)",
+      "show": {
+        "actions.operation": [
+          "metamorphRun",
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Target Task ID or Name",
+      "name": "targetTaskId",
+      "type": "string",
+      "description": "Task ID to run in schedule (optional)",
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Event Types",
+      "name": "eventTypes",
+      "type": "string",
+      "description": "Comma-separated event types that trigger the webhook (e.g. ACTOR.RUN.SUCCEEDED)",
+      "show": {
+        "actions.operation": [
+          "createWebhook",
+          "updateWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Request URL",
+      "name": "requestUrl",
+      "type": "string",
+      "description": "Webhook target URL to be called",
+      "show": {
+        "actions.operation": [
+          "createWebhook",
+          "updateWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Payload Template",
+      "name": "payloadTemplate",
+      "type": "string",
+      "description": "Payload template for webhook JSON (optional)",
+      "show": {
+        "actions.operation": [
+          "createWebhook",
+          "updateWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Condition Actor ID",
+      "name": "conditionActorId",
+      "type": "string",
+      "description": "Only trigger webhook for this Actor ID (optional)",
+      "show": {
+        "actions.operation": [
+          "createWebhook",
+          "updateWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Condition Task ID",
+      "name": "conditionTaskId",
+      "type": "string",
+      "description": "Only trigger webhook for this Task ID (optional)",
+      "show": {
+        "actions.operation": [
+          "createWebhook",
+          "updateWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Idempotency Key",
+      "name": "idempotencyKey",
+      "type": "string",
+      "description": "Unique key to prevent duplicate webhook creation (optional)",
+      "show": {
+        "actions.operation": [
+          "createWebhook"
+        ]
+      }
+    },
+    {
+      "label": "Cron Expression",
+      "name": "cronExpression",
+      "type": "string",
+      "description": "Cron expression for schedule timing",
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Time Zone",
+      "name": "timezone",
+      "type": "string",
+      "description": "Time zone for schedule (optional, e.g. UTC)",
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Enabled",
+      "name": "isEnabled",
+      "type": "boolean",
+      "description": "Whether the schedule is enabled",
+      "default": true,
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Schedule Name",
+      "name": "scheduleName",
+      "type": "string",
+      "description": "Name of the schedule (optional)",
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Execution Input (JSON)",
+      "name": "scheduleInput",
+      "type": "string",
+      "description": "Input JSON for the scheduled run (optional)",
+      "show": {
+        "actions.operation": [
+          "createSchedule",
+          "updateSchedule"
+        ]
+      }
+    },
+    {
+      "label": "Record Key",
+      "name": "recordKey",
+      "type": "string",
+      "description": "Key of the record in the store",
+      "show": {
+        "actions.operation": [
+          "getRecord",
+          "storeRecord",
+          "deleteRecord"
+        ]
+      }
+    },
+    {
+      "label": "Record Value",
+      "name": "recordValue",
+      "type": "string",
+      "description": "Value to store (JSON or text)",
+      "show": {
+        "actions.operation": [
+          "storeRecord"
+        ]
+      }
+    },
+    {
+      "label": "Content Type",
+      "name": "contentType",
+      "type": "string",
+      "description": "Content-Type of the record value (optional)",
+      "show": {
+        "actions.operation": [
+          "storeRecord"
+        ]
+      }
+    },
+    {
+      "label": "Exclusive Start Key",
+      "name": "exclusiveStartKey",
+      "type": "string",
+      "description": "Key from which to start listing keys (for pagination)",
+      "show": {
+        "actions.operation": [
+          "getListOfKeys"
+        ]
+      }
+    },
+    {
+      "label": "Requests (JSON array)",
+      "name": "requests",
+      "type": "string",
+      "description": "JSON array of request objects to add",
+      "show": {
+        "actions.operation": [
+          "addRequests"
+        ]
+      }
+    },
+    {
+      "label": "Request (JSON)",
+      "name": "request",
+      "type": "string",
+      "description": "JSON object for a single request",
+      "show": {
+        "actions.operation": [
+          "addRequest",
+          "updateRequest"
+        ]
+      }
+    },
+    {
+      "label": "Search Query",
+      "name": "search",
+      "type": "string",
+      "description": "Search term to filter Actors in store (optional)",
+      "show": {
+        "actions.operation": [
+          "getListOfActorsInStore"
+        ]
+      }
+    },
+    {
+      "label": "Max Monthly Usage (USD)",
+      "name": "maxMonthlyUsageUsd",
+      "type": "number",
+      "description": "Maximum monthly usage in USD (for updateLimits)",
+      "show": {
+        "actions.operation": [
+          "updateLimits"
+        ]
+      }
+    },
+    {
+      "label": "Data Retention Days",
+      "name": "dataRetentionDays",
+      "type": "number",
+      "description": "Number of days to retain data (for updateLimits)",
+      "show": {
+        "actions.operation": [
+          "updateLimits"
+        ]
+      }
+    }
+  ]
 }
 ]
