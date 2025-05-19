@@ -11078,13 +11078,12 @@
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
 },
 {
-  "loadMethods": {},
   "label": "Apify",
   "name": "apify",
   "icons": {
-    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png"
+    "default": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg",
+    "light": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg",
+    "dark": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg"
   },
   "type": "action",
   "category": "Web Scraping",
@@ -11094,8 +11093,8 @@
   "outgoing": 1,
   "actions": [
     {
-      "label": "Operation",
-      "name": "operation",
+      "label": "API",
+      "name": "api",
       "type": "options",
       "options": [
         {
@@ -11530,7 +11529,8 @@
           "label": "Update limits",
           "name": "updateLimits"
         }
-      ]
+      ],
+      "default": "getListOfActors"
     }
   ],
   "credentials": [
@@ -11551,11 +11551,10 @@
     {
       "label": "Actor ID or Name",
       "name": "actorId",
-      "type": "asyncOptions",
-      "loadMethod": "listActors",
+      "type": "string",
       "description": "ID or username~actorName of the Actor",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getActor",
           "updateActor",
           "deleteActor",
@@ -11592,7 +11591,7 @@
       "type": "string",
       "description": "Version number or tag of the Actor",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfVersions",
           "createVersion",
           "getVersion",
@@ -11612,7 +11611,7 @@
       "type": "string",
       "description": "Name of the environment variable",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getEnvVar",
           "updateEnvVar",
           "deleteEnvVar"
@@ -11625,7 +11624,7 @@
       "type": "string",
       "description": "Value for the environment variable",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createEnvVar",
           "updateEnvVar"
         ]
@@ -11637,7 +11636,7 @@
       "type": "string",
       "description": "ID of the Actor build",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getBuildByActor",
           "abortBuildByActor",
           "getBuildOpenApiActor",
@@ -11655,7 +11654,7 @@
       "type": "string",
       "description": "ID of the Actor run",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getRun",
           "updateRunStatus",
           "deleteRun",
@@ -11669,11 +11668,10 @@
     {
       "label": "Task ID or Name",
       "name": "taskId",
-      "type": "asyncOptions",
-      "loadMethod": "listTasks",
+      "type": "string",
       "description": "ID or name of the Actor task",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getTask",
           "updateTask",
           "deleteTask",
@@ -11691,11 +11689,10 @@
     {
       "label": "Dataset ID or Name",
       "name": "datasetId",
-      "type": "asyncOptions",
-      "loadMethod": "listDatasets",
+      "type": "string",
       "description": "ID or name of the Dataset",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getDataset",
           "updateDataset",
           "deleteDataset",
@@ -11708,11 +11705,10 @@
     {
       "label": "Key-Value Store ID or Name",
       "name": "storeId",
-      "type": "asyncOptions",
-      "loadMethod": "listStores",
+      "type": "string",
       "description": "ID or name of the Key-Value Store",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getStore",
           "updateStore",
           "deleteStore",
@@ -11726,11 +11722,10 @@
     {
       "label": "Request Queue ID or Name",
       "name": "queueId",
-      "type": "asyncOptions",
-      "loadMethod": "listRequestQueues",
+      "type": "string",
       "description": "ID or name of the Request Queue",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getRequestQueue",
           "updateRequestQueue",
           "deleteRequestQueue",
@@ -11754,7 +11749,7 @@
       "type": "string",
       "description": "ID of the request in the queue",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getRequest",
           "updateRequest",
           "deleteRequest",
@@ -11769,7 +11764,7 @@
       "type": "string",
       "description": "ID of the webhook",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getWebhook",
           "updateWebhook",
           "deleteWebhook",
@@ -11785,7 +11780,7 @@
       "type": "string",
       "description": "ID of the webhook dispatch",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getWebhookDispatch"
         ]
       }
@@ -11796,7 +11791,7 @@
       "type": "string",
       "description": "ID of the schedule",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getSchedule",
           "updateSchedule",
           "deleteSchedule",
@@ -11810,7 +11805,7 @@
       "type": "string",
       "description": "ID of the log",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getLog"
         ]
       }
@@ -11821,7 +11816,7 @@
       "type": "string",
       "description": "Username or user ID for public user data",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getPublicUserData"
         ]
       }
@@ -11831,21 +11826,22 @@
       "name": "my",
       "type": "boolean",
       "description": "Set true to list only Actors created by the user",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfActors"
         ]
-      }
+      },
+      "default": false,
+      "optional": true
     },
     {
       "label": "Limit",
       "name": "limit",
       "type": "number",
+      "optional": true,
       "description": "Maximum number of items to return",
-      "default": 100,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfActors",
           "getListOfTasks",
           "getListOfDatasets",
@@ -11863,16 +11859,17 @@
           "getListOfRuns",
           "getListOfTaskRuns"
         ]
-      }
+      },
+      "default": 100
     },
     {
       "label": "Offset",
       "name": "offset",
       "type": "number",
+      "optional": true,
       "description": "Number of items to skip (for pagination)",
-      "default": 0,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfActors",
           "getListOfTasks",
           "getListOfDatasets",
@@ -11890,16 +11887,17 @@
           "getListOfRuns",
           "getListOfTaskRuns"
         ]
-      }
+      },
+      "default": 0
     },
     {
       "label": "Sort Descending",
       "name": "desc",
       "type": "boolean",
+      "optional": true,
       "description": "Sort records in descending order",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfActors",
           "getListOfTasks",
           "getListOfDatasets",
@@ -11914,7 +11912,8 @@
           "getListOfRuns",
           "getListOfTaskRuns"
         ]
-      }
+      },
+      "default": false
     },
     {
       "label": "Status filter",
@@ -11948,7 +11947,7 @@
       ],
       "description": "Filter runs by status",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfRuns",
           "getUserRunsList",
           "getListOfTaskRuns"
@@ -11991,7 +11990,7 @@
       ],
       "description": "Format of the output",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
@@ -12002,65 +12001,70 @@
       "label": "Delimiter",
       "name": "delimiter",
       "type": "string",
+      "optional": true,
       "description": "Delimiter character for CSV format (default is comma)",
-      "default": ",",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
         ]
-      }
+      },
+      "default": ","
     },
     {
       "label": "Include BOM",
       "name": "bom",
       "type": "boolean",
+      "optional": true,
       "description": "Include BOM (Byte Order Mark) in CSV output",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
         ]
-      }
+      },
+      "default": false
     },
     {
       "label": "Download Attachment",
       "name": "attachment",
       "type": "boolean",
+      "optional": true,
       "description": "Force file download attachment in response",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
         ]
-      }
+      },
+      "default": false
     },
     {
       "label": "Skip Hidden Fields",
       "name": "clean",
       "type": "boolean",
+      "optional": true,
       "description": "Skip hidden fields (clean output)",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
         ]
-      }
+      },
+      "default": false
     },
     {
       "label": "Fields to Include",
       "name": "fields",
       "type": "string",
+      "optional": true,
       "description": "Comma-separated list of fields to include (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
@@ -12071,9 +12075,10 @@
       "label": "Unwind Field",
       "name": "unwind",
       "type": "string",
+      "optional": true,
       "description": "Field name to unwind array items (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
@@ -12084,15 +12089,16 @@
       "label": "Skip Header Row",
       "name": "skipHeaderRow",
       "type": "boolean",
+      "optional": true,
       "description": "Skip header row in CSV/XLSX output",
-      "default": false,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getItems",
           "runActorSyncDataset",
           "runTaskSyncDataset"
         ]
-      }
+      },
+      "default": false
     },
     {
       "label": "Input (JSON)",
@@ -12100,7 +12106,7 @@
       "type": "string",
       "description": "Input JSON for the Actor or task (if required)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "runActor",
           "runActorSync",
           "runActorSyncDataset",
@@ -12115,9 +12121,10 @@
       "label": "Memory (MB)",
       "name": "memory",
       "type": "number",
+      "optional": true,
       "description": "Memory limit for run in megabytes (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "runActor",
           "runActorSync",
           "runActorSyncDataset",
@@ -12131,9 +12138,10 @@
       "label": "Timeout (seconds)",
       "name": "timeout",
       "type": "number",
+      "optional": true,
       "description": "Run timeout in seconds (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "runActor",
           "runActorSync",
           "runActorSyncDataset",
@@ -12147,9 +12155,10 @@
       "label": "Build Tag or Number",
       "name": "build",
       "type": "string",
+      "optional": true,
       "description": "Actor build tag or version number to run (optional, default is latest)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "runActor",
           "runActorSync",
           "runActorSyncDataset",
@@ -12165,7 +12174,7 @@
       "type": "string",
       "description": "Status message to set for the Actor run",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "updateRunStatus"
         ]
       }
@@ -12174,9 +12183,10 @@
       "label": "Target Actor ID or Name",
       "name": "targetActorId",
       "type": "string",
+      "optional": true,
       "description": "Actor ID to metamorph into or to run in schedule (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "metamorphRun",
           "createSchedule",
           "updateSchedule"
@@ -12187,9 +12197,10 @@
       "label": "Target Task ID or Name",
       "name": "targetTaskId",
       "type": "string",
+      "optional": true,
       "description": "Task ID to run in schedule (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
@@ -12201,7 +12212,7 @@
       "type": "string",
       "description": "Comma-separated event types that trigger the webhook (e.g. ACTOR.RUN.SUCCEEDED)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook",
           "updateWebhook"
         ]
@@ -12213,7 +12224,7 @@
       "type": "string",
       "description": "Webhook target URL to be called",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook",
           "updateWebhook"
         ]
@@ -12223,9 +12234,10 @@
       "label": "Payload Template",
       "name": "payloadTemplate",
       "type": "string",
+      "optional": true,
       "description": "Payload template for webhook JSON (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook",
           "updateWebhook"
         ]
@@ -12235,9 +12247,10 @@
       "label": "Condition Actor ID",
       "name": "conditionActorId",
       "type": "string",
+      "optional": true,
       "description": "Only trigger webhook for this Actor ID (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook",
           "updateWebhook"
         ]
@@ -12247,9 +12260,10 @@
       "label": "Condition Task ID",
       "name": "conditionTaskId",
       "type": "string",
+      "optional": true,
       "description": "Only trigger webhook for this Task ID (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook",
           "updateWebhook"
         ]
@@ -12259,9 +12273,10 @@
       "label": "Idempotency Key",
       "name": "idempotencyKey",
       "type": "string",
+      "optional": true,
       "description": "Unique key to prevent duplicate webhook creation (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createWebhook"
         ]
       }
@@ -12272,7 +12287,7 @@
       "type": "string",
       "description": "Cron expression for schedule timing",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
@@ -12282,9 +12297,10 @@
       "label": "Time Zone",
       "name": "timezone",
       "type": "string",
+      "optional": true,
       "description": "Time zone for schedule (optional, e.g. UTC)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
@@ -12295,21 +12311,22 @@
       "name": "isEnabled",
       "type": "boolean",
       "description": "Whether the schedule is enabled",
-      "default": true,
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
-      }
+      },
+      "default": true
     },
     {
       "label": "Schedule Name",
       "name": "scheduleName",
       "type": "string",
+      "optional": true,
       "description": "Name of the schedule (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
@@ -12319,9 +12336,10 @@
       "label": "Execution Input (JSON)",
       "name": "scheduleInput",
       "type": "string",
+      "optional": true,
       "description": "Input JSON for the scheduled run (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "createSchedule",
           "updateSchedule"
         ]
@@ -12333,7 +12351,7 @@
       "type": "string",
       "description": "Key of the record in the store",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getRecord",
           "storeRecord",
           "deleteRecord"
@@ -12346,7 +12364,7 @@
       "type": "string",
       "description": "Value to store (JSON or text)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "storeRecord"
         ]
       }
@@ -12355,9 +12373,10 @@
       "label": "Content Type",
       "name": "contentType",
       "type": "string",
+      "optional": true,
       "description": "Content-Type of the record value (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "storeRecord"
         ]
       }
@@ -12366,9 +12385,10 @@
       "label": "Exclusive Start Key",
       "name": "exclusiveStartKey",
       "type": "string",
+      "optional": true,
       "description": "Key from which to start listing keys (for pagination)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfKeys"
         ]
       }
@@ -12379,7 +12399,7 @@
       "type": "string",
       "description": "JSON array of request objects to add",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "addRequests"
         ]
       }
@@ -12390,7 +12410,7 @@
       "type": "string",
       "description": "JSON object for a single request",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "addRequest",
           "updateRequest"
         ]
@@ -12400,9 +12420,10 @@
       "label": "Search Query",
       "name": "search",
       "type": "string",
+      "optional": true,
       "description": "Search term to filter Actors in store (optional)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "getListOfActorsInStore"
         ]
       }
@@ -12413,7 +12434,7 @@
       "type": "number",
       "description": "Maximum monthly usage in USD (for updateLimits)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "updateLimits"
         ]
       }
@@ -12424,11 +12445,249 @@
       "type": "number",
       "description": "Number of days to retain data (for updateLimits)",
       "show": {
-        "actions.operation": [
+        "actions.api": [
           "updateLimits"
         ]
       }
     }
-  ]
-}
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Apify/Apify.js"
+},
+{
+  "loadMethods": {},
+  "label": "GoogleSheet",
+  "name": "googleSheet",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleSheet/gsheet.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleSheet/gsheet.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleSheet/gsheet.svg"
+  },
+  "type": "action",
+  "category": "Productivity",
+  "version": 1,
+  "description": "Execute GoogleSheet operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Create New SpreadSheet",
+          "name": "create",
+          "description": "Create a new spreadsheet"
+        },
+        {
+          "label": "Add Rows",
+          "name": "addRows",
+          "description": "Add multiple rows to a spreadsheet"
+        },
+        {
+          "label": "Get All Values",
+          "name": "getAll",
+          "description": "Get all values from a spreadsheet"
+        },
+        {
+          "label": "Get Values By Range",
+          "name": "getRange",
+          "description": "Get values from cells from specified range"
+        },
+        {
+          "label": "Update Cell",
+          "name": "updateCell",
+          "description": "Update single cell in a spreadsheet"
+        },
+        {
+          "label": "Update Rows",
+          "name": "updateRows",
+          "description": "Update multiple rows in a spreadsheet"
+        },
+        {
+          "label": "Clear Row",
+          "name": "clearRow",
+          "description": "Clear the values of a row in a spreadsheet"
+        },
+        {
+          "label": "Clear Column",
+          "name": "clearCol",
+          "description": "Clear the values of a column in a spreadsheet"
+        },
+        {
+          "label": "Clear By Range",
+          "name": "clearRange",
+          "description": "Clear the values in a spreadsheet from specified range"
+        },
+        {
+          "label": "Clear All Values",
+          "name": "clearAll",
+          "description": "Clear all the values in a spreadsheet"
+        }
+      ],
+      "default": "create"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "Google Sheet OAuth2",
+          "name": "google"
+        }
+      ],
+      "default": "google"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Spreadsheet Name",
+      "name": "spreadsheetName",
+      "type": "string",
+      "optional": true,
+      "description": "Name of the spreadsheet to create. Default to Untitled spreadsheet.",
+      "show": {
+        "actions.operation": [
+          "create"
+        ]
+      }
+    },
+    {
+      "label": "Spreadsheet",
+      "name": "spreadsheetId",
+      "type": "asyncOptions",
+      "loadMethod": "getAllSheetsFromDrive",
+      "hide": {
+        "actions.operation": [
+          "create"
+        ]
+      }
+    },
+    {
+      "label": "Sheet Name",
+      "name": "sheetName",
+      "type": "asyncOptions",
+      "loadMethod": "getSheets",
+      "hide": {
+        "actions.operation": [
+          "create"
+        ]
+      }
+    },
+    {
+      "label": "Range",
+      "name": "range",
+      "type": "string",
+      "placeholder": "A1:B2",
+      "description": "For example, if the spreadsheet data is: A1=1, B1=2, A2=3, B2=4, then requesting range=A1:B2, returns [[1, 2],[3, 4]]",
+      "show": {
+        "actions.operation": [
+          "getRange"
+        ]
+      }
+    },
+    {
+      "label": "Row Values",
+      "name": "rowValues",
+      "type": "json",
+      "placeholder": "[[1, 2], [3, 4]]",
+      "description": "For instance: [[1, 2], [3, 4]] will insert 2 new rows. FIRST row: A1=1, B1=2, and SECOND row: A2=3, B2=4",
+      "show": {
+        "actions.operation": [
+          "addRows"
+        ]
+      }
+    },
+    {
+      "label": "Range",
+      "name": "range",
+      "type": "string",
+      "placeholder": "A1:B4",
+      "description": "A1 notation of the rows to update.",
+      "show": {
+        "actions.operation": [
+          "updateRows"
+        ]
+      }
+    },
+    {
+      "label": "Row Values",
+      "name": "rowValues",
+      "type": "json",
+      "placeholder": "[[1, 2], [3, 4]]",
+      "description": "For instance: [[1, 2], [3, 4]] will update FIRST row: A1=1, B1=2, and SECOND row: A2=3, B2=4",
+      "show": {
+        "actions.operation": [
+          "updateRows"
+        ]
+      }
+    },
+    {
+      "label": "Cell",
+      "name": "range",
+      "type": "string",
+      "placeholder": "A1",
+      "description": "A1 notation of the cell to update.",
+      "show": {
+        "actions.operation": [
+          "updateCell"
+        ]
+      }
+    },
+    {
+      "label": "Cell Value",
+      "name": "cellValue",
+      "type": "string",
+      "placeholder": "New Update Value",
+      "default": "",
+      "description": "New value of the cell",
+      "show": {
+        "actions.operation": [
+          "updateCell"
+        ]
+      }
+    },
+    {
+      "label": "Row Number",
+      "name": "clearRowNumber",
+      "type": "number",
+      "placeholder": "1",
+      "description": "Row (number) to clear the values",
+      "show": {
+        "actions.operation": [
+          "clearRow"
+        ]
+      }
+    },
+    {
+      "label": "Column Number",
+      "name": "clearColNumber",
+      "type": "string",
+      "placeholder": "A",
+      "description": "Column (alphabet) to clear the values",
+      "show": {
+        "actions.operation": [
+          "clearCol"
+        ]
+      }
+    },
+    {
+      "label": "Range",
+      "name": "range",
+      "type": "string",
+      "placeholder": "A1:B4",
+      "description": "A1 notation of the range to clear.",
+      "show": {
+        "actions.operation": [
+          "clearRange"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GoogleSheet/GoogleSheet.js"
+}	
+	
 ]
