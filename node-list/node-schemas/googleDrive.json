@@ -1,0 +1,240 @@
+{
+  "loadMethods": {},
+  "label": "Google Drive",
+  "name": "googleDrive",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg",
+    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg",
+    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg"
+  },
+  "type": "action",
+  "category": "Productivity",
+  "version": 1,
+  "description": "Execute Google Drive operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Files",
+          "name": "list",
+          "description": "List files in Google Drive"
+        },
+        {
+          "label": "Get File Metadata",
+          "name": "get",
+          "description": "Get metadata for a specific file"
+        },
+        {
+          "label": "Download File",
+          "name": "download",
+          "description": "Download the content of a file"
+        },
+        {
+          "label": "Create File",
+          "name": "create",
+          "description": "Create a new file"
+        },
+        {
+          "label": "Update File",
+          "name": "update",
+          "description": "Update file metadata or content"
+        },
+        {
+          "label": "Delete File",
+          "name": "delete",
+          "description": "Delete a file"
+        },
+        {
+          "label": "Copy File",
+          "name": "copy",
+          "description": "Copy an existing file"
+        },
+        {
+          "label": "Empty Trash",
+          "name": "emptyTrash",
+          "description": "Permanently delete all files in the trash"
+        },
+        {
+          "label": "Export File",
+          "name": "export",
+          "description": "Export a Google Workspace document to another format"
+        },
+        {
+          "label": "Generate IDs",
+          "name": "generateIds",
+          "description": "Generate a set of unique file IDs"
+        }
+      ],
+      "default": "list"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "Google Drive OAuth2",
+          "name": "google"
+        }
+      ],
+      "default": "google"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "File",
+      "name": "fileId",
+      "type": "asyncOptions",
+      "loadMethod": "getAllFilesFromDrive",
+      "description": "The ID of the file",
+      "show": {
+        "actions.operation": [
+          "get",
+          "download",
+          "update",
+          "delete",
+          "copy",
+          "export"
+        ]
+      }
+    },
+    {
+      "label": "Query",
+      "name": "q",
+      "type": "string",
+      "optional": true,
+      "description": "Search query to filter files, e.g. \"name contains 'report'\"",
+      "show": {
+        "actions.operation": [
+          "list"
+        ]
+      }
+    },
+    {
+      "label": "Page Size",
+      "name": "pageSize",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum number of files to return",
+      "show": {
+        "actions.operation": [
+          "list"
+        ]
+      }
+    },
+    {
+      "label": "Page Token",
+      "name": "pageToken",
+      "type": "string",
+      "optional": true,
+      "description": "Token for continuing a previous list request",
+      "show": {
+        "actions.operation": [
+          "list"
+        ]
+      }
+    },
+    {
+      "label": "Export MIME Type",
+      "name": "mimeType",
+      "type": "options",
+      "options": [
+        { "label": "PDF", "name": "application/pdf" },
+        { "label": "Microsoft Word", "name": "application/vnd.openxmlformats-officedocument.wordprocessingml.document" },
+        { "label": "Plain Text", "name": "text/plain" },
+        { "label": "HTML", "name": "text/html" }
+      ],
+      "description": "Format to export the file",
+      "show": {
+        "actions.operation": [
+          "export"
+        ]
+      }
+    },
+    {
+      "label": "Name",
+      "name": "name",
+      "type": "string",
+      "optional": true,
+      "description": "Name of the file to create",
+      "show": {
+        "actions.operation": [
+          "create",
+          "copy"
+        ]
+      }
+    },
+    {
+      "label": "Parents",
+      "name": "parents",
+      "type": "string[]",
+      "optional": true,
+      "description": "List of folder IDs to contain the file",
+      "show": {
+        "actions.operation": [
+          "create",
+          "copy"
+        ]
+      }
+    },
+    {
+      "label": "File Content (Base64)",
+      "name": "fileContent",
+      "type": "string",
+      "optional": true,
+      "description": "Base64-encoded file content (use with create or update)",
+      "show": {
+        "actions.operation": [
+          "create",
+          "update"
+        ]
+      }
+    },
+    {
+      "label": "Metadata Updates",
+      "name": "metadata",
+      "type": "json",
+      "optional": true,
+      "description": "JSON object of metadata fields to update",
+      "placeholder": "{ \"name\": \"New Name\", \"mimeType\": \"application/pdf\" }",
+      "show": {
+        "actions.operation": [
+          "update"
+        ]
+      }
+    },
+    {
+      "label": "Copy Request",
+      "name": "copyRequest",
+      "type": "json",
+      "optional": true,
+      "description": "JSON object for copy parameters",
+      "placeholder": "{ \"name\": \"Copy of File\", \"parents\": [\"folderId\"] }",
+      "show": {
+        "actions.operation": [
+          "copy"
+        ]
+      }
+    },
+    {
+      "label": "Number of IDs",
+      "name": "count",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum number of IDs to generate",
+      "show": {
+        "actions.operation": [
+          "generateIds"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GoogleDrive/GoogleDrive.js"
+}
