@@ -77,14 +77,14 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "options",
+      "type": "oauth",
       "options": [
         {
           "label": "Google Sheet OAuth2",
-          "name": "googleSheetsOAuth2Api"
+          "name": "google"
         }
       ],
-      "default": "googleSheetsOAuth2Api"
+      "default": "google"
     }
   ],
   "inputParameters": [
