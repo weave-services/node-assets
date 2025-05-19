@@ -3,9 +3,9 @@
   "label": "Google Drive",
   "name": "googleDrive",
   "icons": {
-    "default": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg",
-    "light": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg",
-    "dark": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/GoogleDrive/gdrive.svg"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Google-Drive-icon.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Google-Drive-icon.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/Google-Drive-icon.png"
   },
   "type": "action",
   "category": "Productivity",
@@ -146,10 +146,22 @@
       "name": "mimeType",
       "type": "options",
       "options": [
-        { "label": "PDF", "name": "application/pdf" },
-        { "label": "Microsoft Word", "name": "application/vnd.openxmlformats-officedocument.wordprocessingml.document" },
-        { "label": "Plain Text", "name": "text/plain" },
-        { "label": "HTML", "name": "text/html" }
+        {
+          "label": "PDF",
+          "name": "application/pdf"
+        },
+        {
+          "label": "Microsoft Word",
+          "name": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        },
+        {
+          "label": "Plain Text",
+          "name": "text/plain"
+        },
+        {
+          "label": "HTML",
+          "name": "text/html"
+        }
       ],
       "description": "Format to export the file",
       "show": {
