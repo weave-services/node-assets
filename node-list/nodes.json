@@ -12733,14 +12733,14 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "options",
+      "type": "oauth",
       "options": [
         {
           "label": "Google Docs OAuth2",
-          "name": "googleDocsOAuth2Api"
+          "name": "google"
         }
       ],
-      "default": "googleDocsOAuth2Api"
+      "default": "google"
     }
   ],
   "inputParameters": [
