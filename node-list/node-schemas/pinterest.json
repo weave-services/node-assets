@@ -1,15 +1,15 @@
 {
-  "label": "Pinterest Data API",
+  "label": "Pinterest",
   "name": "pinterest",
   "icons": {
-    "default": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
-    "light": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
-    "dark": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
+    "default": "https://www.vectorlogo.zone/logos/pinterest/pinterest-icon.svg",
+    "light": "https://www.vectorlogo.zone/logos/pinterest/pinterest-icon.svg",
+    "dark": "https://www.vectorlogo.zone/logos/pinterest/pinterest-icon.svg"
   },
   "type": "action",
   "category": "Social Media",
   "version": 1,
-  "description": "Manage Pinterest user accounts, boards, pins, ads, and catalogs via the Pinterest API v5",
+  "description": "Interact with Pinterest API (v5) endpoints, including user accounts, boards, pins, ads, catalogs, analytics, and more.",
   "incoming": 1,
   "outgoing": 1,
   "actions": [
@@ -18,51 +18,477 @@
       "name": "api",
       "type": "options",
       "options": [
-        { "label": "Get User Account",    "name": "getUserAccount" },
-        { "label": "List Boards",         "name": "listBoards" },
-        { "label": "Create Board",        "name": "createBoard" },
-        { "label": "Get Board",           "name": "getBoard" },
-        { "label": "Update Board",        "name": "updateBoard" },
-        { "label": "Delete Board",        "name": "deleteBoard" },
-        { "label": "List Pins",           "name": "listPins" },
-        { "label": "Create Pin",          "name": "createPin" },
-        { "label": "Get Pin",             "name": "getPin" },
-        { "label": "Update Pin",          "name": "updatePin" },
-        { "label": "Delete Pin",          "name": "deletePin" },
-        { "label": "List Board Sections", "name": "listBoardSections" },
-        { "label": "Create Board Section","name": "createBoardSection" },
-        { "label": "Get Board Section",   "name": "getBoardSection" },
-        { "label": "Update Board Section","name": "updateBoardSection" },
-        { "label": "Delete Board Section","name": "deleteBoardSection" },
-        { "label": "List Ad Accounts",    "name": "listAdAccounts" },
-        { "label": "List Campaigns",      "name": "listCampaigns" },
-        { "label": "Create Campaign",     "name": "createCampaign" },
-        { "label": "Get Campaign",        "name": "getCampaign" },
-        { "label": "Update Campaign",     "name": "updateCampaign" },
-        { "label": "Delete Campaign",     "name": "deleteCampaign" },
-        { "label": "List Ad Groups",      "name": "listAdGroups" },
-        { "label": "Create Ad Group",     "name": "createAdGroup" },
-        { "label": "Get Ad Group",        "name": "getAdGroup" },
-        { "label": "Update Ad Group",     "name": "updateAdGroup" },
-        { "label": "Delete Ad Group",     "name": "deleteAdGroup" },
-        { "label": "List Ads",            "name": "listAds" },
-        { "label": "Create Ad",           "name": "createAd" },
-        { "label": "Get Ad",              "name": "getAd" },
-        { "label": "Update Ad",           "name": "updateAd" },
-        { "label": "Delete Ad",           "name": "deleteAd" },
-        { "label": "Get Ads Stats",       "name": "getAdsStats" },
-        { "label": "List Catalogs",       "name": "listCatalogs" },
-        { "label": "Create Catalog",      "name": "createCatalog" },
-        { "label": "Get Catalog",         "name": "getCatalog" },
-        { "label": "Update Catalog",      "name": "updateCatalog" },
-        { "label": "Delete Catalog",      "name": "deleteCatalog" },
-        { "label": "List Products",       "name": "listProducts" },
-        { "label": "Create Product",      "name": "createProduct" },
-        { "label": "Get Product",         "name": "getProduct" },
-        { "label": "Update Product",      "name": "updateProduct" },
-        { "label": "Delete Product",      "name": "deleteProduct" }
-      ],
-      "default": "getUserAccount"
+        {
+          "label": "Get User Account",
+          "name": "getUserAccount",
+          "description": "Get account profile information for the authorized user."
+        },
+        {
+          "label": "Get User Account Analytics",
+          "name": "getUserAccountAnalytics",
+          "description": "Get analytics for the authorized user's account (audience metrics, profile impressions, etc)."
+        },
+        {
+          "label": "Get User Account Top Pins Analytics",
+          "name": "getUserTopPinsAnalytics",
+          "description": "Get analytics data for the user's top Pins (top 50 Pins)."
+        },
+        {
+          "label": "Get User Account Top Video Pins Analytics",
+          "name": "getUserTopVideoPinsAnalytics",
+          "description": "Get analytics data for the user's top video Pins (top 50 Pins)."
+        },
+        {
+          "label": "List Linked Business Accounts",
+          "name": "listLinkedBusinesses",
+          "description": "List business accounts linked to the authorized user."
+        },
+        {
+          "label": "List Followers",
+          "name": "listFollowers",
+          "description": "List the users following the authorized user."
+        },
+        {
+          "label": "List Following Users",
+          "name": "listFollowingUsers",
+          "description": "List the users that the authorized user is following."
+        },
+        {
+          "label": "List Following Boards",
+          "name": "listFollowingBoards",
+          "description": "List the boards that the authorized user is following."
+        },
+        {
+          "label": "Follow User",
+          "name": "followUser",
+          "description": "Follow another user by username (Beta feature)."
+        },
+        {
+          "label": "Verify Website",
+          "name": "verifyWebsite",
+          "description": "Verify a website for the authorized user."
+        },
+        {
+          "label": "Get Website Verification Status",
+          "name": "getWebsiteVerification",
+          "description": "Get the status of website verification for the authorized user."
+        },
+        {
+          "label": "List Boards",
+          "name": "listBoards",
+          "description": "Get a list of boards owned by the user (and group boards the user is a collaborator on)."
+        },
+        {
+          "label": "Create Board",
+          "name": "createBoard",
+          "description": "Create a new board for the user."
+        },
+        {
+          "label": "Get Board",
+          "name": "getBoard",
+          "description": "Get details of a specific board."
+        },
+        {
+          "label": "Update Board",
+          "name": "updateBoard",
+          "description": "Update a board's information (name, description, privacy)."
+        },
+        {
+          "label": "Delete Board",
+          "name": "deleteBoard",
+          "description": "Delete a board."
+        },
+        {
+          "label": "List Board Sections",
+          "name": "listBoardSections",
+          "description": "List all sections on a specified board."
+        },
+        {
+          "label": "Create Board Section",
+          "name": "createBoardSection",
+          "description": "Create a new section within a board."
+        },
+        {
+          "label": "Update Board Section",
+          "name": "updateBoardSection",
+          "description": "Update a board section's name."
+        },
+        {
+          "label": "Delete Board Section",
+          "name": "deleteBoardSection",
+          "description": "Delete a section from a board."
+        },
+        {
+          "label": "List Pins on Board",
+          "name": "listBoardPins",
+          "description": "List all Pins on a specific board."
+        },
+        {
+          "label": "List Pins on Board Section",
+          "name": "listBoardSectionPins",
+          "description": "List all Pins in a specific board section."
+        },
+        {
+          "label": "List Pins",
+          "name": "listPins",
+          "description": "List all Pins owned by the user."
+        },
+        {
+          "label": "Create Pin",
+          "name": "createPin",
+          "description": "Create a new Pin on a board (or board section)."
+        },
+        {
+          "label": "Get Pin",
+          "name": "getPin",
+          "description": "Get details of a specific Pin."
+        },
+        {
+          "label": "Update Pin",
+          "name": "updatePin",
+          "description": "Update a Pin's details (title, description, link)."
+        },
+        {
+          "label": "Delete Pin",
+          "name": "deletePin",
+          "description": "Delete a Pin."
+        },
+        {
+          "label": "Search Boards",
+          "name": "searchBoards",
+          "description": "Search the user's boards by a query."
+        },
+        {
+          "label": "Search Pins",
+          "name": "searchPins",
+          "description": "Search the user's Pins by a query."
+        },
+        {
+          "label": "Search Partner Pins",
+          "name": "searchPartnerPins",
+          "description": "Search for top Pins by a given search term (Beta)."
+        },
+        {
+          "label": "List Ad Accounts",
+          "name": "listAdAccounts",
+          "description": "List ad accounts the user has access to."
+        },
+        {
+          "label": "Create Ad Account",
+          "name": "createAdAccount",
+          "description": "Create a new ad account for the user."
+        },
+        {
+          "label": "Get Ad Account",
+          "name": "getAdAccount",
+          "description": "Get details of a specific ad account."
+        },
+        {
+          "label": "List Campaigns",
+          "name": "listCampaigns",
+          "description": "List campaigns in an ad account."
+        },
+        {
+          "label": "Create Campaign",
+          "name": "createCampaign",
+          "description": "Create a new campaign in an ad account."
+        },
+        {
+          "label": "Get Campaign",
+          "name": "getCampaign",
+          "description": "Get details of a specific campaign."
+        },
+        {
+          "label": "Update Campaign",
+          "name": "updateCampaign",
+          "description": "Update one or more existing campaigns (e.g. status or budget)."
+        },
+        {
+          "label": "List Ad Groups",
+          "name": "listAdGroups",
+          "description": "List ad groups in an ad account (optionally filtered by campaign)."
+        },
+        {
+          "label": "Create Ad Group",
+          "name": "createAdGroup",
+          "description": "Create a new ad group under a campaign."
+        },
+        {
+          "label": "Get Ad Group",
+          "name": "getAdGroup",
+          "description": "Get details of a specific ad group."
+        },
+        {
+          "label": "Update Ad Group",
+          "name": "updateAdGroup",
+          "description": "Update one or more existing ad groups (e.g. status or targeting)."
+        },
+        {
+          "label": "List Ads",
+          "name": "listAds",
+          "description": "List ads in an ad account (optionally filtered by campaign or ad group)."
+        },
+        {
+          "label": "Create Ad",
+          "name": "createAd",
+          "description": "Create a new ad (Pin promotion) in an ad group."
+        },
+        {
+          "label": "Update Ad",
+          "name": "updateAd",
+          "description": "Update one or more existing ads (e.g. status)."
+        },
+        {
+          "label": "Create Ad Preview",
+          "name": "createAdPreview",
+          "description": "Generate a preview of a promoted Pin (ad) using a Pin or image."
+        },
+        {
+          "label": "Create Keywords",
+          "name": "createKeywords",
+          "description": "Create keywords for targeting (attach keywords to an ad group or campaign)."
+        },
+        {
+          "label": "Update Keywords",
+          "name": "updateKeywords",
+          "description": "Update keywords (e.g. bids or archive status)."
+        },
+        {
+          "label": "Get Keyword Metrics",
+          "name": "getKeywordMetrics",
+          "description": "Get keyword metrics aggregated (e.g. search counts by country)."
+        },
+        {
+          "label": "List Audiences",
+          "name": "listAudiences",
+          "description": "List audiences available in an ad account."
+        },
+        {
+          "label": "Create Custom Audience",
+          "name": "createCustomAudience",
+          "description": "Create a new custom audience (for targeting)."
+        },
+        {
+          "label": "Get Audience",
+          "name": "getAudience",
+          "description": "Get details of a specific audience."
+        },
+        {
+          "label": "List Customer Lists",
+          "name": "listCustomerLists",
+          "description": "List customer (user) lists in an ad account."
+        },
+        {
+          "label": "Create Customer List",
+          "name": "createCustomerList",
+          "description": "Create a new customer list audience (e.g. email list)."
+        },
+        {
+          "label": "Get Customer List",
+          "name": "getCustomerList",
+          "description": "Get details of a specific customer list."
+        },
+        {
+          "label": "Update Customer List",
+          "name": "updateCustomerList",
+          "description": "Append or remove records in an existing customer list."
+        },
+        {
+          "label": "List Conversion Tags",
+          "name": "listConversionTags",
+          "description": "List conversion tags associated with an ad account."
+        },
+        {
+          "label": "Get Conversion Tag",
+          "name": "getConversionTag",
+          "description": "Get details of a specific conversion tag."
+        },
+        {
+          "label": "Create Conversion Tag",
+          "name": "createConversionTag",
+          "description": "Create a new Pinterest conversion tag."
+        },
+        {
+          "label": "Update Conversion Tag",
+          "name": "updateConversionTag",
+          "description": "Update an existing conversion tag (e.g. rename or settings)."
+        },
+        {
+          "label": "Send Conversion Events",
+          "name": "sendConversionEvents",
+          "description": "Send conversion event data (via the Conversions API)."
+        },
+        {
+          "label": "List Media Uploads",
+          "name": "listMediaUploads",
+          "description": "List media upload requests (media assets) for the user or ad account."
+        },
+        {
+          "label": "Create Media Upload",
+          "name": "createMediaUpload",
+          "description": "Initiate a new media upload (for images or videos)."
+        },
+        {
+          "label": "Get Media Upload",
+          "name": "getMediaUpload",
+          "description": "Check the status of a media upload by ID."
+        },
+        {
+          "label": "List Catalogs",
+          "name": "listCatalogs",
+          "description": "List catalogs associated with the user or business."
+        },
+        {
+          "label": "List Catalog Feeds",
+          "name": "listCatalogFeeds",
+          "description": "List product feed sources (data feeds) for catalogs."
+        },
+        {
+          "label": "Create Catalog Feed",
+          "name": "createCatalogFeed",
+          "description": "Create a new product feed for a catalog (register a data source)."
+        },
+        {
+          "label": "Get Catalog Feed",
+          "name": "getCatalogFeed",
+          "description": "Get details of a specific product feed."
+        },
+        {
+          "label": "Update Catalog Feed",
+          "name": "updateCatalogFeed",
+          "description": "Update settings of a product feed (e.g. name or status)."
+        },
+        {
+          "label": "Delete Catalog Feed",
+          "name": "deleteCatalogFeed",
+          "description": "Delete a product feed."
+        },
+        {
+          "label": "List Feed Processing Results",
+          "name": "listFeedProcessingResults",
+          "description": "List processing results (errors, warnings) for a given feed."
+        },
+        {
+          "label": "List Catalog Items",
+          "name": "listCatalogItems",
+          "description": "List products (catalog items) from the user's catalog."
+        },
+        {
+          "label": "Operate on Catalog Item Batch",
+          "name": "operateCatalogItemBatch",
+          "description": "Apply operations (create/update/remove) on a set of catalog items."
+        },
+        {
+          "label": "Get Catalog Item Batch Status",
+          "name": "getCatalogItemBatch",
+          "description": "Get the status/results of a catalog items batch operation."
+        },
+        {
+          "label": "List Product Groups",
+          "name": "listProductGroups",
+          "description": "List product groups (collections of items) in the catalog."
+        },
+        {
+          "label": "Create Product Group",
+          "name": "createProductGroup",
+          "description": "Create a new product group (item filter set) in the catalog."
+        },
+        {
+          "label": "Get Product Group",
+          "name": "getProductGroup",
+          "description": "Get details of a specific product group."
+        },
+        {
+          "label": "Get Product Group Product Counts",
+          "name": "getProductGroupProductCounts",
+          "description": "Get the count of products in a specific product group."
+        },
+        {
+          "label": "List Products in Product Group",
+          "name": "getProductGroupProducts",
+          "description": "List the product items belonging to a specific product group."
+        },
+        {
+          "label": "List Product Group Promotions",
+          "name": "listProductGroupPromotions",
+          "description": "List promoted product groups (shopping ads) in an ad account."
+        },
+        {
+          "label": "Create Product Group Promotion",
+          "name": "createProductGroupPromotion",
+          "description": "Promote a product group (create a new product group promotion)."
+        },
+        {
+          "label": "Get Product Group Promotion",
+          "name": "getProductGroupPromotion",
+          "description": "Get details of a specific product group promotion."
+        },
+        {
+          "label": "Update Product Group Promotion",
+          "name": "updateProductGroupPromotion",
+          "description": "Update an existing product group promotion (e.g. status or bid)."
+        },
+        {
+          "label": "Get Campaign Analytics",
+          "name": "getCampaignAnalytics",
+          "description": "Retrieve analytics metrics for one or more campaigns in an ad account."
+        },
+        {
+          "label": "Get Ad Group Analytics",
+          "name": "getAdGroupAnalytics",
+          "description": "Retrieve analytics metrics for one or more ad groups in an ad account."
+        },
+        {
+          "label": "Get Ad Analytics",
+          "name": "getAdAnalytics",
+          "description": "Retrieve analytics metrics for one or more ads in an ad account."
+        },
+        {
+          "label": "Get Product Group Analytics",
+          "name": "getProductGroupAnalytics",
+          "description": "Retrieve analytics metrics for one or more product group promotions."
+        },
+        {
+          "label": "Get Campaign Targeting Analytics",
+          "name": "getCampaignTargetingAnalytics",
+          "description": "Retrieve targeting breakdown analytics for one or more campaigns."
+        },
+        {
+          "label": "Get Ad Group Targeting Analytics",
+          "name": "getAdGroupTargetingAnalytics",
+          "description": "Retrieve targeting breakdown analytics for one or more ad groups."
+        },
+        {
+          "label": "Get Audience Insights",
+          "name": "getAudienceInsights",
+          "description": "Get audience insights for an ad account (overview of audience metrics)."
+        },
+        {
+          "label": "Create Analytics Report",
+          "name": "createAnalyticsReport",
+          "description": "Create an asynchronous analytics report for an ad account (returns a report token)."
+        },
+        {
+          "label": "Get Analytics Report",
+          "name": "getAnalyticsReport",
+          "description": "Retrieve a previously requested analytics report (using a report token)."
+        },
+        {
+          "label": "List Related Terms",
+          "name": "listRelatedTerms",
+          "description": "Get a list of search terms related to a given term (for targeting suggestions)."
+        },
+        {
+          "label": "List Suggested Terms",
+          "name": "listSuggestedTerms",
+          "description": "Get a list of suggested search terms often used together with a given term."
+        },
+        {
+          "label": "Get Advertising Terms of Service",
+          "name": "getTermsOfService",
+          "description": "Get the Pinterest Advertising Terms of Service."
+        }
+      ]
     }
   ],
   "credentials": [
@@ -71,47 +497,132 @@
       "name": "credentialMethod",
       "type": "oauth",
       "options": [
-        { "label": "Pinterest OAuth", "name": "pinterestOAuth" }
+        {
+          "label": "Pinterest OAuth",
+          "name": "pinterestOAuth"
+        }
       ],
       "default": "pinterestOAuth"
     }
   ],
   "inputParameters": [
     {
-      "label": "Account ID",
-      "name": "accountId",
+      "label": "Username to Follow",
+      "name": "usernameToFollow",
       "type": "string",
-      "description": "The Pinterest user account ID",
+      "description": "The username of the Pinterest user to follow.",
       "show": {
-        "actions.api": ["getUserAccount"]
+        "actions.api": [
+          "followUser"
+        ]
+      }
+    },
+    {
+      "label": "Website URL",
+      "name": "websiteUrl",
+      "type": "string",
+      "description": "The website URL to verify (including http:// or https://).",
+      "show": {
+        "actions.api": [
+          "verifyWebsite"
+        ]
       }
     },
     {
       "label": "Board ID",
       "name": "boardId",
       "type": "string",
-      "description": "The ID of the board",
+      "description": "The ID of the board.",
       "show": {
         "actions.api": [
           "getBoard",
           "updateBoard",
           "deleteBoard",
-          "listPins",
-          "createPin"
+          "listBoardSections",
+          "createBoardSection",
+          "updateBoardSection",
+          "deleteBoardSection",
+          "listBoardPins",
+          "listBoardSectionPins"
+        ]
+      }
+    },
+    {
+      "label": "Board Name",
+      "name": "boardName",
+      "type": "string",
+      "description": "Name of the board.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createBoard",
+          "updateBoard"
+        ]
+      }
+    },
+    {
+      "label": "Board Description",
+      "name": "boardDescription",
+      "type": "string",
+      "description": "Description of the board.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createBoard",
+          "updateBoard"
+        ]
+      }
+    },
+    {
+      "label": "Board Privacy",
+      "name": "boardPrivacy",
+      "type": "options",
+      "description": "Privacy setting for the board.",
+      "options": [
+        {
+          "label": "Public",
+          "name": "PUBLIC"
+        },
+        {
+          "label": "Protected (Group Board)",
+          "name": "PROTECTED"
+        },
+        {
+          "label": "Secret",
+          "name": "SECRET"
+        }
+      ],
+      "optional": true,
+      "default": "PUBLIC",
+      "show": {
+        "actions.api": [
+          "createBoard",
+          "updateBoard"
         ]
       }
     },
     {
       "label": "Board Section ID",
-      "name": "boardSectionId",
+      "name": "sectionId",
       "type": "string",
-      "description": "The ID of the board section",
+      "description": "The ID of the board section.",
       "show": {
         "actions.api": [
-          "getBoardSection",
           "updateBoardSection",
           "deleteBoardSection",
-          "listProducts"
+          "listBoardSectionPins"
+        ]
+      }
+    },
+    {
+      "label": "Board Section Name",
+      "name": "sectionName",
+      "type": "string",
+      "description": "Name of the board section.",
+      "show": {
+        "actions.api": [
+          "createBoardSection",
+          "updateBoardSection"
         ]
       }
     },
@@ -119,165 +630,155 @@
       "label": "Pin ID",
       "name": "pinId",
       "type": "string",
-      "description": "The ID of the pin",
+      "description": "The ID of the Pin.",
       "show": {
         "actions.api": [
           "getPin",
           "updatePin",
-          "deletePin"
+          "deletePin",
+          "createAd"
         ]
       }
     },
     {
-      "label": "Fields",
-      "name": "fields",
+      "label": "Pin Title",
+      "name": "pinTitle",
       "type": "string",
+      "description": "Title of the Pin.",
       "optional": true,
-      "description": "Comma-separated list of fields to include",
       "show": {
         "actions.api": [
-          "getUserAccount",
-          "getBoard",
-          "listBoards",
-          "getPin",
-          "listPins",
-          "getCampaign",
-          "listCampaigns",
-          "getAdGroup",
-          "listAdGroups",
-          "getAd",
-          "listAds",
-          "getCatalog",
-          "listCatalogs",
-          "getProduct",
-          "listProducts"
-        ]
-      }
-    },
-    {
-      "label": "Page Size",
-      "name": "pageSize",
-      "type": "number",
-      "optional": true,
-      "default": 25,
-      "description": "Maximum number of items to return",
-      "show": {
-        "actions.api": [
-          "listBoards",
-          "listPins",
-          "listBoardSections",
-          "listAdAccounts",
-          "listCampaigns",
-          "listAdGroups",
-          "listAds",
-          "getAdsStats",
-          "listCatalogs",
-          "listProducts"
-        ]
-      }
-    },
-    {
-      "label": "Bookmark",
-      "name": "bookmark",
-      "type": "string",
-      "optional": true,
-      "description": "Pagination bookmark token",
-      "show": {
-        "actions.api": [
-          "listBoards",
-          "listPins",
-          "listBoardSections",
-          "listAdAccounts",
-          "listCampaigns",
-          "listAdGroups",
-          "listAds",
-          "getAdsStats",
-          "listCatalogs",
-          "listProducts"
-        ]
-      }
-    },
-    {
-      "label": "Title",
-      "name": "title",
-      "type": "string",
-      "description": "Title for a new board or catalog",
-      "show": {
-        "actions.api": ["createBoard", "createCatalog"]
-      }
-    },
-    {
-      "label": "Description",
-      "name": "description",
-      "type": "string",
-      "optional": true,
-      "description": "Description for a board, pin, or product",
-      "show": {
-        "actions.api": [
-          "createBoard",
-          "updateBoard",
           "createPin",
-          "updatePin",
-          "createCatalog",
-          "updateCatalog",
-          "createProduct",
-          "updateProduct"
+          "updatePin"
         ]
       }
     },
     {
-      "label": "Link",
-      "name": "link",
+      "label": "Pin Description",
+      "name": "pinDescription",
       "type": "string",
+      "description": "Description for the Pin.",
       "optional": true,
-      "description": "URL the user will be taken to when they click the pin",
       "show": {
-        "actions.api": ["createPin", "updatePin"]
+        "actions.api": [
+          "createPin",
+          "updatePin"
+        ]
+      }
+    },
+    {
+      "label": "Pin Link",
+      "name": "pinLink",
+      "type": "string",
+      "description": "Destination URL for the Pin (optional).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createPin",
+          "updatePin"
+        ]
       }
     },
     {
       "label": "Image URL",
       "name": "imageUrl",
       "type": "string",
-      "description": "URL of the image for a new pin",
+      "description": "Direct URL of an image to use for the Pin (required if no media ID is provided).",
+      "optional": true,
       "show": {
-        "actions.api": ["createPin"]
+        "actions.api": [
+          "createPin"
+        ]
       }
     },
     {
-      "label": "Section Name",
-      "name": "sectionName",
+      "label": "Media Upload ID",
+      "name": "mediaId",
       "type": "string",
-      "description": "Name for a new board section",
+      "description": "The ID of the media upload.",
+      "optional": true,
       "show": {
-        "actions.api": ["createBoardSection", "updateBoardSection"]
+        "actions.api": [
+          "createPin",
+          "getMediaUpload"
+        ]
       }
     },
     {
       "label": "Ad Account ID",
       "name": "adAccountId",
       "type": "string",
-      "description": "The ad account ID for advertising operations",
+      "description": "The ID of the ad account.",
+      "optional": true,
       "show": {
         "actions.api": [
+          "getAdAccount",
           "listCampaigns",
           "createCampaign",
           "getCampaign",
           "updateCampaign",
-          "deleteCampaign",
           "listAdGroups",
           "createAdGroup",
           "getAdGroup",
           "updateAdGroup",
-          "deleteAdGroup",
           "listAds",
           "createAd",
-          "getAd",
           "updateAd",
-          "deleteAd",
-          "getAdsStats",
+          "createAdPreview",
+          "createKeywords",
+          "updateKeywords",
+          "getKeywordMetrics",
+          "listAudiences",
+          "createCustomAudience",
+          "getAudience",
+          "listCustomerLists",
+          "createCustomerList",
+          "getCustomerList",
+          "updateCustomerList",
+          "listConversionTags",
+          "getConversionTag",
+          "createConversionTag",
+          "updateConversionTag",
+          "sendConversionEvents",
+          "listMediaUploads",
+          "createMediaUpload",
+          "getMediaUpload",
+          "listLeadForms",
+          "getLeadForm",
+          "createLeadForm",
+          "updateLeadForm",
+          "createLeadFormTest",
+          "createLeadAdsSubscription",
+          "getLeadAdsSubscription",
+          "deleteLeadAdsSubscription",
           "listCatalogs",
-          "listProducts"
+          "listCatalogFeeds",
+          "createCatalogFeed",
+          "getCatalogFeed",
+          "updateCatalogFeed",
+          "deleteCatalogFeed",
+          "listFeedProcessingResults",
+          "listCatalogItems",
+          "operateCatalogItemBatch",
+          "getCatalogItemBatch",
+          "listProductGroups",
+          "createProductGroup",
+          "getProductGroup",
+          "getProductGroupProductCounts",
+          "getProductGroupProducts",
+          "listProductGroupPromotions",
+          "createProductGroupPromotion",
+          "getProductGroupPromotion",
+          "updateProductGroupPromotion",
+          "getCampaignAnalytics",
+          "getAdGroupAnalytics",
+          "getAdAnalytics",
+          "getProductGroupAnalytics",
+          "getCampaignTargetingAnalytics",
+          "getAdGroupTargetingAnalytics",
+          "getAudienceInsights",
+          "createAnalyticsReport",
+          "getAnalyticsReport"
         ]
       }
     },
@@ -285,14 +786,110 @@
       "label": "Campaign ID",
       "name": "campaignId",
       "type": "string",
-      "description": "The campaign ID",
+      "description": "The ID of the campaign.",
+      "optional": true,
       "show": {
         "actions.api": [
           "getCampaign",
           "updateCampaign",
-          "deleteCampaign",
           "listAdGroups",
-          "getAdsStats"
+          "getCampaignAnalytics",
+          "getCampaignTargetingAnalytics"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Name",
+      "name": "campaignName",
+      "type": "string",
+      "description": "Name of the campaign.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Status",
+      "name": "campaignStatus",
+      "type": "options",
+      "description": "Status of the campaign.",
+      "options": [
+        {
+          "label": "Active",
+          "name": "ACTIVE"
+        },
+        {
+          "label": "Paused",
+          "name": "PAUSED"
+        }
+      ],
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Objective",
+      "name": "campaignObjective",
+      "type": "options",
+      "description": "Advertising objective for the campaign.",
+      "options": [
+        {
+          "label": "Awareness",
+          "name": "AWARENESS"
+        },
+        {
+          "label": "Consideration (Traffic)",
+          "name": "CONSIDERATION"
+        },
+        {
+          "label": "Web Conversion",
+          "name": "WEB_CONVERSION"
+        },
+        {
+          "label": "Catalog Sales",
+          "name": "CATALOG_SALES"
+        },
+        {
+          "label": "Video View",
+          "name": "VIDEO_VIEW"
+        }
+      ],
+      "show": {
+        "actions.api": [
+          "createCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Daily Budget",
+      "name": "dailyBudget",
+      "type": "number",
+      "description": "Daily budget for the campaign (in micro currency, e.g., 1000000 for $1.00).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Lifetime Budget",
+      "name": "lifetimeBudget",
+      "type": "number",
+      "description": "Lifetime budget for the campaign (in micro currency).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
         ]
       }
     },
@@ -300,116 +897,630 @@
       "label": "Ad Group ID",
       "name": "adGroupId",
       "type": "string",
-      "description": "The ad group ID",
+      "description": "The ID of the ad group.",
+      "optional": true,
       "show": {
         "actions.api": [
           "getAdGroup",
           "updateAdGroup",
-          "deleteAdGroup",
           "listAds",
-          "getAdsStats"
+          "getAdGroupAnalytics",
+          "getAdGroupTargetingAnalytics"
         ]
       }
     },
     {
-      "label": "Ad ID",
-      "name": "adId",
+      "label": "Ad Group Name",
+      "name": "adGroupName",
       "type": "string",
-      "description": "The ad ID",
+      "description": "Name of the ad group.",
+      "optional": true,
       "show": {
         "actions.api": [
-          "getAd",
-          "updateAd",
-          "deleteAd",
-          "getAdsStats"
+          "createAdGroup",
+          "updateAdGroup"
         ]
       }
     },
     {
-      "label": "Stats Level",
-      "name": "level",
+      "label": "Ad Group Status",
+      "name": "adGroupStatus",
       "type": "options",
+      "description": "Status of the ad group.",
       "options": [
-        { "label": "ACCOUNT",  "name": "ACCOUNT" },
-        { "label": "CAMPAIGN", "name": "CAMPAIGN" },
-        { "label": "AD_GROUP", "name": "AD_GROUP" },
-        { "label": "AD",       "name": "AD" }
+        {
+          "label": "Active",
+          "name": "ACTIVE"
+        },
+        {
+          "label": "Paused",
+          "name": "PAUSED"
+        }
       ],
-      "default": "ACCOUNT",
-      "description": "Granularity for ads statistics",
+      "optional": true,
       "show": {
-        "actions.api": ["getAdsStats"]
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Start Time",
+      "name": "startTime",
+      "type": "string",
+      "description": "Ad group start time (Unix timestamp in seconds).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "End Time",
+      "name": "endTime",
+      "type": "string",
+      "description": "Ad group end time (Unix timestamp in seconds).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Ad Name",
+      "name": "adName",
+      "type": "string",
+      "description": "Name of the ad (optional label for internal use).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createAd",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Ad Status",
+      "name": "adStatus",
+      "type": "options",
+      "description": "Status of the ad.",
+      "options": [
+        {
+          "label": "Active",
+          "name": "ACTIVE"
+        },
+        {
+          "label": "Paused",
+          "name": "PAUSED"
+        }
+      ],
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createAd",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Keyword ID",
+      "name": "keywordId",
+      "type": "string",
+      "description": "The ID of the keyword.",
+      "show": {
+        "actions.api": [
+          "updateKeywords"
+        ]
+      }
+    },
+    {
+      "label": "Keyword Text",
+      "name": "keywordText",
+      "type": "string",
+      "description": "The keyword text to add (for multiple keywords, separate by commas).",
+      "show": {
+        "actions.api": [
+          "createKeywords"
+        ]
+      }
+    },
+    {
+      "label": "Match Type",
+      "name": "matchType",
+      "type": "options",
+      "description": "Keyword match type.",
+      "options": [
+        {
+          "label": "Broad",
+          "name": "BROAD"
+        },
+        {
+          "label": "Phrase",
+          "name": "PHRASE"
+        },
+        {
+          "label": "Exact",
+          "name": "EXACT"
+        }
+      ],
+      "optional": true,
+      "default": "BROAD",
+      "show": {
+        "actions.api": [
+          "createKeywords"
+        ]
+      }
+    },
+    {
+      "label": "Keyword Bid",
+      "name": "keywordBid",
+      "type": "number",
+      "description": "Max CPC bid for the keyword (in micro currency).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "createKeywords",
+          "updateKeywords"
+        ]
+      }
+    },
+    {
+      "label": "Archived",
+      "name": "archived",
+      "type": "boolean",
+      "description": "Whether to archive (remove) the keyword.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "updateKeywords"
+        ]
+      }
+    },
+    {
+      "label": "Audience ID",
+      "name": "audienceId",
+      "type": "string",
+      "description": "The ID of the audience.",
+      "show": {
+        "actions.api": [
+          "getAudience"
+        ]
+      }
+    },
+    {
+      "label": "Audience Name",
+      "name": "audienceName",
+      "type": "string",
+      "description": "Name of the new audience.",
+      "show": {
+        "actions.api": [
+          "createCustomAudience"
+        ]
+      }
+    },
+    {
+      "label": "Audience Rule",
+      "name": "audienceRule",
+      "type": "json",
+      "description": "Definition of the audience (rule or criteria in JSON).",
+      "show": {
+        "actions.api": [
+          "createCustomAudience"
+        ]
+      }
+    },
+    {
+      "label": "Customer List ID",
+      "name": "customerListId",
+      "type": "string",
+      "description": "The ID of the customer list (audience).",
+      "show": {
+        "actions.api": [
+          "getCustomerList",
+          "updateCustomerList"
+        ]
+      }
+    },
+    {
+      "label": "Customer List Name",
+      "name": "customerListName",
+      "type": "string",
+      "description": "Name of the customer list (audience).",
+      "show": {
+        "actions.api": [
+          "createCustomerList"
+        ]
+      }
+    },
+    {
+      "label": "Customer List Type",
+      "name": "listType",
+      "type": "options",
+      "description": "Type of identifiers in the customer list.",
+      "options": [
+        {
+          "label": "Emails (SHA256 hashed)",
+          "name": "EMAIL"
+        },
+        {
+          "label": "Phone Numbers (SHA256 hashed)",
+          "name": "PHONE"
+        },
+        {
+          "label": "Mobile Ad IDs (SHA256 hashed)",
+          "name": "MADID"
+        }
+      ],
+      "default": "EMAIL",
+      "show": {
+        "actions.api": [
+          "createCustomerList"
+        ]
+      }
+    },
+    {
+      "label": "Records to Add",
+      "name": "recordsToAdd",
+      "type": "string",
+      "description": "New records to add to the customer list (comma or newline separated, hashed as required).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "updateCustomerList"
+        ]
+      }
+    },
+    {
+      "label": "Records to Remove",
+      "name": "recordsToRemove",
+      "type": "string",
+      "description": "Records to remove from the customer list (comma or newline separated, hashed as required).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "updateCustomerList"
+        ]
+      }
+    },
+    {
+      "label": "Conversion Tag ID",
+      "name": "conversionTagId",
+      "type": "string",
+      "description": "The ID of the conversion tag (Pinterest Tag).",
+      "show": {
+        "actions.api": [
+          "getConversionTag",
+          "updateConversionTag"
+        ]
+      }
+    },
+    {
+      "label": "Conversion Tag Name",
+      "name": "conversionTagName",
+      "type": "string",
+      "description": "Name of the conversion tag.",
+      "show": {
+        "actions.api": [
+          "createConversionTag",
+          "updateConversionTag"
+        ]
+      }
+    },
+    {
+      "label": "Conversion Event Data",
+      "name": "conversionData",
+      "type": "json",
+      "description": "Conversion event payload data (JSON object).",
+      "show": {
+        "actions.api": [
+          "sendConversionEvents"
+        ]
+      }
+    },
+    {
+      "label": "Media Content URL",
+      "name": "mediaUrl",
+      "type": "string",
+      "description": "Public URL of the media file to upload (image or video).",
+      "show": {
+        "actions.api": [
+          "createMediaUpload"
+        ]
+      }
+    },
+    {
+      "label": "Media Type",
+      "name": "mediaType",
+      "type": "options",
+      "description": "Type of media being uploaded.",
+      "options": [
+        {
+          "label": "Image",
+          "name": "image"
+        },
+        {
+          "label": "Video",
+          "name": "video"
+        }
+      ],
+      "show": {
+        "actions.api": [
+          "createMediaUpload"
+        ]
+      }
+    },
+    {
+      "label": "Lead Form ID",
+      "name": "leadFormId",
+      "type": "string",
+      "description": "The ID of the lead form.",
+      "show": {
+        "actions.api": [
+          "getLeadForm",
+          "updateLeadForm",
+          "createLeadFormTest",
+          "createLeadAdsSubscription",
+          "getLeadAdsSubscription",
+          "deleteLeadAdsSubscription"
+        ]
+      }
+    },
+    {
+      "label": "Lead Form Data",
+      "name": "leadFormData",
+      "type": "json",
+      "description": "Lead form configuration data (JSON) for creating or updating a form (questions, etc).",
+      "show": {
+        "actions.api": [
+          "createLeadForm",
+          "updateLeadForm"
+        ]
+      }
+    },
+    {
+      "label": "Lead Form Test Data",
+      "name": "leadFormTestData",
+      "type": "json",
+      "description": "Answers data to generate test leads for the form (JSON).",
+      "show": {
+        "actions.api": [
+          "createLeadFormTest"
+        ]
+      }
+    },
+    {
+      "label": "Subscription ID",
+      "name": "subscriptionId",
+      "type": "string",
+      "description": "The ID of the lead ads subscription.",
+      "show": {
+        "actions.api": [
+          "getLeadAdsSubscription",
+          "deleteLeadAdsSubscription"
+        ]
+      }
+    },
+    {
+      "label": "Subscription Callback URL",
+      "name": "subscriptionUrl",
+      "type": "string",
+      "description": "The endpoint URL to receive lead data (webhook) for the subscription.",
+      "show": {
+        "actions.api": [
+          "createLeadAdsSubscription"
+        ]
+      }
+    },
+    {
+      "label": "Search Query",
+      "name": "query",
+      "type": "string",
+      "description": "Search query text.",
+      "show": {
+        "actions.api": [
+          "searchBoards",
+          "searchPins",
+          "searchPartnerPins"
+        ]
+      }
+    },
+    {
+      "label": "Term",
+      "name": "term",
+      "type": "string",
+      "description": "Search term to find related or suggested terms for.",
+      "show": {
+        "actions.api": [
+          "listRelatedTerms",
+          "listSuggestedTerms"
+        ]
       }
     },
     {
       "label": "Start Date",
       "name": "startDate",
       "type": "string",
-      "description": "Start date for stats/reporting (YYYY-MM-DD)",
+      "description": "Start date for analytics data (YYYY-MM-DD).",
       "show": {
-        "actions.api": ["getAdsStats"]
+        "actions.api": [
+          "getUserAccountAnalytics",
+          "getUserTopPinsAnalytics",
+          "getUserTopVideoPinsAnalytics",
+          "getCampaignAnalytics",
+          "getAdGroupAnalytics",
+          "getAdAnalytics",
+          "getProductGroupAnalytics",
+          "getCampaignTargetingAnalytics",
+          "getAdGroupTargetingAnalytics",
+          "createAnalyticsReport"
+        ]
       }
     },
     {
       "label": "End Date",
       "name": "endDate",
       "type": "string",
-      "description": "End date for stats/reporting (YYYY-MM-DD)",
-      "show": {
-        "actions.api": ["getAdsStats"]
-      }
-    },
-    {
-      "label": "Catalog ID",
-      "name": "catalogId",
-      "type": "string",
-      "description": "The catalog ID for product operations",
+      "description": "End date for analytics data (YYYY-MM-DD).",
       "show": {
         "actions.api": [
-          "getCatalog",
-          "updateCatalog",
-          "deleteCatalog",
-          "listProducts",
-          "createProduct"
+          "getUserAccountAnalytics",
+          "getUserTopPinsAnalytics",
+          "getUserTopVideoPinsAnalytics",
+          "getCampaignAnalytics",
+          "getAdGroupAnalytics",
+          "getAdAnalytics",
+          "getProductGroupAnalytics",
+          "getCampaignTargetingAnalytics",
+          "getAdGroupTargetingAnalytics",
+          "createAnalyticsReport"
         ]
       }
     },
     {
-      "label": "Product ID",
-      "name": "productId",
+      "label": "Metrics",
+      "name": "metrics",
       "type": "string",
-      "description": "The product ID",
+      "description": "Comma-separated list of metrics to retrieve (e.g. IMPRESSIONS, CLICKS, etc).",
       "show": {
         "actions.api": [
-          "getProduct",
-          "updateProduct",
-          "deleteProduct"
+          "getUserAccountAnalytics",
+          "getUserTopPinsAnalytics",
+          "getUserTopVideoPinsAnalytics",
+          "getCampaignAnalytics",
+          "getAdGroupAnalytics",
+          "getAdAnalytics",
+          "getProductGroupAnalytics",
+          "getCampaignTargetingAnalytics",
+          "getAdGroupTargetingAnalytics",
+          "createAnalyticsReport"
         ]
       }
     },
     {
-      "label": "Body (JSON)",
-      "name": "body",
-      "type": "string",
-      "description": "Raw JSON request body for create/update operations",
+      "label": "Granularity",
+      "name": "granularity",
+      "type": "options",
+      "description": "Time granularity for analytics (data aggregation).",
+      "options": [
+        {
+          "label": "Day",
+          "name": "DAY"
+        },
+        {
+          "label": "Hour",
+          "name": "HOUR"
+        },
+        {
+          "label": "Total",
+          "name": "TOTAL"
+        }
+      ],
+      "optional": true,
+      "default": "DAY",
       "show": {
         "actions.api": [
-          "createBoard",
-          "updateBoard",
-          "createPin",
-          "updatePin",
-          "createBoardSection",
-          "updateBoardSection",
-          "createCampaign",
-          "updateCampaign",
-          "createAdGroup",
-          "updateAdGroup",
-          "createAd",
-          "updateAd",
-          "createCatalog",
-          "updateCatalog",
-          "createProduct",
-          "updateProduct"
+          "getCampaignAnalytics",
+          "getAdGroupAnalytics",
+          "getAdAnalytics",
+          "getProductGroupAnalytics",
+          "getCampaignTargetingAnalytics",
+          "getAdGroupTargetingAnalytics",
+          "createAnalyticsReport"
+        ]
+      }
+    },
+    {
+      "label": "Report Token",
+      "name": "reportToken",
+      "type": "string",
+      "description": "Token of the analytics report to retrieve (from a previous create report call).",
+      "show": {
+        "actions.api": [
+          "getAnalyticsReport"
+        ]
+      }
+    },
+    {
+      "label": "Page Size",
+      "name": "pageSize",
+      "type": "number",
+      "description": "Number of items per page (for paginated results).",
+      "optional": true,
+      "default": 25,
+      "show": {
+        "actions.api": [
+          "listBoards",
+          "listBoardSections",
+          "listBoardPins",
+          "listBoardSectionPins",
+          "listPins",
+          "searchBoards",
+          "searchPins",
+          "searchPartnerPins",
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "listAudiences",
+          "listCustomerLists",
+          "listConversionTags",
+          "listMediaUploads",
+          "listLeadForms",
+          "listCatalogFeeds",
+          "listFeedProcessingResults",
+          "listCatalogItems",
+          "listProductGroups",
+          "getProductGroupProducts",
+          "listProductGroupPromotions",
+          "listRelatedTerms",
+          "listSuggestedTerms",
+          "listLinkedBusinesses",
+          "listFollowers",
+          "listFollowingUsers",
+          "listFollowingBoards"
+        ]
+      }
+    },
+    {
+      "label": "Page Bookmark",
+      "name": "bookmark",
+      "type": "string",
+      "description": "Cursor for pagination (for fetching the next page of results).",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listBoards",
+          "listBoardSections",
+          "listBoardPins",
+          "listBoardSectionPins",
+          "listPins",
+          "searchBoards",
+          "searchPins",
+          "searchPartnerPins",
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "listAudiences",
+          "listCustomerLists",
+          "listConversionTags",
+          "listMediaUploads",
+          "listLeadForms",
+          "listCatalogFeeds",
+          "listFeedProcessingResults",
+          "listCatalogItems",
+          "listProductGroups",
+          "getProductGroupProducts",
+          "listProductGroupPromotions",
+          "listRelatedTerms",
+          "listSuggestedTerms",
+          "listLinkedBusinesses",
+          "listFollowers",
+          "listFollowingUsers",
+          "listFollowingBoards"
         ]
       }
     }
