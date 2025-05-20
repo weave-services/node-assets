@@ -14755,6 +14755,171 @@
       "show": { "actions.api": ["getPublicProfile"] }
     }
   ]
+},
+	{
+  "label": "Google Slides",
+  "name": "googleSlides",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/d1110cbcea39b85e1a32837a2458325e9be3821c/node-list/node-schemas/google-slides.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/d1110cbcea39b85e1a32837a2458325e9be3821c/node-list/node-schemas/google-slides.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/d1110cbcea39b85e1a32837a2458325e9be3821c/node-list/node-schemas/google-slides.svg"
+  },
+  "type": "action",
+  "category": "Productivity",
+  "version": 1,
+  "description": "Create, retrieve, and update Google Slides presentations and pages",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Create presentation",
+          "name": "createPresentation"
+        },
+        {
+          "label": "Get presentation",
+          "name": "getPresentation"
+        },
+        {
+          "label": "Batch update presentation",
+          "name": "batchUpdatePresentation"
+        },
+        {
+          "label": "Get page",
+          "name": "getPage"
+        },
+        {
+          "label": "Get page thumbnail",
+          "name": "getPageThumbnail"
+        }
+      ],
+      "default": "getPresentation"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "Google OAuth",
+          "name": "google"
+        }
+      ],
+      "default": "google"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Presentation ID",
+      "name": "presentationId",
+      "type": "string",
+      "description": "The ID of the presentation",
+      "show": {
+        "actions.operation": [
+          "getPresentation",
+          "batchUpdatePresentation",
+          "getPage",
+          "getPageThumbnail"
+        ]
+      }
+    },
+    {
+      "label": "Title",
+      "name": "title",
+      "type": "string",
+      "description": "Title for the new presentation",
+      "show": {
+        "actions.operation": [
+          "createPresentation"
+        ]
+      }
+    },
+    {
+      "label": "Requests (JSON Array)",
+      "name": "requests",
+      "type": "string",
+      "description": "A JSON array of request objects for batchUpdate",
+      "show": {
+        "actions.operation": [
+          "batchUpdatePresentation"
+        ]
+      }
+    },
+    {
+      "label": "Page Object ID",
+      "name": "pageObjectId",
+      "type": "string",
+      "description": "The object ID of the page",
+      "show": {
+        "actions.operation": [
+          "getPage",
+          "getPageThumbnail"
+        ]
+      }
+    },
+    {
+      "label": "Thumbnail Format",
+      "name": "thumbnailFormat",
+      "type": "options",
+      "options": [
+        {
+          "label": "UNSPECIFIED",
+          "name": "IMAGE_FORMAT_UNSPECIFIED"
+        },
+        {
+          "label": "PNG",
+          "name": "PNG"
+        },
+        {
+          "label": "JPEG",
+          "name": "JPEG"
+        }
+      ],
+      "description": "Image format for the thumbnail",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getPageThumbnail"
+        ]
+      }
+    },
+    {
+      "label": "Thumbnail Size",
+      "name": "thumbnailSize",
+      "type": "options",
+      "options": [
+        {
+          "label": "DEFAULT",
+          "name": "THUMBNAIL_SIZE_UNSPECIFIED"
+        },
+        {
+          "label": "SMALL",
+          "name": "THUMBNAIL_SIZE_SMALL"
+        },
+        {
+          "label": "MEDIUM",
+          "name": "THUMBNAIL_SIZE_MEDIUM"
+        },
+        {
+          "label": "LARGE",
+          "name": "THUMBNAIL_SIZE_LARGE"
+        }
+      ],
+      "description": "Size of the thumbnail image",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "getPageThumbnail"
+        ]
+      }
+    }
+  ]
 }
 
 
