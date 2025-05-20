@@ -2,9 +2,9 @@
   "label": "Apify",
   "name": "apify",
   "icons": {
-    "default": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg",
-    "light": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg",
-    "dark": "https://upload.wikimedia.org/wikipedia/commons/2/28/Apify-logo.svg"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/apify.png"
   },
   "type": "action",
   "category": "Web Scraping",
