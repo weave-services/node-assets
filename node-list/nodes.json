@@ -13646,6 +13646,771 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/GoogleDrive/GoogleDrive.js"
+},
+	{
+  "label": "TikTok",
+  "name": "tiktok",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/blue.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tiktok.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/darktik.jpg"
+  },
+  "type": "action",
+  "category": "Social Media",
+  "version": 1,
+  "description": "Perform TikTok API operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get User Info",
+          "name": "getUserInfo",
+          "description": "Retrieve basic profile information of the authenticated TikTok user."
+        },
+        {
+          "label": "Query Creator Info",
+          "name": "queryCreatorInfo",
+          "description": "Query the authenticated creator's profile and privacy settings for posting."
+        },
+        {
+          "label": "List Videos",
+          "name": "listVideos",
+          "description": "List the authenticated user's TikTok video posts."
+        },
+        {
+          "label": "Get Video Details",
+          "name": "getVideoDetails",
+          "description": "Get detailed information and metrics for a specified TikTok video."
+        },
+        {
+          "label": "Post Video",
+          "name": "postVideo",
+          "description": "Publish a new video to the authenticated user's TikTok account."
+        },
+        {
+          "label": "Post Photo",
+          "name": "postPhoto",
+          "description": "Publish a new photo post (carousel) to the authenticated user's TikTok account."
+        },
+        {
+          "label": "Get Post Status",
+          "name": "getPostStatus",
+          "description": "Fetch the upload/publish status of a recently posted video or photo."
+        },
+        {
+          "label": "List Comments",
+          "name": "listComments",
+          "description": "Retrieve comments on a specified TikTok video (for the authenticated user's post)."
+        },
+        {
+          "label": "Post Comment",
+          "name": "postComment",
+          "description": "Publish a new comment or reply on a specified TikTok video."
+        },
+        {
+          "label": "Delete Comment",
+          "name": "deleteComment",
+          "description": "Delete (hide) a comment on a TikTok video."
+        },
+        {
+          "label": "List Ad Accounts",
+          "name": "listAdAccounts",
+          "description": "Get the list of TikTok Ads (advertiser) accounts accessible by the authenticated business user."
+        },
+        {
+          "label": "Get Campaigns",
+          "name": "getCampaigns",
+          "description": "Retrieve advertising campaigns under a specified TikTok Ads account."
+        },
+        {
+          "label": "Create Campaign",
+          "name": "createCampaign",
+          "description": "Create a new advertising campaign in a TikTok Ads account."
+        },
+        {
+          "label": "Update Campaign",
+          "name": "updateCampaign",
+          "description": "Update settings of an existing advertising campaign."
+        },
+        {
+          "label": "Get Ad Groups",
+          "name": "getAdGroups",
+          "description": "Retrieve ad groups (ad sets) under a specified campaign or TikTok Ads account."
+        },
+        {
+          "label": "Create Ad Group",
+          "name": "createAdGroup",
+          "description": "Create a new ad group (ad set) in a specified campaign."
+        },
+        {
+          "label": "Update Ad Group",
+          "name": "updateAdGroup",
+          "description": "Update settings of an existing ad group."
+        },
+        {
+          "label": "Get Ads",
+          "name": "getAds",
+          "description": "Retrieve ads under a specified ad group, campaign, or TikTok Ads account."
+        },
+        {
+          "label": "Create Ad",
+          "name": "createAd",
+          "description": "Create a new advertisement in a specified ad group."
+        },
+        {
+          "label": "Update Ad",
+          "name": "updateAd",
+          "description": "Update settings or status of an existing ad."
+        },
+        {
+          "label": "Get Ads Report",
+          "name": "getAdsReport",
+          "description": "Fetch performance metrics and reports for a TikTok Ads account, campaign, ad group, or ad."
+        },
+        {
+          "label": "Search Creators",
+          "name": "searchCreators",
+          "description": "Search for creators on the TikTok Creator Marketplace based on filters like name, followers, etc."
+        },
+        {
+          "label": "Get Creator Details",
+          "name": "getCreatorDetails",
+          "description": "Retrieve detailed profile and audience insights for a specific creator on the TikTok Creator Marketplace."
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "TikTok OAuth",
+          "name": "tiktokOAuth"
+        }
+      ],
+      "default": "tiktokOAuth"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Advertiser ID",
+      "name": "advertiserId",
+      "type": "string",
+      "description": "TikTok Ads account ID (advertiser_id) for Business API operations.",
+      "show": {
+        "actions.api": [
+          "getCampaigns",
+          "createCampaign",
+          "updateCampaign",
+          "getAdGroups",
+          "createAdGroup",
+          "updateAdGroup",
+          "getAds",
+          "createAd",
+          "updateAd",
+          "getAdsReport",
+          "searchCreators",
+          "getCreatorDetails"
+        ]
+      }
+    },
+    {
+      "label": "Cursor",
+      "name": "cursor",
+      "type": "string",
+      "optional": true,
+      "description": "Pagination cursor (timestamp or index) for fetching the next page of results.",
+      "show": {
+        "actions.api": [
+          "listVideos",
+          "listComments"
+        ]
+      }
+    },
+    {
+      "label": "Max Results",
+      "name": "maxCount",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum number of items to retrieve.",
+      "default": 20,
+      "show": {
+        "actions.api": [
+          "listVideos",
+          "listComments"
+        ]
+      }
+    },
+    {
+      "label": "Video ID",
+      "name": "videoId",
+      "type": "string",
+      "description": "The TikTok video ID.",
+      "show": {
+        "actions.api": [
+          "getVideoDetails",
+          "listComments",
+          "postComment",
+          "deleteComment"
+        ]
+      }
+    },
+    {
+      "label": "Publish ID",
+      "name": "publishId",
+      "type": "string",
+      "description": "The publish_id returned when posting content, used to check upload status.",
+      "show": {
+        "actions.api": [
+          "getPostStatus"
+        ]
+      }
+    },
+    {
+      "label": "Caption",
+      "name": "caption",
+      "type": "string",
+      "optional": true,
+      "description": "Caption text for the TikTok post (video or photo).",
+      "show": {
+        "actions.api": [
+          "postVideo",
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Video URL",
+      "name": "videoUrl",
+      "type": "string",
+      "description": "Direct URL to the video file to upload.",
+      "show": {
+        "actions.api": [
+          "postVideo"
+        ]
+      }
+    },
+    {
+      "label": "Photo URLs",
+      "name": "photoUrls",
+      "type": "string",
+      "description": "Comma-separated URLs of images for the photo post.",
+      "show": {
+        "actions.api": [
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Disable Comments",
+      "name": "disableComment",
+      "type": "boolean",
+      "optional": true,
+      "description": "Set to true to disable comments on the post.",
+      "default": false,
+      "show": {
+        "actions.api": [
+          "postVideo",
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Disable Duet",
+      "name": "disableDuet",
+      "type": "boolean",
+      "optional": true,
+      "description": "Set to true to disable Duet on the post.",
+      "default": false,
+      "show": {
+        "actions.api": [
+          "postVideo",
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Disable Stitch",
+      "name": "disableStitch",
+      "type": "boolean",
+      "optional": true,
+      "description": "Set to true to disable Stitch on the post.",
+      "default": false,
+      "show": {
+        "actions.api": [
+          "postVideo",
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Visibility",
+      "name": "privacyLevel",
+      "type": "options",
+      "options": [
+        {
+          "label": "Public (Everyone)",
+          "name": "PUBLIC_TO_EVERYONE"
+        },
+        {
+          "label": "Followers",
+          "name": "FOLLOWER_OF_CREATOR"
+        },
+        {
+          "label": "Friends (Mutual Followers)",
+          "name": "MUTUAL_FOLLOW_FRIENDS"
+        },
+        {
+          "label": "Private (Only Me)",
+          "name": "SELF_ONLY"
+        }
+      ],
+      "description": "Privacy level for the post's visibility.",
+      "default": "PUBLIC_TO_EVERYONE",
+      "show": {
+        "actions.api": [
+          "postVideo",
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Auto Add Music",
+      "name": "autoAddMusic",
+      "type": "boolean",
+      "optional": true,
+      "description": "For photo posts, set to true to automatically add background music.",
+      "default": false,
+      "show": {
+        "actions.api": [
+          "postPhoto"
+        ]
+      }
+    },
+    {
+      "label": "Comment Text",
+      "name": "commentText",
+      "type": "string",
+      "description": "Text content of the comment to post.",
+      "show": {
+        "actions.api": [
+          "postComment"
+        ]
+      }
+    },
+    {
+      "label": "Parent Comment ID",
+      "name": "parentCommentId",
+      "type": "string",
+      "optional": true,
+      "description": "If replying to a comment, the ID of the parent comment.",
+      "show": {
+        "actions.api": [
+          "postComment"
+        ]
+      }
+    },
+    {
+      "label": "Comment ID",
+      "name": "commentId",
+      "type": "string",
+      "description": "The ID of the comment to delete.",
+      "show": {
+        "actions.api": [
+          "deleteComment"
+        ]
+      }
+    },
+    {
+      "label": "Campaign ID",
+      "name": "campaignId",
+      "type": "string",
+      "description": "Advertising campaign ID.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "getAdGroups",
+          "createAdGroup",
+          "getAds"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group ID",
+      "name": "adGroupId",
+      "type": "string",
+      "description": "Advertising ad group (ad set) ID.",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "updateAdGroup",
+          "getAds",
+          "createAd"
+        ]
+      }
+    },
+    {
+      "label": "Ad ID",
+      "name": "adId",
+      "type": "string",
+      "description": "Advertising ad ID.",
+      "show": {
+        "actions.api": [
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Name",
+      "name": "campaignName",
+      "type": "string",
+      "description": "Name of the advertising campaign.",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Objective",
+      "name": "campaignObjective",
+      "type": "options",
+      "options": [
+        {
+          "label": "Reach",
+          "name": "REACH"
+        },
+        {
+          "label": "Traffic",
+          "name": "TRAFFIC"
+        },
+        {
+          "label": "App Install",
+          "name": "APP_INSTALL"
+        },
+        {
+          "label": "Video Views",
+          "name": "VIDEO_VIEWS"
+        },
+        {
+          "label": "Lead Generation",
+          "name": "LEAD_GENERATION"
+        },
+        {
+          "label": "Conversions",
+          "name": "CONVERSIONS"
+        }
+      ],
+      "description": "Objective type for the campaign (e.g. Traffic, Conversions).",
+      "show": {
+        "actions.api": [
+          "createCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Budget",
+      "name": "campaignBudget",
+      "type": "number",
+      "optional": true,
+      "description": "Total budget for the campaign.",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Budget Type",
+      "name": "campaignBudgetType",
+      "type": "options",
+      "options": [
+        {
+          "label": "Daily",
+          "name": "DAILY"
+        },
+        {
+          "label": "Lifetime",
+          "name": "LIFETIME"
+        }
+      ],
+      "optional": true,
+      "description": "Budget type for the campaign (daily or lifetime).",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign"
+        ]
+      }
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "options",
+      "options": [
+        {
+          "label": "Enabled/Active",
+          "name": "ENABLE"
+        },
+        {
+          "label": "Paused/Disabled",
+          "name": "DISABLE"
+        }
+      ],
+      "description": "Status to set (active or paused).",
+      "show": {
+        "actions.api": [
+          "updateCampaign",
+          "updateAdGroup",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group Name",
+      "name": "adGroupName",
+      "type": "string",
+      "description": "Name of the ad group.",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Start Date",
+      "name": "startDate",
+      "type": "string",
+      "optional": true,
+      "description": "Start date/time for the ad group (YYYY-MM-DD or YYYY-MM-DD HH:MM).",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "End Date",
+      "name": "endDate",
+      "type": "string",
+      "optional": true,
+      "description": "End date/time for the ad group (leave blank for ongoing).",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group Budget",
+      "name": "adGroupBudget",
+      "type": "number",
+      "optional": true,
+      "description": "Budget for the ad group.",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group Budget Type",
+      "name": "adGroupBudgetType",
+      "type": "options",
+      "options": [
+        {
+          "label": "Daily",
+          "name": "DAILY"
+        },
+        {
+          "label": "Lifetime",
+          "name": "LIFETIME"
+        }
+      ],
+      "optional": true,
+      "description": "Budget type for the ad group (daily or lifetime).",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Bid",
+      "name": "bid",
+      "type": "number",
+      "optional": true,
+      "description": "Bid amount for the ad group (if applicable).",
+      "show": {
+        "actions.api": [
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Ad Name",
+      "name": "adName",
+      "type": "string",
+      "description": "Name of the ad (creative).",
+      "show": {
+        "actions.api": [
+          "createAd",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Ad Text",
+      "name": "adText",
+      "type": "string",
+      "optional": true,
+      "description": "Text caption or call-to-action text for the ad.",
+      "show": {
+        "actions.api": [
+          "createAd",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Ad Video ID",
+      "name": "adVideoId",
+      "type": "string",
+      "description": "Video asset ID for the ad creative.",
+      "show": {
+        "actions.api": [
+          "createAd"
+        ]
+      }
+    },
+    {
+      "label": "Report Level",
+      "name": "reportLevel",
+      "type": "options",
+      "options": [
+        {
+          "label": "Advertiser",
+          "name": "ADVERTISER"
+        },
+        {
+          "label": "Campaign",
+          "name": "CAMPAIGN"
+        },
+        {
+          "label": "Ad Group",
+          "name": "ADGROUP"
+        },
+        {
+          "label": "Ad",
+          "name": "AD"
+        }
+      ],
+      "description": "Level of entity for which to retrieve the report (account, campaign, ad group, or ad).",
+      "show": {
+        "actions.api": [
+          "getAdsReport"
+        ]
+      }
+    },
+    {
+      "label": "Start Date",
+      "name": "reportStartDate",
+      "type": "string",
+      "description": "Start date for the reporting period (YYYY-MM-DD).",
+      "show": {
+        "actions.api": [
+          "getAdsReport"
+        ]
+      }
+    },
+    {
+      "label": "End Date",
+      "name": "reportEndDate",
+      "type": "string",
+      "description": "End date for the reporting period (YYYY-MM-DD).",
+      "show": {
+        "actions.api": [
+          "getAdsReport"
+        ]
+      }
+    },
+    {
+      "label": "Search Keyword",
+      "name": "keyword",
+      "type": "string",
+      "optional": true,
+      "description": "Keyword or name to search for creators.",
+      "show": {
+        "actions.api": [
+          "searchCreators"
+        ]
+      }
+    },
+    {
+      "label": "Min Followers",
+      "name": "minFollowers",
+      "type": "number",
+      "optional": true,
+      "description": "Minimum number of followers filter for searching creators.",
+      "show": {
+        "actions.api": [
+          "searchCreators"
+        ]
+      }
+    },
+    {
+      "label": "Max Followers",
+      "name": "maxFollowers",
+      "type": "number",
+      "optional": true,
+      "description": "Maximum number of followers filter for searching creators.",
+      "show": {
+        "actions.api": [
+          "searchCreators"
+        ]
+      }
+    },
+    {
+      "label": "Country",
+      "name": "country",
+      "type": "string",
+      "optional": true,
+      "description": "Country code filter for creator search (e.g., US).",
+      "show": {
+        "actions.api": [
+          "searchCreators"
+        ]
+      }
+    },
+    {
+      "label": "Creator ID",
+      "name": "creatorId",
+      "type": "string",
+      "description": "Unique ID of the creator on the Creator Marketplace.",
+      "show": {
+        "actions.api": [
+          "getCreatorDetails"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/TikTok/TikTok.js"
 }
 
 	
