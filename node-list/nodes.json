@@ -959,6 +959,618 @@
     }
   ]
 },
+	{
+  "label": "YouTube Data API",
+  "name": "youtubeDataApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/youtube.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/youtube.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/youtube.png"
+  },
+  "type": "action",
+  "category": "Social Media",
+  "version": 1,
+  "description": "Perform YouTube Data API v3 operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Activities",
+          "name": "listActivities",
+          "description": "Retrieve a list of channel activity events"
+        },
+        {
+          "label": "Insert Activity",
+          "name": "insertActivity",
+          "description": "Post a bulletin to a channel (Deprecated)"
+        },
+        {
+          "label": "List Captions",
+          "name": "listCaptions",
+          "description": "Retrieve a list of caption tracks for a video"
+        },
+        {
+          "label": "Insert Caption",
+          "name": "insertCaption",
+          "description": "Upload a caption track for a video"
+        },
+        {
+          "label": "Update Caption",
+          "name": "updateCaption",
+          "description": "Update an existing caption track"
+        },
+        {
+          "label": "Download Caption",
+          "name": "downloadCaption",
+          "description": "Download a caption track file"
+        },
+        {
+          "label": "Delete Caption",
+          "name": "deleteCaption",
+          "description": "Delete a caption track"
+        },
+        {
+          "label": "Insert Channel Banner",
+          "name": "insertChannelBanner",
+          "description": "Upload a channel banner image"
+        },
+        {
+          "label": "List Channels",
+          "name": "listChannels",
+          "description": "Retrieve a list of channels"
+        },
+        {
+          "label": "Update Channel",
+          "name": "updateChannel",
+          "description": "Update channel branding or localization settings"
+        },
+        {
+          "label": "List Channel Sections",
+          "name": "listChannelSections",
+          "description": "Retrieve a list of channel sections"
+        },
+        {
+          "label": "Insert Channel Section",
+          "name": "insertChannelSection",
+          "description": "Create a new channel section"
+        },
+        {
+          "label": "Update Channel Section",
+          "name": "updateChannelSection",
+          "description": "Update a channel section"
+        },
+        {
+          "label": "Delete Channel Section",
+          "name": "deleteChannelSection",
+          "description": "Delete a channel section"
+        },
+        {
+          "label": "List Comments",
+          "name": "listComments",
+          "description": "Retrieve a list of comments (replies)"
+        },
+        {
+          "label": "Insert Comment",
+          "name": "insertComment",
+          "description": "Reply to an existing comment"
+        },
+        {
+          "label": "Update Comment",
+          "name": "updateComment",
+          "description": "Update an existing comment's text"
+        },
+        {
+          "label": "Mark Comment as Spam",
+          "name": "markCommentAsSpam",
+          "description": "Mark a comment as spam"
+        },
+        {
+          "label": "Set Comment Moderation Status",
+          "name": "setCommentModerationStatus",
+          "description": "Moderate a comment (approve or reject)"
+        },
+        {
+          "label": "Delete Comment",
+          "name": "deleteComment",
+          "description": "Delete a comment"
+        },
+        {
+          "label": "List Comment Threads",
+          "name": "listCommentThreads",
+          "description": "Retrieve a list of comment threads"
+        },
+        {
+          "label": "Insert Comment Thread",
+          "name": "insertCommentThread",
+          "description": "Post a new top-level comment"
+        },
+        {
+          "label": "List Guide Categories",
+          "name": "listGuideCategories",
+          "description": "Retrieve a list of guide categories"
+        },
+        {
+          "label": "List i18n Languages",
+          "name": "listI18nLanguages",
+          "description": "Retrieve supported application languages"
+        },
+        {
+          "label": "List i18n Regions",
+          "name": "listI18nRegions",
+          "description": "Retrieve supported regions for videos"
+        },
+        {
+          "label": "List Members",
+          "name": "listMembers",
+          "description": "Retrieve a list of channel members"
+        },
+        {
+          "label": "List Membership Levels",
+          "name": "listMembershipLevels",
+          "description": "Retrieve a list of channel membership levels"
+        },
+        {
+          "label": "List Playlist Images",
+          "name": "listPlaylistImages",
+          "description": "Retrieve a list of images for a playlist"
+        },
+        {
+          "label": "Insert Playlist Image",
+          "name": "insertPlaylistImage",
+          "description": "Upload a new image to a playlist"
+        },
+        {
+          "label": "Update Playlist Image",
+          "name": "updatePlaylistImage",
+          "description": "Update (replace) an existing playlist image"
+        },
+        {
+          "label": "Delete Playlist Image",
+          "name": "deletePlaylistImage",
+          "description": "Delete a playlist image"
+        },
+        {
+          "label": "List Playlist Items",
+          "name": "listPlaylistItems",
+          "description": "Retrieve a list of items in a playlist"
+        },
+        {
+          "label": "Insert Playlist Item",
+          "name": "insertPlaylistItem",
+          "description": "Add a video to a playlist"
+        },
+        {
+          "label": "Update Playlist Item",
+          "name": "updatePlaylistItem",
+          "description": "Update an item in a playlist"
+        },
+        {
+          "label": "Delete Playlist Item",
+          "name": "deletePlaylistItem",
+          "description": "Remove an item from a playlist"
+        },
+        {
+          "label": "List Playlists",
+          "name": "listPlaylists",
+          "description": "Retrieve a list of playlists"
+        },
+        {
+          "label": "Insert Playlist",
+          "name": "insertPlaylist",
+          "description": "Create a new playlist"
+        },
+        {
+          "label": "Update Playlist",
+          "name": "updatePlaylist",
+          "description": "Update a playlist's metadata"
+        },
+        {
+          "label": "Delete Playlist",
+          "name": "deletePlaylist",
+          "description": "Delete a playlist"
+        },
+        {
+          "label": "Search",
+          "name": "search",
+          "description": "Search for videos, channels, or playlists"
+        },
+        {
+          "label": "List Subscriptions",
+          "name": "listSubscriptions",
+          "description": "Retrieve a list of subscriptions"
+        },
+        {
+          "label": "Insert Subscription",
+          "name": "insertSubscription",
+          "description": "Subscribe to a channel"
+        },
+        {
+          "label": "Delete Subscription",
+          "name": "deleteSubscription",
+          "description": "Unsubscribe from a channel"
+        },
+        {
+          "label": "Set Thumbnail",
+          "name": "setThumbnail",
+          "description": "Upload a custom thumbnail for a video"
+        },
+        {
+          "label": "List Video Abuse Report Reasons",
+          "name": "listVideoAbuseReportReasons",
+          "description": "Retrieve a list of abuse report reasons"
+        },
+        {
+          "label": "List Video Categories",
+          "name": "listVideoCategories",
+          "description": "Retrieve a list of video categories"
+        },
+        {
+          "label": "List Videos",
+          "name": "listVideos",
+          "description": "Retrieve a list of videos"
+        },
+        {
+          "label": "Insert Video",
+          "name": "insertVideo",
+          "description": "Upload a new video"
+        },
+        {
+          "label": "Update Video",
+          "name": "updateVideo",
+          "description": "Update a video's metadata"
+        },
+        {
+          "label": "Rate Video",
+          "name": "rateVideo",
+          "description": "Rate a video (like/dislike)"
+        },
+        {
+          "label": "Get Video Rating",
+          "name": "getVideoRating",
+          "description": "Retrieve the current user's rating for a video"
+        },
+        {
+          "label": "Report Video Abuse",
+          "name": "reportVideoAbuse",
+          "description": "Report a video for abuse"
+        },
+        {
+          "label": "Delete Video",
+          "name": "deleteVideo",
+          "description": "Delete a video"
+        },
+        {
+          "label": "Set Watermark",
+          "name": "setWatermark",
+          "description": "Set a channel watermark image"
+        },
+        {
+          "label": "Unset Watermark",
+          "name": "unsetWatermark",
+          "description": "Remove the channel watermark"
+        }
+      ],
+      "default": "listActivities"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "Google OAuth",
+          "name": "googleOAuth"
+        }
+      ],
+      "default": "googleOAuth"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Part",
+      "name": "part",
+      "type": "string",
+      "description": "Comma-separated list of resource parts to include in the response",
+      "show": {
+        "actions.api": [
+          "listActivities",
+          "insertActivity",
+          "listCaptions",
+          "insertCaption",
+          "updateCaption",
+          "listChannels",
+          "updateChannel",
+          "listChannelSections",
+          "insertChannelSection",
+          "updateChannelSection",
+          "listComments",
+          "insertComment",
+          "updateComment",
+          "listCommentThreads",
+          "insertCommentThread",
+          "listGuideCategories",
+          "listI18nLanguages",
+          "listI18nRegions",
+          "listMembers",
+          "listMembershipLevels",
+          "listPlaylistImages",
+          "insertPlaylistImage",
+          "updatePlaylistImage",
+          "listPlaylistItems",
+          "insertPlaylistItem",
+          "updatePlaylistItem",
+          "listPlaylists",
+          "insertPlaylist",
+          "updatePlaylist",
+          "search",
+          "listSubscriptions",
+          "insertSubscription",
+          "listVideoAbuseReportReasons",
+          "listVideoCategories",
+          "listVideos",
+          "insertVideo",
+          "updateVideo"
+        ]
+      }
+    },
+    {
+      "label": "Channel ID",
+      "name": "channelId",
+      "type": "string",
+      "description": "ID of the channel",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listActivities",
+          "listChannels",
+          "listChannelSections",
+          "insertChannelBanner",
+          "listCommentThreads",
+          "insertCommentThread",
+          "listPlaylistItems",
+          "listPlaylists",
+          "listSubscriptions",
+          "insertSubscription",
+          "setWatermark",
+          "unsetWatermark"
+        ]
+      }
+    },
+    {
+      "label": "Mine",
+      "name": "mine",
+      "type": "boolean",
+      "description": "If true, use the authenticated user's channel",
+      "optional": true,
+      "default": false,
+      "show": {
+        "actions.api": [
+          "listActivities",
+          "listChannels",
+          "listChannelSections",
+          "listPlaylists",
+          "listSubscriptions"
+        ]
+      }
+    },
+    {
+      "label": "Include Home Activities (Deprecated)",
+      "name": "home",
+      "type": "boolean",
+      "description": "If true, retrieve home feed activities (deprecated)",
+      "optional": true,
+      "default": false,
+      "show": {
+        "actions.api": [
+          "listActivities"
+        ]
+      }
+    },
+    {
+      "label": "Published After",
+      "name": "publishedAfter",
+      "type": "string",
+      "description": "ISO 8601 dateTime to filter activities published after this time",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listActivities"
+        ]
+      }
+    },
+    {
+      "label": "Published Before",
+      "name": "publishedBefore",
+      "type": "string",
+      "description": "ISO 8601 dateTime to filter activities published before this time",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listActivities"
+        ]
+      }
+    },
+    {
+      "label": "Region Code",
+      "name": "regionCode",
+      "type": "string",
+      "description": "ISO country code",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listActivities",
+          "listGuideCategories",
+          "listVideoCategories",
+          "search",
+          "listVideos"
+        ]
+      }
+    },
+    {
+      "label": "Description",
+      "name": "description",
+      "type": "string",
+      "description": "Bulletin text to post",
+      "show": {
+        "actions.api": [
+          "insertActivity",
+          "insertPlaylist",
+          "updatePlaylist",
+          "insertVideo",
+          "updateVideo"
+        ]
+      }
+    },
+    {
+      "label": "Resource ID",
+      "name": "resourceId",
+      "type": "string",
+      "description": "ID of the resource (video or playlist) to attach in the bulletin",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "insertActivity"
+        ]
+      }
+    },
+    {
+      "label": "Video ID",
+      "name": "videoId",
+      "type": "string",
+      "description": "Video ID",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listCaptions",
+          "listPlaylistItems",
+          "insertPlaylistItem",
+          "listVideos",
+          "insertVideo",
+          "updateVideo",
+          "rateVideo",
+          "getVideoRating",
+          "reportVideoAbuse",
+          "deleteVideo"
+        ]
+      }
+    },
+    {
+      "label": "Caption ID",
+      "name": "captionId",
+      "type": "string",
+      "description": "Caption track ID",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listCaptions",
+          "downloadCaption",
+          "deleteCaption"
+        ]
+      }
+    },
+    {
+      "label": "Language",
+      "name": "language",
+      "type": "string",
+      "description": "Caption language (ISO 639-1 code)",
+      "show": {
+        "actions.api": [
+          "insertCaption",
+          "reportVideoAbuse"
+        ]
+      }
+    },
+    {
+      "label": "Caption Name",
+      "name": "captionName",
+      "type": "string",
+      "description": "Name of the caption track",
+      "show": {
+        "actions.api": [
+          "insertCaption"
+        ]
+      }
+    },
+    {
+      "label": "Is Draft",
+      "name": "isDraft",
+      "type": "boolean",
+      "description": "Whether to mark the caption track as draft (unpublished)",
+      "optional": true,
+      "default": false,
+      "show": {
+        "actions.api": [
+          "insertCaption",
+          "updateCaption"
+        ]
+      }
+    },
+    {
+      "label": "Synchronize Timings",
+      "name": "sync",
+      "type": "boolean",
+      "description": "Auto-synchronize captions with the video track (deprecated)",
+      "optional": true,
+      "default": false,
+      "show": {
+        "actions.api": [
+          "insertCaption",
+          "updateCaption"
+        ]
+      }
+    },
+    {
+      "label": "Caption File Path",
+      "name": "captionFile",
+      "type": "string",
+      "description": "Path or URL of the caption file",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "insertCaption",
+          "updateCaption"
+        ]
+      }
+    },
+    {
+      "label": "Secondary Reason ID",
+      "name": "secondaryReasonId",
+      "type": "string",
+      "description": "Secondary reason ID (if applicable)",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "reportVideoAbuse"
+        ]
+      }
+    },
+    {
+      "label": "Parent ID",
+      "name": "parentId",
+      "type": "string",
+      "description": "ID of the comment for which to retrieve replies",
+      "optional": true,
+      "show": {
+        "actions.api": [
+          "listComments",
+          "insertComment"
+        ]
+      }
+    },
+    {
+      "label": "Text Prompt",
+      "name": "prompt",
+      "type": "string"
+    }
+  ]
+},
 {
   "loadMethods": {},
   "label": "Tinfoil.sh Confidential AI API",
