@@ -14411,7 +14411,352 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/TikTok/TikTok.js"
+},
+	{
+  "label": "Snapchat API",
+  "name": "snapchat",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg"
+  },
+  "type": "action",
+  "category": "Social Media",
+  "version": 1,
+  "description": "Perform Snapchat Marketing, Conversions, and Public Profile API operations",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "List Organizations", "name": "listOrganizations" },
+        { "label": "List Ad Accounts", "name": "listAdAccounts" },
+        { "label": "List Campaigns", "name": "listCampaigns" },
+        { "label": "Create Campaign", "name": "createCampaign" },
+        { "label": "Update Campaign", "name": "updateCampaign" },
+        { "label": "Delete Campaign", "name": "deleteCampaign" },
+        { "label": "List Ad Groups", "name": "listAdGroups" },
+        { "label": "Create Ad Group", "name": "createAdGroup" },
+        { "label": "Update Ad Group", "name": "updateAdGroup" },
+        { "label": "Delete Ad Group", "name": "deleteAdGroup" },
+        { "label": "List Ads", "name": "listAds" },
+        { "label": "Create Ad", "name": "createAd" },
+        { "label": "Update Ad", "name": "updateAd" },
+        { "label": "Delete Ad", "name": "deleteAd" },
+        { "label": "Get Ads Insights", "name": "getAdsInsights" },
+        { "label": "List Media", "name": "listMedia" },
+        { "label": "Upload Media", "name": "uploadMedia" },
+        { "label": "Get Media", "name": "getMedia" },
+        { "label": "Delete Media", "name": "deleteMedia" },
+        { "label": "Send Conversion Events", "name": "sendConversions" },
+        { "label": "Get Public Profile", "name": "getPublicProfile" }
+      ],
+      "default": "listAdAccounts"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        { "label": "Snapchat OAuth", "name": "snapchatOAuth" }
+      ],
+      "default": "snapchatOAuth"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Organization ID",
+      "name": "organizationId",
+      "type": "string",
+      "description": "ID of the organization",
+      "optional": true,
+      "show": { "actions.api": ["listAdAccounts"] }
+    },
+    {
+      "label": "Advertiser (Ad Account) ID",
+      "name": "advertiserId",
+      "type": "string",
+      "description": "ID of the Ad Account (advertiser_id)",
+      "show": {
+        "actions.api": [
+          "listCampaigns",
+          "createCampaign",
+          "updateCampaign",
+          "deleteCampaign",
+          "listAdGroups",
+          "createAdGroup",
+          "updateAdGroup",
+          "deleteAdGroup",
+          "listAds",
+          "createAd",
+          "updateAd",
+          "deleteAd",
+          "getAdsInsights",
+          "listMedia",
+          "uploadMedia",
+          "getMedia",
+          "deleteMedia"
+        ]
+      }
+    },
+    {
+      "label": "Campaign ID",
+      "name": "campaignId",
+      "type": "string",
+      "description": "ID of the Campaign",
+      "show": {
+        "actions.api": [
+          "updateCampaign",
+          "deleteCampaign",
+          "listAdGroups",
+          "getAdsInsights"
+        ]
+      }
+    },
+    {
+      "label": "Campaign Name",
+      "name": "campaignName",
+      "type": "string",
+      "description": "Name of the Campaign",
+      "show": { "actions.api": ["createCampaign", "updateCampaign"] }
+    },
+    {
+      "label": "Objective",
+      "name": "objective",
+      "type": "options",
+      "options": [
+        { "label": "AWARENESS", "name": "AWARENESS" },
+        { "label": "ENGAGEMENT", "name": "ENGAGEMENT" },
+        { "label": "WEBSITE_CONVERSIONS", "name": "WEBSITE_CONVERSIONS" },
+        { "label": "APP_INSTALLS", "name": "APP_INSTALLS" }
+      ],
+      "description": "Campaign objective",
+      "show": { "actions.api": ["createCampaign", "updateCampaign"] }
+    },
+    {
+      "label": "Status",
+      "name": "status",
+      "type": "options",
+      "options": [
+        { "label": "ACTIVE", "name": "ACTIVE" },
+        { "label": "PAUSED", "name": "PAUSED" },
+        { "label": "DELETED", "name": "DELETED" }
+      ],
+      "description": "Status to set",
+      "show": {
+        "actions.api": [
+          "updateCampaign",
+          "updateAdGroup",
+          "updateAd"
+        ]
+      }
+    },
+    {
+      "label": "Budget",
+      "name": "budget",
+      "type": "number",
+      "optional": true,
+      "description": "Total budget for Campaign or Ad Group",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign",
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Start Date",
+      "name": "startDate",
+      "type": "string",
+      "optional": true,
+      "description": "Start date (YYYY-MM-DD)",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign",
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "End Date",
+      "name": "endDate",
+      "type": "string",
+      "optional": true,
+      "description": "End date (YYYY-MM-DD)",
+      "show": {
+        "actions.api": [
+          "createCampaign",
+          "updateCampaign",
+          "createAdGroup",
+          "updateAdGroup"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group ID",
+      "name": "adGroupId",
+      "type": "string",
+      "description": "ID of the Ad Group",
+      "show": {
+        "actions.api": [
+          "updateAdGroup",
+          "deleteAdGroup",
+          "listAds",
+          "getAdsInsights"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group Name",
+      "name": "adGroupName",
+      "type": "string",
+      "description": "Name of the Ad Group",
+      "show": { "actions.api": ["createAdGroup", "updateAdGroup"] }
+    },
+    {
+      "label": "Ad ID",
+      "name": "adId",
+      "type": "string",
+      "description": "ID of the Ad",
+      "show": {
+        "actions.api": [
+          "updateAd",
+          "deleteAd",
+          "getAdsInsights"
+        ]
+      }
+    },
+    {
+      "label": "Ad Name",
+      "name": "adName",
+      "type": "string",
+      "description": "Name of the Ad",
+      "show": { "actions.api": ["createAd", "updateAd"] }
+    },
+    {
+      "label": "Creative ID",
+      "name": "creativeId",
+      "type": "string",
+      "optional": true,
+      "description": "ID of the Media creative",
+      "show": {
+        "actions.api": ["createAd", "updateAd"]
+      }
+    },
+    {
+      "label": "Insights Metrics",
+      "name": "metrics",
+      "type": "string",
+      "description": "Comma-separated list of metrics to retrieve",
+      "show": { "actions.api": ["getAdsInsights"] }
+    },
+    {
+      "label": "Report Start Time",
+      "name": "startTime",
+      "type": "string",
+      "description": "ISO date-time of report start",
+      "show": { "actions.api": ["getAdsInsights"] }
+    },
+    {
+      "label": "Report End Time",
+      "name": "endTime",
+      "type": "string",
+      "description": "ISO date-time of report end",
+      "show": { "actions.api": ["getAdsInsights"] }
+    },
+    {
+      "label": "Cursor",
+      "name": "cursor",
+      "type": "string",
+      "optional": true,
+      "description": "Pagination cursor token",
+      "show": {
+        "actions.api": [
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "listMedia",
+          "listAdAccounts"
+        ]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "optional": true,
+      "default": 50,
+      "description": "Maximum number of items to return",
+      "show": {
+        "actions.api": [
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "listMedia",
+          "listAdAccounts"
+        ]
+      }
+    },
+    {
+      "label": "Media Type",
+      "name": "mediaType",
+      "type": "options",
+      "options": [
+        { "label": "VIDEO", "name": "VIDEO" },
+        { "label": "IMAGE", "name": "IMAGE" }
+      ],
+      "description": "Type of media to upload",
+      "show": { "actions.api": ["uploadMedia"] }
+    },
+    {
+      "label": "Media URL",
+      "name": "mediaUrl",
+      "type": "string",
+      "description": "Direct URL of the media file",
+      "show": { "actions.api": ["uploadMedia"] }
+    },
+    {
+      "label": "Media ID",
+      "name": "mediaId",
+      "type": "string",
+      "description": "ID of the uploaded media",
+      "show": {
+        "actions.api": ["getMedia", "deleteMedia"]
+      }
+    },
+    {
+      "label": "Pixel ID",
+      "name": "pixelId",
+      "type": "string",
+      "description": "ID of the Snapchat Conversions Pixel",
+      "show": { "actions.api": ["sendConversions"] }
+    },
+    {
+      "label": "Conversion Events",
+      "name": "events",
+      "type": "string",
+      "description": "JSON array of conversion event objects",
+      "show": { "actions.api": ["sendConversions"] }
+    },
+    {
+      "label": "Username",
+      "name": "username",
+      "type": "string",
+      "description": "Snapchat username",
+      "show": { "actions.api": ["getPublicProfile"] }
+    }
+  ]
 }
+
 
 	
 ]
