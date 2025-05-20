@@ -14418,7 +14418,7 @@
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg",
     "light": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg",
-    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/0d550415bd91d736d35c7f638cf622118f2cdc06/node-list/node-schemas/snapchat.svg"
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/blue.png",
   },
   "type": "action",
   "category": "Social Media",
@@ -14428,7 +14428,7 @@
   "outgoing": 1,
   "actions": [
     {
-      "label": "API",
+      "label": "actions",
       "name": "api",
       "type": "options",
       "options": [
