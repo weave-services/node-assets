@@ -13652,7 +13652,7 @@
   "name": "tiktok",
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/blue.png",
-    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/tiktok.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/blue.png",
     "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/darktik.jpg"
   },
   "type": "action",
