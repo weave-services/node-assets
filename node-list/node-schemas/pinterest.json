@@ -1,0 +1,417 @@
+{
+  "label": "Pinterest Data API",
+  "name": "pinterest",
+  "icons": {
+    "default": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+    "light": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png",
+    "dark": "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png"
+  },
+  "type": "action",
+  "category": "Social Media",
+  "version": 1,
+  "description": "Manage Pinterest user accounts, boards, pins, ads, and catalogs via the Pinterest API v5",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Get User Account",    "name": "getUserAccount" },
+        { "label": "List Boards",         "name": "listBoards" },
+        { "label": "Create Board",        "name": "createBoard" },
+        { "label": "Get Board",           "name": "getBoard" },
+        { "label": "Update Board",        "name": "updateBoard" },
+        { "label": "Delete Board",        "name": "deleteBoard" },
+        { "label": "List Pins",           "name": "listPins" },
+        { "label": "Create Pin",          "name": "createPin" },
+        { "label": "Get Pin",             "name": "getPin" },
+        { "label": "Update Pin",          "name": "updatePin" },
+        { "label": "Delete Pin",          "name": "deletePin" },
+        { "label": "List Board Sections", "name": "listBoardSections" },
+        { "label": "Create Board Section","name": "createBoardSection" },
+        { "label": "Get Board Section",   "name": "getBoardSection" },
+        { "label": "Update Board Section","name": "updateBoardSection" },
+        { "label": "Delete Board Section","name": "deleteBoardSection" },
+        { "label": "List Ad Accounts",    "name": "listAdAccounts" },
+        { "label": "List Campaigns",      "name": "listCampaigns" },
+        { "label": "Create Campaign",     "name": "createCampaign" },
+        { "label": "Get Campaign",        "name": "getCampaign" },
+        { "label": "Update Campaign",     "name": "updateCampaign" },
+        { "label": "Delete Campaign",     "name": "deleteCampaign" },
+        { "label": "List Ad Groups",      "name": "listAdGroups" },
+        { "label": "Create Ad Group",     "name": "createAdGroup" },
+        { "label": "Get Ad Group",        "name": "getAdGroup" },
+        { "label": "Update Ad Group",     "name": "updateAdGroup" },
+        { "label": "Delete Ad Group",     "name": "deleteAdGroup" },
+        { "label": "List Ads",            "name": "listAds" },
+        { "label": "Create Ad",           "name": "createAd" },
+        { "label": "Get Ad",              "name": "getAd" },
+        { "label": "Update Ad",           "name": "updateAd" },
+        { "label": "Delete Ad",           "name": "deleteAd" },
+        { "label": "Get Ads Stats",       "name": "getAdsStats" },
+        { "label": "List Catalogs",       "name": "listCatalogs" },
+        { "label": "Create Catalog",      "name": "createCatalog" },
+        { "label": "Get Catalog",         "name": "getCatalog" },
+        { "label": "Update Catalog",      "name": "updateCatalog" },
+        { "label": "Delete Catalog",      "name": "deleteCatalog" },
+        { "label": "List Products",       "name": "listProducts" },
+        { "label": "Create Product",      "name": "createProduct" },
+        { "label": "Get Product",         "name": "getProduct" },
+        { "label": "Update Product",      "name": "updateProduct" },
+        { "label": "Delete Product",      "name": "deleteProduct" }
+      ],
+      "default": "getUserAccount"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        { "label": "Pinterest OAuth", "name": "pinterestOAuth" }
+      ],
+      "default": "pinterestOAuth"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Account ID",
+      "name": "accountId",
+      "type": "string",
+      "description": "The Pinterest user account ID",
+      "show": {
+        "actions.api": ["getUserAccount"]
+      }
+    },
+    {
+      "label": "Board ID",
+      "name": "boardId",
+      "type": "string",
+      "description": "The ID of the board",
+      "show": {
+        "actions.api": [
+          "getBoard",
+          "updateBoard",
+          "deleteBoard",
+          "listPins",
+          "createPin"
+        ]
+      }
+    },
+    {
+      "label": "Board Section ID",
+      "name": "boardSectionId",
+      "type": "string",
+      "description": "The ID of the board section",
+      "show": {
+        "actions.api": [
+          "getBoardSection",
+          "updateBoardSection",
+          "deleteBoardSection",
+          "listProducts"
+        ]
+      }
+    },
+    {
+      "label": "Pin ID",
+      "name": "pinId",
+      "type": "string",
+      "description": "The ID of the pin",
+      "show": {
+        "actions.api": [
+          "getPin",
+          "updatePin",
+          "deletePin"
+        ]
+      }
+    },
+    {
+      "label": "Fields",
+      "name": "fields",
+      "type": "string",
+      "optional": true,
+      "description": "Comma-separated list of fields to include",
+      "show": {
+        "actions.api": [
+          "getUserAccount",
+          "getBoard",
+          "listBoards",
+          "getPin",
+          "listPins",
+          "getCampaign",
+          "listCampaigns",
+          "getAdGroup",
+          "listAdGroups",
+          "getAd",
+          "listAds",
+          "getCatalog",
+          "listCatalogs",
+          "getProduct",
+          "listProducts"
+        ]
+      }
+    },
+    {
+      "label": "Page Size",
+      "name": "pageSize",
+      "type": "number",
+      "optional": true,
+      "default": 25,
+      "description": "Maximum number of items to return",
+      "show": {
+        "actions.api": [
+          "listBoards",
+          "listPins",
+          "listBoardSections",
+          "listAdAccounts",
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "getAdsStats",
+          "listCatalogs",
+          "listProducts"
+        ]
+      }
+    },
+    {
+      "label": "Bookmark",
+      "name": "bookmark",
+      "type": "string",
+      "optional": true,
+      "description": "Pagination bookmark token",
+      "show": {
+        "actions.api": [
+          "listBoards",
+          "listPins",
+          "listBoardSections",
+          "listAdAccounts",
+          "listCampaigns",
+          "listAdGroups",
+          "listAds",
+          "getAdsStats",
+          "listCatalogs",
+          "listProducts"
+        ]
+      }
+    },
+    {
+      "label": "Title",
+      "name": "title",
+      "type": "string",
+      "description": "Title for a new board or catalog",
+      "show": {
+        "actions.api": ["createBoard", "createCatalog"]
+      }
+    },
+    {
+      "label": "Description",
+      "name": "description",
+      "type": "string",
+      "optional": true,
+      "description": "Description for a board, pin, or product",
+      "show": {
+        "actions.api": [
+          "createBoard",
+          "updateBoard",
+          "createPin",
+          "updatePin",
+          "createCatalog",
+          "updateCatalog",
+          "createProduct",
+          "updateProduct"
+        ]
+      }
+    },
+    {
+      "label": "Link",
+      "name": "link",
+      "type": "string",
+      "optional": true,
+      "description": "URL the user will be taken to when they click the pin",
+      "show": {
+        "actions.api": ["createPin", "updatePin"]
+      }
+    },
+    {
+      "label": "Image URL",
+      "name": "imageUrl",
+      "type": "string",
+      "description": "URL of the image for a new pin",
+      "show": {
+        "actions.api": ["createPin"]
+      }
+    },
+    {
+      "label": "Section Name",
+      "name": "sectionName",
+      "type": "string",
+      "description": "Name for a new board section",
+      "show": {
+        "actions.api": ["createBoardSection", "updateBoardSection"]
+      }
+    },
+    {
+      "label": "Ad Account ID",
+      "name": "adAccountId",
+      "type": "string",
+      "description": "The ad account ID for advertising operations",
+      "show": {
+        "actions.api": [
+          "listCampaigns",
+          "createCampaign",
+          "getCampaign",
+          "updateCampaign",
+          "deleteCampaign",
+          "listAdGroups",
+          "createAdGroup",
+          "getAdGroup",
+          "updateAdGroup",
+          "deleteAdGroup",
+          "listAds",
+          "createAd",
+          "getAd",
+          "updateAd",
+          "deleteAd",
+          "getAdsStats",
+          "listCatalogs",
+          "listProducts"
+        ]
+      }
+    },
+    {
+      "label": "Campaign ID",
+      "name": "campaignId",
+      "type": "string",
+      "description": "The campaign ID",
+      "show": {
+        "actions.api": [
+          "getCampaign",
+          "updateCampaign",
+          "deleteCampaign",
+          "listAdGroups",
+          "getAdsStats"
+        ]
+      }
+    },
+    {
+      "label": "Ad Group ID",
+      "name": "adGroupId",
+      "type": "string",
+      "description": "The ad group ID",
+      "show": {
+        "actions.api": [
+          "getAdGroup",
+          "updateAdGroup",
+          "deleteAdGroup",
+          "listAds",
+          "getAdsStats"
+        ]
+      }
+    },
+    {
+      "label": "Ad ID",
+      "name": "adId",
+      "type": "string",
+      "description": "The ad ID",
+      "show": {
+        "actions.api": [
+          "getAd",
+          "updateAd",
+          "deleteAd",
+          "getAdsStats"
+        ]
+      }
+    },
+    {
+      "label": "Stats Level",
+      "name": "level",
+      "type": "options",
+      "options": [
+        { "label": "ACCOUNT",  "name": "ACCOUNT" },
+        { "label": "CAMPAIGN", "name": "CAMPAIGN" },
+        { "label": "AD_GROUP", "name": "AD_GROUP" },
+        { "label": "AD",       "name": "AD" }
+      ],
+      "default": "ACCOUNT",
+      "description": "Granularity for ads statistics",
+      "show": {
+        "actions.api": ["getAdsStats"]
+      }
+    },
+    {
+      "label": "Start Date",
+      "name": "startDate",
+      "type": "string",
+      "description": "Start date for stats/reporting (YYYY-MM-DD)",
+      "show": {
+        "actions.api": ["getAdsStats"]
+      }
+    },
+    {
+      "label": "End Date",
+      "name": "endDate",
+      "type": "string",
+      "description": "End date for stats/reporting (YYYY-MM-DD)",
+      "show": {
+        "actions.api": ["getAdsStats"]
+      }
+    },
+    {
+      "label": "Catalog ID",
+      "name": "catalogId",
+      "type": "string",
+      "description": "The catalog ID for product operations",
+      "show": {
+        "actions.api": [
+          "getCatalog",
+          "updateCatalog",
+          "deleteCatalog",
+          "listProducts",
+          "createProduct"
+        ]
+      }
+    },
+    {
+      "label": "Product ID",
+      "name": "productId",
+      "type": "string",
+      "description": "The product ID",
+      "show": {
+        "actions.api": [
+          "getProduct",
+          "updateProduct",
+          "deleteProduct"
+        ]
+      }
+    },
+    {
+      "label": "Body (JSON)",
+      "name": "body",
+      "type": "string",
+      "description": "Raw JSON request body for create/update operations",
+      "show": {
+        "actions.api": [
+          "createBoard",
+          "updateBoard",
+          "createPin",
+          "updatePin",
+          "createBoardSection",
+          "updateBoardSection",
+          "createCampaign",
+          "updateCampaign",
+          "createAdGroup",
+          "updateAdGroup",
+          "createAd",
+          "updateAd",
+          "createCatalog",
+          "updateCatalog",
+          "createProduct",
+          "updateProduct"
+        ]
+      }
+    }
+  ]
+}
