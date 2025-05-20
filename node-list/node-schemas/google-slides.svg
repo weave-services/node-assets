@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="google-slides">
+  <path fill="#303c42" d="m20.854 5.146-5-5A.504.504 0 0 0 15.5 0H5C3.897 0 3 .897 3 2v20c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5.5a.504.504 0 0 0-.146-.354z"></path>
+  <path fill="#fee886" d="M16 1.707 19.293 5H17c-.551 0-1-.449-1-1V1.707z"></path>
+  <path fill="#fdd835" d="M19 23H5c-.551 0-1-.449-1-1V2c0-.551.449-1 1-1h10v3c0 1.103.897 2 2 2h3v16c0 .551-.449 1-1 1z"></path>
+  <path fill="#fff" d="M16.5 12H15V9.5a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5H9v2.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-6a.5.5 0 0 0-.5-.5zm-7.5.5V15H8v-5h6v2H9.5a.5.5 0 0 0-.5.5zm7 5.5h-6v-5h6v5z"></path>
+  <linearGradient id="a" x1="16.589" x2="20.955" y1="4.499" y2="8.866" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-opacity=".1"></stop>
+    <stop offset="1" stop-opacity="0"></stop>
+  </linearGradient>
+  <path fill="url(#a)" d="M20 9.821V6h-3c-.529 0-1.007-.21-1.365-.546l-.002.001L20 9.821z"></path>
+  <linearGradient id="b" x1=".265" x2="23.05" y1="7.421" y2="18.046" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#fff" stop-opacity=".2"></stop>
+    <stop offset="1" stop-color="#fff" stop-opacity="0"></stop>
+  </linearGradient>
+  <path fill="url(#b)" d="m20.854 5.146-5-5A.504.504 0 0 0 15.5 0H5C3.897 0 3 .897 3 2v20c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5.5a.504.504 0 0 0-.146-.354z"></path>
+</svg>
