@@ -16448,6 +16448,128 @@
       }
     }
   ]
-}
+},
+{
+  "label": "RapidAPI",
+  "name": "rapidapi",
+  "icons": {
+    "default": "https://upload.wikimedia.org/wikipedia/commons/6/62/RapidAPI_logo.svg",
+    "light": "https://upload.wikimedia.org/wikipedia/commons/6/62/RapidAPI_logo.svg",
+    "dark": "https://upload.wikimedia.org/wikipedia/commons/6/62/RapidAPI_logo.svg"
+  },
+  "type": "action",
+  "category": "Developer Tools",
+  "version": 1,
+  "description": "Connect to any API hosted on RapidAPI. This node allows you to configure the base URL, required headers (including X-RapidAPI-Key and X-RapidAPI-Host), and any necessary path or query parameters to call an endpoint. Use this integration to dynamically call any API from RapidAPI's marketplace by providing the API-specific details.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "HTTP Method",
+      "name": "method",
+      "type": "options",
+      "options": [
+        {
+          "label": "GET",
+          "name": "GET"
+        },
+        {
+          "label": "POST",
+          "name": "POST"
+        },
+        {
+          "label": "PUT",
+          "name": "PUT"
+        },
+        {
+          "label": "PATCH",
+          "name": "PATCH"
+        },
+        {
+          "label": "DELETE",
+          "name": "DELETE"
+        }
+      ],
+      "default": "GET"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "RapidAPI Key",
+          "name": "rapidApiKey"
+        }
+      ],
+      "default": "rapidApiKey"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "RapidAPI Host",
+      "name": "rapidApiHost",
+      "type": "string",
+      "description": "The host name of the API as provided by RapidAPI (value for the X-RapidAPI-Host header, e.g. 'exampleapi.p.rapidapi.com')"
+    },
+    {
+      "label": "Base URL",
+      "name": "baseUrl",
+      "type": "string",
+      "description": "Base URL of the API (including https:// and any base path if required, e.g. 'https://exampleapi.p.rapidapi.com/v1')"
+    },
+    {
+      "label": "Endpoint Path",
+      "name": "endpointPath",
+      "type": "string",
+      "description": "The specific endpoint path to call (e.g. '/users/{userId}/details'). Path parameters can be specified in curly braces and will be replaced using Path Parameters input. Do not include query string here."
+    },
+    {
+      "label": "Path Parameters (JSON)",
+      "name": "pathParams",
+      "type": "string",
+      "optional": true,
+      "description": "JSON object of path parameters to replace placeholders in the endpoint path. For example, if the endpoint path contains '/users/{userId}', provide an object like {\"userId\": \"123\"}. Leave blank if no path parameters."
+    },
+    {
+      "label": "Query Parameters (JSON)",
+      "name": "queryParams",
+      "type": "string",
+      "optional": true,
+      "description": "JSON object of query parameters to include in the request. For example: {\"param1\": \"value1\", \"param2\": \"value2\"}. Leave blank if no query parameters."
+    },
+    {
+      "label": "Request Body (JSON)",
+      "name": "body",
+      "type": "string",
+      "optional": true,
+      "description": "JSON object to send as the request body (for POST, PUT, PATCH methods). Leave blank if not applicable.",
+      "show": {
+        "actions.method": [
+          "POST",
+          "PUT",
+          "PATCH"
+        ]
+      }
+    },
+    {
+      "label": "Content-Type",
+      "name": "contentType",
+      "type": "string",
+      "optional": true,
+      "description": "Content-Type of the request body (e.g. 'application/json'). If left blank and a body is provided, 'application/json' will be used by default.",
+      "show": {
+        "actions.method": [
+          "POST",
+          "PUT",
+          "PATCH"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/RapidAPI/RapidAPI.js"
+}	
 	
 ]
