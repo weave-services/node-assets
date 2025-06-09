@@ -1,0 +1,30 @@
+name: Update nodes CSV
+
+on:
+  push:
+    paths:
+      - 'node-list/node-schemas/*.json'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Generate CSV
+        run: python scripts/generate_nodes_csv.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain nodes_endpoints.csv)" ]; then
+            git add nodes_endpoints.csv
+            git commit -m "chore: update nodes endpoints csv"
+            git push
+          fi

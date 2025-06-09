@@ -1,0 +1,1136 @@
+Node Name,Status,Endpoint,Method,Relationship,Description
+Alchemy Webhook,,Alchemy Webhook,,parent,Start workflow when webhook is called
+BEP20 Function,,BEP20 Function,,parent,"Execute BEP20 function such as deposit, withdraw, get balance, etc"
+BEP20 Function,,-> Deposit,,child,Deposit BNB into BEP20 token
+BEP20 Function,,-> Withdraw,,child,Withdraw BNB from BEP20 token
+BEP20 Function,,-> Get Allowance,,child,Returns the remaining number of tokens that spender will be allowed to spend on behalf of owner through transferFrom. This is zero by default.
+BEP20 Function,,-> Approve,,child,Sets amount as the allowance of spender over the caller’s tokens.
+BEP20 Function,,-> Get Balance,,child,Returns the amount of tokens owned by account
+BEP20 Function,,-> Get BEP20 Decimals,,child,Returns the decimals of BEP20
+BEP20 Function,,-> Get BEP20 Name,,child,Returns the name of BEP20
+BEP20 Function,,-> Get BEP20 Symbol,,child,Returns the symbol of BEP20
+BEP20 Function,,-> Get BEP20 Total Supply,,child,Returns the total supply of BEP20
+BEP20 Function,,-> Transfer From,,child,Moves amount tokens from sender to recipient using the allowance mechanism. Amount is then deducted from the caller’s allowance.
+BEP20 Transfer,,BEP20 Transfer,,parent,Send/Transfer BEP20 to an address
+BEP20 Transfer Trigger,,BEP20 Transfer Trigger,,parent,Triggers whenever a BEP20 transfer event happened
+BNB Balance Trigger,,BNB Balance Trigger,,parent,Triggers whenever BNB balance in wallet changes
+BNB Transfer,,BNB Transfer,,parent,Send/Transfer BNB to an address
+BscScan,,BscScan,,parent,Perform Bscscan operations
+BscScan,,-> Get Bnb Balance for a Single Address,,child,Returns the Bnb balance of a given address.
+BscScan,,-> Get Bnb Balance for Multiple Addresses(separated by a comma),,child,Returns the Bnb balance of the addresses(each address separated by a comma) entered.
+BscScan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+BscScan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+BscScan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+BscScan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+BscScan,,-> Get list of Blocks Validated by Address,,child,Returns the list of blocks validated by an address.
+BscScan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+BscScan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+BscScan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+BscScan,,-> Get BEP-20 Token Circulating Supply by ContractAddress,,child,"Returns the current circulating supply of a BEP-20 token. 
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+BscScan,,-> Get BEP20 Token Supply,,child,"Returns the total supply of a BEP-20 token. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+BscScan,,-> Get BEP20 Token Balance,,child,"Returns the current balance of a BEP-20 token of an address. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+BscScan,,-> Get Historical BEP-20 Token TotalSupply by ContractAddress & BlockNo [PRO],,child,"Returns the historical amount of a BEP-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+BscScan,,-> Get Historical BEP-20 Token Account Balance by ContractAddress & BlockNo [PRO],,child,"Returns the balance of a BEP-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+BscScan,,-> Get Token Info [PRO],,child,Returns project information and social media links of an BEP-20/ERC-721 token.
+BscScan,,-> Get BNB Price,,child,Returns the latest price of 1 BNB.
+BscScan,,-> Get Historical BNB Price [PRO],,child,Returns the historical price of BNB.
+Contract Event Trigger,,Contract Event Trigger,,parent,Start workflow whenever the specified contract event happened
+Contract Function Trigger,,Contract Function Trigger,,parent,Triggers whenever the specified view function return value changes
+Contract Function Trigger,,-> Every 15 secs,,child,
+Contract Function Trigger,,-> Every 30 secs,,child,
+Contract Function Trigger,,-> Every 1 min,,child,
+Contract Function Trigger,,-> Every 5 min,,child,
+Contract Function Trigger,,-> Every 10 min,,child,
+ERC20 Transfer,,ERC20 Transfer,,parent,Send/Transfer ERC20 to an address
+ERC20 Transfer Trigger,,ERC20 Transfer Trigger,,parent,Start workflow whenever an ERC20 transfer event happened
+ETH Balance Trigger,,ETH Balance Trigger,,parent,Start workflow whenever ETH balance in wallet changes
+ETH Transfer,,ETH Transfer,,parent,Send/Transfer ETH to an address
+Flow Balance Trigger,,Flow Balance Trigger,,parent,Start workflow whenever FLOW balance in wallet changes
+GitHub Webhook,,GitHub Webhook,,parent,Start workflow whenever a GitHub webhook event occurs
+GitHub Webhook,,-> Branch Protection Rule,,child,Activity related to a branch protection rule.
+GitHub Webhook,,-> Check Run,,child,Check run activity has occurred.
+GitHub Webhook,,-> Check Suite,,child,Check suite activity has occurred.
+GitHub Webhook,,-> Code Scanning Alert,,child,Activity related to code scanning alerts in a repository.
+GitHub Webhook,,-> Commit Comment,,child,A commit comment is created.
+GitHub Webhook,,-> Create,,child,A Git branch or tag is created.
+GitHub Webhook,,-> Delete,,child,A Git branch or tag is deleted.
+GitHub Webhook,,-> Dependabot Alert,,child,Activity related to Dependabot alerts.
+GitHub Webhook,,-> Deploy Key,,child,A deploy key is added or removed from a repository.
+GitHub Webhook,,-> Deployment,,child,A deployment is created.
+GitHub Webhook,,-> Deployment Status,,child,A deployment status is created.
+GitHub Webhook,,-> Discussion,,child,Activity related to a discussion.
+GitHub Webhook,,-> Discussion Comment,,child,Activity related to a comment in a discussion.
+GitHub Webhook,,-> Fork,,child,A user forks a repository.
+GitHub Webhook,,-> GitHub App Authorization,,child,"When someone revokes their authorization of a GitHub App, this event occurs."
+GitHub Webhook,,-> Gollum,,child,A wiki page is created or updated.
+GitHub Webhook,,-> Installation,,child,Activity related to a GitHub App installation.
+GitHub Webhook,,-> Installation Repositories,,child,Activity related to repositories being added to a GitHub App installation.
+GitHub Webhook,,-> Issue Comment,,child,Activity related to an issue or pull request comment.
+GitHub Webhook,,-> Issues,,child,Activity related to an issue.
+GitHub Webhook,,-> Label,,child,Activity related to a label.
+GitHub Webhook,,-> Marketplace Purchase,,child,Activity related to a GitHub Marketplace purchase.
+GitHub Webhook,,-> Member,,child,Activity related to repository collaborators.
+GitHub Webhook,,-> Membership,,child,Activity related to team membership.
+GitHub Webhook,,-> Merge Group,,child,Activity related to merge groups in a merge queue.
+GitHub Webhook,,-> Meta,,child,The webhook this event is configured on was deleted.
+GitHub Webhook,,-> Milestone,,child,Activity related to milestones.
+GitHub Webhook,,-> Organization,,child,Activity related to an organization and its members.
+GitHub Webhook,,-> Org Block,,child,Activity related to people being blocked in an organization.
+GitHub Webhook,,-> Package,,child,Activity related to GitHub Packages.
+GitHub Webhook,,-> Page Build,,child,Represents an attempted build of a GitHub Pages site.
+GitHub Webhook,,-> Ping,,child,"When you create a new webhook, we send you a simple ping event to let you know you have set up the webhook correctly."
+GitHub Webhook,,-> Project,,child,Activity related to classic projects.
+GitHub Webhook,,-> Project Card,,child,Activity related to cards in a classic project.
+GitHub Webhook,,-> Project Column,,child,Activity related to columns in a classic project.
+GitHub Webhook,,-> Projects V2 Item,,child,Activity related to items in a project.
+GitHub Webhook,,-> Public,,child,When a private repository is made public.
+GitHub Webhook,,-> Pull Request,,child,Activity related to pull requests.
+GitHub Webhook,,-> Pull Request Review,,child,Activity related to pull request reviews.
+GitHub Webhook,,-> Pull Request Review Comment,,child,Activity related to pull request review comments in the pull request unified diff.
+GitHub Webhook,,-> Pull Request Review Thread,,child,Activity related to a comment thread on a pull request being marked as resolved or unresolved.
+GitHub Webhook,,-> Push,,child,Activity related to one or more commits pushed to a repository branch or tag.
+GitHub Webhook,,-> Release,,child,Activity related to a release.
+GitHub Webhook,,-> Repository Dispatch,,child,Occurs when a GitHub App sends a POST request to the 'Create a repository dispatch event' endpoint.
+GitHub Webhook,,-> Repository,,child,Activity related to a repository.
+GitHub Webhook,,-> Repository Import,,child,Activity related to a repository being imported to GitHub.
+GitHub Webhook,,-> Repository Vulnerability Alert,,child,Activity related to security vulnerability alerts in a repository.
+GitHub Webhook,,-> Security Advisory,,child,Activity related to a security advisory reviewed by GitHub.
+GitHub Webhook,,-> Sponsorship,,child,Activity related to a sponsorship listing.
+MATIC Balance Trigger,,MATIC Balance Trigger,,parent,Start workflow whenever MATIC balance in wallet changes
+MATIC Transfer,,MATIC Transfer,,parent,Send/Transfer MATIC to an address
+MongoDB Atlas Chat Memory,,MongoDB Atlas Chat Memory,,parent,Stores conversation history in MongoDB Atlas for long-term memory.
+NFT Mint Trigger,,NFT Mint Trigger,,parent,Start workflow whenever a NFT is minted
+NFT Transfer Trigger,,NFT Transfer Trigger,,parent,Start workflow whenever a NFT transfer event happened
+Zapier API Trigger,,Zapier API Trigger,,parent,Start workflow based on Zapier API events
+Zapier API Trigger,,-> Get Apps [v1],,child,
+Zapier API Trigger,,-> Get Apps [v2],,child,
+Zapier API Trigger,,-> Get Categories,,child,
+Zapier API Trigger,,-> Create Account,,child,
+Zapier API Trigger,,-> User Profile,,child,
+Zapier API Trigger,,-> Get Zap Templates,,child,
+Zapier API Trigger,,-> Create a Zap,,child,
+Zapier API Trigger,,-> Get Zaps [v1],,child,
+Zapier API Trigger,,-> Get Zaps [v2],,child,
+Zapier API Trigger,,-> Get Actions,,child,
+Zapier API Trigger,,-> Get Input Fields,,child,
+Zapier API Trigger,,-> Get Output Fields,,child,
+Zapier API Trigger,,-> Get Choices,,child,
+Zapier API Trigger,,-> Step Test,,child,
+Zapier API Trigger,,-> Get Authentications,,child,
+Zapier API Trigger,,-> Create Authentication,,child,
+Structured Output Parser,,Structured Output Parser,,parent,Parse the output of an LLM call into a given (JSON) structure.
+Structured Output Parser,,-> Structured Parsing,,child,Parse LLM output into a structured format using a predefined JSON schema.
+Agent Engine,,Agent Engine,,parent,Agent Engine similar to n8ns
+Agent Engine,,-> ChatGPT,,child,
+Agent Engine,,-> Generate Image via text prompt,,child,
+Agent Engine,,-> Generate Text Completion via text prompt,,child,
+Alchemy,,Alchemy,,parent,Perform Alchemy on-chain operations
+Alchemy Trigger,,Alchemy Trigger,,parent,Start workflow whenever subscribed event happened
+Apify,,Apify,,parent,"Manage Apify Actors, tasks, runs, storages (datasets, key-value stores, request queues), schedules, webhooks and more via the Apify REST API"
+Apify,,-> Get list of Actors,,child,
+Apify,,-> Create Actor,,child,
+Apify,,-> Get Actor,,child,
+Apify,,-> Update Actor,,child,
+Apify,,-> Delete Actor,,child,
+Apify,,-> Actor version - Get list of versions,,child,
+Apify,,-> Actor version - Create version,,child,
+Apify,,-> Actor version - Get version,,child,
+Apify,,-> Actor version - Update version,,child,
+Apify,,-> Actor version - Delete version,,child,
+Apify,,-> Environment variable - Get list of environment variables,,child,
+Apify,,-> Environment variable - Create environment variable,,child,
+Apify,,-> Environment variable - Get environment variable,,child,
+Apify,,-> Environment variable - Update environment variable,,child,
+Apify,,-> Environment variable - Delete environment variable,,child,
+Apify,,-> Actor build - Get list of builds,,child,
+Apify,,-> Actor build - Build Actor,,child,
+Apify,,-> Actor build - Get default build,,child,
+Apify,,-> Actor build - Get build,,child,
+Apify,,-> Actor build - Abort build,,child,
+Apify,,-> Actor build - Get OpenAPI definition,,child,
+Apify,,-> Actor run - Get list of runs,,child,
+Apify,,-> Run Actor,,child,
+Apify,,-> Run Actor synchronously with input and return output,,child,
+Apify,,-> Run Actor synchronously with input and get dataset items,,child,
+Apify,,-> Resurrect run,,child,
+Apify,,-> Actor run - Get last run,,child,
+Apify,,-> Get list of webhooks (actor),,child,
+Apify,,-> Get user builds list,,child,
+Apify,,-> Get build,,child,
+Apify,,-> Delete build,,child,
+Apify,,-> Abort build,,child,
+Apify,,-> Get build log,,child,
+Apify,,-> Get OpenAPI definition (build),,child,
+Apify,,-> Get user runs list,,child,
+Apify,,-> Get run,,child,
+Apify,,-> Update status message,,child,
+Apify,,-> Delete run,,child,
+Apify,,-> Abort run,,child,
+Apify,,-> Metamorph run,,child,
+Apify,,-> Reboot run,,child,
+Apify,,-> Get list of tasks,,child,
+Apify,,-> Create task,,child,
+Apify,,-> Get task,,child,
+Apify,,-> Update task,,child,
+Apify,,-> Delete task,,child,
+Apify,,-> Get task input,,child,
+Apify,,-> Update task input,,child,
+Apify,,-> Get list of webhooks (task),,child,
+Apify,,-> Get list of task runs,,child,
+Apify,,-> Run task,,child,
+Apify,,-> Run task synchronously with input and return output,,child,
+Apify,,-> Run task synchronously with input and get dataset items,,child,
+Apify,,-> Task run - Get last run,,child,
+Apify,,-> Get list of datasets,,child,
+Apify,,-> Create dataset,,child,
+Apify,,-> Get dataset,,child,
+Apify,,-> Update dataset,,child,
+Apify,,-> Delete dataset,,child,
+Apify,,-> Get items,,child,
+Apify,,-> Store items,,child,
+Apify,,-> Get dataset statistics,,child,
+Apify,,-> Get list of key-value stores,,child,
+Apify,,-> Create key-value store,,child,
+Apify,,-> Get store,,child,
+Apify,,-> Update store,,child,
+Apify,,-> Delete store,,child,
+Apify,,-> Get list of keys,,child,
+Apify,,-> Get record,,child,
+Apify,,-> Store record,,child,
+Apify,,-> Delete record,,child,
+Apify,,-> Get list of request queues,,child,
+Apify,,-> Create request queue,,child,
+Apify,,-> Get request queue,,child,
+Apify,,-> Update request queue,,child,
+Apify,,-> Delete request queue,,child,
+Apify,,-> Add request,,child,
+Apify,,-> Add requests,,child,
+Apify,,-> Delete requests,,child,
+Apify,,-> List requests,,child,
+Apify,,-> Get request,,child,
+Apify,,-> Update request,,child,
+Apify,,-> Delete request,,child,
+Apify,,-> Get head,,child,
+Apify,,-> Get head and lock,,child,
+Apify,,-> Prolong request lock,,child,
+Apify,,-> Delete request lock,,child,
+Apify,,-> Get list of webhooks (all),,child,
+Apify,,-> Create webhook,,child,
+Apify,,-> Get webhook,,child,
+Apify,,-> Update webhook,,child,
+Apify,,-> Delete webhook,,child,
+Apify,,-> Test webhook,,child,
+Apify,,-> Get list of webhook dispatches,,child,
+Apify,,-> Get webhook dispatch,,child,
+Apify,,-> Get list of schedules,,child,
+Apify,,-> Create schedule,,child,
+Apify,,-> Get schedule,,child,
+Apify,,-> Update schedule,,child,
+Apify,,-> Delete schedule,,child,
+Apify,,-> Get schedule log,,child,
+Apify,,-> Get list of Actors in store,,child,
+Apify,,-> Get log,,child,
+Apify,,-> Get public user data,,child,
+Apify,,-> Get private user data,,child,
+Apify,,-> Get monthly usage,,child,
+Apify,,-> Get limits,,child,
+Apify,,-> Update limits,,child,
+Arbiscan,,Arbiscan,,parent,Perform Arbiscan operations
+Arbiscan,,-> Get Ether Balance for a Single Address,,child,Returns the Ether balance of a given address.
+Arbiscan,,-> Get Ether Balance for Multiple Addresses(separated by a comma),,child,Returns the Ether balance of the addresses(each address separated by a comma) entered.
+Arbiscan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+Arbiscan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+Arbiscan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+Arbiscan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+Arbiscan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+Arbiscan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+Arbiscan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+Arbiscan,,-> Check Contract Execution Status,,child,Returns the status code of a contract execution.
+Arbiscan,,-> Get ERC20 Token Supply,,child,"Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Arbiscan,,-> Get ERC20 Token Balance,,child,"Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Arbiscan,,-> Get ETHER Price,,child,Returns the latest price of 1 ETHER.
+Arbiscan,,-> Get Total Supply of Ether,,child,Returns the current amount of Ether in circulation.
+Azure OpenAI,,Azure OpenAI,,parent,Wrapper around Azure OpenAI large language models
+Azure OpenAI,,-> Generate Text,,child,
+BaseScan,,BaseScan,,parent,Perform BaseScan operations
+BaseScan,,-> Get Base Balance for a Single Address,,child,Returns the Base balance of a given address.
+BaseScan,,-> Get Base Balance for Multiple Addresses(separated by a comma),,child,Returns the Base balance of the addresses(each address separated by a comma) entered.
+BaseScan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+BaseScan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+BaseScan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+BaseScan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+BaseScan,,-> Get list of Blocks Validated by Address,,child,Returns the list of blocks validated by an address.
+BaseScan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+BaseScan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+BaseScan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+BaseScan,,-> Get ERC20 Token Supply,,child,Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.
+BaseScan,,-> Get ERC20 Token Balance,,child,Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.
+BaseScan,,-> Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO],,child,Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.
+BaseScan,,-> Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO],,child,Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.
+BaseScan,,-> Get Token Info [PRO],,child,Returns project information and social media links of an ERC-20/ERC-721 token.
+BaseScan,,-> Get BASE Price,,child,Returns the latest price of 1 BASE.
+BaseScan,,-> Get Historical BASE Price [PRO],,child,Returns the historical price of BASE.
+Binance Private,,Binance Private,,parent,Binance Private APIs that require API and Secret keys
+Binance Private,,-> TEST,,child,Test network: https://testnet.binance.vision/
+Binance Private,,-> LIVE,,child,Live network: https://api.binance.com/
+Binance Private,,-> Send New Order,,child,Send in a new order.
+Binance Private,,-> Test New Order,,child,Test new order creation. Creates and validates a new order but does not send it into the matching engine.
+Binance Private,,-> Query Order,,child,Check an order's status.
+Binance Private,,-> Cancel Order,,child,Cancel an active order.
+Binance Private,,-> Cancel All Open Orders on a Symbol,,child,Cancels all active orders on a symbol. This includes OCO orders.
+Binance Private,,-> Query Current Open Orders,,child,Get all open orders on a symbol.
+Binance Private,,-> Query All Orders,,child,"Get all account orders; active, canceled, or filled."
+Binance Private,,-> Query Account Information,,child,Get current account information.
+Binance Private,,-> Query Account Trade List,,child,Get trades for a specific account and symbol.
+Binance Private,,-> Query Current Order Count Usage,,child,Displays the user's current order count usage for all intervals.
+Binance Public,,Binance Public,,parent,Binance Public API
+Binance Public,,-> TEST,,child,Test network: https://testnet.binance.vision/
+Binance Public,,-> LIVE,,child,Live network: https://api.binance.com/
+Binance Public,,-> Get Order Book,,child,Get order book.
+Binance Public,,-> Get Exchange Information,,child,Get current exchange trading rules and symbol information.
+Binance Public,,-> Get Recent Trades List,,child,Get recent trades.
+Binance Public,,"-> Get Compressed, Aggregate Trades",,child,"Get compressed, aggregate trades. Trades that fill at the time, from the same taker order, with the same price will have the quantity aggregated."
+Binance Public,,-> Get Kline/Candlestick data,,child,Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.
+Binance Public,,-> Get Current Average Price,,child,Current average price for a symbol.
+Binance Public,,-> Get 24hr Ticker Price Change Statistics,,child,24 hour rolling window price change statistics.
+Binance Public,,-> Get Symbol Price Ticker,,child,Latest price for a symbol or symbols.
+Binance Public,,-> Get Symbol Order Book Ticker,,child,Best price/qty on the order book for a symbol or symbols.
+Blockchain Event Trigger,,Blockchain Event Trigger,,parent,Start workflow whenever a specified event happened on chain
+Blockchain Event Trigger,,-> New Block,,child,Emitted when a new block is mined
+Blockchain Event Trigger,,-> Error,,child,emitted on any error
+Blockchain Event Trigger,,-> New Transaction,,child,Emitted when a new transaction enters the memory pool. Only certain providers offer this event and may require running your own node for reliable results
+Blockchain Event Trigger,,-> Transaction Hash,,child,Emitted when the transaction has been mined
+ChainLink,,ChainLink,,parent,"Execute ChainLink operations such as Data Feeds, Randomness, Oracles."
+ChainLink,,-> Get Price Feeds,,child,Get real-world market prices of assets using ChainLink Oracle.
+ChainLink,,-> Get Proof of Reserve,,child,Provide the status of the reserves for several assets.
+ChainLink,,-> Get NFT Floor Pricing,,child,"Get the lowest price of an NFT in a collection using ChainLink Oracle, ONLY available on Goerli."
+Chainlink Function Webhook,,Chainlink Function Webhook,,parent,Start workflow whenever chainlink function webhook is called
+Chainlink Functions,,Chainlink Functions,,parent,Execute code within NodeVM sandbox
+Confidential Compute Launcher,,Confidential Compute Launcher,,parent,Launch confidential compute instances on various cloud providers
+Confidential Compute Launcher,,-> Amazon Web Services (AWS),,child,Launch confidential compute instances on AWS
+Confidential Compute Launcher,,-> Microsoft Azure,,child,Launch confidential compute instances on Azure
+Confidential Compute Launcher,,-> Google Cloud Platform (GCP),,child,Launch confidential compute instances on GCP
+Confidential Compute Launcher,,-> IBM Cloud,,child,Launch confidential compute instances on IBM Cloud
+Create NFT,,Create NFT,,parent,Create new NFT (ERC1155)
+Create Token,,Create Token,,parent,Create new cryptocurrency token (ERC20)
+DataScraper,,DataScraper,,parent,Extracts data from web pages using customizable extraction rules with Puppeteer.
+DataScraper,,-> Scrape Webpage,,child,Scrapes data from a webpage given a URL and extraction rules.
+DataScraper,,-> Extract Element,,child,Extracts a specific element from the webpage using a CSS selector.
+Discord,,Discord,,parent,Post message in Discord channel
+Send Email,,Send Email,,parent,Send email to single or multiple recipients
+Email Trigger,,Email Trigger,,parent,Start workflow whenever a new email is received
+ERC20 Function,,ERC20 Function,,parent,"Execute ERC20 functions such as balanceOf, transferFrom, approve, and more."
+ERC20 Function,,-> Approve,,child,
+ERC20 Function,,-> Allowance,,child,
+ERC20 Function,,-> Balance Of,,child,
+ERC20 Function,,-> Transfer From,,child,
+ERC20 Function,,-> Decimals,,child,
+ERC20 Function,,-> Name,,child,
+ERC20 Function,,-> Symbol,,child,
+ERC20 Function,,-> Total Supply,,child,
+Etherscan,,Etherscan,,parent,Perform Etherscan operations
+Etherscan,,-> Get Ether Balance for a Single Address,,child,Returns the Ether balance of a given address.
+Etherscan,,-> Get Ether Balance for Multiple Addresses(separated by a comma),,child,Returns the Ether balance of the addresses(each address separated by a comma) entered.
+Etherscan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+Etherscan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+Etherscan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+Etherscan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+Etherscan,,-> Get list of Blocks Validated by Address,,child,Returns the list of blocks validated by an address.
+Etherscan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+Etherscan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+Etherscan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+Etherscan,,-> Get ERC20 Token Supply,,child,"Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Etherscan,,-> Get ERC20 Token Balance,,child,"Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Etherscan,,-> Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO],,child,"Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Etherscan,,-> Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO],,child,"Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Etherscan,,-> Get Token Info [PRO],,child,Returns project information and social media links of an ERC-20/ERC-721 token.
+Etherscan,,-> Get ETHER Price,,child,Returns the latest price of 1 ETHER.
+Etherscan,,-> Get Historical ETHER Price [PRO],,child,Returns the historical price of ETHER.
+Execute Contract Function,,Execute Contract Function,,parent,Execute smart contract function.
+Fireflies AI,,Fireflies AI,,parent,Perform Fireflies AI operations
+Fireflies AI,,-> Get AI Apps,,child,Query the list of AI App outputs.
+Fireflies AI,,-> Get User Details,,child,Query user details.
+Fireflies AI,,-> Get Users List,,child,Query a list of users.
+Fireflies AI,,-> Get Transcript Details,,child,Query transcript details.
+Fireflies AI,,-> Get Transcripts List,,child,Query a list of transcripts.
+Fireflies AI,,-> Get Bite Details,,child,Query bite details.
+Fireflies AI,,-> Get Bites List,,child,Query a list of bites.
+Footprint Analytics,,Footprint Analytics,,parent,Execute Footprint Analytics APIs and SQL query
+Footprint Analytics,,-> Rest API (V2),,child,
+Footprint Analytics,,-> SQL API (Synchronous),,child,Suitable for simple table lookup query
+Footprint Analytics,,-> SQL API (Asynchronous),,child,For complex analysis table lookup query
+Footprint Analytics,,-> NFT,,child,
+Footprint Analytics,,-> Token,,child,
+Footprint Analytics,,-> GameFi,,child,
+Footprint Analytics,,-> Chain,,child,
+Google Gemini,,Google Gemini,,parent,Chat completions (and embeddings) via Gemini 2 models using OpenAI API compatibility
+Google Gemini,,-> Chat Completions,,child,
+Google Gemini,,-> Chat Completions With History,,child,
+GET API Chain,,GET API Chain,,parent,Chain to run queries against GET API
+GitHub OAuth Test,,GitHub OAuth Test,,parent,GitHub API
+GitHub OAuth Test,,-> List User Repositories,,child,Lists public repositories for the specified user.
+GitHub OAuth Test,,-> List Organization Repositories,,child,Lists repositories for the specified organization.
+GitHub OAuth Test,,-> List Repository Issues,,child,List issues in a repository.
+GitHub OAuth Test,,-> Create an Issue,,child,Any user with pull access to a repository can create an issue.
+GitHub OAuth Test,,-> Get an Issue,,child,Get an issue in a repository.
+GitHub OAuth Test,,-> Update an Issue,,child,Update an issue in a repository.
+GitHub OAuth Test,,-> Lock an Issue,,child,Users with push access can lock an issue or pull request's conversation.
+GitHub OAuth Test,,-> Unlock an Issue,,child,Users with push access can unlock an issue's conversation.
+GoogleDocs,,GoogleDocs,,parent,Execute GoogleDocs operations
+GoogleDocs,,-> Create New Document,,child,Create a new document
+GoogleDocs,,-> Get All Values,,child,Get all values from a document
+GoogleDocs,,-> Update a Document,,child,Update a document
+Google Drive,,Google Drive,,parent,Execute Google Drive operations
+Google Drive,,-> List Files,,child,List files in Google Drive
+Google Drive,,-> Get File Metadata,,child,Get metadata for a specific file
+Google Drive,,-> Download File,,child,Download the content of a file
+Google Drive,,-> Create File,,child,Create a new file
+Google Drive,,-> Update File,,child,Update file metadata or content
+Google Drive,,-> Delete File,,child,Delete a file
+Google Drive,,-> Copy File,,child,Copy an existing file
+Google Drive,,-> Empty Trash,,child,Permanently delete all files in the trash
+Google Drive,,-> Export File,,child,Export a Google Workspace document to another format
+Google Drive,,-> Generate IDs,,child,Generate a set of unique file IDs
+GoogleSheet,,GoogleSheet,,parent,Execute GoogleSheet operations
+GoogleSheet,,-> Create New SpreadSheet,,child,Create a new spreadsheet
+GoogleSheet,,-> Add Rows,,child,Add multiple rows to a spreadsheet
+GoogleSheet,,-> Get All Values,,child,Get all values from a spreadsheet
+GoogleSheet,,-> Get Values By Range,,child,Get values from cells from specified range
+GoogleSheet,,-> Update Cell,,child,Update single cell in a spreadsheet
+GoogleSheet,,-> Update Rows,,child,Update multiple rows in a spreadsheet
+GoogleSheet,,-> Clear Row,,child,Clear the values of a row in a spreadsheet
+GoogleSheet,,-> Clear Column,,child,Clear the values of a column in a spreadsheet
+GoogleSheet,,-> Clear By Range,,child,Clear the values in a spreadsheet from specified range
+GoogleSheet,,-> Clear All Values,,child,Clear all the values in a spreadsheet
+Google Slides,,Google Slides,,parent,"Create, retrieve, and update Google Slides presentations and pages"
+Google Slides,,-> Create presentation,,child,
+Google Slides,,-> Get presentation,,child,
+Google Slides,,-> Batch update presentation,,child,
+Google Slides,,-> Get page,,child,
+Google Slides,,-> Get page thumbnail,,child,
+GraphQL,,GraphQL,,parent,Execute GraphQL request
+Helio,,Helio,,parent,Execute Helio API integration
+Helio,,-> Get All Transactions,,child,
+Helio Webhook,,Helio Webhook,,parent,Start workflow whenever Helio webhook event happened
+Helio Webhook,,-> New payment on Pay Link,,child,Triggered upon new payment on the Pay Link
+Helio Webhook,,-> New subscription on Pay Stream,,child,Triggered upon new subscription/stream started on the Pay Stream
+Helio Webhook,,-> Cancellation of subscription on Pay Stream,,child,Triggered when a subscription/stream was stopped/ended on the Pay Stream
+Helius,,Helius,,parent,Perform Helius on-chain operations on Solana
+Helius,,-> Get NFT events,,child,Returns all NFT events given an address.
+Helius,,-> Get NFT Portfolio,,child,Returns all the NFTs that the given address currently holds.
+Helius,,-> Name Lookup,,child,Does a reverse lookup with the given address for Solana Naming Service domains.
+Helius,,-> Get Token Balances,,child,Returns the native Solana balance (in lamports) and all token balances for a given address.
+HTTP,,HTTP,,parent,Execute HTTP request
+HTTP,,-> GET,,child,
+HTTP,,-> POST,,child,
+HTTP,,-> PUT,,child,
+HTTP,,-> DELETE,,child,
+HTTP,,-> HEAD,,child,
+Hubspot,,Hubspot,,parent,Execute Hubspot API integration
+Hubspot,,-> Create new contact,,child,Create a new contact
+Hubspot,,-> Get contact,,child,Get a contact details
+Hubspot,,-> Delete contact,,child,Delete a contact
+Hubspot,,-> Get list of contacts,,child,Get a list of contact details
+Hugging Face,,Hugging Face,,parent,Execute HuggingFace Inference API
+Hugging Face,,-> Image Classification,,child,
+Hugging Face,,-> Feature Extraction,,child,
+Hugging Face,,-> Object Detection,,child,
+Hugging Face,,-> Text Classification,,child,
+If Else,,If Else,,parent,Split flows according to conditions set
+ImageEditor,,ImageEditor,,parent,Edit image with different manipulation methods
+ImageEditor,,-> Crop,,child,Crop image
+ImageEditor,,-> Blur,,child,Quickly blur an image
+ImageEditor,,-> Gaussian,,child,Hardcore blur
+ImageEditor,,-> Invert,,child,Invert an images colors
+ImageEditor,,-> Resize,,child,Resize an image
+ImageEditor,,-> Cover,,child,Scale the image so the given width and height keeping the aspect ratio
+ImageEditor,,-> Rotate,,child,Rotate an image
+ImageEditor,,-> Normalize,,child,Normalize the colors in an image
+ImageEditor,,-> Dither,,child,Apply a dither effect to an image
+ImageEditor,,-> Scale,,child,Uniformly scales the image by a factor
+Infura,,Infura,,parent,Perform Infura onchain operations
+Infura,,-> Chain API,,child,API for fetching standard onchain data using Infura supported calls.
+Infura,,-> IPFS API,,child,"API for interacting with IPFS, a distributed, peer-to-peer (p2p) storage network used for storing and accessing files, websites, applications, and data."
+Infura Trigger,,Infura Trigger,,parent,Start workflow whenever subscribed event happened
+Instagram,,Instagram,,parent,"Interact with Instagram’s private API: login, fetch profiles/posts/followers, comment, like, upload and manage direct messages, 2FA, registration, etc."
+Instagram,,-> Login,,child,
+Instagram,,-> Authenticate 2FA,,child,
+Instagram,,-> Submit 2FA Code,,child,
+Instagram,,-> Register Username & Password,,child,
+Instagram,,-> Reset Password,,child,
+Instagram,,-> Register Phone,,child,
+Instagram,,-> Verify Phone,,child,
+Instagram,,-> Register Email,,child,
+Instagram,,-> Verify Email,,child,
+Instagram,,-> Register Device,,child,
+Instagram,,-> Solve Challenge,,child,
+Instagram,,-> Get User ID,,child,
+Instagram,,-> Get Profile Data,,child,
+Instagram,,-> Get Post Data,,child,
+Instagram,,-> Get Location Data,,child,
+Instagram,,-> Get Hashtag Data,,child,
+Instagram,,-> Fetch Followers,,child,
+Instagram,,-> Fetch Following,,child,
+Instagram,,-> Fetch Posts,,child,
+Instagram,,-> Fetch Tagged Posts,,child,
+Instagram,,-> Fetch Post Comments,,child,
+Instagram,,-> Fetch Post Likes,,child,
+Instagram,,-> Like Post,,child,
+Instagram,,-> Like Story,,child,
+Instagram,,-> Comment On Post,,child,
+Instagram,,-> Follow Profile,,child,
+Instagram,,-> Unfollow Profile,,child,
+Instagram,,-> Upload Post,,child,
+Instagram,,-> Upload Story,,child,
+Instagram,,-> Upload Avatar,,child,
+Instagram,,-> Search,,child,
+Instagram,,-> Get Profile Suggestions,,child,
+Instagram,,-> Fetch Direct Messages,,child,
+Instagram,,-> Create DM Thread,,child,
+Instagram,,-> Send Direct Message,,child,
+Instagram,,-> Fetch DM Thread,,child,
+LangChain Web Browser,,LangChain Web Browser,,parent,"Open a URL or run a live web search via LangChain’s WebBrowser tool, optionally summarized by an LLM."
+LangChain Web Browser,,-> Browse / Search,,child,"Pass a full URL to fetch + parse it, or a plain question / keyword to search the web."
+Lyft,,Lyft,,parent,"Enrich and extend AI models with memory, tools, and templated context using MCP."
+Lyft,,-> Use Prompt Template,,child,
+Lyft,,-> Call a Tool,,child,
+Lyft,,-> Fetch Context Memory,,child,
+Mailchimp,,Mailchimp,,parent,Execute Mailchimp API integration
+Mailchimp,,-> Get list of campaigns,,child,Returns the list of campaigns
+Mailchimp,,-> Get campaign,,child,Return single campaign
+Mailchimp,,-> Delete campaign,,child,It will delete campaigns
+Mailchimp,,-> Add user to subscribe list,,child,Add or update user to a subscribe list
+Mailchimp,,-> Get user,,child,Get information about a specific audience
+Mailchimp,,-> Get list of users,,child,Get information about list of members in a specific audience list
+Model Context Protocol,,Model Context Protocol,,parent,Executes tools defined in the Model Context Protocol serverless environment.
+Model Context Protocol,,-> Calculator,,child,
+Model Context Protocol,,Model Context Protocol,,parent,Perform operations with OpenAI Assistants API
+Model Context Protocol,,-> Run MCP Service With Prompt,,child,Recieves a response from the assistant for a specific thread
+Moralis,,Moralis,,parent,Execute Moralis APIs
+Moralis,,-> EVM API,,child,API for interacting/fetching standard onchain data using Moralis API key.
+Moralis,,-> NFT API,,child,API for interacting/fetching NFT data using Moralis API key.
+Moralis,,-> DeFi API,,child,API for interacting/fetching DeFi data using Moralis API key.
+Moralis,,-> Upload to IPFS,,child,Upload multiple files in a folder to IPFS and place them in a folder directory.
+NodeJS,,NodeJS,,parent,Execute code within NodeVM sandbox
+Notion,,Notion,,parent,"Work with Notion page, database or block"
+Notion,,-> Search all pages,,child,
+Notion,,-> Page,,child,
+Notion,,-> Database,,child,
+Notion,,-> Block,,child,
+Notion,,-> Get Page,,child,
+Notion,,-> Create Page,,child,
+Notion,,-> Update Page,,child,
+Notion,,-> Delete Page,,child,
+Notion,,-> Get Database,,child,
+Notion,,-> Create Database,,child,
+Notion,,-> Update Database,,child,
+Notion,,-> Query Database,,child,
+Notion,,-> Get Block,,child,
+Notion,,-> Update Block,,child,
+Notion,,-> Get Block Children,,child,
+Notion,,-> Append Block Children,,child,
+Notion,,-> Delete Block,,child,
+Nowhere API,,Nowhere API,,parent,"Manage stations, spaces, and user roles via the Nowhere API"
+Nowhere API,,-> Get User Info,,child,
+Nowhere API,,-> Get Embed Link,,child,
+Nowhere API,,-> Create Station,,child,
+Nowhere API,,-> Update Station,,child,
+Nowhere API,,-> Create Space,,child,
+Nowhere API,,-> Update Space,,child,
+Nowhere API,,-> Manage Station Roles,,child,
+Nowhere API,,-> Manage Space Roles,,child,
+NVIDIA NIM,,NVIDIA NIM,,parent,"Access NVIDIA NIM API for various tasks including chat, code generation, and retrieval via generative AI models"
+NVIDIA NIM,,-> Chat Completion,,child,
+NVIDIA NIM,,-> Code Completion,,child,
+NVIDIA NIM,,-> Retrieval,,child,
+NVIDIA NIM API,,NVIDIA NIM API,,parent,"Interact with NVIDIA NIM API to create chat completions, list available models, or retrieve model metadata."
+NVIDIA NIM API,,-> Create Chat Completion,,child,Create a chat completion using NVIDIA NIM API.
+NVIDIA NIM API,,-> List Available Models,,child,List all available models for inference.
+NVIDIA NIM API,,-> Get Model Metadata,,child,Retrieve metadata for a specific model.
+OpenAI,,OpenAI,,parent,"ChatGPT, image generation or text completion from prompt via OpenAI API"
+OpenAI,,-> ChatGPT,,child,
+OpenAI,,-> Generate Image via text prompt,,child,
+OpenAI,,-> Generate Text Completion via text prompt,,child,
+OpenAI Embeddings,,OpenAI Embeddings,,parent,Generate embeddings for a given text using OpenAI API
+OpenAI Embeddings,,-> Generate Embeddings,,child,
+OpenSea Event Trigger,,OpenSea Event Trigger,,parent,Start workflow whenever OpenSea event occurs
+OpenSea Event Trigger,,-> New Auctions,,child,
+OpenSea Event Trigger,,-> New Sales,,child,
+OpenSea Event Trigger,,-> New Transfer,,child,
+OpenSea Event Trigger,,-> New Approve,,child,
+OpenSea Event Trigger,,-> New Bid Entered,,child,
+OpenSea Event Trigger,,-> Bid Withdrawn,,child,
+OpenSea Event Trigger,,-> Cancelled,,child,
+OpenSea Event Trigger,,-> Sell to the highest bidder,,child,The highest bid wins at the end
+OpenSea Event Trigger,,-> Sell with a declining price,,child,The price falls until someone purchases the item
+OpenSea Event Trigger,,-> CryptoPunks Auctions,,child,
+OpenSea Event Trigger,,-> TEST,,child,Testnet: https://testnets.opensea.io/
+OpenSea Event Trigger,,-> MAIN,,child,Mainnet: https://opensea.io/
+OpenAI Assistants,,OpenAI Assistants,,parent,Perform operations with OpenAI Assistants API
+OpenAI Assistants,,-> List Assistants,,child,Fetches a list of all assistants.
+OpenAI Assistants,,-> Run Assistant With Thread,,child,Recieves a response from the assistant for a specific thread
+OpenAI Assistants,,-> Create Assistant,,child,Creates a new assistant.
+OpenAI Assistants,,-> Get Assistant,,child,Retrieves details of a specific assistant using the assistant ID.
+OpenAI Assistants,,-> Modify Assistant,,child,Modifies an existing assistant using the assistant ID.
+OpenAI Assistants,,-> Delete Assistant,,child,Deletes an assistant using the assistant ID.
+OpenAI Assistants,,-> List Threads,,child,Fetches a list of all threads.
+OpenAI Assistants,,-> Create Thread,,child,Creates a new thread.
+OpenAI Assistants,,-> Get Thread,,child,Retrieves details of a specific thread using the thread ID.
+OpenAI Assistants,,-> List Messages,,child,Fetches a list of all messages.
+OpenAI Assistants,,-> Create Message,,child,Creates a new message.
+OpenAI Assistants,,-> Get Message,,child,Retrieves details of a specific message using the message ID.
+OpenAI Assistants,,-> List Runs,,child,Fetches a list of all runs.
+OpenAI Assistants,,-> Get Run,,child,Retrieves details of a specific run using the run ID.
+OpenAI Assistants,,-> Cancel Run,,child,Cancels a specific run using the run ID.
+OpenAI Assistants,,-> List Run Steps,,child,Fetches a list of all run steps.
+OpenAI Assistants,,-> Get Run Step,,child,Retrieves details of a specific run step using the run step ID.
+OpenAI Assistants,,-> List Vector Stores,,child,Fetches a list of all vector stores.
+OpenAI Assistants,,-> Create Vector Store,,child,Creates a new vector store.
+OpenAI Assistants,,-> Get Vector Store,,child,Retrieves details of a specific vector store using the vector store ID.
+OpenAI Assistants,,-> Delete Vector Store,,child,Deletes a vector store using the vector store ID.
+OpenAI Assistants,,-> List Vector Store Files,,child,Fetches a list of all vector store files.
+OpenAI Assistants,,-> Upload Vector Store File,,child,Uploads a new vector store file.
+OpenAI Assistants,,-> Get Vector Store File,,child,Retrieves details of a specific vector store file using the file ID.
+OpenAI Assistants,,-> Delete Vector Store File,,child,Deletes a vector store file using the file ID.
+OpenAI Assistants,,-> List Vector Store File Batches,,child,Fetches a list of all vector store file batches.
+OpenAI Assistants,,-> Create Vector Store File Batch,,child,Creates a new vector store file batch.
+OpenAI Assistants,,-> Get Vector Store File Batch,,child,Retrieves details of a specific vector store file batch using the batch ID.
+OpenAI Assistants,,-> Delete Vector Store File Batch,,child,Deletes a vector store file batch using the batch ID.
+OpenAI Assistants V2,,OpenAI Assistants V2,,parent,Perform operations with OpenAI Assistants API
+OpenAI Assistants V2,,-> List Assistants,,child,Fetches a list of all assistants.
+OpenAI Assistants V2,,-> Create Assistant,,child,Creates a new assistant.
+OpenAI Assistants V2,,-> Get Assistant,,child,Retrieves details of a specific assistant using the assistant ID.
+OpenAI Assistants V2,,-> Modify Assistant,,child,Modifies an existing assistant using the assistant ID.
+OpenAI Assistants V2,,-> Delete Assistant,,child,Deletes an assistant using the assistant ID.
+OpenAI Assistants V2,,-> List Threads,,child,Fetches a list of all threads.
+OpenAI Assistants V2,,-> Create Thread,,child,Creates a new thread.
+OpenAI Assistants V2,,-> Get Thread,,child,Retrieves details of a specific thread using the thread ID.
+OpenAI Assistants V2,,-> List Messages,,child,Fetches a list of all messages.
+OpenAI Assistants V2,,-> Create Message,,child,Creates a new message.
+OpenAI Assistants V2,,-> Get Message,,child,Retrieves details of a specific message using the message ID.
+OpenAI Assistants V2,,-> List Runs,,child,Fetches a list of all runs.
+OpenAI Assistants V2,,-> Get Run,,child,Retrieves details of a specific run using the run ID.
+OpenAI Assistants V2,,-> Cancel Run,,child,Cancels a specific run using the run ID.
+OpenAI Assistants V2,,-> List Run Steps,,child,Fetches a list of all run steps.
+OpenAI Assistants V2,,-> Get Run Step,,child,Retrieves details of a specific run step using the run step ID.
+OpenSea,,OpenSea,,parent,Query OpenSea information
+OpenSea,,-> Retrieve Assets,,child,Returns a set of NFTs.
+OpenSea,,-> Retrieve Events,,child,Returns a list of Events.
+OpenSea,,-> Retrieve Collections,,child,Returns a list of collections supported and vetted by OpenSea.
+OpenSea,,-> Retrieve Bundles,,child,Returns a list of bundles. Bundles are groups of NFTs for sale on OpenSea.
+OpenSea,,-> Retrieve An Asset,,child,"Fetch information about a single NFT, based on its contract address and token ID."
+OpenSea,,-> Retrieve A Contract,,child,Fetch detailed information about a specified contract.
+OpenSea,,-> Retrieve A Collection,,child,"Retrieve more in-depth information about an individual collection, including real time statistics such as floor price."
+OpenSea,,-> Retrieve Collection Stats,,child,"Fetch stats for a specific collection, including real-time floor price data."
+OpenSea,,-> Auctions,,child,
+OpenSea,,-> Sales,,child,
+OpenSea,,-> Transfer,,child,
+OpenSea,,-> Approve,,child,
+OpenSea,,-> Bid Entered,,child,
+OpenSea,,-> Bid Withdrawn,,child,
+OpenSea,,-> Cancelled,,child,
+OpenSea,,-> All Events,,child,
+OpenSea,,-> Sell to the highest bidder,,child,The highest bid wins at the end
+OpenSea,,-> Sell with a declining price,,child,The price falls until someone purchases the item
+OpenSea,,-> CryptoPunks Auctions,,child,
+OpenSea,,-> TEST,,child,Testnet: https://testnets.opensea.io/
+OpenSea,,-> MAIN,,child,Mainnet: https://opensea.io/
+Optimism Scan,,Optimism Scan,,parent,Perform Arbiscan operations
+Optimism Scan,,-> Get Ether Balance for a Single Address,,child,Returns the Ether balance of a given address.
+Optimism Scan,,-> Get Ether Balance for Multiple Addresses(separated by a comma),,child,Returns the Ether balance of the addresses(each address separated by a comma) entered.
+Optimism Scan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+Optimism Scan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+Optimism Scan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+Optimism Scan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+Optimism Scan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+Optimism Scan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+Optimism Scan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+Optimism Scan,,-> Check Contract Execution Status,,child,Returns the status code of a contract execution.
+Optimism Scan,,-> Get ERC20 Token Supply,,child,"Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Optimism Scan,,-> Get ERC20 Token Balance,,child,"Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+Optimism Scan,,-> Get ETHER Price,,child,Returns the latest price of 1 ETHER.
+Optimism Scan,,-> Get Total Supply of Ether,,child,Returns the current amount of Ether in circulation.
+Optimism Scan,,Optimism Scan,,parent,Optimism Public API
+Optimism Scan,,-> Get ETH Balance,,child,Get ETH Balance for a single Address
+Optimism Scan,,-> Get ETH Balance Multi,,child,Get ETH Balance for multiple Addresses in a single call
+Optimism Scan,,-> Get ERC20 Token Transfer Events,,child,"Get a list of ""ERC-20 - Token Transfer Events"" by Address"
+Optimism Scan,,-> Get Deposit History,,child,Get list of L1 Deposits done by Address
+Optimism Scan,,-> Get Withdrawal History,,child,Get list of L2 Withdrawals done by Address
+Optimism Scan,,-> Get Contract ABI,,child,Get Contract ABI for Verified Contract Source Codes
+Optimism Scan,,-> Get Contract Source Code,,child,Get Contract Source Code for Verified Contract Source Codes. (Replace the address with the actual contract address)
+Optimism Scan,,-> Get ERC-20 Token Total Supply,,child,Get ERC-20 Token Total Supply by Contract Address
+Optimism Scan,,-> Get ERC-20 Token Account Balance,,child,Get ERC-20 Token Account Balance by Contract Address and Address
+PancakeSwap,,PancakeSwap,,parent,Execute PancakeSwap operations
+PancakeSwap,,-> Swap Tokens,,child,
+PancakeSwap,,-> Custom Query,,child,Custom subgraph query to retrieve more information. https://github.com/pancakeswap/pancake-subgraph
+PancakeSwap,,-> Blocks,,child,Tracks all blocks on Binance Smart Chain.
+PancakeSwap,,-> Exchange,,child,"Tracks all PancakeSwap Exchange data with price, volume, liquidity"
+PancakeSwap,,-> Lottery,,child,"Tracks all PancakeSwap Lottery with rounds, draws and tickets."
+PancakeSwap,,-> NFT Market (v1),,child,Tracks all PancakeSwap NFT Market for ERC-721.
+PancakeSwap,,-> Pairs,,child,Tracks all PancakeSwap Pairs and Tokens.
+PancakeSwap,,-> Pancake Squad,,child,"Tracks all Pancake Squad metrics with Owners, Tokens (including metadata), and Transactions."
+PancakeSwap,,-> Prediction (v1),,child,"Tracks all PancakeSwap Prediction (v1) with market, rounds, and bets."
+PancakeSwap,,-> Prediction (v2),,child,"Tracks all PancakeSwap Prediction (v2) with market, rounds, and bets."
+PancakeSwap,,-> Profile,,child,"Tracks all PancakeSwap Profile with teams, users, points and campaigns."
+PancakeSwap,,-> SmartChef,,child,Tracks all PancakeSwap SmartChef (a.k.a. Syrup Pools) with tokens and rewards.
+PancakeSwap,,-> Timelock,,child,"Tracks all PancakeSwap Timelock queued, executed, and cancelled transactions."
+PancakeSwap,,-> MasterChef (v2),,child,Tracks data for MasterChefV2.
+Pinata,,Pinata,,parent,Pin your content to IPFS with Pinata
+Pinata,,-> JSON,,child,
+Pinata,,-> Multiple JSON,,child,"Wrap each json from an array into a json file (0.json, 1.json..) and store under a directory"
+Pinata,,-> File,,child,
+Pinata,,-> Folder,,child,
+Pinata,,-> CID (Content Identifier),,child,
+Pinata,,-> Raw Data (Base64),,child,Wrap the raw data in base64 format into a file and store under a directory
+Pinata,,-> Multiple Raw Data (Base64),,child,"Wrap each raw data in base64 format from an array into a file (0.png, 1.pdf..) and store under a directory"
+Pinata,,-> List Pin By CID Jobs,,child,
+Pinata,,-> Update Metadata,,child,
+Pinata,,-> Remove Files (Unpin),,child,
+Pinterest,,Pinterest,,parent,"Interact with Pinterest API (v5) endpoints, including user accounts, boards, pins, ads, catalogs, analytics, and more."
+Pinterest,,-> Get User Account,,child,Get account profile information for the authorized user.
+Pinterest,,-> Get User Account Analytics,,child,"Get analytics for the authorized user's account (audience metrics, profile impressions, etc)."
+Pinterest,,-> Get User Account Top Pins Analytics,,child,Get analytics data for the user's top Pins (top 50 Pins).
+Pinterest,,-> Get User Account Top Video Pins Analytics,,child,Get analytics data for the user's top video Pins (top 50 Pins).
+Pinterest,,-> List Linked Business Accounts,,child,List business accounts linked to the authorized user.
+Pinterest,,-> List Followers,,child,List the users following the authorized user.
+Pinterest,,-> List Following Users,,child,List the users that the authorized user is following.
+Pinterest,,-> List Following Boards,,child,List the boards that the authorized user is following.
+Pinterest,,-> Follow User,,child,Follow another user by username (Beta feature).
+Pinterest,,-> Verify Website,,child,Verify a website for the authorized user.
+Pinterest,,-> Get Website Verification Status,,child,Get the status of website verification for the authorized user.
+Pinterest,,-> List Boards,,child,Get a list of boards owned by the user (and group boards the user is a collaborator on).
+Pinterest,,-> Create Board,,child,Create a new board for the user.
+Pinterest,,-> Get Board,,child,Get details of a specific board.
+Pinterest,,-> Update Board,,child,"Update a board's information (name, description, privacy)."
+Pinterest,,-> Delete Board,,child,Delete a board.
+Pinterest,,-> List Board Sections,,child,List all sections on a specified board.
+Pinterest,,-> Create Board Section,,child,Create a new section within a board.
+Pinterest,,-> Update Board Section,,child,Update a board section's name.
+Pinterest,,-> Delete Board Section,,child,Delete a section from a board.
+Pinterest,,-> List Pins on Board,,child,List all Pins on a specific board.
+Pinterest,,-> List Pins on Board Section,,child,List all Pins in a specific board section.
+Pinterest,,-> List Pins,,child,List all Pins owned by the user.
+Pinterest,,-> Create Pin,,child,Create a new Pin on a board (or board section).
+Pinterest,,-> Get Pin,,child,Get details of a specific Pin.
+Pinterest,,-> Update Pin,,child,"Update a Pin's details (title, description, link)."
+Pinterest,,-> Delete Pin,,child,Delete a Pin.
+Pinterest,,-> Search Boards,,child,Search the user's boards by a query.
+Pinterest,,-> Search Pins,,child,Search the user's Pins by a query.
+Pinterest,,-> Search Partner Pins,,child,Search for top Pins by a given search term (Beta).
+Pinterest,,-> List Ad Accounts,,child,List ad accounts the user has access to.
+Pinterest,,-> Create Ad Account,,child,Create a new ad account for the user.
+Pinterest,,-> Get Ad Account,,child,Get details of a specific ad account.
+Pinterest,,-> List Campaigns,,child,List campaigns in an ad account.
+Pinterest,,-> Create Campaign,,child,Create a new campaign in an ad account.
+Pinterest,,-> Get Campaign,,child,Get details of a specific campaign.
+Pinterest,,-> Update Campaign,,child,Update one or more existing campaigns (e.g. status or budget).
+Pinterest,,-> List Ad Groups,,child,List ad groups in an ad account (optionally filtered by campaign).
+Pinterest,,-> Create Ad Group,,child,Create a new ad group under a campaign.
+Pinterest,,-> Get Ad Group,,child,Get details of a specific ad group.
+Pinterest,,-> Update Ad Group,,child,Update one or more existing ad groups (e.g. status or targeting).
+Pinterest,,-> List Ads,,child,List ads in an ad account (optionally filtered by campaign or ad group).
+Pinterest,,-> Create Ad,,child,Create a new ad (Pin promotion) in an ad group.
+Pinterest,,-> Update Ad,,child,Update one or more existing ads (e.g. status).
+Pinterest,,-> Create Ad Preview,,child,Generate a preview of a promoted Pin (ad) using a Pin or image.
+Pinterest,,-> Create Keywords,,child,Create keywords for targeting (attach keywords to an ad group or campaign).
+Pinterest,,-> Update Keywords,,child,Update keywords (e.g. bids or archive status).
+Pinterest,,-> Get Keyword Metrics,,child,Get keyword metrics aggregated (e.g. search counts by country).
+Pinterest,,-> List Audiences,,child,List audiences available in an ad account.
+Pinterest,,-> Create Custom Audience,,child,Create a new custom audience (for targeting).
+Pinterest,,-> Get Audience,,child,Get details of a specific audience.
+Pinterest,,-> List Customer Lists,,child,List customer (user) lists in an ad account.
+Pinterest,,-> Create Customer List,,child,Create a new customer list audience (e.g. email list).
+Pinterest,,-> Get Customer List,,child,Get details of a specific customer list.
+Pinterest,,-> Update Customer List,,child,Append or remove records in an existing customer list.
+Pinterest,,-> List Conversion Tags,,child,List conversion tags associated with an ad account.
+Pinterest,,-> Get Conversion Tag,,child,Get details of a specific conversion tag.
+Pinterest,,-> Create Conversion Tag,,child,Create a new Pinterest conversion tag.
+Pinterest,,-> Update Conversion Tag,,child,Update an existing conversion tag (e.g. rename or settings).
+Pinterest,,-> Send Conversion Events,,child,Send conversion event data (via the Conversions API).
+Pinterest,,-> List Media Uploads,,child,List media upload requests (media assets) for the user or ad account.
+Pinterest,,-> Create Media Upload,,child,Initiate a new media upload (for images or videos).
+Pinterest,,-> Get Media Upload,,child,Check the status of a media upload by ID.
+Pinterest,,-> List Catalogs,,child,List catalogs associated with the user or business.
+Pinterest,,-> List Catalog Feeds,,child,List product feed sources (data feeds) for catalogs.
+Pinterest,,-> Create Catalog Feed,,child,Create a new product feed for a catalog (register a data source).
+Pinterest,,-> Get Catalog Feed,,child,Get details of a specific product feed.
+Pinterest,,-> Update Catalog Feed,,child,Update settings of a product feed (e.g. name or status).
+Pinterest,,-> Delete Catalog Feed,,child,Delete a product feed.
+Pinterest,,-> List Feed Processing Results,,child,"List processing results (errors, warnings) for a given feed."
+Pinterest,,-> List Catalog Items,,child,List products (catalog items) from the user's catalog.
+Pinterest,,-> Operate on Catalog Item Batch,,child,Apply operations (create/update/remove) on a set of catalog items.
+Pinterest,,-> Get Catalog Item Batch Status,,child,Get the status/results of a catalog items batch operation.
+Pinterest,,-> List Product Groups,,child,List product groups (collections of items) in the catalog.
+Pinterest,,-> Create Product Group,,child,Create a new product group (item filter set) in the catalog.
+Pinterest,,-> Get Product Group,,child,Get details of a specific product group.
+Pinterest,,-> Get Product Group Product Counts,,child,Get the count of products in a specific product group.
+Pinterest,,-> List Products in Product Group,,child,List the product items belonging to a specific product group.
+Pinterest,,-> List Product Group Promotions,,child,List promoted product groups (shopping ads) in an ad account.
+Pinterest,,-> Create Product Group Promotion,,child,Promote a product group (create a new product group promotion).
+Pinterest,,-> Get Product Group Promotion,,child,Get details of a specific product group promotion.
+Pinterest,,-> Update Product Group Promotion,,child,Update an existing product group promotion (e.g. status or bid).
+Pinterest,,-> Get Campaign Analytics,,child,Retrieve analytics metrics for one or more campaigns in an ad account.
+Pinterest,,-> Get Ad Group Analytics,,child,Retrieve analytics metrics for one or more ad groups in an ad account.
+Pinterest,,-> Get Ad Analytics,,child,Retrieve analytics metrics for one or more ads in an ad account.
+Pinterest,,-> Get Product Group Analytics,,child,Retrieve analytics metrics for one or more product group promotions.
+Pinterest,,-> Get Campaign Targeting Analytics,,child,Retrieve targeting breakdown analytics for one or more campaigns.
+Pinterest,,-> Get Ad Group Targeting Analytics,,child,Retrieve targeting breakdown analytics for one or more ad groups.
+Pinterest,,-> Get Audience Insights,,child,Get audience insights for an ad account (overview of audience metrics).
+Pinterest,,-> Create Analytics Report,,child,Create an asynchronous analytics report for an ad account (returns a report token).
+Pinterest,,-> Get Analytics Report,,child,Retrieve a previously requested analytics report (using a report token).
+Pinterest,,-> List Related Terms,,child,Get a list of search terms related to a given term (for targeting suggestions).
+Pinterest,,-> List Suggested Terms,,child,Get a list of suggested search terms often used together with a given term.
+Pinterest,,-> Get Advertising Terms of Service,,child,Get the Pinterest Advertising Terms of Service.
+PolygonScan,,PolygonScan,,parent,PolygonScan Public API
+PolygonScan,,-> Get MATIC Balance,,child,Returns the MATIC balance of a given address. The result is returned in wei.
+PolygonScan,,-> Get Historical MATIC Balance [PRO],,child,Returns the historical MATIC balance of an address at a certain block height. The result is returned in wei
+PolygonScan,,-> Get transactions,,child,"Returns the list of transactions performed by an address, with optional pagination."
+PolygonScan,,-> Get internal transactions,,child,"Returns the list of internal transactions performed by an address, with optional pagination."
+PolygonScan,,-> Get internal transactions by hash,,child,Returns the list of internal transactions performed within a transaction.
+PolygonScan,,-> Get internal transactions by block,,child,"Returns the list of internal transactions performed within a block range, with optional pagination."
+PolygonScan,,-> Get list of Blocks Validated by Address,,child,Returns the list of blocks validated by an address.
+PolygonScan,,-> Get Contract ABI,,child,Returns the contract Application Binary Interface ( ABI ) of a verified smart contract.
+PolygonScan,,-> Get Contract Source Code,,child,Returns the Solidity source code of a verified smart contract.
+PolygonScan,,-> Check Transaction Receipt Status,,child,Returns the status code of a transaction execution.
+PolygonScan,,-> Get ERC20 Token Supply,,child,"Returns the total supply of a ERC-20 token. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+PolygonScan,,-> Get ERC20 Token Balance,,child,"Returns the current balance of a ERC-20 token of an address. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+PolygonScan,,-> Get Historical ERC-20 Token TotalSupply by ContractAddress & BlockNo [PRO],,child,"Returns the historical amount of a ERC-20 token in circulation at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+PolygonScan,,-> Get Historical ERC-20 Token Account Balance by ContractAddress & BlockNo [PRO],,child,"Returns the balance of a ERC-20 token of an address at a certain block height. The result is returned in the token's smallest decimal representation.
+                        Eg. a token with a balance of 215.241526476136819398 and 18 decimal places will be returned as 215241526476136819398"
+PolygonScan,,-> Get Token Info [PRO],,child,Returns project information and social media links of an ERC-20/ERC-721 token.
+PolygonScan,,-> Get MATIC Price,,child,Returns the latest price of 1 MATIC.
+PolygonScan,,-> Get Historical MATIC Price [PRO],,child,Returns the historical price of 1 MATIC.
+PureTalk,,PureTalk,,parent,"Interact with the Puretalk AI® API to manage voices, AI assistants, phone numbers, calls, and related tasks."
+PureTalk,,-> Retrieve all voices,,child,
+PureTalk,,-> Retrieve a specific voice by ID,,child,
+PureTalk,,-> Create a new AI Assistant,,child,
+PureTalk,,-> Retrieve all AI Assistants,,child,
+PureTalk,,-> Retrieve a specific AI Assistant by ID,,child,
+PureTalk,,-> Update an existing AI Assistant,,child,
+PureTalk,,-> Delete an AI Assistant by ID,,child,
+PureTalk,,-> Retrieve chatbot configuration for an AI Assistant,,child,
+PureTalk,,-> Add or update a task for an AI Assistant,,child,
+PureTalk,,-> Delete a task for an AI Assistant,,child,
+PureTalk,,-> Retrieve all phone numbers,,child,
+PureTalk,,-> Retrieve a specific phone number by ID,,child,
+PureTalk,,-> Delete a phone number by ID,,child,
+PureTalk,,-> Connect a phone number,,child,
+PureTalk,,-> Retrieve a list of calls,,child,
+PureTalk,,-> Retrieve details of a specific call by ID,,child,
+QuickNode,,QuickNode,,parent,Perform QuickNode onchain operations
+QuickNode Trigger,,QuickNode Trigger,,parent,Start workflow whenever subscribed event happened
+RapidAPI,,RapidAPI,,parent,"Connect to any API hosted on RapidAPI. This node allows you to configure the base URL, required headers (including X-RapidAPI-Key and X-RapidAPI-Host), and any necessary path or query parameters to call an endpoint. Use this integration to dynamically call any API from RapidAPI's marketplace by providing the API-specific details."
+RapidAPI,,-> GET,,child,
+RapidAPI,,-> POST,,child,
+RapidAPI,,-> PUT,,child,
+RapidAPI,,-> PATCH,,child,
+RapidAPI,,-> DELETE,,child,
+Redis,,Redis,,parent,Execute Redis operations
+Redis,,-> Delete,,child,Delete a key from Redis
+Redis,,-> Get,,child,Get the value of a key from Redis
+Redis,,-> Set,,child,Set the value of a key in Redis
+Redis,,-> Increment,,child,Atomically increment a key by 1. Creates the key if it does not exist.
+Redis,,-> Keys,,child,Returns all keys matching a pattern
+Redis,,-> Publish,,child,Publish a message to a Redis channel
+Redis,,-> Push,,child,Push data to a Redis list
+Redis,,-> Pop,,child,Pop data from a Redis list
+Request Finance,,Request Finance,,parent,Issue invoices and accept payments in cryptocurrency using RequestFinance API
+Request Finance,,-> Get Invoice,,child,Returns single invoice from RequestFinance account.
+Request Finance,,-> Create Invoice,,child,Creates a new payable invoice.
+Request Finance,,-> Create Salary Payment,,child,Creates a new payable salary payment.
+Request Finance Trigger,,Request Finance Trigger,,parent,Start workflow whenever receive new invoice or invoice status has changed
+Request Finance Trigger,,-> New,,child,Trigger workflow when new invoice received
+Request Finance Trigger,,-> Accepted,,child,The invoice has been approved by the buyer.
+Request Finance Trigger,,-> Declared Paid,,child,"The buyer declared the invoice as paid. The seller has to confirm before the invoice can move into the paid status. This is necessary for currencies, where the Request Network does not yet support payment detection."
+Request Finance Trigger,,-> Paid,,child,"Seller has confirmed and marked the invoice as paid, i.e: the buyer paid the invoice."
+Request Finance Trigger,,-> Canceled,,child,The seller canceled the invoice.
+Request Finance Trigger,,-> Rejected,,child,The buyer rejected the invoice.
+Scheduler,,Scheduler,,parent,Start workflow at scheduled times
+Slack,,Slack,,parent,Post message in Slack channel
+Snapchat API,,Snapchat API,,parent,"Perform Snapchat Marketing, Conversions, and Public Profile API operations"
+Snapchat API,,-> List Organizations,,child,
+Snapchat API,,-> List Ad Accounts,,child,
+Snapchat API,,-> List Campaigns,,child,
+Snapchat API,,-> Create Campaign,,child,
+Snapchat API,,-> Update Campaign,,child,
+Snapchat API,,-> Delete Campaign,,child,
+Snapchat API,,-> List Ad Groups,,child,
+Snapchat API,,-> Create Ad Group,,child,
+Snapchat API,,-> Update Ad Group,,child,
+Snapchat API,,-> Delete Ad Group,,child,
+Snapchat API,,-> List Ads,,child,
+Snapchat API,,-> Create Ad,,child,
+Snapchat API,,-> Update Ad,,child,
+Snapchat API,,-> Delete Ad,,child,
+Snapchat API,,-> Get Ads Insights,,child,
+Snapchat API,,-> List Media,,child,
+Snapchat API,,-> Upload Media,,child,
+Snapchat API,,-> Get Media,,child,
+Snapchat API,,-> Delete Media,,child,
+Snapchat API,,-> Send Conversion Events,,child,
+Snapchat API,,-> Get Public Profile,,child,
+SnowTrace,,SnowTrace,,parent,Perform SnowTrace operations
+SnowTrace,,-> Get AVAX Balance for a Single Address,,child,Returns the AVAX balance of a given address.
+SnowTrace,,-> Get AVAX Balance for Multiple Addresses,,child,Returns the AVAX balance of given addresses.
+SnowTrace,,"-> Get a list of ""Normal"" Transactions By Address",,child,"Returns a list of ""Normal"" transaction by address."
+SnowTrace,,"-> Get a list of ""Internal"" Transactions by Address",,child,"Returns a list of ""Internal"" transaction by address."
+SnowTrace,,"-> Get ""Internal Transactions"" by Transaction Hash",,child,"Returns ""Internal Transactions"" by hash."
+SnowTrace,,"-> Get ""Internal Transactions"" by Block Range",,child,"Returns ""Internal Transactions"" transaction by block range."
+SnowTrace,,"-> Get a list of ""ERC20 - Token Transfer Events"" by Address",,child,"Returns a list of ""ERC20 - Token Transfer Events"" by address."
+SnowTrace,,"-> Get a list of ""ERC721 - Token Transfer Events"" by Address",,child,"Returns a list of ""ERC721 - Token Transfer Events"" by address."
+SnowTrace,,-> Get list of Blocks Validated by Address,,child,Returns a list of blocks validated by address.
+SnowTrace,,-> Get Contract ABI for Verified Contract Source Codes,,child,Returns the contract ABI for verified contract source codes.
+Solidity,,Solidity,,parent,Compile and Deploy Solidity Code
+Solscan,,Solscan,,parent,Solscan Public API
+Solscan,,-> Get token balances,,child,Get tokens balances of the given address
+Solscan,,-> Get transactions,,child,Get list of transactions of the given account. MaxLimit 50 records per request
+Solscan,,-> Get staking accounts,,child,Get staking accounts of the given account
+Solscan,,-> Get token transfers,,child,Get list of transactions make tokenBalance changes. MaxLimit 50 records per request
+Solscan,,-> Get Solana transfers,,child,Get list of SOL transfers. MaxLimit 50 records per request
+Solscan,,-> Get account info,,child,"Get overall account information, including program account, NFT metadata information"
+Solscan,,-> Get last transactions,,child,Get last [limit] transactions
+Solscan,,-> Get transaction info,,child,Detail information of given transaction signature
+Solscan,,-> Get token holder,,child,Get token holders list
+Solscan,,-> Get token info,,child,Get metadata of given token
+Solscan,,-> Get token list,,child,Get list of tokens. MaxLimit 50 records per request
+Solscan,,-> Get token market info,,child,Get market information of the given token
+Solscan,,-> Get chain info,,child,Blockchain overall information
+Space and Time API,,Space and Time API,,parent,"SQL Operations REST APIs for executing SQL statements, configuring resources, encryption, and querying views on the Space and Time network."
+Space and Time API,,-> Execute SQL,,child,
+Space and Time API,,-> Configure Resources (DDL),,child,
+Space and Time API,,-> Modify Data (DML),,child,
+Space and Time API,,-> Execute Queries (DQL),,child,
+Space and Time API,,-> Configure Encryption,,child,
+Space and Time API,,-> View Query,,child,
+Space and Time API,,-> Refresh Materialized View,,child,
+Space and Time API,,-> Get Materialized View Last Refresh,,child,
+Space and Time API,,-> Execute Content Query,,child,
+Space and Time Encrypted API,,Space and Time Encrypted API,,parent,"Endpoints for executing SQL operations on encrypted tables, modifying encrypted data, and configuring dataset encryption in the Space and Time network."
+Space and Time Encrypted API,,-> Execute SQL Query on Encrypted Data,,child,
+Space and Time Encrypted API,,-> Modify Encrypted Data (DML),,child,
+Space and Time Encrypted API,,-> Configure Dataset Encryption,,child,
+Space and Time Subscription API,,Space and Time Subscription API,,parent,"Manage your Space and Time subscription, users, and settings via API."
+Space and Time Subscription API,,-> Get Subscription Info,,child,
+Space and Time Subscription API,,-> Get Subscription Users,,child,
+Space and Time Subscription API,,-> Set Subscription Name,,child,
+Space and Time Subscription API,,-> Create Subscription Invite,,child,
+Space and Time Subscription API,,-> Join Subscription,,child,
+Space and Time Subscription API,,-> Set User Role,,child,
+Space and Time Subscription API,,-> Remove User,,child,
+Space and Time Subscription API,,-> Leave Subscription,,child,
+Space and Time Subscription API,,-> Get Subscription Balance,,child,
+Space and Time Subscription API,,-> Get Usage Config,,child,
+Space and Time Subscription API,,-> Set Usage Config,,child,
+Space and Time Subscription API,,-> Get Credit Offerings,,child,
+Space and Time Subscription API,,-> Get Free Queries,,child,
+Space and Time Subscription API,,-> Get Default Free Queries,,child,
+SpaceAndTimeAuth,,SpaceAndTimeAuth,,parent,Execute Space and Time Security/Auth REST API operations.
+SpaceAndTimeAuth,,-> Authenticate User,,child,
+SpaceAndTimeAuth,,-> Register User,,child,
+SpaceAndTimeAuth,,-> Request Token,,child,
+SpaceAndTimeAuth,,-> Refresh Token,,child,
+SpaceAndTimeAuth,,-> Logout,,child,
+SpaceAndTimeAuth,,-> Validate Token,,child,
+SpaceAndTimeAuth,,-> Check User Identity,,child,
+SpaceAndTimeAuth,,-> Get Current Keychain,,child,
+SpaceAndTimeAuth,,-> Add Key to Keychain,,child,
+SpaceAndTimeAuth,,-> Get Public Key Challenge,,child,
+Subscan,,Subscan,,parent,Perform Subscan operations
+Subscan,,-> Get Account Info,,child,Returns the account information of a given address.
+Subscan,,-> Get Account Balance,,child,Returns the balance of a given address.
+Subscan,,-> Get Extrinsics,,child,Returns the list of extrinsics performed by an address.
+Subscan,,-> Get Transfers,,child,Returns the list of transfers performed by an address.
+Subscan,,-> Get Rewards,,child,Returns the list of rewards for a given address.
+Subscan,,-> Get Slashes,,child,Returns the list of slashes for a given address.
+Subscan,,-> Get Staking Info,,child,Returns the staking information for a given address.
+Subscan,,-> Get Block Info,,child,Returns information about a given block.
+Subscan,,-> Get Event Info,,child,Returns information about a given event.
+Subscan,,-> Get Validators,,child,Returns a list of validators.
+Superface Hub API,,Superface Hub API,,parent,Integrate with Superface Hub API to access various external services through function calls.
+Superface Hub API,,-> List Available Functions,,child,Retrieve a list of functions currently available for use.
+Superface Hub API,,-> Generate User Session,,child,Generate a temporary URL for users to configure their access credentials.
+Superface Hub API,,-> Perform Function,,child,Execute a specified function with provided parameters.
+Space and Time Gateway (Secrets Proxy),,Space and Time Gateway (Secrets Proxy),,parent,"Integration for Gateway (Secrets Proxy) REST APIs for centralized secrets management, authentication, and SQL proxy operations."
+Space and Time Gateway (Secrets Proxy),,-> Register,,child,
+Space and Time Gateway (Secrets Proxy),,-> Login,,child,
+Space and Time Gateway (Secrets Proxy),,-> Add Existing User,,child,
+Space and Time Gateway (Secrets Proxy),,-> Reset Password,,child,
+Space and Time Gateway (Secrets Proxy),,-> Refresh Session,,child,
+Space and Time Gateway (Secrets Proxy),,-> Convert Session,,child,
+Space and Time Gateway (Secrets Proxy),,-> API Key Authentication,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get All Biscuits,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get All User Biscuits,,child,
+Space and Time Gateway (Secrets Proxy),,-> Add User Biscuit,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get User Biscuit by Name,,child,
+Space and Time Gateway (Secrets Proxy),,-> Remove User Biscuit,,child,
+Space and Time Gateway (Secrets Proxy),,-> Set Permission,,child,
+Space and Time Gateway (Secrets Proxy),,-> Remove Permission,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get User Permissions,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get Resource Permissions,,child,
+Space and Time Gateway (Secrets Proxy),,-> Get API Keys,,child,
+Space and Time Gateway (Secrets Proxy),,-> Create API Key,,child,
+Space and Time Gateway (Secrets Proxy),,-> Delete API Key,,child,
+Space and Time Gateway (Secrets Proxy),,-> Execute Proxy SQL (Generic),,child,
+Space and Time Gateway (Secrets Proxy),,-> Execute Proxy SQL (Content Queries),,child,
+Microsoft Teams,,Microsoft Teams,,parent,Post message in Teams channel
+Telegram,,Telegram,,parent,Perform Telegram operations
+ThirdWeb,,ThirdWeb,,parent,Execute ThirdWeb SDK code snippet
+ThirdWeb,,-> Read data from contracts,,child,
+ThirdWeb,,-> Execute transactions on contracts,,child,
+ThirdWeb,,-> Deploy new contract,,child,
+ThirdWeb Event Trigger,,ThirdWeb Event Trigger,,parent,Start workflow whenever a ThirdWeb event happened
+ThirdWeb Event Trigger,,-> Edition,,child,Create editions of ERC1155 tokens
+ThirdWeb Event Trigger,,-> Edition Drop,,child,Release ERC1155 tokens for a set price.
+ThirdWeb Event Trigger,,-> Marketplace,,child,Buy and sell ERC721/ERC1155 tokens
+ThirdWeb Event Trigger,,-> Multiwrap,,child,Bundle multiple ERC721/ERC1155/ERC20 tokens into a single ERC721.
+ThirdWeb Event Trigger,,-> NFT Collection,,child,Create collection of unique NFTs.
+ThirdWeb Event Trigger,,-> NFT Drop,,child,Release collection of unique NFTs for a set price
+ThirdWeb Event Trigger,,-> Pack,,child,Pack multiple tokens into ERC1155 NFTs that act as randomized loot boxes
+ThirdWeb Event Trigger,,-> Signature Drop,,child,Signature based minting of ERC721 tokens.
+ThirdWeb Event Trigger,,-> Split,,child,Distribute funds among multiple recipients
+ThirdWeb Event Trigger,,-> Token,,child,Create cryptocurrency compliant with ERC20 standard
+ThirdWeb Event Trigger,,-> Token Drop,,child,Release new ERC20 tokens for a set price
+ThirdWeb Event Trigger,,-> Vote,,child,Create and vote on proposals
+TikTok,,TikTok,,parent,Perform TikTok API operations
+TikTok,,-> Get User Info,,child,Retrieve basic profile information of the authenticated TikTok user.
+TikTok,,-> Query Creator Info,,child,Query the authenticated creator's profile and privacy settings for posting.
+TikTok,,-> List Videos,,child,List the authenticated user's TikTok video posts.
+TikTok,,-> Get Video Details,,child,Get detailed information and metrics for a specified TikTok video.
+TikTok,,-> Post Video,,child,Publish a new video to the authenticated user's TikTok account.
+TikTok,,-> Post Photo,,child,Publish a new photo post (carousel) to the authenticated user's TikTok account.
+TikTok,,-> Get Post Status,,child,Fetch the upload/publish status of a recently posted video or photo.
+TikTok,,-> List Comments,,child,Retrieve comments on a specified TikTok video (for the authenticated user's post).
+TikTok,,-> Post Comment,,child,Publish a new comment or reply on a specified TikTok video.
+TikTok,,-> Delete Comment,,child,Delete (hide) a comment on a TikTok video.
+TikTok,,-> List Ad Accounts,,child,Get the list of TikTok Ads (advertiser) accounts accessible by the authenticated business user.
+TikTok,,-> Get Campaigns,,child,Retrieve advertising campaigns under a specified TikTok Ads account.
+TikTok,,-> Create Campaign,,child,Create a new advertising campaign in a TikTok Ads account.
+TikTok,,-> Update Campaign,,child,Update settings of an existing advertising campaign.
+TikTok,,-> Get Ad Groups,,child,Retrieve ad groups (ad sets) under a specified campaign or TikTok Ads account.
+TikTok,,-> Create Ad Group,,child,Create a new ad group (ad set) in a specified campaign.
+TikTok,,-> Update Ad Group,,child,Update settings of an existing ad group.
+TikTok,,-> Get Ads,,child,"Retrieve ads under a specified ad group, campaign, or TikTok Ads account."
+TikTok,,-> Create Ad,,child,Create a new advertisement in a specified ad group.
+TikTok,,-> Update Ad,,child,Update settings or status of an existing ad.
+TikTok,,-> Get Ads Report,,child,"Fetch performance metrics and reports for a TikTok Ads account, campaign, ad group, or ad."
+TikTok,,-> Search Creators,,child,"Search for creators on the TikTok Creator Marketplace based on filters like name, followers, etc."
+TikTok,,-> Get Creator Details,,child,Retrieve detailed profile and audience insights for a specific creator on the TikTok Creator Marketplace.
+Tinfoil.sh Confidential AI API,,Tinfoil.sh Confidential AI API,,parent,Chat completion via Tinfoil.sh API
+Tinfoil.sh Confidential AI API,,-> Chat Completion,,child,
+Twitter,,Twitter,,parent,Search Twitter User's tweets by keyword
+Typeform,,Typeform,,parent,Perform Typeform operations
+Typeform,,-> Get all forms,,child,Returns all the forms associated with your account
+Typeform,,-> Get Typeform Responses,,child,Returns the submissions for your typeforms in JSON format
+Typeform,,-> Create Typeform ,,child,Creates a typeform for you
+Typeform Webhook,,Typeform Webhook,,parent,Start workflow whenever Typeform webhook event happened
+Typeform Webhook,,-> Typeform Submission,,child,Triggered anytime form typeform submit a response sent through typeform webhook.
+Uniswap,,Uniswap,,parent,Execute Uniswap operations
+Uniswap,,-> Swap Tokens,,child,Supports Uniswap v2 and v3 prices together and returns the best price for swapping.
+Uniswap,,-> Get Pairs,,child,Get most liquid pairs.
+Uniswap,,-> Custom Query,,child,Custom subgraph query to retrieve more information.
+Vercel,,Vercel,,parent,Perform Vercel operations
+Vercel,,-> List Deployments,,child,Returns a list of deployments.
+Vercel,,-> Get Deployment,,child,Returns information about a specific deployment.
+Vercel,,-> Create Deployment,,child,Creates a new deployment.
+Vercel,,-> Delete Deployment,,child,Deletes a specific deployment.
+Vercel,,-> List Projects,,child,Retrieves a list of projects.
+Vercel,,-> Get Project,,child,Returns information about a specific project.
+Vercel,,-> Create Project,,child,Creates a new project.
+Vercel,,-> Update Project,,child,Updates an existing project.
+Vercel,,-> Delete Project,,child,Deletes a specific project.
+Wait,,Wait,,parent,Wait before continuing with the execution
+Webhook,,Webhook,,parent,Start workflow when webhook is called
+Websockets Trigger,,Websockets Trigger,,parent,Start workflow when webhook is called
+X,,X,,parent,Manage posts and lookup users using the X API v2
+X,,-> Create Post,,child,Creates a new post.
+X,,-> Delete Post,,child,Deletes an existing post.
+X,,-> Lookup User by ID,,child,Looks up a user by their ID.
+X,,-> Lookup User by Username,,child,Looks up a user by their username.
+Xero,,Xero,,parent,Perform Xero operations
+Xero,,-> Get all invoices,,child,Returns all the invoices from Xero account.
+Xero,,-> Get single invoice,,child,Returns single invoice from Xero account.
+Xero,,-> Create Invoice,,child,Creates a new draft invoice.
+Xero,,-> Send email,,child,Send email with invoice to primary email.
+YOP Mail,,YOP Mail,,parent,Manage temporary email addresses using Easy-YOPmail for Node.js.
+YOP Mail,,-> Generate Temporary Email,,child,Generate a unique temporary email address.
+YOP Mail,,-> Get Inbox,,child,Retrieve the inbox of a specified temporary email address.
+YOP Mail,,-> Read Message,,child,Read a specific message from an inbox.
+YouTube Data API,,YouTube Data API,,parent,Perform YouTube Data API v3 operations
+YouTube Data API,,-> List Activities,,child,Retrieve a list of channel activity events
+YouTube Data API,,-> Insert Activity,,child,Post a bulletin to a channel (Deprecated)
+YouTube Data API,,-> List Captions,,child,Retrieve a list of caption tracks for a video
+YouTube Data API,,-> Insert Caption,,child,Upload a caption track for a video
+YouTube Data API,,-> Update Caption,,child,Update an existing caption track
+YouTube Data API,,-> Download Caption,,child,Download a caption track file
+YouTube Data API,,-> Delete Caption,,child,Delete a caption track
+YouTube Data API,,-> Insert Channel Banner,,child,Upload a channel banner image
+YouTube Data API,,-> List Channels,,child,Retrieve a list of channels
+YouTube Data API,,-> Update Channel,,child,Update channel branding or localization settings
+YouTube Data API,,-> List Channel Sections,,child,Retrieve a list of channel sections
+YouTube Data API,,-> Insert Channel Section,,child,Create a new channel section
+YouTube Data API,,-> Update Channel Section,,child,Update a channel section
+YouTube Data API,,-> Delete Channel Section,,child,Delete a channel section
+YouTube Data API,,-> List Comments,,child,Retrieve a list of comments (replies)
+YouTube Data API,,-> Insert Comment,,child,Reply to an existing comment
+YouTube Data API,,-> Update Comment,,child,Update an existing comment's text
+YouTube Data API,,-> Mark Comment as Spam,,child,Mark a comment as spam
+YouTube Data API,,-> Set Comment Moderation Status,,child,Moderate a comment (approve or reject)
+YouTube Data API,,-> Delete Comment,,child,Delete a comment
+YouTube Data API,,-> List Comment Threads,,child,Retrieve a list of comment threads
+YouTube Data API,,-> Insert Comment Thread,,child,Post a new top-level comment
+YouTube Data API,,-> List Guide Categories,,child,Retrieve a list of guide categories
+YouTube Data API,,-> List i18n Languages,,child,Retrieve supported application languages
+YouTube Data API,,-> List i18n Regions,,child,Retrieve supported regions for videos
+YouTube Data API,,-> List Members,,child,Retrieve a list of channel members
+YouTube Data API,,-> List Membership Levels,,child,Retrieve a list of channel membership levels
+YouTube Data API,,-> List Playlist Images,,child,Retrieve a list of images for a playlist
+YouTube Data API,,-> Insert Playlist Image,,child,Upload a new image to a playlist
+YouTube Data API,,-> Update Playlist Image,,child,Update (replace) an existing playlist image
+YouTube Data API,,-> Delete Playlist Image,,child,Delete a playlist image
+YouTube Data API,,-> List Playlist Items,,child,Retrieve a list of items in a playlist
+YouTube Data API,,-> Insert Playlist Item,,child,Add a video to a playlist
+YouTube Data API,,-> Update Playlist Item,,child,Update an item in a playlist
+YouTube Data API,,-> Delete Playlist Item,,child,Remove an item from a playlist
+YouTube Data API,,-> List Playlists,,child,Retrieve a list of playlists
+YouTube Data API,,-> Insert Playlist,,child,Create a new playlist
+YouTube Data API,,-> Update Playlist,,child,Update a playlist's metadata
+YouTube Data API,,-> Delete Playlist,,child,Delete a playlist
+YouTube Data API,,-> Search,,child,"Search for videos, channels, or playlists"
+YouTube Data API,,-> List Subscriptions,,child,Retrieve a list of subscriptions
+YouTube Data API,,-> Insert Subscription,,child,Subscribe to a channel
+YouTube Data API,,-> Delete Subscription,,child,Unsubscribe from a channel
+YouTube Data API,,-> Set Thumbnail,,child,Upload a custom thumbnail for a video
+YouTube Data API,,-> List Video Abuse Report Reasons,,child,Retrieve a list of abuse report reasons
+YouTube Data API,,-> List Video Categories,,child,Retrieve a list of video categories
+YouTube Data API,,-> List Videos,,child,Retrieve a list of videos
+YouTube Data API,,-> Insert Video,,child,Upload a new video
+YouTube Data API,,-> Update Video,,child,Update a video's metadata
+YouTube Data API,,-> Rate Video,,child,Rate a video (like/dislike)
+YouTube Data API,,-> Get Video Rating,,child,Retrieve the current user's rating for a video
+YouTube Data API,,-> Report Video Abuse,,child,Report a video for abuse
+YouTube Data API,,-> Delete Video,,child,Delete a video
+YouTube Data API,,-> Set Watermark,,child,Set a channel watermark image
+YouTube Data API,,-> Unset Watermark,,child,Remove the channel watermark
+zkSync Ethereum JSON-RPC API,,zkSync Ethereum JSON-RPC API,,parent,Interact with zkSync's Ethereum-compatible JSON-RPC API to perform various blockchain operations.
+zkSync Ethereum JSON-RPC API,,-> Get Chain ID,,child,Retrieve the current chain ID.
+zkSync Ethereum JSON-RPC API,,-> Call Smart Contract,,child,Execute a new message call immediately without creating a transaction on the blockchain.
+zkSync Ethereum JSON-RPC API,,-> Estimate Gas,,child,Estimate the amount of gas needed to execute a transaction.
+zkSync Ethereum JSON-RPC API,,-> Get Block Number,,child,Retrieve the number of the most recent block.
+zkSync Ethereum JSON-RPC API,,-> Get Balance,,child,Get the balance of an account at a specific block.
+zkSync L2 JSON-RPC,,zkSync L2 JSON-RPC,,parent,Interact with the zkSync Layer 2 JSON-RPC API for various blockchain operations.
