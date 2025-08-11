@@ -16669,7 +16669,8 @@
 "label": "Image (JSON)",
 "name": "image",
 "type": "json",
-"show": { "actions.operation": ["createProduct"]
+"show": { "actions.operation": ["createProductImage"] },
+"description": "Image payload"
 },
 {
 "label": "Image ID",
@@ -16974,6 +16975,6 @@
 }
 ],
 "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Shopify.js"
-}	
-	
+}
+
 ]
