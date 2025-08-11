@@ -1,0 +1,517 @@
+{
+  "loadMethods": {},
+  "label": "Airtable (Composio)",
+  "name": "airtable",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/062441f8183f286425e9d1c58882fbf440eb0bc5/node-list/236654.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/062441f8183f286425e9d1c58882fbf440eb0bc5/node-list/236654.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/062441f8183f286425e9d1c58882fbf440eb0bc5/node-list/236654.png"
+  },
+  "type": "action",
+  "category": "Productivity",
+  "version": 1,
+  "description": "Access Airtable via Composio toolkit to list bases, manage tables/fields, and CRUD records/comments.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "List Bases",
+          "name": "listBases",
+          "description": "Retrieve all Airtable bases available to the connected account."
+        },
+        {
+          "label": "Create Base",
+          "name": "createBase",
+          "description": "Create a new base in a workspace with initial tables/fields."
+        },
+        {
+          "label": "Get Base Schema",
+          "name": "getBaseSchema",
+          "description": "Fetch schema for a base (tables, fields, types, config)."
+        },
+        {
+          "label": "Create Table",
+          "name": "createTable",
+          "description": "Create a new table in a base with fields."
+        },
+        {
+          "label": "Create Field",
+          "name": "createField",
+          "description": "Create a new field in an existing table."
+        },
+        {
+          "label": "List Records",
+          "name": "listRecords",
+          "description": "List records from a table with filters, sorting, pagination."
+        },
+        {
+          "label": "Get Record",
+          "name": "getRecord",
+          "description": "Fetch a single record by ID."
+        },
+        {
+          "label": "Create Record",
+          "name": "createRecord",
+          "description": "Create a new record (fields must match column types)."
+        },
+        {
+          "label": "Create Multiple Records",
+          "name": "createMultipleRecords",
+          "description": "Create multiple records (batch insert)."
+        },
+        {
+          "label": "Update Record",
+          "name": "updateRecord",
+          "description": "Update fields on a record."
+        },
+        {
+          "label": "Update Multiple Records",
+          "name": "updateMultipleRecords",
+          "description": "Batch update records (non-atomic)."
+        },
+        {
+          "label": "Delete Record",
+          "name": "deleteRecord",
+          "description": "Delete a record."
+        },
+        {
+          "label": "Delete Multiple Records",
+          "name": "deleteMultipleRecords",
+          "description": "Delete up to 10 records by IDs."
+        },
+        {
+          "label": "List Comments",
+          "name": "listComments",
+          "description": "List comments on a record."
+        },
+        {
+          "label": "Create Comment",
+          "name": "createComment",
+          "description": "Add a comment to a record."
+        },
+        {
+          "label": "Delete Comment",
+          "name": "deleteComment",
+          "description": "Delete a specific comment from a record."
+        },
+        {
+          "label": "Get User Info",
+          "name": "getUserInfo",
+          "description": "Get info (id, scopes) for the authenticated Airtable user."
+        }
+      ]
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "oauth",
+      "options": [
+        {
+          "label": "Airtable via Composio",
+          "name": "composioAirtable"
+        }
+      ],
+      "default": "composioAirtable"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Entity ID",
+      "name": "entityId",
+      "type": "string",
+      "description": "Optional: Your app’s user/entity identifier in Composio to auto-select a connected Airtable account."
+    },
+    {
+      "label": "Connected Account ID",
+      "name": "connectedAccountId",
+      "type": "string",
+      "description": "Optional: Explicit Composio connected account ID to use."
+    },
+    {
+      "label": "Base ID",
+      "name": "baseId",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "getBaseSchema",
+          "createTable",
+          "createField",
+          "listRecords",
+          "getRecord",
+          "createRecord",
+          "createMultipleRecords",
+          "updateRecord",
+          "updateMultipleRecords",
+          "deleteRecord",
+          "deleteMultipleRecords",
+          "listComments",
+          "createComment",
+          "deleteComment"
+        ]
+      },
+      "description": "The Airtable Base ID (e.g. appXXXXXXXXXXXXXX)."
+    },
+    {
+      "label": "Table (ID or Name)",
+      "name": "tableIdOrName",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createField",
+          "listRecords",
+          "getRecord",
+          "createRecord",
+          "createMultipleRecords",
+          "updateRecord",
+          "updateMultipleRecords",
+          "deleteRecord",
+          "deleteMultipleRecords",
+          "listComments",
+          "createComment",
+          "deleteComment"
+        ]
+      },
+      "description": "Target table identifier or visible name."
+    },
+    {
+      "label": "Record ID",
+      "name": "recordId",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "getRecord",
+          "deleteRecord",
+          "listComments",
+          "createComment",
+          "deleteComment"
+        ]
+      },
+      "description": "Record ID (e.g. recXXXXXXXXXXXXXX)."
+    },
+    {
+      "label": "Workspace ID",
+      "name": "workspaceId",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createBase"
+        ]
+      },
+      "description": "Workspace ID to create the base in."
+    },
+    {
+      "label": "Base Name",
+      "name": "name",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createBase"
+        ]
+      },
+      "description": "Name for the new base."
+    },
+    {
+      "label": "Tables (JSON)",
+      "name": "tables",
+      "type": "json",
+      "show": {
+        "actions.operation": [
+          "createBase"
+        ]
+      },
+      "description": "Array of table definitions for the new base."
+    },
+    {
+      "label": "Table Name",
+      "name": "tableName",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createTable"
+        ]
+      },
+      "description": "Name for the new table."
+    },
+    {
+      "label": "Table Description",
+      "name": "tableDescription",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createTable"
+        ]
+      },
+      "description": "Optional description for the table."
+    },
+    {
+      "label": "Fields (JSON)",
+      "name": "fields",
+      "type": "json",
+      "show": {
+        "actions.operation": [
+          "createTable"
+        ]
+      },
+      "description": "Array of field definitions for the new table."
+    },
+    {
+      "label": "Field Name",
+      "name": "fieldName",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createField"
+        ]
+      },
+      "description": "New field name."
+    },
+    {
+      "label": "Field Type",
+      "name": "fieldType",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createField"
+        ]
+      },
+      "description": "Airtable field type (default: singleLineText)."
+    },
+    {
+      "label": "Field Options (JSON)",
+      "name": "fieldOptions",
+      "type": "json",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createField"
+        ]
+      },
+      "description": "Type-specific options (e.g., select choices)."
+    },
+    {
+      "label": "Field Description",
+      "name": "fieldDescription",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "createField"
+        ]
+      },
+      "description": "Optional description for the field."
+    },
+    {
+      "label": "Fields (JSON)",
+      "name": "selectFields",
+      "type": "json",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Array of field names to return (maps to 'fields')."
+    },
+    {
+      "label": "Filter By Formula",
+      "name": "filterByFormula",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Airtable formula to filter rows."
+    },
+    {
+      "label": "Sort (JSON)",
+      "name": "sort",
+      "type": "json",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Array of sort objects, e.g."
+    },
+    {
+      "label": "Max Records",
+      "name": "maxRecords",
+      "type": "number",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Maximum number of records to return."
+    },
+    {
+      "label": "Page Size",
+      "name": "pageSize",
+      "type": "number",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Page size (default 100)."
+    },
+    {
+      "label": "Offset",
+      "name": "offset",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Pagination cursor."
+    },
+    {
+      "label": "Return Fields By Field ID",
+      "name": "returnFieldsByFieldId",
+      "type": "boolean",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords",
+          "getRecord",
+          "updateRecord"
+        ]
+      },
+      "description": "If true, return fields keyed by field ID."
+    },
+    {
+      "label": "Cell Format",
+      "name": "cellFormat",
+      "type": "options",
+      "options": [
+        {
+          "label": "json",
+          "name": "json"
+        },
+        {
+          "label": "string",
+          "name": "string"
+        }
+      ],
+      "default": "json",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords",
+          "getRecord"
+        ]
+      },
+      "description": "Cell render format."
+    },
+    {
+      "label": "Time Zone",
+      "name": "timeZone",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Time zone for user locale formats (default: utc)."
+    },
+    {
+      "label": "User Locale",
+      "name": "userLocale",
+      "type": "string",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Locale for rendering. Example: en-US."
+    },
+    {
+      "label": "Record Metadata (JSON)",
+      "name": "recordMetadata",
+      "type": "json",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "listRecords"
+        ]
+      },
+      "description": "Array of metadata keys to include per record."
+    },
+    {
+      "label": "Fields (JSON)",
+      "name": "recordFields",
+      "type": "json",
+      "show": {
+        "actions.operation": [
+          "createRecord",
+          "updateRecord"
+        ]
+      },
+      "description": "Object of field values for the record (maps to 'fields')."
+    },
+    {
+      "label": "Records (JSON)",
+      "name": "records",
+      "type": "json",
+      "show": {
+        "actions.operation": [
+          "createMultipleRecords",
+          "updateMultipleRecords"
+        ]
+      },
+      "description": "Array of record payloads (e.g., [{\"fields\": { ... }}])."
+    },
+    {
+      "label": "Record IDs (JSON)",
+      "name": "recordIds",
+      "type": "json",
+      "show": {
+        "actions.operation": [
+          "deleteMultipleRecords"
+        ]
+      },
+      "description": "Array of record IDs to delete."
+    },
+    {
+      "label": "Comment Text",
+      "name": "text",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "createComment"
+        ]
+      },
+      "description": "Comment body."
+    },
+    {
+      "label": "Row Comment ID",
+      "name": "rowCommentId",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "deleteComment"
+        ]
+      },
+      "description": "Identifier of the comment to delete."
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Airtable.js"
+}
