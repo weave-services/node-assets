@@ -16979,7 +16979,7 @@
 	{
   "loadMethods": {},
   "label": "Airtable (Composio)",
-  "name": "airtable",
+  "name": "composioAirtable",
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-assets/062441f8183f286425e9d1c58882fbf440eb0bc5/node-list/236654.png",
     "light": "https://raw.githubusercontent.com/weave-services/node-assets/062441f8183f286425e9d1c58882fbf440eb0bc5/node-list/236654.png",
