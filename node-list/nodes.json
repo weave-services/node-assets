@@ -17492,6 +17492,342 @@
     }
   ],
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Airtable.js"
+},
+	{
+  "loadMethods": {},
+  "label": "Composio (v3)",
+  "name": "composioComposio",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png"
+  },
+  "type": "action",
+  "category": "Developer Tools",
+  "version": 1.0,
+  "description": "Composio REST API (v3)",
+  "incoming": 1,
+  "outgoing": 1,
+
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+
+        {
+          "label": "List Auth Configs",
+          "name": "listAuthConfigs",
+          "description": "List authentication configurations with optional filters."
+        },
+        {
+          "label": "Create Auth Config",
+          "name": "createAuthConfig",
+          "description": "Create a new authentication configuration for a toolkit."
+        },
+        {
+          "label": "Get Auth Config by ID",
+          "name": "getAuthConfigById",
+          "description": "Retrieve a single authentication configuration by nanoid."
+        },
+        {
+          "label": "Delete Auth Config",
+          "name": "deleteAuthConfig",
+          "description": "Soft-delete an authentication configuration."
+        },
+        {
+          "label": "Update Auth Config",
+          "name": "updateAuthConfig",
+          "description": "Update credentials or other properties on an auth config."
+        },
+        {
+          "label": "Update Auth Config Status",
+          "name": "updateAuthConfigStatus",
+          "description": "Enable or disable an authentication configuration."
+        },
+
+        {
+          "label": "CLI: Create Session",
+          "name": "cliCreateSession",
+          "description": "Create a new CLI session with a 6-character code."
+        },
+        {
+          "label": "CLI: Get Session",
+          "name": "cliGetSession",
+          "description": "Fetch CLI session details by ID (UUID) or code."
+        },
+        {
+          "label": "CLI: Link Session",
+          "name": "cliLinkSession",
+          "description": "Link a pending CLI session to the authenticated user."
+        },
+
+        {
+          "label": "[stub] List Connected Accounts",
+          "name": "__stub_listConnectedAccounts",
+          "description": "List connected accounts with optional filters (fill from docs)."
+        },
+        {
+          "label": "[stub] Tools: Execute Tool",
+          "name": "__stub_toolsExecute",
+          "description": "Execute a tool/action via Composio (fill from docs)."
+        },
+        {
+          "label": "[stub] Tools: List Tools",
+          "name": "__stub_toolsList",
+          "description": "List available tools/actions (fill from docs)."
+        },
+        {
+          "label": "[stub] Toolkits: List Toolkits",
+          "name": "__stub_toolkitsList",
+          "description": "List toolkits/integrations (fill from docs)."
+        },
+        {
+          "label": "[stub] Triggers: List Triggers",
+          "name": "__stub_triggersList",
+          "description": "List triggers (fill from docs)."
+        },
+        {
+          "label": "[stub] API Keys: List",
+          "name": "__stub_apiKeysList",
+          "description": "List API keys (fill from docs)."
+        },
+        {
+          "label": "[stub] Projects: List",
+          "name": "__stub_projectsList",
+          "description": "List projects (fill from docs)."
+        },
+        {
+          "label": "[stub] Team: Get",
+          "name": "__stub_teamGet",
+          "description": "Fetch team info (fill from docs)."
+        },
+        {
+          "label": "[stub] Files: Upload",
+          "name": "__stub_filesUpload",
+          "description": "Upload a file (fill from docs)."
+        }
+      ]
+    }
+  ],
+
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "apiKey",
+      "options": [
+        {
+          "label": "Composio API Key (x-api-key)",
+          "name": "composioApiKey",
+          "placement": "header",
+          "headerName": "x-api-key"
+        }
+      ],
+      "default": "composioApiKey"
+    }
+  ],
+
+  "inputParameters": [
+   
+    {
+      "label": "Is Composio Managed",
+      "name": "isComposioManaged",
+      "type": "boolean",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Filter by Composio-managed configs."
+    },
+    {
+      "label": "Toolkit Slug(s)",
+      "name": "toolkitSlug",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Comma-separated toolkit slugs to filter."
+    },
+    {
+      "label": "Deprecated: App ID",
+      "name": "deprecatedAppId",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Deprecated filter: app id."
+    },
+    {
+      "label": "Deprecated: Status",
+      "name": "deprecatedStatus",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Deprecated filter: status."
+    },
+    {
+      "label": "Show Disabled",
+      "name": "showDisabled",
+      "type": "boolean",
+      "optional": true,
+      "default": false,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Include disabled auth configs."
+    },
+    {
+      "label": "Search",
+      "name": "search",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Search auth configs by name."
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Items per page."
+    },
+    {
+      "label": "Cursor",
+      "name": "cursor",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["listAuthConfigs"] },
+      "description": "Pagination cursor."
+    },
+
+    {
+      "label": "Toolkit Slug",
+      "name": "create_toolkitSlug",
+      "type": "string",
+      "show": { "actions.operation": ["createAuthConfig"] },
+      "description": "Toolkit slug for the new auth config."
+    },
+    {
+      "label": "Auth Config Type",
+      "name": "create_authConfigType",
+      "type": "options",
+      "options": [
+        { "label": "Default", "name": "default" },
+        { "label": "Custom", "name": "custom" }
+      ],
+      "optional": true,
+      "default": "default",
+      "show": { "actions.operation": ["createAuthConfig"] },
+      "description": "Choose default (managed) or custom."
+    },
+    {
+      "label": "Credentials / Settings (JSON)",
+      "name": "create_credentials",
+      "type": "json",
+      "optional": true,
+      "show": { "actions.operation": ["createAuthConfig"] },
+      "description": "Optional credentials or config (JSON)."
+    },
+    {
+      "label": "Restrict to Tools (JSON array)",
+      "name": "create_restrictToFollowingTools",
+      "type": "json",
+      "optional": true,
+      "show": { "actions.operation": ["createAuthConfig"] },
+      "description": "Optional list of tool slugs this auth config can use."
+    },
+
+    {
+      "label": "Auth Config ID (nanoid)",
+      "name": "authConfigId",
+      "type": "string",
+      "show": {
+        "actions.operation": [
+          "getAuthConfigById",
+          "deleteAuthConfig",
+          "updateAuthConfig",
+          "updateAuthConfigStatus"
+        ]
+      },
+      "description": "The nanoid of the auth config."
+    },
+
+    {
+      "label": "Update Type",
+      "name": "update_type",
+      "type": "options",
+      "options": [
+        { "label": "Default", "name": "default" },
+        { "label": "Custom", "name": "custom" }
+      ],
+      "optional": true,
+      "show": { "actions.operation": ["updateAuthConfig"] },
+      "description": "Choose which variant to update."
+    },
+    {
+      "label": "Update Credentials/Body (JSON)",
+      "name": "update_body",
+      "type": "json",
+      "optional": true,
+      "show": { "actions.operation": ["updateAuthConfig"] },
+      "description": "Fields to update (credentials or other settings)."
+    },
+
+    {
+      "label": "Status",
+      "name": "update_status",
+      "type": "options",
+      "options": [
+        { "label": "ENABLED", "name": "ENABLED" },
+        { "label": "DISABLED", "name": "DISABLED" }
+      ],
+      "show": { "actions.operation": ["updateAuthConfigStatus"] },
+      "description": "New status for the auth config."
+    },
+
+    {
+      "label": "CLI Session ID or Code",
+      "name": "cli_id_or_code",
+      "type": "string",
+      "show": { "actions.operation": ["cliGetSession"] },
+      "description": "UUID or 6‑char code to look up."
+    },
+
+    {
+      "label": "CLI Session ID or Code",
+      "name": "cli_link_id_or_code",
+      "type": "string",
+      "show": { "actions.operation": ["cliLinkSession"] },
+      "description": "UUID or 6‑char code to link to the current user."
+    },
+
+
+    {
+      "label": "[stub] Filters (JSON)",
+      "name": "__stub_connectedAccounts_filters",
+      "type": "json",
+      "optional": true,
+      "show": { "actions.operation": ["__stub_listConnectedAccounts"] },
+      "description": "Fill with supported query params from docs."
+    },
+
+    {
+      "label": "[stub] Tool Slug",
+      "name": "__stub_tool_slug",
+      "type": "string",
+      "optional": true,
+      "show": { "actions.operation": ["__stub_toolsExecute"] },
+      "description": "Tool/action identifier (fill from docs)."
+    },
+    {
+      "label": "[stub] Input (JSON)",
+      "name": "__stub_tool_input",
+      "type": "json",
+      "optional": true,
+      "show": { "actions.operation": ["__stub_toolsExecute"] },
+      "description": "Execution input (fill from docs)."
+    }
+  ],
+
+  "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Composio.js"
 }
+
 
 ]
