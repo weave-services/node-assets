@@ -97,7 +97,7 @@
 "name": "image",
 "type": "json",
 "show": { "actions.operation": ["createProductImage"] },
-"description": "Image payload (e.g., {"src": "https://..."} or {"attachment": "base64..."})."
+"description": "Image payload"
 },
 {
 "label": "Image ID",
