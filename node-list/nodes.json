@@ -16669,8 +16669,7 @@
 "label": "Image (JSON)",
 "name": "image",
 "type": "json",
-"show": { "actions.operation": ["createProductImage"] },
-"description": "Image payload (e.g., {"src": "https://..."} or {"attachment": "base64..."})."
+"show": { "actions.operation": ["createProduct"]
 },
 {
 "label": "Image ID",
