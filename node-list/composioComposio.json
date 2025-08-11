@@ -3,9 +3,9 @@
   "label": "Composio (v3)",
   "name": "composioComposio",
   "icons": {
-    "default": "https://docs.composio.dev/favicon.ico",
-    "light": "https://docs.composio.dev/favicon.ico",
-    "dark": "https://docs.composio.dev/favicon.ico"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/composio.png"
   },
   "type": "action",
   "category": "Developer Tools",
