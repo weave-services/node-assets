@@ -1,0 +1,405 @@
+{
+"loadMethods": {},
+"label": "Shopify (Composio)",
+"name": "composioShopify",
+"icons": {
+"default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/composioShopify.png",
+"light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/composioShopify.png",
+"dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/composioShopify.png"
+},
+"type": "action",
+"category": "E-commerce",
+"version": 1.0,
+"description": "Access Shopify via Composio toolkit to manage products, orders, customers and collections.",
+"incoming": 1,
+"outgoing": 1,
+"actions": [
+{
+"label": "Operation",
+"name": "operation",
+"type": "options",
+"options": [
+{ "label": "Count Product Images", "name": "countProductImages", "description": "Return the total number of images on a product." },
+{ "label": "Create Customer", "name": "createCustomer", "description": "Create a new customer record." },
+{ "label": "Create Custom Collection", "name": "createCustomCollection", "description": "Create a manually curated custom collection." },
+{ "label": "Create Order", "name": "createOrder", "description": "Create an order with line items (optionally tied to a customer)." },
+{ "label": "Create Product", "name": "createProduct", "description": "Create a new product." },
+{ "label": "Create Product Image", "name": "createProductImage", "description": "Attach a new image to a product." },
+{ "label": "Get All Customers", "name": "getAllCustomers", "description": "List customers with filters and pagination." },
+{ "label": "Get Customer", "name": "getCustomer", "description": "Fetch a specific customer by ID." },
+{ "label": "Get Shop Details", "name": "getShopDetails", "description": "Fetch metadata about the authenticated shop." },
+{ "label": "Add Product to Custom Collection", "name": "addProductToCollection", "description": "Add a product to a custom collection." },
+{ "label": "Delete Custom Collection", "name": "deleteCustomCollection", "description": "Delete a custom collection." },
+{ "label": "Delete Product", "name": "deleteProduct", "description": "Delete a product." },
+{ "label": "Delete Product Image", "name": "deleteProductImage", "description": "Delete an image from a product." },
+{ "label": "Get Collection by ID", "name": "getCollectionById", "description": "Fetch a collection by ID." },
+{ "label": "Get Collects", "name": "getCollects", "description": "List collects (product-to-collection links)." },
+{ "label": "Get Collects Count", "name": "getCollectsCount", "description": "Count collects across the store." },
+{ "label": "Get Customer Orders", "name": "getCustomerOrders", "description": "List all orders for a specific customer." },
+{ "label": "Get Custom Collections", "name": "getCustomCollections", "description": "List custom collections, optionally filtered." },
+{ "label": "Get Custom Collections Count", "name": "getCustomCollectionsCount", "description": "Count custom collections." },
+{ "label": "Get Order by ID", "name": "getOrderById", "description": "Fetch a specific order by ID." },
+{ "label": "Get Order List", "name": "getOrderList", "description": "List orders using default API settings." },
+{ "label": "Get Product", "name": "getProduct", "description": "Fetch a product by ID." },
+{ "label": "Get Products", "name": "getProducts", "description": "List products (optionally by IDs)." },
+{ "label": "Get Products Count", "name": "getProductsCount", "description": "Count all products." },
+{ "label": "Get Products in Collection", "name": "getProductsInCollection", "description": "List products in a collection." },
+{ "label": "Get Product Image", "name": "getProductImage", "description": "Fetch a specific product image." },
+{ "label": "Get Product Images", "name": "getProductImages", "description": "List all images for a product." },
+{ "label": "Update Order", "name": "updateOrder", "description": "Update an order’s phone number (use 'none' to remove)." }
+]
+}
+],
+"credentials": [
+{
+"label": "Credential Method",
+"name": "credentialMethod",
+"type": "oauth",
+"options": [
+{ "label": "Shopify via Composio", "name": "composioShopify" }
+],
+"default": "composioShopify"
+}
+],
+"inputParameters": [
+{
+"label": "Entity ID",
+"name": "entityId",
+"type": "string",
+"description": "Optional: Your app’s user/entity identifier in Composio. If provided, Composio auto-picks the connected Shopify account for that user."
+},
+{
+"label": "Connected Account ID",
+"name": "connectedAccountId",
+"type": "string",
+"description": "Optional: Explicit Composio connected account ID to use (overrides default connection for the user)."
+},
+{
+"label": "Product ID",
+"name": "productId",
+"type": "string",
+"show": {
+"actions.operation": [
+"countProductImages",
+"createProductImage",
+"deleteProductImage",
+"getProduct",
+"getProductImage",
+"getProductImages",
+"addProductToCollection",
+"deleteProduct"
+]
+},
+"description": "The Shopify product ID."
+},
+{
+"label": "Image (JSON)",
+"name": "image",
+"type": "json",
+"show": { "actions.operation": ["createProductImage"] },
+"description": "Image payload (e.g., {"src": "https://..."} or {"attachment": "base64..."})."
+},
+{
+"label": "Image ID",
+"name": "imageId",
+"type": "string",
+"show": { "actions.operation": ["deleteProductImage", "getProductImage"] },
+"description": "The product image ID."
+},
+{
+"label": "Collection ID",
+"name": "collectionId",
+"type": "string",
+"show": {
+"actions.operation": [
+"addProductToCollection",
+"deleteCustomCollection",
+"getCollectionById",
+"getProductsInCollection"
+]
+},
+"description": "The custom collection ID."
+},
+{
+"label": "Position",
+"name": "position",
+"type": "number",
+"show": { "actions.operation": ["addProductToCollection"] },
+"optional": true,
+"description": "Optional manual sort position for the product within the collection."
+},
+{
+"label": "Title",
+"name": "title",
+"type": "string",
+"show": { "actions.operation": ["createCustomCollection", "createProduct"] },
+"description": "Title for the new collection or product."
+},
+{
+"label": "Fields",
+"name": "fields",
+"type": "string",
+"show": {
+"actions.operation": [
+"getAllCustomers",
+"getCollectionById",
+"getCollects",
+"getOrderById",
+"getProductImages"
+]
+},
+"optional": true,
+"description": "Comma-separated fields to include in the response."
+},
+{
+"label": "Handle",
+"name": "handle",
+"type": "string",
+"show": { "actions.operation": ["getCustomCollections"] },
+"optional": true,
+"description": "Filter custom collections by handle."
+},
+{
+"label": "Product ID (Filter)",
+"name": "productIdFilter",
+"type": "string",
+"show": { "actions.operation": ["getCustomCollections"] },
+"optional": true,
+"description": "Optional product_id filter when listing custom collections."
+},
+{
+"label": "Customer ID",
+"name": "customerId",
+"type": "string",
+"show": {
+"actions.operation": ["getCustomer", "getCustomerOrders", "createOrder"]
+},
+"optional": true,
+"description": "Shopify customer ID (required for some operations)."
+},
+{
+"label": "Email",
+"name": "email",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"description": "Customer email address."
+},
+{
+"label": "First Name",
+"name": "firstName",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Customer first name."
+},
+{
+"label": "Last Name",
+"name": "lastName",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Customer last name."
+},
+{
+"label": "Note",
+"name": "note",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Internal note about the customer."
+},
+{
+"label": "Password",
+"name": "password",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Customer password (if creating an account)."
+},
+{
+"label": "Password Confirmation",
+"name": "passwordConfirmation",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Confirmation of the password."
+},
+{
+"label": "Phone",
+"name": "phone",
+"type": "string",
+"show": { "actions.operation": ["createCustomer", "updateOrder"] },
+"optional": true,
+"description": "Customer phone (for createCustomer) or new phone value for updateOrder. Use 'none' to remove."
+},
+{
+"label": "Send Email Invite",
+"name": "sendEmailInvite",
+"type": "boolean",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Send email invite to set a password."
+},
+{
+"label": "Send Email Welcome",
+"name": "sendEmailWelcome",
+"type": "boolean",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"default": true,
+"description": "Send welcome email after creation."
+},
+{
+"label": "Tags",
+"name": "tags",
+"type": "string",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Comma-separated tags for the customer."
+},
+{
+"label": "Verified Email",
+"name": "verifiedEmail",
+"type": "boolean",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Mark email as verified."
+},
+{
+"label": "Addresses (JSON)",
+"name": "addresses",
+"type": "json",
+"show": { "actions.operation": ["createCustomer"] },
+"optional": true,
+"description": "Array of address objects to attach to the new customer."
+},
+{
+"label": "Order ID",
+"name": "orderId",
+"type": "string",
+"show": { "actions.operation": ["getOrderById", "updateOrder"] },
+"description": "The Shopify order ID."
+},
+{
+"label": "Currency",
+"name": "currency",
+"type": "string",
+"show": { "actions.operation": ["createOrder"] },
+"optional": true,
+"description": "ISO currency code for the order."
+},
+{
+"label": "Line Items (JSON)",
+"name": "lineItems",
+"type": "json",
+"show": { "actions.operation": ["createOrder"] },
+"description": "Array of line items for the order."
+},
+{
+"label": "Total Tax",
+"name": "totalTax",
+"type": "number",
+"show": { "actions.operation": ["createOrder"] },
+"optional": true,
+"description": "Total tax amount for the order."
+},
+{
+"label": "Transactions (JSON)",
+"name": "transactions",
+"type": "json",
+"show": { "actions.operation": ["createOrder"] },
+"optional": true,
+"description": "Array of transaction objects for the order."
+},
+{
+"label": "Body HTML",
+"name": "bodyHtml",
+"type": "string",
+"show": { "actions.operation": ["createProduct"] },
+"optional": true,
+"description": "HTML description for the product."
+},
+{
+"label": "Product Type",
+"name": "productType",
+"type": "string",
+"show": { "actions.operation": ["createProduct"] },
+"optional": true,
+"description": "Product type."
+},
+{
+"label": "Variants (JSON)",
+"name": "variants",
+"type": "json",
+"show": { "actions.operation": ["createProduct"] },
+"optional": true,
+"description": "Array of variant objects."
+},
+{
+"label": "Vendor",
+"name": "vendor",
+"type": "string",
+"show": { "actions.operation": ["createProduct"] },
+"optional": true,
+"description": "Product vendor."
+},
+{
+"label": "IDs (CSV)",
+"name": "ids",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers", "getCustomCollections", "getProducts"] },
+"optional": true,
+"description": "Comma-separated list of IDs (arrays will be derived as needed)."
+},
+{
+"label": "Limit",
+"name": "limit",
+"type": "number",
+"show": { "actions.operation": ["getAllCustomers", "getCollects", "getCustomCollections", "getProductsInCollection"] },
+"optional": true,
+"default": 50,
+"description": "Maximum records to return."
+},
+{
+"label": "Since ID",
+"name": "sinceId",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers", "getCollects", "getProductImages"] },
+"optional": true,
+"description": "Return results after this ID (cursor/pagination)."
+},
+{
+"label": "Created At (Min)",
+"name": "createdAtMin",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers"] },
+"optional": true,
+"description": "ISO 8601 datetime filter for earliest creation time."
+},
+{
+"label": "Created At (Max)",
+"name": "createdAtMax",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers"] },
+"optional": true,
+"description": "ISO 8601 datetime filter for latest creation time."
+},
+{
+"label": "Updated At (Min)",
+"name": "updatedAtMin",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers"] },
+"optional": true,
+"description": "ISO 8601 datetime filter for earliest update time."
+},
+{
+"label": "Updated At (Max)",
+"name": "updatedAtMax",
+"type": "string",
+"show": { "actions.operation": ["getAllCustomers"] },
+"optional": true,
+"description": "ISO 8601 datetime filter for latest update time."
+}
+],
+"filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Shopify.js"
+}
