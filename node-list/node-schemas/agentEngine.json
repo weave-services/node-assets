@@ -1,6 +1,18 @@
-
 {
-  "loadMethods": {},
+  "loadMethods": {
+    "listConnectedTools": {
+      "description": "Return tool nodes connected downstream from this agent via edges.",
+      "params": []
+    },
+    "listConnectedParsers": {
+      "description": "Return parser nodes connected downstream from this agent via edges.",
+      "params": []
+    },
+    "listModels": {
+      "description": "Return available LLM models.",
+      "params": []
+    }
+  },
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
@@ -11,28 +23,19 @@
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 1,
-  "description": "Agent Engine similar to n8ns",
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Complete). Tools & parser are attached by drawing edges from this node.",
   "incoming": 1,
-  "outgoing": 1,
+  "outgoing": -1,
   "actions": [
     {
       "label": "Operation",
       "name": "operation",
       "type": "options",
       "options": [
-        {
-          "label": "ChatGPT",
-          "name": "chatgpt"
-        },
-        {
-          "label": "Generate Image via text prompt",
-          "name": "generateImage"
-        },
-        {
-          "label": "Generate Text Completion via text prompt",
-          "name": "textCompletion"
-        }
-      ]
+        { "label": "Plan & Act (Reentrant)", "name": "planAct" },
+        { "label": "Parse Only (no planning)", "name": "parseOnly" }
+      ],
+      "default": "planAct"
     }
   ],
   "credentials": [
@@ -41,241 +44,162 @@
       "name": "credentialMethod",
       "type": "string",
       "options": [
-        {
-          "label": "OpenAI API Key",
-          "name": "openAIApi"
-        }
+        { "label": "OpenAI API Key", "name": "openAIApi" }
       ],
       "default": "openAIApi"
     }
   ],
   "inputParameters": [
     {
-      "label": "Model",
-      "name": "model",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
-      "description": "AI model to use.",
-      "default": "text-davinci-003",
-      "show": {
-        "actions.operation": [
-          "textCompletion"
-        ]
-      }
+      "label": "Reentrant",
+      "name": "reentrant",
+      "type": "boolean",
+      "description": "Enable agent reentrancy (tool → agent → next).",
+      "default": true,
+      "show": { "actions.operation": ["planAct"] }
     },
     {
       "label": "Model",
       "name": "model",
+      "type": "asyncOptions",
+      "loadMethod": "listModels",
+      "description": "AI model used by the agent.",
+      "default": "gpt-4o-mini",
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
+    },
+    {
+      "label": "Model (Preset)",
+      "name": "model",
       "type": "options",
       "options": [
-        {
-          "label": "gpt-3.5-turbo",
-          "name": "gpt-3.5-turbo"
-        },
-        {
-          "label": "gpt-3.5-turbo-0125",
-          "name": "gpt-3.5-turbo-0125"
-        },
-        {
-          "label": "gpt-4.1-preview",
-          "name": "gpt-4.1"
-        },
-        {
-          "label": "gpt-4o",
-          "name": "gpt-4o"
-        },
-                  {
-          "label": "gpt-4o-mini",
-          "name": "gpt-4o-mini"
-        },
-                          {
-          "label": "gpt-4o-search-preview",
-          "name": "gpt-4o-search-preview"
-        },
-        {
-          "label": "gpt-4-turbo-preview",
-          "name": "gpt-4-turbo-preview"
-        },
-            {
-          "label": "gpt-4.1-mini",
-          "name": "gpt-4.1-mini"
-        },
-        
-                {
-          "label": "gpt-4.1-nano",
-          "name": "gpt-4.1-nano"
-        },
-                {
-          "label": "o1-mini",
-          "name": "o1-mini"
-        },
-            {
-          "label": "o1-preview",
-          "name": "o1-preview"
-        }
+        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
+        { "label": "gpt-3.5-turbo-0125", "name": "gpt-3.5-turbo-0125" },
+        { "label": "gpt-4.1-preview", "name": "gpt-4.1" },
+        { "label": "gpt-4o", "name": "gpt-4o" },
+        { "label": "gpt-4o-mini", "name": "gpt-4o-mini" },
+        { "label": "gpt-4o-search-preview", "name": "gpt-4o-search-preview" },
+        { "label": "gpt-4-turbo-preview", "name": "gpt-4-turbo-preview" },
+        { "label": "gpt-4.1-mini", "name": "gpt-4.1-mini" },
+        { "label": "gpt-4.1-nano", "name": "gpt-4.1-nano" },
+        { "label": "o1-mini", "name": "o1-mini" },
+        { "label": "o1-preview", "name": "o1-preview" }
       ],
-      "description": "ChatGPT model to use.",
-      "default": "gpt-3.5-turbo",
-      "show": {
-        "actions.operation": [
-          "chatgpt"
-        ]
-      }
+      "description": "Choose a preset model.",
+      "default": "gpt-4o-mini",
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
+    },
+    {
+      "label": "Connected Tools (read-only)",
+      "name": "connectedTools",
+      "type": "asyncOptions",
+      "loadMethod": "listConnectedTools",
+      "description": "Tool nodes attached by edges from this agent.",
+      "readonly": true,
+      "show": { "actions.operation": ["planAct"] }
+    },
+    {
+      "label": "Connected Parsers (read-only)",
+      "name": "connectedParsers",
+      "type": "asyncOptions",
+      "loadMethod": "listConnectedParsers",
+      "description": "Parser nodes attached by edges from this agent.",
+      "readonly": true,
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
+    },
+    {
+      "label": "Planning: Max Steps",
+      "name": "planning_maxSteps",
+      "type": "number",
+      "description": "Maximum planning turns before completion.",
+      "default": 8,
+      "show": { "actions.operation": ["planAct"] }
+    },
+    {
+      "label": "Allow Parallel Tools",
+      "name": "planning_allowParallelTools",
+      "type": "boolean",
+      "description": "If true, the agent may plan parallel tool calls (runner may still serialize).",
+      "default": false,
+      "show": { "actions.operation": ["planAct"] }
+    },
+    {
+      "label": "Memory Type",
+      "name": "memory_type",
+      "type": "options",
+      "options": [
+        { "label": "Buffer", "name": "buffer" },
+        { "label": "Summary", "name": "summary" },
+        { "label": "Vector", "name": "vector" }
+      ],
+      "default": "buffer",
+      "description": "Agent memory strategy.",
+      "show": { "actions.operation": ["planAct"] }
+    },
+    {
+      "label": "Memory Max Turns",
+      "name": "memory_maxTurns",
+      "type": "number",
+      "default": 20,
+      "description": "Maximum conversation turns to retain.",
+      "show": { "actions.operation": ["planAct"] }
     },
     {
       "label": "Max Tokens",
       "name": "max_tokens",
       "type": "number",
-      "description": "The maximum number of tokens to generate.",
+      "description": "Maximum tokens to generate per agent step.",
       "optional": true,
       "default": 4096,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Top P",
       "name": "top_p",
       "type": "number",
-      "description": "Nucleus sampling parameter to control diversity (between 0 and 1).",
+      "description": "Nucleus sampling parameter (0..1).",
       "optional": true,
       "default": 1.0,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Temperature",
       "name": "temperature",
       "type": "number",
-      "description": "Controls randomness in output (between 0 and 1).",
+      "description": "Controls randomness (0..1).",
       "optional": true,
       "default": 0.7,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Text Prompt",
-      "name": "prompt",
-      "type": "string",
-      "default": "",
-      "placeholder": "Write me a 250 words essay on fish",
-      "description": "The prompt for ChatGPT",
-      "show": {
-        "actions.operation": [
-          "chatgpt"
-        ]
-      }
-    },
-      {
       "label": "Stream",
       "name": "stream",
       "type": "boolean",
-      "description": "Stream tokens as they arrive (only for chatgpt/textCompletion).",
+      "description": "Stream tokens as they arrive.",
       "optional": true,
       "default": false,
-      "show": { "actions.operation": ["chatgpt", "textCompletion"] }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Text Prompt",
-      "name": "prompt",
+      "label": "System Prompt",
+      "name": "system_prompt",
       "type": "string",
       "default": "",
-      "placeholder": "Say this is a test",
-      "description": "The prompt to generate completions for",
-      "show": {
-        "actions.operation": [
-          "textCompletion"
-        ]
-      }
+      "placeholder": "You are a helpful agent that plans tool calls...",
+      "description": "System instruction for the agent.",
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Image Description",
-      "name": "prompt",
+      "label": "User Prompt",
+      "name": "user_prompt",
       "type": "string",
       "default": "",
-      "placeholder": "Photograph of an astronaut riding a horse",
-      "description": "Description of the image you want to generate. The maximum length is 1000 characters.",
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
-    },
-    {
-      "label": "Image Number",
-      "name": "imageNumber",
-      "type": "number",
-      "placeholder": "1",
-      "default": "1",
-      "description": "The number of images to generate. Must be between 1 and 10.",
+      "placeholder": "Summarize results and decide next action.",
+      "description": "Primary user/task prompt.",
       "optional": true,
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
-    },
-    {
-      "label": "Image Size",
-      "name": "imageSize",
-      "type": "options",
-      "description": "The size of the generated images.",
-      "options": [
-        {
-          "label": "256x256",
-          "name": "256x256"
-        },
-        {
-          "label": "512x512",
-          "name": "512x512"
-        },
-        {
-          "label": "1024x1024",
-          "name": "1024x1024"
-        }
-      ],
-      "optional": true,
-      "default": "1024x1024",
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
-    },
-    {
-      "label": "Response Format",
-      "name": "response_format",
-      "type": "options",
-      "description": "The format in which the generated images are returned.",
-      "options": [
-        {
-          "label": "url",
-          "name": "url"
-        },
-        {
-          "label": "b64_json",
-          "name": "b64_json"
-        }
-      ],
-      "default": "url",
-      "optional": true,
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+  "filePath": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/runners/AgentEngine.ts"
 }
