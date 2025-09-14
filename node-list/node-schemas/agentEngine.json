@@ -9,27 +9,24 @@
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 2,
-  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Complete). Tools & parser are attached by edges, not parameters.",
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Complete). Tools & parser are attached by edges from this node; no tool parameters.",
   "incoming": 1,
-  "outgoing": 1,
+  "outgoing": -1,
+
   "ports": {
-    "outgoing": [
-      {
-        "label": "Tool",
-        "handle": "tool",
-        "multiplicity": "many",
-        "required": false,
-        "description": "Attach any number of tool nodes from this handle."
-      },
-      {
-        "label": "Parser",
-        "handle": "parser",
-        "multiplicity": "zero_or_one",
-        "required": false,
-        "description": "Attach one structured output parser (optional)."
-      }
+    "inputs": [
+      { "name": "in", "multiplicity": 1 }
+    ],
+    "outputs": [
+      { "name": "tools", "multiplicity": -1, "accepts": ["tool"] },
+      { "name": "parser", "multiplicity": 1, "accepts": ["parser"] }
     ]
   },
+
+  "edgeRules": [
+    { "fromHandle": "tools", "toRole": "tool" },
+    { "fromHandle": "parser", "toRole": "parser", "max": 1 }
+  ],
 
   "actions": [
     {
@@ -48,8 +45,10 @@
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "options",
-      "options": [{ "label": "OpenAI API Key", "name": "openAIApi" }],
+      "type": "string",
+      "options": [
+        { "label": "OpenAI API Key", "name": "openAIApi" }
+      ],
       "default": "openAIApi"
     }
   ],
@@ -60,23 +59,32 @@
       "name": "reentrant",
       "type": "boolean",
       "description": "Enable agent reentrancy (tool → agent → next).",
-      "default": true
+      "default": true,
+      "show": { "actions.operation": ["planAct"] }
     },
+
     {
       "label": "Model",
       "name": "model",
       "type": "options",
       "options": [
+        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
+        { "label": "gpt-3.5-turbo-0125", "name": "gpt-3.5-turbo-0125" },
+        { "label": "gpt-4.1-preview", "name": "gpt-4.1" },
         { "label": "gpt-4o", "name": "gpt-4o" },
         { "label": "gpt-4o-mini", "name": "gpt-4o-mini" },
-        { "label": "gpt-4.1", "name": "gpt-4.1" },
+        { "label": "gpt-4o-search-preview", "name": "gpt-4o-search-preview" },
+        { "label": "gpt-4-turbo-preview", "name": "gpt-4-turbo-preview" },
         { "label": "gpt-4.1-mini", "name": "gpt-4.1-mini" },
-        { "label": "o1-preview", "name": "o1-preview" },
-        { "label": "o1-mini", "name": "o1-mini" }
+        { "label": "gpt-4.1-nano", "name": "gpt-4.1-nano" },
+        { "label": "o1-mini", "name": "o1-mini" },
+        { "label": "o1-preview", "name": "o1-preview" }
       ],
+      "description": "AI model used by the agent.",
       "default": "gpt-4o-mini",
-      "description": "AI model used by the agent."
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
+
     {
       "label": "Planning: Max Steps",
       "name": "planning_maxSteps",
@@ -120,7 +128,8 @@
       "type": "number",
       "description": "Maximum tokens to generate per agent step.",
       "optional": true,
-      "default": 4096
+      "default": 4096,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Top P",
@@ -128,7 +137,8 @@
       "type": "number",
       "description": "Nucleus sampling parameter (0..1).",
       "optional": true,
-      "default": 1.0
+      "default": 1.0,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Temperature",
@@ -136,7 +146,8 @@
       "type": "number",
       "description": "Controls randomness (0..1).",
       "optional": true,
-      "default": 0.7
+      "default": 0.7,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Stream",
@@ -144,7 +155,8 @@
       "type": "boolean",
       "description": "Stream tokens as they arrive.",
       "optional": true,
-      "default": false
+      "default": false,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "System Prompt",
@@ -153,7 +165,8 @@
       "default": "",
       "placeholder": "You are a helpful agent that plans tool calls...",
       "description": "System instruction for the agent.",
-      "optional": true
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "User Prompt",
@@ -162,20 +175,10 @@
       "default": "",
       "placeholder": "Summarize results and decide next action.",
       "description": "Primary user/task prompt.",
-      "optional": true
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     }
   ],
-
-  "validation": {
-    "rules": [
-      {
-        "kind": "edgeMultiplicity",
-        "handle": "parser",
-        "max": 1,
-        "message": "Only one parser may be attached to the 'parser' handle."
-      }
-    ]
-  },
 
   "filePath": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/runners/AgentEngine.ts"
 }
