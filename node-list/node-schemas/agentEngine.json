@@ -1,18 +1,4 @@
 {
-  "loadMethods": {
-    "listConnectedTools": {
-      "description": "Return tool nodes connected downstream from this agent via edges.",
-      "params": []
-    },
-    "listConnectedParsers": {
-      "description": "Return parser nodes connected downstream from this agent via edges.",
-      "params": []
-    },
-    "listModels": {
-      "description": "Return available LLM models.",
-      "params": []
-    }
-  },
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
@@ -22,10 +8,29 @@
   },
   "type": "action",
   "category": "Artificial Intelligence",
-  "version": 1,
-  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Complete). Tools & parser are attached by drawing edges from this node.",
+  "version": 2,
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Complete). Tools & parser are attached by edges, not parameters.",
   "incoming": 1,
-  "outgoing": -1,
+  "outgoing": 1,
+  "ports": {
+    "outgoing": [
+      {
+        "label": "Tool",
+        "handle": "tool",
+        "multiplicity": "many",
+        "required": false,
+        "description": "Attach any number of tool nodes from this handle."
+      },
+      {
+        "label": "Parser",
+        "handle": "parser",
+        "multiplicity": "zero_or_one",
+        "required": false,
+        "description": "Attach one structured output parser (optional)."
+      }
+    ]
+  },
+
   "actions": [
     {
       "label": "Operation",
@@ -38,74 +43,39 @@
       "default": "planAct"
     }
   ],
+
   "credentials": [
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "string",
-      "options": [
-        { "label": "OpenAI API Key", "name": "openAIApi" }
-      ],
+      "type": "options",
+      "options": [{ "label": "OpenAI API Key", "name": "openAIApi" }],
       "default": "openAIApi"
     }
   ],
+
   "inputParameters": [
     {
       "label": "Reentrant",
       "name": "reentrant",
       "type": "boolean",
       "description": "Enable agent reentrancy (tool → agent → next).",
-      "default": true,
-      "show": { "actions.operation": ["planAct"] }
+      "default": true
     },
     {
       "label": "Model",
       "name": "model",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
-      "description": "AI model used by the agent.",
-      "default": "gpt-4o-mini",
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
-    },
-    {
-      "label": "Model (Preset)",
-      "name": "model",
       "type": "options",
       "options": [
-        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
-        { "label": "gpt-3.5-turbo-0125", "name": "gpt-3.5-turbo-0125" },
-        { "label": "gpt-4.1-preview", "name": "gpt-4.1" },
         { "label": "gpt-4o", "name": "gpt-4o" },
         { "label": "gpt-4o-mini", "name": "gpt-4o-mini" },
-        { "label": "gpt-4o-search-preview", "name": "gpt-4o-search-preview" },
-        { "label": "gpt-4-turbo-preview", "name": "gpt-4-turbo-preview" },
+        { "label": "gpt-4.1", "name": "gpt-4.1" },
         { "label": "gpt-4.1-mini", "name": "gpt-4.1-mini" },
-        { "label": "gpt-4.1-nano", "name": "gpt-4.1-nano" },
-        { "label": "o1-mini", "name": "o1-mini" },
-        { "label": "o1-preview", "name": "o1-preview" }
+        { "label": "o1-preview", "name": "o1-preview" },
+        { "label": "o1-mini", "name": "o1-mini" }
       ],
-      "description": "Choose a preset model.",
       "default": "gpt-4o-mini",
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
-    },
-    {
-      "label": "Connected Tools (read-only)",
-      "name": "connectedTools",
-      "type": "asyncOptions",
-      "loadMethod": "listConnectedTools",
-      "description": "Tool nodes attached by edges from this agent.",
-      "readonly": true,
-      "show": { "actions.operation": ["planAct"] }
-    },
-    {
-      "label": "Connected Parsers (read-only)",
-      "name": "connectedParsers",
-      "type": "asyncOptions",
-      "loadMethod": "listConnectedParsers",
-      "description": "Parser nodes attached by edges from this agent.",
-      "readonly": true,
-      "optional": true,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "description": "AI model used by the agent."
     },
     {
       "label": "Planning: Max Steps",
@@ -150,8 +120,7 @@
       "type": "number",
       "description": "Maximum tokens to generate per agent step.",
       "optional": true,
-      "default": 4096,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "default": 4096
     },
     {
       "label": "Top P",
@@ -159,8 +128,7 @@
       "type": "number",
       "description": "Nucleus sampling parameter (0..1).",
       "optional": true,
-      "default": 1.0,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "default": 1.0
     },
     {
       "label": "Temperature",
@@ -168,8 +136,7 @@
       "type": "number",
       "description": "Controls randomness (0..1).",
       "optional": true,
-      "default": 0.7,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "default": 0.7
     },
     {
       "label": "Stream",
@@ -177,8 +144,7 @@
       "type": "boolean",
       "description": "Stream tokens as they arrive.",
       "optional": true,
-      "default": false,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "default": false
     },
     {
       "label": "System Prompt",
@@ -187,8 +153,7 @@
       "default": "",
       "placeholder": "You are a helpful agent that plans tool calls...",
       "description": "System instruction for the agent.",
-      "optional": true,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "optional": true
     },
     {
       "label": "User Prompt",
@@ -197,9 +162,20 @@
       "default": "",
       "placeholder": "Summarize results and decide next action.",
       "description": "Primary user/task prompt.",
-      "optional": true,
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "optional": true
     }
   ],
+
+  "validation": {
+    "rules": [
+      {
+        "kind": "edgeMultiplicity",
+        "handle": "parser",
+        "max": 1,
+        "message": "Only one parser may be attached to the 'parser' handle."
+      }
+    ]
+  },
+
   "filePath": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/runners/AgentEngine.ts"
 }
