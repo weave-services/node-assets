@@ -4,14 +4,6 @@
       "description": "Return available LLM models (UI can pass values.category).",
       "params": []
     },
-    "getNetworkProviders": {
-      "description": "Return available network providers.",
-      "params": []
-    },
-    "getPairAddress": {
-      "description": "Return address pairs for a selected network/provider.",
-      "params": []
-    },
     "listConnectedTools": {
       "description": "Return nodes connected from the agent via the 'tool' handle.",
       "params": []
@@ -164,6 +156,7 @@
       "loadMethod": "listConnectedTools",
       "description": "Tool nodes attached by edges from the 'tool' port (bottom).",
       "readonly": true,
+            "optional": true,
       "show": { "actions.operation": ["planAct"] }
     },
     {
@@ -182,6 +175,7 @@
       "type": "asyncOptions",
       "loadMethod": "listConnectedNextTargets",
       "description": "Primary next-step nodes attached by edges from the 'next' port (right).",
+            "optional": true,
       "readonly": true
     }
   ],
