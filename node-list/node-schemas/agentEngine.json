@@ -1,19 +1,19 @@
 {
   "loadMethods": {
+    "listModels": {
+      "description": "Return available LLM models.",
+      "params": []
+    },
     "listConnectedTools": {
-      "description": "Return tool nodes connected via the agent's 'tool' handle.",
+      "description": "Return nodes connected from the agent via the 'tool' handle.",
       "params": []
     },
     "listConnectedParsers": {
-      "description": "Return parser nodes connected via the agent's 'parser' handle.",
+      "description": "Return nodes connected from the agent via the 'parser' handle.",
       "params": []
     },
     "listConnectedNextTargets": {
-      "description": "Return primary next-step nodes connected via the agent's 'next' handle.",
-      "params": []
-    },
-    "listModels": {
-      "description": "Return available LLM models.",
+      "description": "Return nodes connected from the agent via the 'next' handle.",
       "params": []
     }
   },
@@ -27,7 +27,7 @@
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 1,
-  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Next/Complete). Tools & parser connect via dedicated handles; 'next' is the primary workflow edge.",
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Next/Complete). Tools & parser connect via their own handles; 'next' remains the primary workflow output.",
   "incoming": 1,
   "outgoing": -1,
   "ports": {
@@ -37,7 +37,7 @@
     "outputs": [
       { "name": "tool",   "label": "Tool",   "multiple": true },
       { "name": "parser", "label": "Parser", "multiple": true },
-      { "name": "next",   "label": "Next",   "multiple": false }
+      { "name": "next",   "label": "Next",   "multiple": true }
     ]
   },
   "actions": [
@@ -65,21 +65,129 @@
   ],
   "inputParameters": [
     {
-      "label": "Reentrant",
-      "name": "reentrant",
-      "type": "boolean",
-      "description": "Enable agent reentrancy (tool → agent → next).",
-      "default": true,
-      "show": { "actions.operation": ["planAct"] }
-    },
-    {
       "label": "Model",
       "name": "model",
       "type": "asyncOptions",
       "loadMethod": "listModels",
-      "description": "AI model used by the agent.",
+      "description": "AI model to use.",
       "default": "gpt-4o-mini",
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
+      "show": {
+        "actions.operation": [
+          "planAct"
+        ]
+      }
+    },
+    {
+      "label": "Model",
+      "name": "model",
+      "type": "options",
+      "options": [
+        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
+        { "label": "gpt-5", "name": "gpt-5" },
+        { "label": "gpt-3.5-turbo-0125", "name": "gpt-3.5-turbo-0125" },
+        { "label": "gpt-4.1-preview", "name": "gpt-4.1" },
+        { "label": "gpt-4o", "name": "gpt-4o" },
+        { "label": "gpt-4o-mini", "name": "gpt-4o-mini" },
+        { "label": "gpt-4o-search-preview", "name": "gpt-4o-search-preview" },
+        { "label": "gpt-4-turbo-preview", "name": "gpt-4-turbo-preview" },
+        { "label": "gpt-4.1-mini", "name": "gpt-4.1-mini" },
+        { "label": "gpt-4.1-nano", "name": "gpt-4.1-nano" },
+        { "label": "o1-mini", "name": "o1-mini" },
+        { "label": "o1-preview", "name": "o1-preview" }
+      ],
+      "description": "ChatGPT model to use.",
+      "default": "gpt-3.5-turbo",
+      "show": {
+        "actions.operation": [
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "Max Tokens",
+      "name": "max_tokens",
+      "type": "number",
+      "description": "The maximum number of tokens to generate.",
+      "optional": true,
+      "default": 4096,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "Top P",
+      "name": "top_p",
+      "type": "number",
+      "description": "Nucleus sampling parameter to control diversity (0..1).",
+      "optional": true,
+      "default": 1.0,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "Temperature",
+      "name": "temperature",
+      "type": "number",
+      "description": "Controls randomness in output (0..1).",
+      "optional": true,
+      "default": 0.7,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "Stream",
+      "name": "stream",
+      "type": "boolean",
+      "description": "Stream tokens as they arrive.",
+      "optional": true,
+      "default": false,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "System Prompt",
+      "name": "system_prompt",
+      "type": "string",
+      "default": "",
+      "placeholder": "You are a helpful agent that plans tool calls...",
+      "description": "System instruction for the agent.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
+    },
+    {
+      "label": "User Prompt",
+      "name": "user_prompt",
+      "type": "string",
+      "default": "",
+      "placeholder": "Summarize results and decide next action.",
+      "description": "Primary user/task prompt.",
+      "optional": true,
+      "show": {
+        "actions.operation": [
+          "planAct",
+          "parseOnly"
+        ]
+      }
     },
     {
       "label": "Connected Tools (via 'tool' handle)",
@@ -107,40 +215,6 @@
       "loadMethod": "listConnectedNextTargets",
       "description": "Primary next-step nodes attached by edges from the 'next' port.",
       "readonly": true
-    },
-    {
-      "label": "Planning: Max Steps",
-      "name": "planning_maxSteps",
-      "type": "number",
-      "description": "Maximum planning turns before completion/next.",
-      "default": 8,
-      "show": { "actions.operation": ["planAct"] }
-    },
-    {
-      "label": "Allow Parallel Tools",
-      "name": "planning_allowParallelTools",
-      "type": "boolean",
-      "description": "If true, the agent may plan parallel tool calls (runtime still serializes).",
-      "default": false,
-      "show": { "actions.operation": ["planAct"] }
-    },
-    {
-      "label": "System Prompt",
-      "name": "system_prompt",
-      "type": "string",
-      "default": "",
-      "placeholder": "You are a helpful agent that plans tool calls...",
-      "description": "System instruction for the agent.",
-      "optional": true
-    },
-    {
-      "label": "User Prompt",
-      "name": "user_prompt",
-      "type": "string",
-      "default": "",
-      "placeholder": "Summarize results and decide next action.",
-      "description": "Primary user/task prompt.",
-      "optional": true
     }
   ],
   "filePath": "services/AgentEngine.ts"
