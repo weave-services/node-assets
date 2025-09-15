@@ -11408,9 +11408,7 @@
 ],
 "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/GitHub/GitHub.js"
 },
-	
 {
-  "loadMethods": {},
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
@@ -11421,117 +11419,71 @@
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 1,
-  "description": "Agent Engine similar to n8ns",
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Next/Complete). Tools & parsers connect via bottom handles; the right-most handle is the primary next-step output.",
   "incoming": 1,
-  "outgoing": 2,
+  "outgoing": 3,
+
+  "ports": {
+    "inputs": [
+      { "name": "in", "label": "In", "multiple": true }
+    ],
+    "outputs": [
+      { "name": "tool",   "label": "Tool",   "multiple": true,  "position": "bottom", "handle": "tool" },
+      { "name": "parser", "label": "Parser", "multiple": true,  "position": "bottom", "handle": "parser" },
+      { "name": "next",   "label": "Next",   "multiple": true,  "position": "right",  "handle": "next" }
+    ]
+  },
+
   "actions": [
     {
       "label": "Operation",
       "name": "operation",
       "type": "options",
       "options": [
-        {
-          "label": "ChatGPT",
-          "name": "chatgpt"
-        },
-        {
-          "label": "Generate Image via text prompt",
-          "name": "generateImage"
-        },
-        {
-          "label": "Generate Text Completion via text prompt",
-          "name": "textCompletion"
-        }
-      ]
+        { "label": "Plan & Act (Reentrant)", "name": "planAct" },
+        { "label": "Parse Only (no planning)", "name": "parseOnly" }
+      ],
+      "default": "planAct"
     }
   ],
+
   "credentials": [
     {
       "label": "Credential Method",
       "name": "credentialMethod",
       "type": "string",
       "options": [
-        {
-          "label": "OpenAI API Key",
-          "name": "openAIApi"
-        }
+        { "label": "OpenAI API Key", "name": "openAIApi" }
       ],
       "default": "openAIApi"
     }
   ],
+
   "inputParameters": [
-    {
-      "label": "Model",
-      "name": "model",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
-      "description": "AI model to use.",
-      "default": "text-davinci-003",
-      "show": {
-        "actions.operation": [
-          "textCompletion"
-        ]
-      }
-    },
     {
       "label": "Model",
       "name": "model",
       "type": "options",
       "options": [
-        {
-          "label": "gpt-3.5-turbo",
-          "name": "gpt-3.5-turbo"
-        },
-        {
-          "label": "gpt-3.5-turbo-0125",
-          "name": "gpt-3.5-turbo-0125"
-        },
-        {
-          "label": "gpt-4.1-preview",
-          "name": "gpt-4.1"
-        },
-        {
-          "label": "gpt-4o",
-          "name": "gpt-4o"
-        },
-                  {
-          "label": "gpt-4o-mini",
-          "name": "gpt-4o-mini"
-        },
-                          {
-          "label": "gpt-4o-search-preview",
-          "name": "gpt-4o-search-preview"
-        },
-        {
-          "label": "gpt-4-turbo-preview",
-          "name": "gpt-4-turbo-preview"
-        },
-            {
-          "label": "gpt-4.1-mini",
-          "name": "gpt-4.1-mini"
-        },
-        
-                {
-          "label": "gpt-4.1-nano",
-          "name": "gpt-4.1-nano"
-        },
-                {
-          "label": "o1-mini",
-          "name": "o1-mini"
-        },
-            {
-          "label": "o1-preview",
-          "name": "o1-preview"
-        }
+        { "label": "gpt-3.5-turbo", "name": "gpt-3.5-turbo" },
+        { "label": "gpt-5", "name": "gpt-5" },
+        { "label": "gpt-3.5-turbo-0125", "name": "gpt-3.5-turbo-0125" },
+        { "label": "gpt-4.1-preview", "name": "gpt-4.1" },
+        { "label": "gpt-4o", "name": "gpt-4o" },
+        { "label": "gpt-4o-mini", "name": "gpt-4o-mini" },
+        { "label": "gpt-4o-search-preview", "name": "gpt-4o-search-preview" },
+        { "label": "gpt-4-turbo-preview", "name": "gpt-4-turbo-preview" },
+        { "label": "gpt-4.1-mini", "name": "gpt-4.1-mini" },
+        { "label": "gpt-4.1-nano", "name": "gpt-4.1-nano" },
+        { "label": "o1-mini", "name": "o1-mini" },
+        { "label": "o1-preview", "name": "o1-preview" }
       ],
-      "description": "ChatGPT model to use.",
+      "description": "Static model options (fallback if async lookup unavailable).",
       "default": "gpt-3.5-turbo",
-      "show": {
-        "actions.operation": [
-          "chatgpt"
-        ]
-      }
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
+
     {
       "label": "Max Tokens",
       "name": "max_tokens",
@@ -11539,156 +11491,90 @@
       "description": "The maximum number of tokens to generate.",
       "optional": true,
       "default": 4096,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Top P",
       "name": "top_p",
       "type": "number",
-      "description": "Nucleus sampling parameter to control diversity (between 0 and 1).",
+      "description": "Nucleus sampling parameter to control diversity (0..1).",
       "optional": true,
       "default": 1.0,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Temperature",
       "name": "temperature",
       "type": "number",
-      "description": "Controls randomness in output (between 0 and 1).",
+      "description": "Controls randomness in output (0..1).",
       "optional": true,
       "default": 0.7,
-      "show": {
-        "actions.operation": [
-          "chatgpt",
-          "textCompletion"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Text Prompt",
-      "name": "prompt",
-      "type": "string",
-      "default": "",
-      "placeholder": "Write me a 250 words essay on fish",
-      "description": "The prompt for ChatGPT",
-      "show": {
-        "actions.operation": [
-          "chatgpt"
-        ]
-      }
-    },
-      {
       "label": "Stream",
       "name": "stream",
       "type": "boolean",
-      "description": "Stream tokens as they arrive (only for chatgpt/textCompletion).",
+      "description": "Stream tokens as they arrive.",
       "optional": true,
       "default": false,
-      "show": { "actions.operation": ["chatgpt", "textCompletion"] }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Text Prompt",
-      "name": "prompt",
+      "label": "System Prompt",
+      "name": "system_prompt",
       "type": "string",
       "default": "",
-      "placeholder": "Say this is a test",
-      "description": "The prompt to generate completions for",
-      "show": {
-        "actions.operation": [
-          "textCompletion"
-        ]
-      }
+      "placeholder": "You are a helpful agent that plans tool calls...",
+      "description": "System instruction for the agent.",
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Image Description",
-      "name": "prompt",
+      "label": "User Prompt",
+      "name": "user_prompt",
       "type": "string",
       "default": "",
-      "placeholder": "Photograph of an astronaut riding a horse",
-      "description": "Description of the image you want to generate. The maximum length is 1000 characters.",
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
+      "placeholder": "Summarize results and decide next action.",
+      "description": "Primary user/task prompt.",
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
+    },
+
+    {
+      "label": "Connected Tools (via 'tool' handle)",
+      "name": "connectedTools",
+      "type": "asyncOptions",
+      "loadMethod": "listConnectedTools",
+      "description": "Tool nodes attached by edges from the 'tool' port (bottom).",
+      "readonly": true,
+            "optional": true,
+      "show": { "actions.operation": ["planAct"] }
     },
     {
-      "label": "Image Number",
-      "name": "imageNumber",
-      "type": "number",
-      "placeholder": "1",
-      "default": "1",
-      "description": "The number of images to generate. Must be between 1 and 10.",
+      "label": "Connected Parsers (via 'parser' handle)",
+      "name": "connectedParsers",
+      "type": "asyncOptions",
+      "loadMethod": "listConnectedParsers",
+      "description": "Parser nodes attached by edges from the 'parser' port (bottom).",
+      "readonly": true,
       "optional": true,
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Image Size",
-      "name": "imageSize",
-      "type": "options",
-      "description": "The size of the generated images.",
-      "options": [
-        {
-          "label": "256x256",
-          "name": "256x256"
-        },
-        {
-          "label": "512x512",
-          "name": "512x512"
-        },
-        {
-          "label": "1024x1024",
-          "name": "1024x1024"
-        }
-      ],
-      "optional": true,
-      "default": "1024x1024",
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
-    },
-    {
-      "label": "Response Format",
-      "name": "response_format",
-      "type": "options",
-      "description": "The format in which the generated images are returned.",
-      "options": [
-        {
-          "label": "url",
-          "name": "url"
-        },
-        {
-          "label": "b64_json",
-          "name": "b64_json"
-        }
-      ],
-      "default": "url",
-      "optional": true,
-      "show": {
-        "actions.operation": [
-          "generateImage"
-        ]
-      }
+      "label": "Next Targets (via 'next' handle)",
+      "name": "connectedNext",
+      "type": "asyncOptions",
+      "loadMethod": "listConnectedNextTargets",
+      "description": "Primary next-step nodes attached by edges from the 'next' port (right).",
+            "optional": true,
+      "readonly": true
     }
   ],
-  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/OpenAI/OpenAI.js"
+
+  "filePath": "services/AgentEngine.ts"
 },
+
 {
   "label": "Apify",
   "name": "apify",
