@@ -1,22 +1,4 @@
 {
-  "loadMethods": {
-    "listModels": {
-      "description": "Return available LLM models (UI can pass values.category).",
-      "params": []
-    },
-    "listConnectedTools": {
-      "description": "Return nodes connected from the agent via the 'tool' handle.",
-      "params": []
-    },
-    "listConnectedParsers": {
-      "description": "Return nodes connected from the agent via the 'parser' handle.",
-      "params": []
-    },
-    "listConnectedNextTargets": {
-      "description": "Return nodes connected from the agent via the 'next' handle.",
-      "params": []
-    }
-  },
   "label": "Agent Engine",
   "name": "agentEngine",
   "icons": {
