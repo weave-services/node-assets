@@ -1,7 +1,15 @@
 {
   "loadMethods": {
     "listModels": {
-      "description": "Return available LLM models.",
+      "description": "Return available LLM models (UI can pass values.category).",
+      "params": []
+    },
+    "getNetworkProviders": {
+      "description": "Return available network providers.",
+      "params": []
+    },
+    "getPairAddress": {
+      "description": "Return address pairs for a selected network/provider.",
       "params": []
     },
     "listConnectedTools": {
@@ -27,19 +35,21 @@
   "type": "action",
   "category": "Artificial Intelligence",
   "version": 1,
-  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Next/Complete). Tools & parser connect via their own handles; 'next' remains the primary workflow output.",
+  "description": "Reentrant Agent (Plan → Tool → Agent → Parser/Next/Complete). Tools & parsers connect via bottom handles; the right-most handle is the primary next-step output.",
   "incoming": 1,
-  "outgoing": -1,
+  "outgoing": 3,
+
   "ports": {
     "inputs": [
       { "name": "in", "label": "In", "multiple": true }
     ],
     "outputs": [
-      { "name": "tool",   "label": "Tool",   "multiple": true },
-      { "name": "parser", "label": "Parser", "multiple": true },
-      { "name": "next",   "label": "Next",   "multiple": true }
+      { "name": "tool",   "label": "Tool",   "multiple": true,  "position": "bottom", "handle": "tool" },
+      { "name": "parser", "label": "Parser", "multiple": true,  "position": "bottom", "handle": "parser" },
+      { "name": "next",   "label": "Next",   "multiple": true,  "position": "right",  "handle": "next" }
     ]
   },
+
   "actions": [
     {
       "label": "Operation",
@@ -52,6 +62,7 @@
       "default": "planAct"
     }
   ],
+
   "credentials": [
     {
       "label": "Credential Method",
@@ -63,22 +74,38 @@
       "default": "openAIApi"
     }
   ],
+
   "inputParameters": [
+    {
+      "label": "Model Category",
+      "name": "category",
+      "type": "options",
+      "description": "Pick a model category to populate the async model list.",
+      "options": [
+        { "label": "Chat / Text Generation", "name": "text-generation" },
+        { "label": "Instruction (T2T Generation)", "name": "text2text-generation" },
+        { "label": "Summarization", "name": "summarization" },
+        { "label": "Translation", "name": "translation" },
+        { "label": "Embeddings", "name": "embeddings" },
+        { "label": "Sentence Similarity", "name": "sentence-similarity" },
+        { "label": "Image → Text", "name": "image-to-text" },
+        { "label": "ASR / Speech-to-Text", "name": "automatic-speech-recognition" }
+      ],
+      "default": "text-generation",
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
+    },
+
     {
       "label": "Model",
       "name": "model",
       "type": "asyncOptions",
       "loadMethod": "listModels",
-      "description": "AI model to use.",
+      "description": "AI model to use. Populated based on the selected category.",
       "default": "gpt-4o-mini",
-      "show": {
-        "actions.operation": [
-          "planAct"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
-      "label": "Model",
+      "label": "Model (Static Presets)",
       "name": "model",
       "type": "options",
       "options": [
@@ -95,14 +122,12 @@
         { "label": "o1-mini", "name": "o1-mini" },
         { "label": "o1-preview", "name": "o1-preview" }
       ],
-      "description": "ChatGPT model to use.",
+      "description": "Static model options (fallback if async lookup unavailable).",
       "default": "gpt-3.5-turbo",
-      "show": {
-        "actions.operation": [
-          "parseOnly"
-        ]
-      }
+      "optional": true,
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
+
     {
       "label": "Max Tokens",
       "name": "max_tokens",
@@ -110,12 +135,7 @@
       "description": "The maximum number of tokens to generate.",
       "optional": true,
       "default": 4096,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Top P",
@@ -124,12 +144,7 @@
       "description": "Nucleus sampling parameter to control diversity (0..1).",
       "optional": true,
       "default": 1.0,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Temperature",
@@ -138,12 +153,7 @@
       "description": "Controls randomness in output (0..1).",
       "optional": true,
       "default": 0.7,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "Stream",
@@ -152,12 +162,7 @@
       "description": "Stream tokens as they arrive.",
       "optional": true,
       "default": false,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "System Prompt",
@@ -167,12 +172,7 @@
       "placeholder": "You are a helpful agent that plans tool calls...",
       "description": "System instruction for the agent.",
       "optional": true,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
     {
       "label": "User Prompt",
@@ -182,19 +182,32 @@
       "placeholder": "Summarize results and decide next action.",
       "description": "Primary user/task prompt.",
       "optional": true,
-      "show": {
-        "actions.operation": [
-          "planAct",
-          "parseOnly"
-        ]
-      }
+      "show": { "actions.operation": ["planAct", "parseOnly"] }
     },
+
+    {
+      "label": "Network Provider (optional)",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders",
+      "description": "Select a network provider (if a tool requires network access).",
+      "optional": true
+    },
+    {
+      "label": "Pair Address (optional)",
+      "name": "pairAddress",
+      "type": "asyncOptions",
+      "loadMethod": "getPairAddress",
+      "description": "Select an address pair for the chosen network/provider.",
+      "optional": true
+    },
+
     {
       "label": "Connected Tools (via 'tool' handle)",
       "name": "connectedTools",
       "type": "asyncOptions",
       "loadMethod": "listConnectedTools",
-      "description": "Tool nodes attached by edges from the 'tool' port.",
+      "description": "Tool nodes attached by edges from the 'tool' port (bottom).",
       "readonly": true,
       "show": { "actions.operation": ["planAct"] }
     },
@@ -203,7 +216,7 @@
       "name": "connectedParsers",
       "type": "asyncOptions",
       "loadMethod": "listConnectedParsers",
-      "description": "Parser nodes attached by edges from the 'parser' port.",
+      "description": "Parser nodes attached by edges from the 'parser' port (bottom).",
       "readonly": true,
       "optional": true,
       "show": { "actions.operation": ["planAct", "parseOnly"] }
@@ -213,9 +226,10 @@
       "name": "connectedNext",
       "type": "asyncOptions",
       "loadMethod": "listConnectedNextTargets",
-      "description": "Primary next-step nodes attached by edges from the 'next' port.",
+      "description": "Primary next-step nodes attached by edges from the 'next' port (right).",
       "readonly": true
     }
   ],
+
   "filePath": "services/AgentEngine.ts"
 }
