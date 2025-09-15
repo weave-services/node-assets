@@ -77,35 +77,7 @@
 
   "inputParameters": [
     {
-      "label": "Model Category",
-      "name": "category",
-      "type": "options",
-      "description": "Pick a model category to populate the async model list.",
-      "options": [
-        { "label": "Chat / Text Generation", "name": "text-generation" },
-        { "label": "Instruction (T2T Generation)", "name": "text2text-generation" },
-        { "label": "Summarization", "name": "summarization" },
-        { "label": "Translation", "name": "translation" },
-        { "label": "Embeddings", "name": "embeddings" },
-        { "label": "Sentence Similarity", "name": "sentence-similarity" },
-        { "label": "Image → Text", "name": "image-to-text" },
-        { "label": "ASR / Speech-to-Text", "name": "automatic-speech-recognition" }
-      ],
-      "default": "text-generation",
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
-    },
-
-    {
       "label": "Model",
-      "name": "model",
-      "type": "asyncOptions",
-      "loadMethod": "listModels",
-      "description": "AI model to use. Populated based on the selected category.",
-      "default": "gpt-4o-mini",
-      "show": { "actions.operation": ["planAct", "parseOnly"] }
-    },
-    {
-      "label": "Model (Static Presets)",
       "name": "model",
       "type": "options",
       "options": [
@@ -183,23 +155,6 @@
       "description": "Primary user/task prompt.",
       "optional": true,
       "show": { "actions.operation": ["planAct", "parseOnly"] }
-    },
-
-    {
-      "label": "Network Provider (optional)",
-      "name": "networkProvider",
-      "type": "asyncOptions",
-      "loadMethod": "getNetworkProviders",
-      "description": "Select a network provider (if a tool requires network access).",
-      "optional": true
-    },
-    {
-      "label": "Pair Address (optional)",
-      "name": "pairAddress",
-      "type": "asyncOptions",
-      "loadMethod": "getPairAddress",
-      "description": "Select an address pair for the chosen network/provider.",
-      "optional": true
     },
 
     {
