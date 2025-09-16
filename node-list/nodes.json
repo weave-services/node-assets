@@ -246,103 +246,444 @@
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/QuickNode/QuickNodeTrigger.js"
 },
 	{
-  "loadMethods": {},
-  "label": "YOP Mail",
-  "name": "yopMail",
+  "label": "Openlayer",
+  "name": "openlayer",
   "icons": {
-    "default": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
-    "light": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
-    "dark": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png"
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/openlayer.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/openlayer.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/openlayer.png"
   },
   "type": "action",
-  "category": "Email",
+  "category": "AI Evaluation & Observability",
   "version": 1,
-  "description": "Manage temporary email addresses using Easy-YOPmail for Node.js.",
+  "description": "Perform operations with Openlayer's REST API (projects, tests, development commits, and monitoring pipelines).",
   "incoming": 1,
   "outgoing": 1,
   "actions": [
     {
-      "label": "Operation",
-      "name": "operation",
+      "label": "API",
+      "name": "api",
       "type": "options",
       "options": [
-        {
-          "label": "Generate Temporary Email",
-          "name": "generateEmail",
-          "description": "Generate a unique temporary email address."
-        },
-        {
-          "label": "Get Inbox",
-          "name": "getInbox",
-          "description": "Retrieve the inbox of a specified temporary email address."
-        },
-        {
-          "label": "Read Message",
-          "name": "readMessage",
-          "description": "Read a specific message from an inbox."
-        }
+        { "label": "List Projects", "name": "listProjects", "description": "List your workspace’s projects." },
+        { "label": "Create Project", "name": "createProject", "description": "Create a project in your workspace." },
+
+        { "label": "Retrieve Workspace", "name": "retrieveWorkspace", "description": "Retrieve a workspace by ID." },
+        { "label": "Update Workspace", "name": "updateWorkspace", "description": "Update a workspace’s properties." },
+
+        { "label": "Create API Key", "name": "createApiKey", "description": "Create a new API key in a workspace." },
+        { "label": "Create Invite", "name": "createInvite", "description": "Invite a user to a workspace." },
+        { "label": "List Invites", "name": "listInvites", "description": "List invites in a workspace." },
+
+        { "label": "Create Test", "name": "createTest", "description": "Create a test in a project." },
+        { "label": "List Tests", "name": "listTests", "description": "List tests in a project." },
+        { "label": "Update Tests", "name": "updateTests", "description": "Bulk update tests in a project." },
+
+        { "label": "Presigned URL", "name": "presignedUrl", "description": "Get a presigned URL to upload artifacts to storage." },
+
+        { "label": "List Project Commits", "name": "listProjectCommits", "description": "List commits (project versions) in a project." },
+        { "label": "Retrieve Project Commit", "name": "retrieveProjectCommit", "description": "Retrieve a project commit by its ID." },
+        { "label": "Create Project Commit", "name": "createProjectCommit", "description": "Create a new project commit (version)." },
+        { "label": "List Commit Test Results", "name": "listCommitTestResults", "description": "List the latest test results for a given commit (project version)." },
+
+        { "label": "Create Inference Pipeline", "name": "createInferencePipeline", "description": "Create an inference pipeline for monitoring." },
+        { "label": "List Inference Pipelines", "name": "listInferencePipelines", "description": "List inference pipelines for a project." },
+        { "label": "Retrieve Inference Pipeline", "name": "retrieveInferencePipeline", "description": "Retrieve an inference pipeline by ID." },
+        { "label": "Update Inference Pipeline", "name": "updateInferencePipeline", "description": "Update an inference pipeline’s properties." },
+        { "label": "Delete Inference Pipeline", "name": "deleteInferencePipeline", "description": "Delete an inference pipeline by ID." },
+
+        { "label": "Publish Inference", "name": "publishInference", "description": "Stream (publish) inference rows to an inference pipeline." },
+        { "label": "Update Inference", "name": "updateInference", "description": "Update a single inference row in an inference pipeline." },
+        { "label": "List Pipeline Test Results", "name": "listPipelineTestResults", "description": "List latest test results for an inference pipeline." }
       ],
-      "default": "generateEmail"
+      "default": "listProjects"
     }
   ],
   "credentials": [
     {
-      "label": "YOPmail API Key",
-      "name": "apiKey",
+      "label": "Credential Method",
+      "name": "credentialMethod",
       "type": "string",
-      "description": "API key for accessing Easy-YOPmail functionalities.",
-      "optional": true
+      "options": [
+        { "label": "Openlayer API Key", "name": "openlayerApi" }
+      ],
+      "default": "openlayerApi"
     }
   ],
   "inputParameters": [
     {
-      "label": "Email Address",
-      "name": "emailAddress",
+      "label": "Workspace ID",
+      "name": "workspace_id",
       "type": "string",
-      "description": "The temporary email address to manage.",
-      "show": {
-        "actions.operation": [
-          "getInbox",
-          "readMessage"
-        ]
-      }
+      "description": "Workspace UUID.",
+      "show": { "actions.api": ["retrieveWorkspace", "updateWorkspace", "createApiKey", "createInvite", "listInvites"] }
     },
     {
-      "label": "Message ID",
-      "name": "messageId",
+      "label": "Workspace Name",
+      "name": "workspace_name",
       "type": "string",
-      "description": "The ID of the message to read.",
-      "show": {
-        "actions.operation": [
-          "readMessage"
-        ]
-      }
+      "description": "New name for the workspace (Update Workspace).",
+      "show": { "actions.api": ["updateWorkspace"] }
     },
     {
-      "label": "Format",
-      "name": "format",
-      "type": "options",
+      "label": "Workspace Slug",
+      "name": "workspace_slug",
+      "type": "string",
+      "description": "New slug for the workspace (Update Workspace).",
+      "show": { "actions.api": ["updateWorkspace"] }
+    },
+    {
+      "label": "Workspace Update Payload",
+      "name": "workspace_update_payload",
+      "type": "json",
+      "description": "Advanced: full JSON body for workspace update.",
+      "show": { "actions.api": ["updateWorkspace"] }
+    },
+
+    {
+      "label": "API Key Name",
+      "name": "api_key_name",
+      "type": "string",
+      "description": "Name for the API key to create.",
+      "show": { "actions.api": ["createApiKey"] }
+    },
+
+    {
+      "label": "Invite Email",
+      "name": "invite_email",
+      "type": "string",
+      "description": "Email address to invite to the workspace.",
+      "show": { "actions.api": ["createInvite"] }
+    },
+    {
+      "label": "Invite Role",
+      "name": "invite_role",
+      "type": "string",
+      "description": "Workspace role for the invitee (e.g., ADMIN, MEMBER).",
+      "show": { "actions.api": ["createInvite"] }
+    },
+
+    {
+      "label": "Project ID",
+      "name": "project_id",
+      "type": "string",
+      "description": "Project UUID.",
+      "show": { "actions.api": [
+        "createTest", "listTests", "updateTests",
+        "listProjectCommits", "createProjectCommit",
+        "createInferencePipeline", "listInferencePipelines"
+      ] }
+    },
+    {
+      "label": "Project Name",
+      "name": "project_name",
+      "type": "string",
+      "description": "Name for the project to create.",
+      "show": { "actions.api": ["createProject"] }
+    },
+    {
+      "label": "Project Description",
+      "name": "project_description",
+      "type": "string",
+      "description": "Description for the project to create.",
+      "show": { "actions.api": ["createProject"] }
+    },
+    {
+      "label": "Task Type",
+      "name": "task_type",
+      "type": "string",
+      "description": "Project task type.",
       "options": [
-        {
-          "label": "Text",
-          "name": "TXT"
-        },
-        {
-          "label": "HTML",
-          "name": "HTML"
-        }
+        { "label": "LLM Base", "name": "llm-base" },
+        { "label": "Tabular Classification", "name": "tabular-classification" },
+        { "label": "Tabular Regression", "name": "tabular-regression" },
+        { "label": "Text Classification", "name": "text-classification" }
       ],
-      "default": "TXT",
-      "description": "The format in which to retrieve the message content.",
-      "show": {
-        "actions.operation": [
-          "readMessage"
-        ]
-      }
+      "show": { "actions.api": ["createProject", "listProjects"] }
+    },
+
+    {
+      "label": "Test Name",
+      "name": "test_name",
+      "type": "string",
+      "description": "Name for the test to create.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Test Description",
+      "name": "test_description",
+      "type": "string",
+      "description": "Description of the test.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Test Type",
+      "name": "test_type",
+      "type": "string",
+      "description": "Test category.",
+      "options": [
+        { "label": "Integrity", "name": "integrity" },
+        { "label": "Consistency", "name": "consistency" },
+        { "label": "Performance", "name": "performance" }
+      ],
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Test Subtype",
+      "name": "test_subtype",
+      "type": "string",
+      "description": "Specific test subtype.",
+      "options": [
+        { "label": "anomalousColumnCount", "name": "anomalousColumnCount" },
+        { "label": "characterLength", "name": "characterLength" },
+        { "label": "classImbalanceRatio", "name": "classImbalanceRatio" },
+        { "label": "expectColumnAToBeInColumnB", "name": "expectColumnAToBeInColumnB" },
+        { "label": "columnAverage", "name": "columnAverage" },
+        { "label": "columnDrift", "name": "columnDrift" },
+        { "label": "columnStatistic", "name": "columnStatistic" },
+        { "label": "columnValuesMatch", "name": "columnValuesMatch" },
+        { "label": "conflictingLabelRowCount", "name": "conflictingLabelRowCount" },
+        { "label": "containsPii", "name": "containsPii" },
+        { "label": "containsValidUrl", "name": "containsValidUrl" },
+        { "label": "correlatedFeatureCount", "name": "correlatedFeatureCount" },
+        { "label": "customMetricThreshold", "name": "customMetricThreshold" },
+        { "label": "duplicateRowCount", "name": "duplicateRowCount" },
+        { "label": "emptyFeature", "name": "emptyFeature" },
+        { "label": "emptyFeatureCount", "name": "emptyFeatureCount" },
+        { "label": "driftedFeatureCount", "name": "driftedFeatureCount" },
+        { "label": "featureMissingValues", "name": "featureMissingValues" },
+        { "label": "featureValueValidation", "name": "featureValueValidation" },
+        { "label": "greatExpectations", "name": "greatExpectations" },
+        { "label": "groupByColumnStatsCheck", "name": "groupByColumnStatsCheck" },
+        { "label": "illFormedRowCount", "name": "illFormedRowCount" },
+        { "label": "isCode", "name": "isCode" },
+        { "label": "isJson", "name": "isJson" },
+        { "label": "llmRubricThresholdV2", "name": "llmRubricThresholdV2" },
+        { "label": "labelDrift", "name": "labelDrift" },
+        { "label": "metricThreshold", "name": "metricThreshold" },
+        { "label": "newCategoryCount", "name": "newCategoryCount" },
+        { "label": "newLabelCount", "name": "newLabelCount" },
+        { "label": "nullRowCount", "name": "nullRowCount" },
+        { "label": "rowCount", "name": "rowCount" },
+        { "label": "ppScoreValueValidation", "name": "ppScoreValueValidation" },
+        { "label": "quasiConstantFeature", "name": "quasiConstantFeature" },
+        { "label": "quasiConstantFeatureCount", "name": "quasiConstantFeatureCount" },
+        { "label": "sqlQuery", "name": "sqlQuery" },
+        { "label": "dtypeValidation", "name": "dtypeValidation" },
+        { "label": "sentenceLength", "name": "sentenceLength" },
+        { "label": "sizeRatio", "name": "sizeRatio" },
+        { "label": "specialCharactersRatio", "name": "specialCharactersRatio" },
+        { "label": "stringValidation", "name": "stringValidation" },
+        { "label": "trainValLeakageRowCount", "name": "trainValLeakageRowCount" }
+      ],
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Thresholds",
+      "name": "thresholds",
+      "type": "json",
+      "description": "Array of threshold objects for the test.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Uses Production Data",
+      "name": "uses_production_data",
+      "type": "boolean",
+      "description": "True if the test uses production data (monitoring).",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Evaluation Window (sec)",
+      "name": "evaluation_window",
+      "type": "number",
+      "description": "Window in seconds for production-data tests (≤ 2,592,000).",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Delay Window (sec)",
+      "name": "delay_window",
+      "type": "number",
+      "description": "Delay window in seconds for production-data tests (0–2,592,000).",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Uses Validation Dataset",
+      "name": "uses_validation_dataset",
+      "type": "boolean",
+      "description": "Whether the test uses a validation dataset.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Uses Training Dataset",
+      "name": "uses_training_dataset",
+      "type": "boolean",
+      "description": "Whether the test uses a training dataset.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Uses Reference Dataset",
+      "name": "uses_reference_dataset",
+      "type": "boolean",
+      "description": "Whether the test uses a reference dataset (monitoring mode).",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Uses ML Model",
+      "name": "uses_ml_model",
+      "type": "boolean",
+      "description": "Whether the test uses an ML model.",
+      "show": { "actions.api": ["createTest"] }
+    },
+    {
+      "label": "Tests Update Payload",
+      "name": "tests_update_payload",
+      "type": "json",
+      "description": "Bulk update body for tests (array of updates).",
+      "show": { "actions.api": ["updateTests"] }
+    },
+
+    {
+      "label": "Project Version (Commit) ID",
+      "name": "project_version_id",
+      "type": "string",
+      "description": "Commit (project version) UUID.",
+      "show": { "actions.api": ["retrieveProjectCommit", "listCommitTestResults"] }
+    },
+    {
+      "label": "Commit Message",
+      "name": "commit_message",
+      "type": "string",
+      "description": "Message to include in the commit.",
+      "show": { "actions.api": ["createProjectCommit"] }
+    },
+    {
+      "label": "Commit Object",
+      "name": "commit",
+      "type": "json",
+      "description": "Commit object payload (advanced).",
+      "show": { "actions.api": ["createProjectCommit"] }
+    },
+    {
+      "label": "Storage URI",
+      "name": "storage_uri",
+      "type": "string",
+      "description": "Storage URI returned by presigned URL for artifact upload.",
+      "show": { "actions.api": ["createProjectCommit"] }
+    },
+    {
+      "label": "Object Name",
+      "name": "object_name",
+      "type": "string",
+      "description": "Object name for presigned URL.",
+      "show": { "actions.api": ["presignedUrl"] }
+    },
+
+    {
+      "label": "Inference Pipeline ID",
+      "name": "inference_pipeline_id",
+      "type": "string",
+      "description": "Inference pipeline UUID.",
+      "show": { "actions.api": ["retrieveInferencePipeline", "updateInferencePipeline", "deleteInferencePipeline", "publishInference", "updateInference", "listPipelineTestResults"] }
+    },
+    {
+      "label": "Inference Pipeline Name",
+      "name": "inference_pipeline_name",
+      "type": "string",
+      "description": "Name for create/update inference pipeline.",
+      "show": { "actions.api": ["createInferencePipeline", "updateInferencePipeline"] }
+    },
+    {
+      "label": "Inference Pipeline Description",
+      "name": "inference_pipeline_description",
+      "type": "string",
+      "description": "Description for create/update inference pipeline.",
+      "show": { "actions.api": ["createInferencePipeline", "updateInferencePipeline"] }
+    },
+
+    {
+      "label": "Inference ID",
+      "name": "inference_id",
+      "type": "string",
+      "description": "Pipeline-specific inference identifier.",
+      "show": { "actions.api": ["updateInference"] }
+    },
+    {
+      "label": "Rows",
+      "name": "rows",
+      "type": "json",
+      "description": "List of rows to publish (array of objects).",
+      "show": { "actions.api": ["publishInference"] }
+    },
+    {
+      "label": "Data Stream Config",
+      "name": "data_stream_config",
+      "type": "json",
+      "description": "Task-type-specific config for publishing inferences.",
+      "show": { "actions.api": ["publishInference"] }
+    },
+    {
+      "label": "Row Update",
+      "name": "row_update",
+      "type": "json",
+      "description": "Partial row update for an existing inference.",
+      "show": { "actions.api": ["updateInference"] }
+    },
+    {
+      "label": "Row Update Config",
+      "name": "row_update_config",
+      "type": "json",
+      "description": "Config object for update-inference (e.g., ground truth column name).",
+      "show": { "actions.api": ["updateInference"] }
+    },
+
+    {
+      "label": "Project Name Filter",
+      "name": "project_name_filter",
+      "type": "string",
+      "description": "Optional name filter for listing projects.",
+      "show": { "actions.api": ["listProjects"] }
+    },
+    {
+      "label": "Task Type Filter",
+      "name": "task_type_filter",
+      "type": "string",
+      "description": "Optional task type filter for listing projects.",
+      "options": [
+        { "label": "LLM Base", "name": "llm-base" },
+        { "label": "Tabular Classification", "name": "tabular-classification" },
+        { "label": "Tabular Regression", "name": "tabular-regression" },
+        { "label": "Text Classification", "name": "text-classification" }
+      ],
+      "show": { "actions.api": ["listProjects"] }
+    },
+
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "description": "Page number for paginated endpoints (>= 1).",
+      "show": { "actions.api": [
+        "listInvites", "listProjects", "listTests",
+        "listProjectCommits", "listCommitTestResults",
+        "listInferencePipelines", "listPipelineTestResults"
+      ] }
+    },
+    {
+      "label": "Per Page",
+      "name": "per_page",
+      "type": "number",
+      "description": "Items per page (1–100).",
+      "show": { "actions.api": [
+        "listInvites", "listProjects", "listTests",
+        "listProjectCommits", "listCommitTestResults",
+        "listInferencePipelines", "listPipelineTestResults"
+      ] }
     }
   ],
-  "filePath": "https://example.com/easyYopmail/easyYopmail.js"
-},
+  "filePath": "Openlayer.js"
+}
+
+
 	  {
     "nodeState": null,
     "loadMethods": {},
@@ -17713,7 +18054,104 @@
   ],
 
   "filePath": "https://raw.githubusercontent.com/your-repo/nodes/main/nodes/Composio/Composio.js"
-}
-
+},
+	{
+  "loadMethods": {},
+  "label": "YOP Mail",
+  "name": "yopMail",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "light": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png",
+    "dark": "https://raw.githubusercontent.com/jasp402/Easy-YOPmail/refs/heads/main/Writerside/images/logo.png"
+  },
+  "type": "action",
+  "category": "Email",
+  "version": 1,
+  "description": "Manage temporary email addresses using Easy-YOPmail for Node.js.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Generate Temporary Email",
+          "name": "generateEmail",
+          "description": "Generate a unique temporary email address."
+        },
+        {
+          "label": "Get Inbox",
+          "name": "getInbox",
+          "description": "Retrieve the inbox of a specified temporary email address."
+        },
+        {
+          "label": "Read Message",
+          "name": "readMessage",
+          "description": "Read a specific message from an inbox."
+        }
+      ],
+      "default": "generateEmail"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "YOPmail API Key",
+      "name": "apiKey",
+      "type": "string",
+      "description": "API key for accessing Easy-YOPmail functionalities.",
+      "optional": true
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Email Address",
+      "name": "emailAddress",
+      "type": "string",
+      "description": "The temporary email address to manage.",
+      "show": {
+        "actions.operation": [
+          "getInbox",
+          "readMessage"
+        ]
+      }
+    },
+    {
+      "label": "Message ID",
+      "name": "messageId",
+      "type": "string",
+      "description": "The ID of the message to read.",
+      "show": {
+        "actions.operation": [
+          "readMessage"
+        ]
+      }
+    },
+    {
+      "label": "Format",
+      "name": "format",
+      "type": "options",
+      "options": [
+        {
+          "label": "Text",
+          "name": "TXT"
+        },
+        {
+          "label": "HTML",
+          "name": "HTML"
+        }
+      ],
+      "default": "TXT",
+      "description": "The format in which to retrieve the message content.",
+      "show": {
+        "actions.operation": [
+          "readMessage"
+        ]
+      }
+    }
+  ],
+  "filePath": "https://example.com/easyYopmail/easyYopmail.js"
+},
 
 ]
