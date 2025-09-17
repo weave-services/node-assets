@@ -246,6 +246,185 @@
   "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/QuickNode/QuickNodeTrigger.js"
 },
 	{
+  "label": "Upstash Redis (REST)",
+  "name": "upstashRedis",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/60854a3dfbe7964622f44f37cf2951c319aba2e2/node-list/redis-icon.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/60854a3dfbe7964622f44f37cf2951c319aba2e2/node-list/redis-icon.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/60854a3dfbe7964622f44f37cf2951c319aba2e2/node-list/redis-icon.png"
+  },
+  "type": "action",
+  "category": "Databases & Caching",
+  "version": 1,
+  "description": "Execute Redis commands via Upstash REST, including pipelining, transactions, monitor, and pub/sub.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Execute Command (Path)", "name": "execCommandPath", "description": "Execute a Redis command using /COMMAND/arg1/... path semantics." },
+        { "label": "Execute Command (Body Array)", "name": "execCommandBodyArray", "description": "Send the entire command as a JSON array in the request body." },
+        { "label": "Pipeline", "name": "pipeline", "description": "Batch multiple commands in one HTTP request via /pipeline." },
+        { "label": "Transaction (MULTI/EXEC)", "name": "multiExec", "description": "Atomically execute multiple commands via /multi-exec." },
+        { "label": "Publish", "name": "publish", "description": "Publish a message to a channel via /publish/{channel}/{message}." },
+        { "label": "Subscribe (SSE)", "name": "subscribe", "description": "Subscribe to a channel via /subscribe/{channel} (Server-Sent Events)." },
+        { "label": "Monitor (SSE)", "name": "monitor", "description": "Stream Redis MONITOR output via /monitor (Server-Sent Events)." }
+      ],
+      "default": "execCommandPath"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "Upstash Redis REST (URL + Token)", "name": "upstashRedisRest" }
+      ],
+      "default": "upstashRedisRest"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "REST URL",
+      "name": "rest_url",
+      "type": "string",
+      "description": "Your database REST URL (e.g., https://us1-xxx.upstash.io).",
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline", "multiExec", "publish", "subscribe", "monitor"] }
+    },
+    {
+      "label": "Use Query Token",
+      "name": "use_query_token",
+      "type": "boolean",
+      "description": "If true, append ?_token=... to the URL; otherwise use Authorization header.",
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline", "multiExec", "publish", "subscribe", "monitor"] }
+    },
+    {
+      "label": "Token Override",
+      "name": "token_override",
+      "type": "string",
+      "description": "Optional token to override the credential token (useful for read-only tokens).",
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline", "multiExec", "publish", "subscribe", "monitor"] }
+    },
+    {
+      "label": "HTTP Method",
+      "name": "http_method",
+      "type": "string",
+      "description": "Allowed: HEAD, GET, POST, PUT. Defaults vary per action.",
+      "options": [
+        { "label": "GET", "name": "GET" },
+        { "label": "POST", "name": "POST" },
+        { "label": "PUT", "name": "PUT" },
+        { "label": "HEAD", "name": "HEAD" }
+      ],
+      "show": { "actions.api": ["execCommandPath"] }
+    },
+    {
+      "label": "Command",
+      "name": "command",
+      "type": "string",
+      "description": "Redis command name (e.g., GET, SET, HGET, ZADD).",
+      "show": { "actions.api": ["execCommandPath"] }
+    },
+    {
+      "label": "Arguments",
+      "name": "args",
+      "type": "json",
+      "description": "Array of arguments in Redis protocol order (e.g., [\"foo\", \"bar\", \"EX\", 100]).",
+      "show": { "actions.api": ["execCommandPath"] }
+    },
+    {
+      "label": "Body Value",
+      "name": "body_value",
+      "type": "string",
+      "description": "Optional raw body for POST to append as the last parameter (e.g., JSON or binary).",
+      "show": { "actions.api": ["execCommandPath"] }
+    },
+    {
+      "label": "Extra Query Params (after body)",
+      "name": "extra_query",
+      "type": "json",
+      "description": "Key-value map to represent trailing command flags after the body (e.g., {\"EX\":100}).",
+      "show": { "actions.api": ["execCommandPath"] }
+    },
+    {
+      "label": "Command (JSON Array)",
+      "name": "command_array",
+      "type": "json",
+      "description": "Entire Redis command as a JSON array, e.g., [\"SET\", \"foo\", \"bar\", \"EX\", 100].",
+      "show": { "actions.api": ["execCommandBodyArray"] }
+    },
+    {
+      "label": "Pipeline Commands",
+      "name": "pipeline_commands",
+      "type": "json",
+      "description": "Two‑dimensional array of commands for /pipeline, e.g., [[\"SET\",\"k\",\"v\"],[\"INCR\",\"k\"]].",
+      "show": { "actions.api": ["pipeline"] }
+    },
+    {
+      "label": "Transaction Commands",
+      "name": "multi_exec_commands",
+      "type": "json",
+      "description": "Two‑dimensional array of commands for /multi-exec (executed atomically).",
+      "show": { "actions.api": ["multiExec"] }
+    },
+    {
+      "label": "Channel",
+      "name": "channel",
+      "type": "string",
+      "description": "Channel name for publish/subscribe.",
+      "show": { "actions.api": ["publish", "subscribe"] }
+    },
+    {
+      "label": "Message",
+      "name": "message",
+      "type": "string",
+      "description": "Message to publish.",
+      "show": { "actions.api": ["publish"] }
+    },
+    {
+      "label": "Accept SSE",
+      "name": "accept_sse",
+      "type": "boolean",
+      "description": "Set Accept: text/event-stream header (required for /subscribe and /monitor).",
+      "show": { "actions.api": ["subscribe", "monitor"] }
+    },
+    {
+      "label": "Upstash-Encoding",
+      "name": "upstash_encoding",
+      "type": "string",
+      "description": "Optional: set to \"base64\" to base64‑encode string fields in the response.",
+      "options": [
+        { "label": "None", "name": "" },
+        { "label": "base64", "name": "base64" }
+      ],
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline", "multiExec"] }
+    },
+    {
+      "label": "Upstash-Response-Format",
+      "name": "upstash_response_format",
+      "type": "string",
+      "description": "Optional: set to \"resp2\" to receive raw RESP2 binary (not for /multi-exec; cannot combine with base64).",
+      "options": [
+        { "label": "json (default)", "name": "json" },
+        { "label": "resp2", "name": "resp2" }
+      ],
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline"] }
+    },
+    {
+      "label": "Raw Headers (Advanced)",
+      "name": "extra_headers",
+      "type": "json",
+      "description": "Additional headers to merge into the request (advanced).",
+      "show": { "actions.api": ["execCommandPath", "execCommandBodyArray", "pipeline", "multiExec", "publish", "subscribe", "monitor"] }
+    }
+  ],
+  "filePath": "UpstashRedis.js"
+},
+	{
   "label": "Openlayer",
   "name": "openlayer",
   "icons": {
