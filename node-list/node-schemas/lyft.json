@@ -56,7 +56,6 @@
     }
   ],
   "inputParameters": [
-    /* ─────── OAuth 2.0 ───────────────────────────────────────────── */
     {
       "label": "Token URL",
       "name": "token_url",
@@ -114,7 +113,6 @@
       "show": { "actions.api": ["requestRide","cancelRide","updateDestination","rateRide"] }
     },
 
-    /* ─────── Public endpoints ────────────────────────────────────── */
     {
       "label": "Start Latitude",
       "name": "start_latitude",
@@ -193,7 +191,6 @@
       "show": { "actions.api": ["getNearbyDrivers"] }
     },
 
-    /* ─────── User/profile & ride history ─────────────────────────── */
     {
       "label": "Start Time (ISO8601)",
       "name": "start_time",
@@ -223,7 +220,6 @@
       "show": { "actions.api": ["listRides"] }
     },
 
-    /* ─────── Ride create/update ──────────────────────────────────── */
     {
       "label": "Origin Latitude",
       "name": "origin_latitude",
