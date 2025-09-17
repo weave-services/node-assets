@@ -18329,6 +18329,206 @@
     }
   ],
   "filePath": "https://example.com/easyYopmail/easyYopmail.js"
-}
+},
 
+{
+  "label": "Lyft API",
+  "name": "lyftApi",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png"
+  },
+  "type": "action",
+  "category": "Transportation",
+  "version": 1,
+  "description": "Perform operations with the Lyft mobile client API.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Refresh Access Token",
+          "name": "refreshToken",
+          "description": "Exchanges a refresh token for a new access token."
+        },
+        {
+          "label": "Request Ride",
+          "name": "requestRide",
+          "description": "Requests a new ride from an origin to a destination."
+        },
+        {
+          "label": "Get Ping",
+          "name": "getPing",
+          "description": "Pings the Lyft API with a user's current location."
+        },
+        {
+          "label": "Get Realtime Rider Session",
+          "name": "getRealtimeRiderSession",
+          "description": "Fetches the current realtime rider session."
+        },
+        {
+          "label": "Update Realtime Rider Session",
+          "name": "updateRealtimeRiderSession",
+          "description": "Updates the realtime rider session with an app action."
+        },
+        {
+          "label": "Fetch Overlay Interventions",
+          "name": "fetchOverlayInterventions",
+          "description": "Fetches proactive rider overlay interventions for a user."
+        },
+        {
+          "label": "Get Passenger Info",
+          "name": "getPassenger",
+          "description": "Retrieves information about the current passenger."
+        },
+        {
+          "label": "Get Region Info",
+          "name": "getRegionInfo",
+          "description": "Retrieves last-mile region info for a given origin."
+        },
+        {
+          "label": "Get Active Ride",
+          "name": "getActiveRide",
+          "description": "Fetches details about the user's active ride."
+        },
+        {
+          "label": "Get Client Subscriptions",
+          "name": "getClientSubscriptions",
+          "description": "Fetches the client's current subscriptions."
+        },
+        {
+          "label": "Get TCS Config",
+          "name": "getTcsConfig",
+          "description": "Retrieves the TCS (Telephony Control Server) configuration."
+        },
+        {
+          "label": "Get Chat Sessions",
+          "name": "getChatSessions",
+          "description": "Fetches the user's chat sessions."
+        },
+        {
+          "label": "Get Lost Item Sessions",
+          "name": "getLostItemSessions",
+          "description": "Retrieves the user's lost item sessions."
+        },
+        {
+          "label": "Get Active Geofences",
+          "name": "getActiveGeofences",
+          "description": "Fetches active geofences."
+        },
+        {
+          "label": "Get Calendar Permissions",
+          "name": "getCalendarPermissions",
+          "description": "Retrieves the user's calendar permissions status."
+        },
+        {
+          "label": "Get Map Style",
+          "name": "getMapStyle",
+          "description": "Fetches the map style JSON."
+        },
+        {
+          "label": "Get Map Sprite JSON",
+          "name": "getMapSpriteJson",
+          "description": "Fetches the map sprite JSON."
+        },
+        {
+          "label": "Get Map Sprite PNG",
+          "name": "getMapSpritePng",
+          "description": "Fetches the map sprite PNG image."
+        },
+        {
+          "label": "Get PBF Tile",
+          "name": "getMapTilePbf",
+          "description": "Fetches a specific PBF map tile."
+        }
+      ],
+      "default": "requestRide"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "Lyft Mobile API",
+          "name": "lyftMobileApi"
+        }
+      ],
+      "default": "lyftMobileApi"
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Origin Latitude",
+      "name": "latitude",
+      "type": "number",
+      "description": "The latitude of the starting location.",
+      "show": {
+        "actions.api": ["getPing", "getRegionInfo", "requestRide"]
+      }
+    },
+    {
+      "label": "Origin Longitude",
+      "name": "longitude",
+      "type": "number",
+      "description": "The longitude of the starting location.",
+      "show": {
+        "actions.api": ["getPing", "getRegionInfo", "requestRide"]
+      }
+    },
+    {
+      "label": "Destination Latitude",
+      "name": "destinationLatitude",
+      "type": "number",
+      "description": "The latitude of the destination.",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
+    },
+    {
+      "label": "Destination Longitude",
+      "name": "destinationLongitude",
+      "type": "number",
+      "description": "The longitude of the destination.",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
+    },
+    {
+      "label": "Ride Type",
+      "name": "rideType",
+      "type": "string",
+      "description": "The type of ride to request (e.g., 'lyft').",
+      "default": "lyft",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userId",
+      "type": "string",
+      "description": "The unique identifier for the user.",
+      "show": {
+        "actions.api": ["fetchOverlayInterventions"]
+      }
+    },
+    {
+      "label": "Tile Coordinates",
+      "name": "tileCoordinates",
+      "type": "string",
+      "description": "The map tile coordinates in x/y/z format (e.g., '11/353/817').",
+      "show": {
+        "actions.api": ["getMapTilePbf"]
+      }
+    }
+  ]
+}
 ]
