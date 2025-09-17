@@ -1,0 +1,91 @@
+{
+  "label": "Instacart",
+  "name": "instacart",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/85d791b87c4f8f687c51fb5ebfb169878885a12b/nodes/CreateERC20Token/instacart.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/85d791b87c4f8f687c51fb5ebfb169878885a12b/nodes/CreateERC20Token/instacart.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/85d791b87c4f8f687c51fb5ebfb169878885a12b/nodes/CreateERC20Token/instacart.png"
+  },
+  "type": "action",
+  "category": "Shopping & E-commerce",
+  "version": 1,
+  "description": "Create Instacart shopping lists and recipe lists via REST.",
+  "incoming": 1,
+  "outgoing": 1,
+
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Create Shopping List",
+          "name": "createShoppingList",
+          "description": "Creates a shopping list on Instacart."
+        },
+        {
+          "label": "Create Recipe List",
+          "name": "createRecipeList",
+          "description": "Creates a recipe list on Instacart."
+        }
+      ],
+      "default": "createShoppingList"
+    }
+  ],
+
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Instacart Bearer Token",
+          "name": "instacartBearer"
+        }
+      ],
+      "default": "instacartBearer"
+    }
+  ],
+
+  "inputParameters": [
+    {
+      "label": "Request Body",
+      "name": "body",
+      "type": "json",
+      "description": "JSON payload sent to Instacart. Your service posts this verbatim: axios.post(URL, inputParameters.body, { headers: {...} }).",
+      "show": {
+        "actions.api": [
+          "createShoppingList",
+          "createRecipeList"
+        ]
+      }
+    },
+    {
+      "label": "Custom Headers (optional)",
+      "name": "headers",
+      "type": "json",
+      "description": "Optional additional headers to merge with the default Authorization and Content-Type headers.",
+      "show": {
+        "actions.api": [
+          "createShoppingList",
+          "createRecipeList"
+        ]
+      }
+    },
+    {
+      "label": "Debug Logging",
+      "name": "debug",
+      "type": "boolean",
+      "default": true,
+      "description": "When true, logs request/response details to help with troubleshooting.",
+      "show": {
+        "actions.api": [
+          "createShoppingList",
+          "createRecipeList"
+        ]
+      }
+    }
+  ]
+}
