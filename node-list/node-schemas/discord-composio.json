@@ -201,7 +201,7 @@
       "label": "Multi-User ID",
       "name": "multi_user_id",
       "type": "string",
-      "required": false,
+      "required": false,       "optional": true,
       "description": "User ID for multi-user connected accounts",
       "placeholder": "user_456"
     },
@@ -218,7 +218,8 @@
       "label": "Arguments",
       "name": "arguments",
       "type": "json",
-      "required": false,
+      "required": false,       "optional": true,
+
       "description": "Key-value pairs of arguments required by the Discord tool. Mutually exclusive with 'text'.",
       "placeholder": "{ \"channel_id\": \"123456789\", \"content\": \"Hello Discord!\" }"
     },
@@ -226,7 +227,8 @@
       "label": "Natural Language Text",
       "name": "text",
       "type": "string",
-      "required": false,
+      "required": false,       "optional": true,
+
       "description": "Natural language description of the task (mutually exclusive with 'arguments')",
       "placeholder": "Send a message to channel #general saying 'Hello everyone!'"
     },
@@ -234,7 +236,8 @@
       "label": "Custom Auth Parameters",
       "name": "custom_auth_params",
       "type": "json",
-      "required": false,
+      "required": false,       "optional": true,
+
       "description": "Custom authentication parameters for tools that support parameterized authentication",
       "placeholder": "{ \"server_id\": \"987654321\" }"
     },
@@ -242,7 +245,8 @@
       "label": "Custom Connection Data",
       "name": "custom_connection_data",
       "type": "json",
-      "required": false,
+      "required": false,       "optional": true,
+
       "description": "Custom connection data for tools that support custom connection data",
       "placeholder": "{ \"region\": \"us-west-2\" }"
     },
@@ -250,7 +254,8 @@
       "label": "Enable Tracing",
       "name": "allow_tracing",
       "type": "boolean",
-      "required": false,
+      "required": false,       "optional": true,
+
       "description": "Enable debug tracing for tool execution",
       "default": false
     }
