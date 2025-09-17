@@ -4,80 +4,90 @@
   "name": "discord-composio",
   "type": "action",
   "module": "composio",
-  "version": "1.0.0",
+  "version": 1,
   "description": "Execute Discord actions via Composio toolkits (send messages, manage servers, user operations, etc.)",
   "incoming": 1,
   "outgoing": 1,
+
   "actions": [
-    { "label": "Send Message", "operation": "discord_send_message", "description": "Send a message to a Discord channel." },
-    { "label": "Send Direct Message", "operation": "discord_send_direct_message", "description": "Send a direct message to a user." },
-    { "label": "Get Channel Messages", "operation": "discord_get_channel_messages", "description": "Retrieve messages from a Discord channel." },
-    { "label": "Edit Message", "operation": "discord_edit_message", "description": "Edit an existing message." },
-    { "label": "Delete Message", "operation": "discord_delete_message", "description": "Delete a message." },
-    { "label": "Add Reaction", "operation": "discord_add_reaction", "description": "Add a reaction to a message." },
-    { "label": "Remove Reaction", "operation": "discord_remove_reaction", "description": "Remove a reaction from a message." },
-    { "label": "Get Server Info", "operation": "discord_get_server_info", "description": "Get information about a Discord server." },
-    { "label": "Get Channel Info", "operation": "discord_get_channel_info", "description": "Get information about a Discord channel." },
-    { "label": "Get User Info", "operation": "discord_get_user_info", "description": "Get information about a Discord user." },
-    { "label": "Create Channel", "operation": "discord_create_channel", "description": "Create a new channel in a server." },
-    { "label": "Delete Channel", "operation": "discord_delete_channel", "description": "Delete a channel." },
-    { "label": "Get Server Members", "operation": "discord_get_server_members", "description": "Get list of members in a server." },
-    { "label": "Kick Member", "operation": "discord_kick_member", "description": "Kick a member from the server." },
-    { "label": "Ban Member", "operation": "discord_ban_member", "description": "Ban a member from the server." },
-    { "label": "Unban Member", "operation": "discord_unban_member", "description": "Unban a member from the server." },
-    { "label": "Create Role", "operation": "discord_create_role", "description": "Create a new role in the server." },
-    { "label": "Assign Role", "operation": "discord_assign_role", "description": "Assign a role to a member." },
-    { "label": "Remove Role", "operation": "discord_remove_role", "description": "Remove a role from a member." },
-    { "label": "Get Server Roles", "operation": "discord_get_server_roles", "description": "Get all roles in a server." },
-    { "label": "Create Invite", "operation": "discord_create_invite", "description": "Create an invite link for a channel." },
-    { "label": "Get Server Invites", "operation": "discord_get_server_invites", "description": "Get all invites for a server." },
-    { "label": "Upload File", "operation": "discord_upload_file", "description": "Upload a file to a Discord channel." },
-    { "label": "Create Thread", "operation": "discord_create_thread", "description": "Create a thread in a channel." },
-    { "label": "Join Thread", "operation": "discord_join_thread", "description": "Join a thread." },
-    { "label": "Leave Thread", "operation": "discord_leave_thread", "description": "Leave a thread." }
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Send Message", "name": "discord_send_message", "description": "Send a message to a Discord channel." },
+        { "label": "Send Direct Message", "name": "discord_send_direct_message", "description": "Send a direct message to a user." },
+        { "label": "Get Channel Messages", "name": "discord_get_channel_messages", "description": "Retrieve messages from a Discord channel." },
+        { "label": "Edit Message", "name": "discord_edit_message", "description": "Edit an existing message." },
+        { "label": "Delete Message", "name": "discord_delete_message", "description": "Delete a message." },
+        { "label": "Add Reaction", "name": "discord_add_reaction", "description": "Add a reaction to a message." },
+        { "label": "Remove Reaction", "name": "discord_remove_reaction", "description": "Remove a reaction from a message." },
+        { "label": "Get Server Info", "name": "discord_get_server_info", "description": "Get information about a Discord server." },
+        { "label": "Get Channel Info", "name": "discord_get_channel_info", "description": "Get information about a Discord channel." },
+        { "label": "Get User Info", "name": "discord_get_user_info", "description": "Get information about a Discord user." },
+        { "label": "Create Channel", "name": "discord_create_channel", "description": "Create a new channel in a server." },
+        { "label": "Delete Channel", "name": "discord_delete_channel", "description": "Delete a channel." },
+        { "label": "Get Server Members", "name": "discord_get_server_members", "description": "Get list of members in a server." },
+        { "label": "Kick Member", "name": "discord_kick_member", "description": "Kick a member from the server." },
+        { "label": "Ban Member", "name": "discord_ban_member", "description": "Ban a member from the server." },
+        { "label": "Unban Member", "name": "discord_unban_member", "description": "Unban a member from the server." },
+        { "label": "Create Role", "name": "discord_create_role", "description": "Create a new role in the server." },
+        { "label": "Assign Role", "name": "discord_assign_role", "description": "Assign a role to a member." },
+        { "label": "Remove Role", "name": "discord_remove_role", "description": "Remove a role from a member." },
+        { "label": "Get Server Roles", "name": "discord_get_server_roles", "description": "Get all roles in a server." },
+        { "label": "Create Invite", "name": "discord_create_invite", "description": "Create an invite link for a channel." },
+        { "label": "Get Server Invites", "name": "discord_get_server_invites", "description": "Get all invites for a server." },
+        { "label": "Upload File", "name": "discord_upload_file", "description": "Upload a file to a Discord channel." },
+        { "label": "Create Thread", "name": "discord_create_thread", "description": "Create a thread in a channel." },
+        { "label": "Join Thread", "name": "discord_join_thread", "description": "Join a thread." },
+        { "label": "Leave Thread", "name": "discord_leave_thread", "description": "Leave a thread." }
+      ],
+      "default": "discord_send_message"
+    }
   ],
+
   "inputParameters": [
     {
       "label": "Channel ID",
       "name": "channel_id",
       "type": "string",
       "description": "Discord channel ID",
-      "show": { "actions.operation": ["discord_send_message", "discord_get_channel_messages", "discord_get_channel_info", "discord_delete_channel", "discord_create_invite", "discord_upload_file", "discord_create_thread"] }
+      "show": { "actions.api": ["discord_send_message", "discord_get_channel_messages", "discord_get_channel_info", "discord_delete_channel", "discord_create_invite", "discord_upload_file", "discord_create_thread"] }
     },
     {
       "label": "Message Content",
       "name": "content",
       "type": "string",
       "description": "Content of the message to send",
-      "show": { "actions.operation": ["discord_send_message", "discord_send_direct_message", "discord_edit_message"] }
+      "show": { "actions.api": ["discord_send_message", "discord_send_direct_message", "discord_edit_message"] }
     },
     {
       "label": "User ID",
       "name": "user_id",
       "type": "string",
       "description": "Discord user ID",
-      "show": { "actions.operation": ["discord_send_direct_message", "discord_get_user_info", "discord_kick_member", "discord_ban_member", "discord_unban_member", "discord_assign_role", "discord_remove_role"] }
+      "show": { "actions.api": ["discord_send_direct_message", "discord_get_user_info", "discord_kick_member", "discord_ban_member", "discord_unban_member", "discord_assign_role", "discord_remove_role"] }
     },
     {
       "label": "Message ID",
       "name": "message_id",
       "type": "string",
       "description": "Discord message ID",
-      "show": { "actions.operation": ["discord_edit_message", "discord_delete_message", "discord_add_reaction", "discord_remove_reaction"] }
+      "show": { "actions.api": ["discord_edit_message", "discord_delete_message", "discord_add_reaction", "discord_remove_reaction"] }
     },
     {
       "label": "Server ID",
       "name": "server_id",
       "type": "string",
       "description": "Discord server (guild) ID",
-      "show": { "actions.operation": ["discord_get_server_info", "discord_create_channel", "discord_get_server_members", "discord_kick_member", "discord_ban_member", "discord_unban_member", "discord_create_role", "discord_get_server_roles", "discord_get_server_invites"] }
+      "show": { "actions.api": ["discord_get_server_info", "discord_create_channel", "discord_get_server_members", "discord_kick_member", "discord_ban_member", "discord_unban_member", "discord_create_role", "discord_get_server_roles", "discord_get_server_invites"] }
     },
     {
       "label": "Channel Name",
       "name": "channel_name",
       "type": "string",
       "description": "Name of the channel to create",
-      "show": { "actions.operation": ["discord_create_channel"] }
+      "show": { "actions.api": ["discord_create_channel"] }
     },
     {
       "label": "Channel Type",
@@ -86,28 +96,28 @@
       "optional": true,
       "description": "Type of channel (text, voice, category)",
       "default": "text",
-      "show": { "actions.operation": ["discord_create_channel"] }
+      "show": { "actions.api": ["discord_create_channel"] }
     },
     {
       "label": "Role Name",
       "name": "role_name",
       "type": "string",
       "description": "Name of the role to create",
-      "show": { "actions.operation": ["discord_create_role"] }
+      "show": { "actions.api": ["discord_create_role"] }
     },
     {
       "label": "Role ID",
       "name": "role_id",
       "type": "string",
       "description": "Discord role ID",
-      "show": { "actions.operation": ["discord_assign_role", "discord_remove_role"] }
+      "show": { "actions.api": ["discord_assign_role", "discord_remove_role"] }
     },
     {
       "label": "Reaction Emoji",
       "name": "emoji",
       "type": "string",
       "description": "Emoji to add/remove as reaction",
-      "show": { "actions.operation": ["discord_add_reaction", "discord_remove_reaction"] }
+      "show": { "actions.api": ["discord_add_reaction", "discord_remove_reaction"] }
     },
     {
       "label": "Ban Reason",
@@ -115,14 +125,14 @@
       "type": "string",
       "optional": true,
       "description": "Reason for banning the member",
-      "show": { "actions.operation": ["discord_ban_member"] }
+      "show": { "actions.api": ["discord_ban_member"] }
     },
     {
       "label": "File Path",
       "name": "file_path",
       "type": "string",
       "description": "Path to the file to upload",
-      "show": { "actions.operation": ["discord_upload_file"] }
+      "show": { "actions.api": ["discord_upload_file"] }
     },
     {
       "label": "File Name",
@@ -130,21 +140,21 @@
       "type": "string",
       "optional": true,
       "description": "Name for the uploaded file",
-      "show": { "actions.operation": ["discord_upload_file"] }
+      "show": { "actions.api": ["discord_upload_file"] }
     },
     {
       "label": "Thread Name",
       "name": "thread_name",
       "type": "string",
       "description": "Name of the thread to create",
-      "show": { "actions.operation": ["discord_create_thread"] }
+      "show": { "actions.api": ["discord_create_thread"] }
     },
     {
       "label": "Thread ID",
       "name": "thread_id",
       "type": "string",
       "description": "Discord thread ID",
-      "show": { "actions.operation": ["discord_join_thread", "discord_leave_thread"] }
+      "show": { "actions.api": ["discord_join_thread", "discord_leave_thread"] }
     },
     {
       "label": "Max Messages",
@@ -153,7 +163,7 @@
       "optional": true,
       "description": "Maximum number of messages to retrieve",
       "default": 50,
-      "show": { "actions.operation": ["discord_get_channel_messages"] }
+      "show": { "actions.api": ["discord_get_channel_messages"] }
     },
     {
       "label": "Before Message ID",
@@ -161,7 +171,7 @@
       "type": "string",
       "optional": true,
       "description": "Get messages before this message ID",
-      "show": { "actions.operation": ["discord_get_channel_messages"] }
+      "show": { "actions.api": ["discord_get_channel_messages"] }
     },
     {
       "label": "After Message ID",
@@ -169,7 +179,7 @@
       "type": "string",
       "optional": true,
       "description": "Get messages after this message ID",
-      "show": { "actions.operation": ["discord_get_channel_messages"] }
+      "show": { "actions.api": ["discord_get_channel_messages"] }
     },
     {
       "label": "Tool Slug (override)",
@@ -245,6 +255,7 @@
       "default": false
     }
   ],
+
   "credentials": [
     {
       "label": "Composio API Key",
@@ -255,6 +266,7 @@
       "credentialMethod": "composioApiKey"
     }
   ],
+
   "category": "Integration",
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-assets/main/nodes/Discord/default.svg",
