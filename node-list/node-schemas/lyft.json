@@ -1,15 +1,15 @@
 {
-  "label": "Lyft (Partner API)",
-  "name": "lyft",
+  "label": "Lyft API",
+  "name": "lyftApi",
   "icons": {
     "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png",
     "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png",
     "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/lyft.png"
   },
   "type": "action",
-  "category": "Transport & Mobility",
+  "category": "Transportation",
   "version": 1,
-  "description": "Estimate fares/ETAs and manage ride lifecycle with Lyft’s partner API (OAuth2: client credentials + auth code).",
+  "description": "Perform operations with the Lyft mobile client API.",
   "incoming": 1,
   "outgoing": 1,
   "actions": [
@@ -18,321 +18,183 @@
       "name": "api",
       "type": "options",
       "options": [
-        { "label": "OAuth2: Client Credentials Token", "name": "oauthClientCredentials", "description": "Get access_token for public endpoints (scope: public)." },
-        { "label": "OAuth2: Authorization Code Token", "name": "oauthAuthCodeToken", "description": "Exchange authorization_code for access_token + refresh_token (user context)." },
-        { "label": "OAuth2: Refresh Token", "name": "oauthRefreshToken", "description": "Refresh an access token using refresh_token." },
-
-        { "label": "Cost Estimates", "name": "getCostEstimates", "description": "GET /cost — estimate trip cost between two points." },
-        { "label": "Pickup ETAs", "name": "getPickupEtas", "description": "GET /eta — estimated pickup times at a location." },
-        { "label": "Ride Types", "name": "getRideTypes", "description": "GET /ridetypes — available ride types at a location." },
-        { "label": "Nearby Drivers", "name": "getNearbyDrivers", "description": "GET /drivers — nearby drivers grouped by ride type." },
-
-        { "label": "Get Profile", "name": "getProfile", "description": "GET /profile — user profile (requires user scopes)." },
-        { "label": "List Rides", "name": "listRides", "description": "GET /rides — list a user’s rides (past & current)." },
-        { "label": "Request Ride", "name": "requestRide", "description": "POST /rides — request a ride (user context)." },
-        { "label": "Get Ride", "name": "getRide", "description": "GET /rides/{id} — ride details & status." },
-        { "label": "Cancel Ride", "name": "cancelRide", "description": "POST /rides/{id}/cancel — cancel a requested/ongoing ride." },
-        { "label": "Update Destination", "name": "updateDestination", "description": "PUT /rides/{id}/destination — change the dropoff." },
-        { "label": "Rate / Tip Ride", "name": "rateRide", "description": "PUT /rides/{id}/rating — submit rating, feedback, and tip." },
-        { "label": "Get Ride Receipt", "name": "getRideReceipt", "description": "GET /rides/{id}/receipt — retrieve receipt." },
-
-        { "label": "Sandbox: Set Ride Types", "name": "sandboxSetRideTypes", "description": "PUT /sandbox/ridetypes — preset types of rides in sandbox." },
-        { "label": "Sandbox: Driver Availability", "name": "sandboxSetDriverAvailability", "description": "PUT /sandbox/ridetypes/{ride_type} — set driver availability." },
-        { "label": "Sandbox: Prime Time", "name": "sandboxSetPrimeTime", "description": "PUT /sandbox/primetime — preset Prime Time percentage." },
-        { "label": "Sandbox: Ride Status", "name": "sandboxSetRideStatus", "description": "PUT /sandbox/rides/{id} — advance a ride through statuses." }
+        {
+          "label": "Refresh Access Token",
+          "name": "refreshToken",
+          "description": "Exchanges a refresh token for a new access token."
+        },
+        {
+          "label": "Request Ride",
+          "name": "requestRide",
+          "description": "Requests a new ride from an origin to a destination."
+        },
+        {
+          "label": "Get Ping",
+          "name": "getPing",
+          "description": "Pings the Lyft API with a user's current location."
+        },
+        {
+          "label": "Get Realtime Rider Session",
+          "name": "getRealtimeRiderSession",
+          "description": "Fetches the current realtime rider session."
+        },
+        {
+          "label": "Update Realtime Rider Session",
+          "name": "updateRealtimeRiderSession",
+          "description": "Updates the realtime rider session with an app action."
+        },
+        {
+          "label": "Fetch Overlay Interventions",
+          "name": "fetchOverlayInterventions",
+          "description": "Fetches proactive rider overlay interventions for a user."
+        },
+        {
+          "label": "Get Passenger Info",
+          "name": "getPassenger",
+          "description": "Retrieves information about the current passenger."
+        },
+        {
+          "label": "Get Region Info",
+          "name": "getRegionInfo",
+          "description": "Retrieves last-mile region info for a given origin."
+        },
+        {
+          "label": "Get Active Ride",
+          "name": "getActiveRide",
+          "description": "Fetches details about the user's active ride."
+        },
+        {
+          "label": "Get Client Subscriptions",
+          "name": "getClientSubscriptions",
+          "description": "Fetches the client's current subscriptions."
+        },
+        {
+          "label": "Get TCS Config",
+          "name": "getTcsConfig",
+          "description": "Retrieves the TCS (Telephony Control Server) configuration."
+        },
+        {
+          "label": "Get Chat Sessions",
+          "name": "getChatSessions",
+          "description": "Fetches the user's chat sessions."
+        },
+        {
+          "label": "Get Lost Item Sessions",
+          "name": "getLostItemSessions",
+          "description": "Retrieves the user's lost item sessions."
+        },
+        {
+          "label": "Get Active Geofences",
+          "name": "getActiveGeofences",
+          "description": "Fetches active geofences."
+        },
+        {
+          "label": "Get Calendar Permissions",
+          "name": "getCalendarPermissions",
+          "description": "Retrieves the user's calendar permissions status."
+        },
+        {
+          "label": "Get Map Style",
+          "name": "getMapStyle",
+          "description": "Fetches the map style JSON."
+        },
+        {
+          "label": "Get Map Sprite JSON",
+          "name": "getMapSpriteJson",
+          "description": "Fetches the map sprite JSON."
+        },
+        {
+          "label": "Get Map Sprite PNG",
+          "name": "getMapSpritePng",
+          "description": "Fetches the map sprite PNG image."
+        },
+        {
+          "label": "Get PBF Tile",
+          "name": "getMapTilePbf",
+          "description": "Fetches a specific PBF map tile."
+        }
       ],
-      "default": "getCostEstimates"
+      "default": "requestRide"
     }
   ],
   "credentials": [
     {
       "label": "Credential Method",
       "name": "credentialMethod",
-      "type": "string",
+      "type": "options",
       "options": [
-        { "label": "Lyft OAuth Client (Client ID/Secret)", "name": "lyftOAuth" }
+        {
+          "label": "Lyft Mobile API",
+          "name": "lyftMobileApi"
+        }
       ],
-      "default": "lyftOAuth"
+      "default": "lyftMobileApi"
     }
   ],
   "inputParameters": [
     {
-      "label": "Token URL",
-      "name": "token_url",
-      "type": "string",
-      "description": "Lyft OAuth token endpoint (typically https://api.lyft.com/oauth2/access_token).",
-      "show": { "actions.api": ["oauthClientCredentials", "oauthAuthCodeToken", "oauthRefreshToken"] }
-    },
-    {
-      "label": "Scopes",
-      "name": "scopes",
-      "type": "json",
-      "description": "Array of scopes (e.g., [\"public\"], or [\"public\",\"profile\",\"rides.read\",\"rides.request\",\"offline\"]).",
-      "show": { "actions.api": ["oauthClientCredentials", "oauthAuthCodeToken"] }
-    },
-    {
-      "label": "Authorization Code",
-      "name": "authorization_code",
-      "type": "string",
-      "description": "Code from the user consent redirect.",
-      "show": { "actions.api": ["oauthAuthCodeToken"] }
-    },
-    {
-      "label": "Redirect URI",
-      "name": "redirect_uri",
-      "type": "string",
-      "description": "Must match the app configuration in Lyft Developer/Business portal.",
-      "show": { "actions.api": ["oauthAuthCodeToken"] }
-    },
-    {
-      "label": "Refresh Token",
-      "name": "refresh_token",
-      "type": "string",
-      "description": "Refresh token obtained from the auth code exchange.",
-      "show": { "actions.api": ["oauthRefreshToken"] }
-    },
-
-    /* ─────── Shared request settings ─────────────────────────────── */
-    {
-      "label": "Base URL",
-      "name": "base_url",
-      "type": "string",
-      "description": "Defaults to https://api.lyft.com/v1. Sandbox endpoints live under the same base with /sandbox paths.",
-      "show": { "actions.api": [
-        "getCostEstimates","getPickupEtas","getRideTypes","getNearbyDrivers",
-        "getProfile","listRides","requestRide","getRide","cancelRide",
-        "updateDestination","rateRide","getRideReceipt",
-        "sandboxSetRideTypes","sandboxSetDriverAvailability","sandboxSetPrimeTime","sandboxSetRideStatus"
-      ] }
-    },
-    {
-      "label": "Idempotency-Key",
-      "name": "idempotency_key",
-      "type": "string",
-      "description": "Optional header for safely retrying POST/PUT calls (recommended for ride requests).",
-      "show": { "actions.api": ["requestRide","cancelRide","updateDestination","rateRide"] }
-    },
-
-    {
-      "label": "Start Latitude",
-      "name": "start_latitude",
-      "type": "number",
-      "description": "Origin latitude for cost estimates.",
-      "show": { "actions.api": ["getCostEstimates"] }
-    },
-    {
-      "label": "Start Longitude",
-      "name": "start_longitude",
-      "type": "number",
-      "description": "Origin longitude for cost estimates.",
-      "show": { "actions.api": ["getCostEstimates"] }
-    },
-    {
-      "label": "End Latitude",
-      "name": "end_latitude",
-      "type": "number",
-      "description": "Destination latitude for cost estimates.",
-      "show": { "actions.api": ["getCostEstimates"] }
-    },
-    {
-      "label": "End Longitude",
-      "name": "end_longitude",
-      "type": "number",
-      "description": "Destination longitude for cost estimates.",
-      "show": { "actions.api": ["getCostEstimates"] }
-    },
-    {
-      "label": "ETA Latitude",
-      "name": "eta_latitude",
-      "type": "number",
-      "description": "Latitude for pickup ETA.",
-      "show": { "actions.api": ["getPickupEtas"] }
-    },
-    {
-      "label": "ETA Longitude",
-      "name": "eta_longitude",
-      "type": "number",
-      "description": "Longitude for pickup ETA.",
-      "show": { "actions.api": ["getPickupEtas"] }
-    },
-    {
-      "label": "Ride Type (Optional)",
-      "name": "ride_type",
-      "type": "string",
-      "description": "Filter by ride type (e.g., lyft, lyft_plus, lyft_lux, lyft_xl).",
-      "show": { "actions.api": ["getPickupEtas","requestRide","sandboxSetDriverAvailability","sandboxSetRideStatus"] }
-    },
-    {
-      "label": "Types Latitude",
-      "name": "types_latitude",
-      "type": "number",
-      "description": "Latitude for ride types.",
-      "show": { "actions.api": ["getRideTypes"] }
-    },
-    {
-      "label": "Types Longitude",
-      "name": "types_longitude",
-      "type": "number",
-      "description": "Longitude for ride types.",
-      "show": { "actions.api": ["getRideTypes"] }
-    },
-    {
-      "label": "Drivers Latitude",
-      "name": "drivers_latitude",
-      "type": "number",
-      "description": "Latitude for nearby drivers.",
-      "show": { "actions.api": ["getNearbyDrivers"] }
-    },
-    {
-      "label": "Drivers Longitude",
-      "name": "drivers_longitude",
-      "type": "number",
-      "description": "Longitude for nearby drivers.",
-      "show": { "actions.api": ["getNearbyDrivers"] }
-    },
-
-    {
-      "label": "Start Time (ISO8601)",
-      "name": "start_time",
-      "type": "string",
-      "description": "Filter listRides from this time (optional).",
-      "show": { "actions.api": ["listRides"] }
-    },
-    {
-      "label": "End Time (ISO8601)",
-      "name": "end_time",
-      "type": "string",
-      "description": "Filter listRides until this time (optional).",
-      "show": { "actions.api": ["listRides"] }
-    },
-    {
-      "label": "Limit",
-      "name": "limit",
-      "type": "number",
-      "description": "Number of rides to return (pagination).",
-      "show": { "actions.api": ["listRides"] }
-    },
-    {
-      "label": "Offset",
-      "name": "offset",
-      "type": "number",
-      "description": "Offset for pagination.",
-      "show": { "actions.api": ["listRides"] }
-    },
-
-    {
       "label": "Origin Latitude",
-      "name": "origin_latitude",
+      "name": "latitude",
       "type": "number",
-      "description": "Ride origin latitude.",
-      "show": { "actions.api": ["requestRide"] }
+      "description": "The latitude of the starting location.",
+      "show": {
+        "actions.api": ["getPing", "getRegionInfo", "requestRide"]
+      }
     },
     {
       "label": "Origin Longitude",
-      "name": "origin_longitude",
+      "name": "longitude",
       "type": "number",
-      "description": "Ride origin longitude.",
-      "show": { "actions.api": ["requestRide"] }
+      "description": "The longitude of the starting location.",
+      "show": {
+        "actions.api": ["getPing", "getRegionInfo", "requestRide"]
+      }
     },
     {
       "label": "Destination Latitude",
-      "name": "destination_latitude",
+      "name": "destinationLatitude",
       "type": "number",
-      "description": "Ride destination latitude.",
-      "show": { "actions.api": ["requestRide","updateDestination"] }
+      "description": "The latitude of the destination.",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
     },
     {
       "label": "Destination Longitude",
-      "name": "destination_longitude",
+      "name": "destinationLongitude",
       "type": "number",
-      "description": "Ride destination longitude.",
-      "show": { "actions.api": ["requestRide","updateDestination"] }
+      "description": "The longitude of the destination.",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
     },
     {
-      "label": "Cost Token",
-      "name": "cost_token",
+      "label": "Ride Type",
+      "name": "rideType",
       "type": "string",
-      "description": "Dynamic pricing confirmation token (if required).",
-      "show": { "actions.api": ["requestRide"] }
+      "description": "The type of ride to request (e.g., 'lyft').",
+      "default": "lyft",
+      "show": {
+        "actions.api": ["requestRide"]
+      }
     },
     {
-      "label": "Payment Method ID",
-      "name": "payment_method_id",
+      "label": "User ID",
+      "name": "userId",
       "type": "string",
-      "description": "Specify a payment method if your program requires it.",
-      "show": { "actions.api": ["requestRide"] }
+      "description": "The unique identifier for the user.",
+      "show": {
+        "actions.api": ["fetchOverlayInterventions"]
+      }
     },
     {
-      "label": "Ride ID",
-      "name": "ride_id",
+      "label": "Tile Coordinates",
+      "name": "tileCoordinates",
       "type": "string",
-      "description": "Target ride ID.",
-      "show": { "actions.api": ["getRide","cancelRide","updateDestination","rateRide","getRideReceipt","sandboxSetRideStatus"] }
-    },
-    {
-      "label": "Rating (1–5)",
-      "name": "rating",
-      "type": "number",
-      "description": "Passenger rating to submit.",
-      "show": { "actions.api": ["rateRide"] }
-    },
-    {
-      "label": "Feedback",
-      "name": "feedback",
-      "type": "string",
-      "description": "Optional text feedback.",
-      "show": { "actions.api": ["rateRide"] }
-    },
-    {
-      "label": "Tip Amount (minor units)",
-      "name": "tip_amount",
-      "type": "number",
-      "description": "Tip amount in minor currency units (e.g., cents).",
-      "show": { "actions.api": ["rateRide"] }
-    },
-    {
-      "label": "Currency",
-      "name": "currency",
-      "type": "string",
-      "description": "ISO 4217 currency code for tipping.",
-      "show": { "actions.api": ["rateRide"] }
-    },
-    {
-      "label": "Cancel Reason",
-      "name": "cancel_reason",
-      "type": "string",
-      "description": "Optional cancellation reason.",
-      "show": { "actions.api": ["cancelRide"] }
-    },
-
-    {
-      "label": "Sandbox Ride Types",
-      "name": "sandbox_ride_types",
-      "type": "json",
-      "description": "Array of ride type configs to preset in sandbox.",
-      "show": { "actions.api": ["sandboxSetRideTypes"] }
-    },
-    {
-      "label": "Sandbox Driver Availability",
-      "name": "sandbox_driver_availability",
-      "type": "json",
-      "description": "Driver availability payload for a ride type.",
-      "show": { "actions.api": ["sandboxSetDriverAvailability"] }
-    },
-    {
-      "label": "Sandbox Prime Time (e.g., \"25%\")",
-      "name": "sandbox_primetime_percentage",
-      "type": "string",
-      "description": "Prime Time percentage string.",
-      "show": { "actions.api": ["sandboxSetPrimeTime"] }
-    },
-    {
-      "label": "Sandbox Ride Status Payload",
-      "name": "sandbox_ride_status",
-      "type": "json",
-      "description": "Status transition body for sandbox rides.",
-      "show": { "actions.api": ["sandboxSetRideStatus"] }
+      "description": "The map tile coordinates in x/y/z format (e.g., '11/353/817').",
+      "show": {
+        "actions.api": ["getMapTilePbf"]
+      }
     }
-  ],
-  "filePath": "Lyft.js"
+  ]
 }
