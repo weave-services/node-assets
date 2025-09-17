@@ -1,0 +1,175 @@
+{
+  "label": "ERC20 Create Token",
+  "name": "createERC20Token",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/f2fe5aaa6ada163172343e2c2df2170d4c2e7aaf/nodes/CreateERC20Token/erc20.svg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/f2fe5aaa6ada163172343e2c2df2170d4c2e7aaf/nodes/CreateERC20Token/erc20.svg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/f2fe5aaa6ada163172343e2c2df2170d4c2e7aaf/nodes/CreateERC20Token/erc20.svg"
+  },
+  "type": "action",
+  "category": "Cryptocurrency",
+  "version": 1,
+  "description": "Create a new ERC-20 token by compiling with solc and deploying via ethers.",
+  "incoming": 1,
+  "outgoing": 1,
+
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        { "label": "Create ERC20 Token", "name": "createERC20" }
+      ],
+      "default": "createERC20"
+    }
+  ],
+
+  "networks": [
+    {
+      "label": "Network",
+      "name": "network",
+      "type": "options",
+      "options": [
+        { "label": "Ethereum Mainnet", "name": "ethereum" },
+        { "label": "Ethereum Sepolia", "name": "sepolia" },
+
+        { "label": "Polygon Mainnet", "name": "polygon" },
+        { "label": "Polygon Mumbai", "name": "mumbai" },
+
+        { "label": "Arbitrum One", "name": "arbitrum" },
+        { "label": "Arbitrum Sepolia", "name": "arbitrumSepolia" },
+
+        { "label": "Optimism Mainnet", "name": "optimism" },
+        { "label": "Optimism Sepolia", "name": "optimismSepolia" },
+
+        { "label": "BNB Smart Chain", "name": "bsc" },
+        { "label": "BNB Testnet", "name": "bscTestnet" }
+      ],
+      "default": "sepolia"
+    },
+    {
+      "label": "Network Provider",
+      "name": "networkProvider",
+      "type": "asyncOptions",
+      "loadMethod": "getNetworkProviders",
+      "description": "Choose a provider for the selected network (Alchemy, Infura, QuickNode, custom, etc)."
+    },
+    {
+      "label": "RPC Endpoint",
+      "name": "jsonRPC",
+      "type": "string",
+      "default": "",
+      "placeholder": "https://<host>:<port>/<path>",
+      "show": {
+        "networks.networkProvider": ["customRPC"]
+      }
+    },
+    {
+      "label": "WebSocket Endpoint",
+      "name": "websocketRPC",
+      "type": "string",
+      "default": "",
+      "placeholder": "wss://<host>:<port>/<path>",
+      "show": {
+        "networks.networkProvider": ["customWebsocket"]
+      }
+    }
+  ],
+
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        { "label": "Alchemy", "name": "alchemy" },
+        { "label": "Infura", "name": "infura" },
+        { "label": "QuickNode", "name": "quickNode" },
+        { "label": "Ankr", "name": "ankr" },
+        { "label": "Public RPC / Custom", "name": "customRPC" },
+        { "label": "WebSocket (Custom)", "name": "customWebsocket" }
+      ],
+      "default": "alchemy"
+    },
+    {
+      "label": "Alchemy API Key",
+      "name": "alchemy_api_key",
+      "type": "string",
+      "show": { "credentials.credentialMethod": ["alchemy"] }
+    },
+    {
+      "label": "Infura Project ID",
+      "name": "infura_project_id",
+      "type": "string",
+      "show": { "credentials.credentialMethod": ["infura"] }
+    },
+    {
+      "label": "Infura Project Secret (optional)",
+      "name": "infura_project_secret",
+      "type": "string",
+      "show": { "credentials.credentialMethod": ["infura"] }
+    },
+    {
+      "label": "QuickNode HTTP URL",
+      "name": "quicknode_http_url",
+      "type": "string",
+      "show": { "credentials.credentialMethod": ["quickNode"] }
+    },
+    {
+      "label": "Ankr API Key",
+      "name": "ankr_api_key",
+      "type": "string",
+      "show": { "credentials.credentialMethod": ["ankr"] }
+    }
+  ],
+
+  "inputParameters": [
+    {
+      "label": "Select Wallet",
+      "name": "wallet",
+      "type": "asyncOptions",
+      "description": "Wallet account to deploy the ERC-20 contract.",
+      "loadFromDbCollections": ["Wallet"],
+      "loadMethod": "getWallets"
+    },
+    {
+      "label": "Token Name",
+      "name": "tokenName",
+      "type": "string",
+      "placeholder": "MyToken",
+      "default": ""
+    },
+    {
+      "label": "Token Symbol",
+      "name": "tokenSymbol",
+      "type": "string",
+      "placeholder": "MYT",
+      "default": ""
+    },
+    {
+      "label": "Token Supply",
+      "name": "tokenSupply",
+      "type": "number",
+      "default": 1000,
+      "description": "Initial supply (whole tokens). Contract mints with 18 decimals."
+    },
+    {
+      "label": "Solidity Version",
+      "name": "solidityVersion",
+      "type": "options",
+      "description": "Solidity compiler version used by solc.",
+      "options": [
+        { "label": "0.8.10", "name": "0.8.10" },
+        { "label": "0.8.11", "name": "0.8.11" },
+        { "label": "0.8.12", "name": "0.8.12" },
+        { "label": "0.8.13", "name": "0.8.13" },
+        { "label": "0.8.14", "name": "0.8.14" },
+        { "label": "0.8.15", "name": "0.8.15" }
+      ],
+      "default": "0.8.15"
+    }
+  ],
+
+  "filePath": "CreateERC20Token.ts"
+}
