@@ -27,16 +27,6 @@
   ],
 
   "inputParameters": [
-
-    {
-      "label": "API Key (override)",
-      "name": "key",
-      "type": "string",
-      "required": false,
-      "description": "Optional per-call key override. If omitted, uses the saved credential."
-    },
-
-
     {
       "label": "Phone",
       "name": "phone",
