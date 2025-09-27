@@ -146,7 +146,6 @@
       "show": { "actions.api": ["get_quota"] }
     },
 
-    /* ───────────── OTP (/otp/generate, /otp/verify) ───────────── */
     {
       "label": "User ID",
       "name": "userid",
