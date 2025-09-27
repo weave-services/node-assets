@@ -1,0 +1,400 @@
+{
+  "label": "Textbelt",
+  "name": "textbelt",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/textbelt.png",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/textbelt.png",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/node-schemas/textbelt.png"
+  },
+  "type": "action",
+  "category": "Messaging & Notifications",
+  "version": 1,
+  "description": "Send SMS, verify OTP, check delivery status & quota, and send chart MMS via Textbelt.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "API",
+      "name": "api",
+      "type": "options",
+      "options": [
+        {
+          "label": "Send SMS",
+          "name": "sendText",
+          "description": "POST /text — send an SMS message."
+        },
+        {
+          "label": "Get Delivery Status",
+          "name": "getStatus",
+          "description": "GET /status/:textId — check SMS delivery state."
+        },
+        {
+          "label": "Get Quota",
+          "name": "getQuota",
+          "description": "GET /quota/:key — check remaining credits for a key."
+        },
+        {
+          "label": "OTP: Generate Code",
+          "name": "otpGenerate",
+          "description": "POST /otp/generate — send one-time code via SMS."
+        },
+        {
+          "label": "OTP: Verify Code",
+          "name": "otpVerify",
+          "description": "GET /otp/verify — verify a submitted code for a userid."
+        },
+        {
+          "label": "Chart MMS (Simple)",
+          "name": "chartSimple",
+          "description": "POST /sms-chart with comma-separated data for line/bar."
+        },
+        {
+          "label": "Chart MMS (Custom Chart.js)",
+          "name": "chartCustom",
+          "description": "POST /sms-chart with full Chart.js config."
+        },
+        {
+          "label": "Verify Reply Webhook Signature",
+          "name": "verifyWebhookSignature",
+          "description": "Compute & compare HMAC (X-textbelt-signature) for inbound reply webhooks."
+        }
+      ],
+      "default": "sendText"
+    }
+  ],
+  "credentials": [
+    {
+      "label": "Credential Method",
+      "name": "credentialMethod",
+      "type": "string",
+      "options": [
+        {
+          "label": "Textbelt API Key",
+          "name": "textbeltApi"
+        }
+      ],
+      "default": "textbeltApi"
+    },
+    {
+      "label": "API Key",
+      "name": "api_key",
+      "type": "string",
+      "description": "Your Textbelt API key. Use \"textbelt\" for one free daily SMS; OTP test uses example_otp_key.",
+      "show": {
+        "credentials.credentialMethod": [
+          "textbeltApi"
+        ]
+      }
+    }
+  ],
+  "inputParameters": [
+    {
+      "label": "Base URL",
+      "name": "base_url",
+      "type": "string",
+      "default": "https://textbelt.com",
+      "description": "Override only if instructed by Textbelt support. Defaults to https://textbelt.com",
+      "show": {
+        "actions.api": [
+          "sendText",
+          "getStatus",
+          "getQuota",
+          "otpGenerate",
+          "otpVerify",
+          "chartSimple",
+          "chartCustom"
+        ]
+      }
+    },
+    {
+      "label": "API Key Override",
+      "name": "api_key_override",
+      "type": "string",
+      "description": "Optional: use this key instead of the saved credential for this call.",
+      "show": {
+        "actions.api": [
+          "sendText",
+          "getQuota",
+          "otpGenerate",
+          "otpVerify",
+          "chartSimple",
+          "chartCustom"
+        ]
+      }
+    },
+    {
+      "label": "Phone",
+      "name": "phone",
+      "type": "string",
+      "placeholder": "+15551234567",
+      "description": "US/CA: 10‑digit okay; otherwise E.164 recommended.",
+      "show": {
+        "actions.api": [
+          "sendText",
+          "chartSimple",
+          "chartCustom",
+          "otpGenerate"
+        ]
+      }
+    },
+    {
+      "label": "Message",
+      "name": "message",
+      "type": "string",
+      "description": "Text content. Identify your organization and include opt‑out if recurring.",
+      "show": {
+        "actions.api": [
+          "sendText",
+          "chartSimple",
+          "chartCustom"
+        ]
+      }
+    },
+    {
+      "label": "Sender (Compliance, optional)",
+      "name": "sender",
+      "type": "string",
+      "description": "Business/organization name for compliance. Not visible in most countries.",
+      "show": {
+        "actions.api": [
+          "sendText"
+        ]
+      }
+    },
+    {
+      "label": "Reply Webhook URL (US replies only)",
+      "name": "replyWebhookUrl",
+      "type": "string",
+      "description": "HTTPS endpoint to receive replies. Not supported on free key.",
+      "show": {
+        "actions.api": [
+          "sendText"
+        ]
+      }
+    },
+    {
+      "label": "Webhook Data (≤100 chars)",
+      "name": "webhookData",
+      "type": "string",
+      "description": "Arbitrary short string; returned as `data` in reply webhook payload.",
+      "show": {
+        "actions.api": [
+          "sendText"
+        ]
+      }
+    },
+    {
+      "label": "Use Test Mode (_test)",
+      "name": "use_test_mode",
+      "type": "boolean",
+      "description": "Append “_test” to your API key to validate request without consuming quota.",
+      "show": {
+        "actions.api": [
+          "sendText"
+        ]
+      }
+    },
+    {
+      "label": "Text ID",
+      "name": "text_id",
+      "type": "string",
+      "description": "The `textId` returned by send or OTP generate.",
+      "show": {
+        "actions.api": [
+          "getStatus"
+        ]
+      }
+    },
+    {
+      "label": "Key for Quota Lookup",
+      "name": "quota_key",
+      "type": "string",
+      "description": "If empty, the integration will use API Key Override or stored credential.",
+      "show": {
+        "actions.api": [
+          "getQuota"
+        ]
+      }
+    },
+    {
+      "label": "User ID",
+      "name": "userid",
+      "type": "string",
+      "description": "Your unique user identifier for OTP flow.",
+      "show": {
+        "actions.api": [
+          "otpGenerate",
+          "otpVerify"
+        ]
+      }
+    },
+    {
+      "label": "OTP Message Template (optional)",
+      "name": "otp_message",
+      "type": "string",
+      "description": "Custom message. Include $OTP placeholder. Defaults to “Your verification code is $OTP”.",
+      "show": {
+        "actions.api": [
+          "otpGenerate"
+        ]
+      }
+    },
+    {
+      "label": "OTP Lifetime (seconds)",
+      "name": "otp_lifetime",
+      "type": "number",
+      "default": 180,
+      "description": "Validity window for the OTP (default 180s).",
+      "show": {
+        "actions.api": [
+          "otpGenerate"
+        ]
+      }
+    },
+    {
+      "label": "OTP Length (digits)",
+      "name": "otp_length",
+      "type": "number",
+      "default": 6,
+      "description": "Number of digits to generate (default 6).",
+      "show": {
+        "actions.api": [
+          "otpGenerate"
+        ]
+      }
+    },
+    {
+      "label": "Use Example OTP Key",
+      "name": "use_example_otp_key",
+      "type": "boolean",
+      "description": "Use `example_otp_key` for test requests (does not consume your quota).",
+      "show": {
+        "actions.api": [
+          "otpGenerate",
+          "otpVerify"
+        ]
+      }
+    },
+    {
+      "label": "OTP Entered by User",
+      "name": "otp",
+      "type": "string",
+      "description": "Code to verify for the given userid.",
+      "show": {
+        "actions.api": [
+          "otpVerify"
+        ]
+      }
+    },
+    {
+      "label": "Simple Chart Data (CSV)",
+      "name": "chart_data_csv",
+      "type": "string",
+      "placeholder": "1,2,3,4,5",
+      "description": "Comma‑separated datapoints.",
+      "show": {
+        "actions.api": [
+          "chartSimple"
+        ]
+      }
+    },
+    {
+      "label": "Simple Chart Type",
+      "name": "chart_type",
+      "type": "options",
+      "options": [
+        {
+          "label": "Line",
+          "name": "line"
+        },
+        {
+          "label": "Bar",
+          "name": "bar"
+        }
+      ],
+      "default": "line",
+      "show": {
+        "actions.api": [
+          "chartSimple"
+        ]
+      }
+    },
+    {
+      "label": "Chart Title (optional)",
+      "name": "chart_title",
+      "type": "string",
+      "show": {
+        "actions.api": [
+          "chartSimple"
+        ]
+      }
+    },
+    {
+      "label": "X‑Axis Labels (CSV, optional)",
+      "name": "chart_labels_csv",
+      "type": "string",
+      "placeholder": "Sun,Mon,Tues,Wed,Thu",
+      "show": {
+        "actions.api": [
+          "chartSimple"
+        ]
+      }
+    },
+    {
+      "label": "Chart.js Definition",
+      "name": "chart_json",
+      "type": "string",
+      "description": "Full Chart.js config JSON (as string).",
+      "show": {
+        "actions.api": [
+          "chartCustom"
+        ]
+      }
+    },
+    {
+      "label": "Background Color (optional)",
+      "name": "backgroundColor",
+      "type": "string",
+      "placeholder": "#ffffff or 0xffcccc",
+      "show": {
+        "actions.api": [
+          "chartCustom"
+        ]
+      }
+    },
+    {
+      "label": "X-textbelt-signature",
+      "name": "webhook_signature",
+      "type": "string",
+      "description": "Signature header from Textbelt reply webhook.",
+      "show": {
+        "actions.api": [
+          "verifyWebhookSignature"
+        ]
+      }
+    },
+    {
+      "label": "X-textbelt-timestamp",
+      "name": "webhook_timestamp",
+      "type": "string",
+      "description": "Timestamp header (seconds) from webhook.",
+      "show": {
+        "actions.api": [
+          "verifyWebhookSignature"
+        ]
+      }
+    },
+    {
+      "label": "Raw Webhook JSON Payload",
+      "name": "webhook_payload",
+      "type": "string",
+      "description": "Raw request body string to verify HMAC against.",
+      "show": {
+        "actions.api": [
+          "verifyWebhookSignature"
+        ]
+      }
+    }
+  ],
+  "filePath": "Textbelt.js"
+}
