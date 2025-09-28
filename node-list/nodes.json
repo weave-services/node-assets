@@ -106,6 +106,192 @@
     "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
   },
 	{
+  "loadMethods": {},
+  "label": "WebhookV2",
+  "icon": "https://raw.githubusercontent.com/Outerbridgeio/Outerbridge/master/packages/components/nodes/Webhook/webhook.svg",
+  "name": "webhookV2",
+  "type": "webhook",
+  "category": "Utilities",
+  "version": 3,
+  "description": "Start workflow when webhook is called. Can return JSON or render HTML via templates.",
+  "incoming": 0,
+  "outgoing": 1,
+  "inputParameters": [
+    {
+      "label": "HTTP Method",
+      "name": "httpMethod",
+      "type": "options",
+      "options": [
+        {
+          "label": "GET",
+          "name": "GET"
+        },
+        {
+          "label": "POST",
+          "name": "POST"
+        }
+      ],
+      "default": "GET",
+      "description": "The HTTP method to listen to."
+    },
+    {
+      "label": "Authorization",
+      "name": "authorization",
+      "type": "options",
+      "options": [
+        {
+          "label": "API",
+          "name": "headerAuth",
+          "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+        },
+        {
+          "label": "None",
+          "name": "none"
+        }
+      ],
+      "default": "none",
+      "description": "The way to authorize incoming webhook."
+    },
+    {
+      "label": "API key",
+      "name": "apiKey",
+      "type": "asyncOptions",
+      "loadMethod": "getAPIKeys",
+      "description": "Incoming call must include header \"x-api-key\" with matching API key. Create new keys from the dashboard.",
+      "show": {
+        "inputParameters.authorization": [
+          "headerAuth"
+        ]
+      }
+    },
+    {
+      "label": "When to Return",
+      "name": "returnType",
+      "type": "options",
+      "options": [
+        {
+          "label": "Immediate Response",
+          "name": "immediateResponse",
+          "description": "Returns response immediately once webhook is called"
+        },
+        {
+          "label": "When Last Node Finishes",
+          "name": "lastNodeResponse",
+          "description": "Returns output response of the last executed node"
+        }
+      ],
+      "default": "immediateResponse",
+      "description": "When should the Webhook respond."
+    },
+    {
+      "label": "Response Format",
+      "name": "responseFormat",
+      "type": "options",
+      "options": [
+        {
+          "label": "JSON",
+          "name": "json"
+        },
+        {
+          "label": "HTML (Template)",
+          "name": "html"
+        }
+      ],
+      "default": "json",
+      "description": "Choose JSON or render HTML using a template."
+    },
+    {
+      "label": "Response Data (JSON)",
+      "name": "responseData",
+      "type": "string",
+      "default": "",
+      "description": "JSON string or plain text to return for immediate responses. If empty, defaults to: \"Webhook received!\"",
+      "optional": true,
+      "show": {
+        "inputParameters.returnType": [
+          "immediateResponse"
+        ],
+        "inputParameters.responseFormat": [
+          "json"
+        ]
+      }
+    },
+    {
+      "label": "Template Name",
+      "name": "template",
+      "type": "string",
+      "default": "",
+      "placeholder": "hello",
+      "description": "Template file to render (e.g., 'hello' maps to templates/hello.hbs unless an extension is provided).",
+      "optional": false,
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ]
+      }
+    },
+    {
+      "label": "Template Engine",
+      "name": "templateEngine",
+      "type": "options",
+      "options": [
+        {
+          "label": "Handlebars (.hbs)",
+          "name": "hbs"
+        }
+      ],
+      "default": "hbs",
+      "description": "Rendering engine used for HTML templates.",
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ]
+      }
+    },
+    {
+      "label": "Template Context (JSON)",
+      "name": "templateContext",
+      "type": "json",
+      "default": "{}",
+      "description": "Optional context for template rendering (used only for immediate responses). When waiting for last node, the executor's output becomes the context.",
+      "optional": true,
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ],
+        "inputParameters.returnType": [
+          "immediateResponse"
+        ]
+      }
+    },
+    {
+      "label": "Response Headers",
+      "name": "headers",
+      "type": "json",
+      "default": "{}",
+      "description": "Additional response headers as a JSON object (e.g., {\"X-From-Webhook\":\"1\"}).",
+      "optional": true
+    },
+    {
+      "label": "Status Code",
+      "name": "statusCode",
+      "type": "number",
+      "default": 200,
+      "description": "HTTP status code to return.",
+      "optional": true
+    },
+    {
+      "label": "Response Code (Legacy)",
+      "name": "responseCode",
+      "type": "number",
+      "default": 200,
+      "description": "Deprecated alias of Status Code. Prefer 'Status Code'.",
+      "optional": true
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/fruitbox12/nodes/main/nodes/Webhook/Webhook.js"
+}.
+	{
   "_events": {},
   "_eventsCount": 0,
   "loadMethods": {},
