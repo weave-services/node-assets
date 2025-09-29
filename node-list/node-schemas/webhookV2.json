@@ -5,8 +5,8 @@
   "name": "webhookV2",
   "type": "webhook",
   "category": "Utilities",
-  "version": 3,
-  "description": "Start workflow when webhook is called. Can return JSON or render HTML via templates.",
+  "version": 5,
+  "description": "Start workflow when webhook is called. Can return JSON or raw HTML.",
   "incoming": 0,
   "outgoing": 1,
   "inputParameters": [
@@ -35,7 +35,7 @@
         {
           "label": "API",
           "name": "headerAuth",
-          "description": "Webhook header must contains \"X-API-KEY\" with matching key"
+          "description": "Webhook header must contain \"X-API-KEY\" with matching key"
         },
         {
           "label": "None",
@@ -50,7 +50,7 @@
       "name": "apiKey",
       "type": "asyncOptions",
       "loadMethod": "getAPIKeys",
-      "description": "Incoming call must include header \"x-api-key\" with matching API key. Create new keys from the dashboard.",
+      "description": "Incoming call must include header \"x-api-key\" with matching API key.",
       "show": {
         "inputParameters.authorization": [
           "headerAuth"
@@ -86,40 +86,113 @@
           "name": "json"
         },
         {
-          "label": "HTML (Template)",
+          "label": "HTML",
           "name": "html"
         }
       ],
       "default": "json",
-      "description": "Choose JSON or render HTML using a template."
+      "description": "Choose JSON or HTML response."
     },
     {
-      "label": "Response Data (JSON)",
-      "name": "responseData",
-      "type": "string",
-      "default": "",
-      "description": "JSON string or plain text to return for immediate responses. If empty, defaults to: \"Webhook received!\"",
-      "optional": true,
+      "label": "Render Mode",
+      "name": "renderMode",
+      "type": "options",
+      "options": [
+        {
+          "label": "Raw (paste HTML)",
+          "name": "raw"
+        },
+        {
+          "label": "Template (Handlebars)",
+          "name": "template"
+        }
+      ],
+      "default": "raw",
+      "description": "Return pasted HTML directly, or render a template.",
       "show": {
-        "inputParameters.returnType": [
-          "immediateResponse"
-        ],
         "inputParameters.responseFormat": [
-          "json"
+          "html"
         ]
       }
     },
     {
-      "label": "Template Name",
-      "name": "template",
+      "label": "Inline HTML",
+      "name": "inlineHtml",
       "type": "string",
-      "default": "",
-      "placeholder": "hello",
-      "description": "Template file to render (e.g., 'hello' maps to templates/hello.hbs unless an extension is provided).",
+      "rows": 8,
+      "default": "<!doctype html><html><body><h1>Hello!</h1></body></html>",
+      "description": "Exact HTML to return when renderMode = raw.",
       "optional": false,
       "show": {
         "inputParameters.responseFormat": [
           "html"
+        ],
+        "inputParameters.renderMode": [
+          "raw"
+        ]
+      }
+    },
+    {
+      "label": "Template Source",
+      "name": "templateSource",
+      "type": "options",
+      "options": [
+        {
+          "label": "Inline (string)",
+          "name": "inline"
+        },
+        {
+          "label": "Remote URL",
+          "name": "url"
+        }
+      ],
+      "default": "inline",
+      "description": "Where to get the template (template mode).",
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ],
+        "inputParameters.renderMode": [
+          "template"
+        ]
+      }
+    },
+    {
+      "label": "Template (inline)",
+      "name": "templateInline",
+      "type": "string",
+      "rows": 8,
+      "default": "",
+      "description": "Template string for Handlebars.",
+      "optional": true,
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ],
+        "inputParameters.renderMode": [
+          "template"
+        ],
+        "inputParameters.templateSource": [
+          "inline"
+        ]
+      }
+    },
+    {
+      "label": "Template URL",
+      "name": "templateUrl",
+      "type": "string",
+      "default": "",
+      "description": "URL to fetch template from.",
+      "optional": true,
+      "show": {
+        "inputParameters.responseFormat": [
+          "html"
+        ],
+        "inputParameters.renderMode": [
+          "template"
+        ],
+        "inputParameters.templateSource": [
+          "url"
         ]
       }
     },
@@ -129,7 +202,7 @@
       "type": "options",
       "options": [
         {
-          "label": "Handlebars (.hbs)",
+          "label": "Handlebars",
           "name": "hbs"
         }
       ],
@@ -138,6 +211,9 @@
       "show": {
         "inputParameters.responseFormat": [
           "html"
+        ],
+        "inputParameters.renderMode": [
+          "template"
         ]
       }
     },
@@ -146,11 +222,14 @@
       "name": "templateContext",
       "type": "json",
       "default": "{}",
-      "description": "Optional context for template rendering (used only for immediate responses). When waiting for last node, the executor's output becomes the context.",
+      "description": "Optional context for template rendering (used only for immediate responses).",
       "optional": true,
       "show": {
         "inputParameters.responseFormat": [
           "html"
+        ],
+        "inputParameters.renderMode": [
+          "template"
         ],
         "inputParameters.returnType": [
           "immediateResponse"
@@ -162,7 +241,7 @@
       "name": "headers",
       "type": "json",
       "default": "{}",
-      "description": "Additional response headers as a JSON object (e.g., {\"X-From-Webhook\":\"1\"}).",
+      "description": "Additional response headers as a JSON object.",
       "optional": true
     },
     {
@@ -178,7 +257,7 @@
       "name": "responseCode",
       "type": "number",
       "default": 200,
-      "description": "Deprecated alias of Status Code. Prefer 'Status Code'.",
+      "description": "Deprecated alias of Status Code.",
       "optional": true
     }
   ],
