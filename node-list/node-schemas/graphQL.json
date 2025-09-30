@@ -67,14 +67,7 @@
       "label": "GraphQL Body",
       "name": "body",
       "type": "json",
-      "placeholder": "{\n  me {\n    name\n  }\n}",
-      "optional": true
-    },
-    {
-      "label": "Variables",
-      "name": "variables",
-      "type": "json",
-      "placeholder": "{\"var1\": \"value1\"}",
+      "placeholder": "{\n  \"query\": \"query ($id: Int!) { userById(id: $id) { id name email phone } }\",\n  \"variables\": { \"id\": 1 }\n}\n",
       "optional": true
     }
   ],
