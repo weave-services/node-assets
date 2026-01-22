@@ -677,6 +677,103 @@
   "filePath": "UpstashRedis.js"
 },
 	{
+  "loadMethods": {},
+  "label": "Kintsu",
+  "name": "kintsu",
+  "icons": {
+    "default": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/kintsu.jpeg",
+    "light": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/kintsu.jpeg",
+    "dark": "https://raw.githubusercontent.com/weave-services/node-assets/refs/heads/main/node-list/kintsu.jpeg"
+  },
+  "type": "action",
+  "category": "Decentralized Finance",
+  "version": 1,
+  "description": "Fetch Kintsu public data: points leaderboard/user points and sMON APY history.",
+  "incoming": 1,
+  "outgoing": 1,
+  "actions": [
+    {
+      "label": "Operation",
+      "name": "operation",
+      "type": "options",
+      "options": [
+        {
+          "label": "Get Points Leaderboard",
+          "name": "getPointsLeaderboard",
+          "description": "Returns points leaderboard data with pagination (limit/page)."
+        },
+        {
+          "label": "Get User Points",
+          "name": "getUserPoints",
+          "description": "Returns points for one or more wallet addresses via the addresses filter."
+        },
+        {
+          "label": "Get sMON APY History",
+          "name": "getApyHistory",
+          "description": "Returns historical APY data (newest first)."
+        }
+      ],
+      "default": "getPointsLeaderboard"
+    }
+  ],
+  "networks": [],
+  "credentials": [],
+  "inputParameters": [
+    {
+      "label": "Base URL",
+      "name": "baseUrl",
+      "type": "string",
+      "description": "Optional override for the API base URL.",
+      "default": "https://kintsu.xyz",
+      "optional": true
+    },
+    {
+      "label": "Addresses",
+      "name": "addresses",
+      "type": "string",
+      "description": "Comma-separated list of wallet addresses to filter (e.g. 0xabc...,0xdef...).",
+      "optional": true,
+      "show": {
+        "actions.operation": ["getUserPoints", "getPointsLeaderboard"]
+      }
+    },
+    {
+      "label": "Limit",
+      "name": "limit",
+      "type": "number",
+      "description": "Max results per page (1-1000). Default 100.",
+      "default": 100,
+      "optional": true,
+      "show": {
+        "actions.operation": ["getPointsLeaderboard"]
+      }
+    },
+    {
+      "label": "Page",
+      "name": "page",
+      "type": "number",
+      "description": "Page number (>= 1). Default 1.",
+      "default": 1,
+      "optional": true,
+      "show": {
+        "actions.operation": ["getPointsLeaderboard"]
+      }
+    },
+    {
+      "label": "Days",
+      "name": "days",
+      "type": "number",
+      "description": "Number of days of APY history to return (1-365). Default 30.",
+      "default": 30,
+      "optional": true,
+      "show": {
+        "actions.operation": ["getApyHistory"]
+      }
+    }
+  ],
+  "filePath": "https://raw.githubusercontent.com/YOUR_GITHUB_ORG/YOUR_REPO/main/nodes/Kintsu/Kintsu.js"
+},
+	{
   "label": "Openlayer",
   "name": "openlayer",
   "icons": {
